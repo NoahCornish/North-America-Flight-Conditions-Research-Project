@@ -17,7 +17,7 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
   header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;box-shadow:var(--shadow)}
-  .wrap{max-width:1200px;margin:0 auto;padding:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .brand{display:flex;gap:.8rem;align-items:center}
   .logo{width:42px;height:42px;border-radius:12px;background:#fff1;border:1px solid #ffffff44;display:grid;place-items:center;font-weight:800}
   .title h1{margin:0;font-size:1.1rem;font-weight:800}
@@ -25,11 +25,12 @@
   main{max-width:1200px;margin:1rem auto;padding:0 1rem 2rem;display:grid;gap:1rem}
   .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
   .card{background:var(--card);border-radius:18px;padding:1rem 1.2rem;box-shadow:var(--shadow)}
-  select{padding:.7rem .9rem;border:1px solid #d7dee8;border-radius:12px;background:#fff;font-size:1rem;min-width:100%}
+  select{padding:.7rem .9rem;border:1px solid #d7dee8;border-radius:12px;background:#fff;font-size:1rem;width:100%}
   .note{color:var(--muted);font-size:.92rem}
-  .chip{background:var(--chip);font-weight:700;border-radius:999px;padding:.3rem .7rem;font-size:.85rem}
+  .chip{background:var(--chip);font-weight:700;border-radius:999px;padding:.3rem .7rem;font-size:.85rem;white-space:nowrap}
   .badge{padding:.2rem .6rem;border-radius:999px;color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.3px}
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0}
   .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.4rem}
   .k{color:var(--muted);font-weight:700}
   .monospace{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
@@ -39,7 +40,6 @@
     .grid{grid-template-columns:1fr}
     .title h1{font-size:1rem}
     .title p{font-size:.8rem}
-    select{font-size:1rem}
   }
 </style>
 </head>
@@ -59,44 +59,41 @@
 
 <main>
   <section class="grid">
-    <!-- Left: National Overview -->
+    <!-- National Overview -->
     <article class="card">
       <h2>National Overview</h2>
-      <div class="controls" style="margin-bottom:.6rem">
-        <label class="note" for="country">Region:</label>
-        <select id="country">
-          <option value="CA" selected>Canada</option>
-          <option value="US">USA</option>
-        </select>
-      </div>
-      <div class="chips" style="margin:.25rem 0 .5rem;flex-wrap:wrap;gap:.5rem">
+      <label class="note" for="country">Region:</label>
+      <select id="country">
+        <option value="CA" selected>Canada</option>
+        <option value="US">USA</option>
+      </select>
+
+      <div class="chips">
         <span id="countVFR"  class="chip" style="background:var(--vfr);color:#fff">VFR: 0 (0%)</span>
         <span id="countMVFR" class="chip" style="background:var(--mvfr);color:#fff">MVFR: 0 (0%)</span>
         <span id="countIFR"  class="chip" style="background:var(--ifr);color:#fff">IFR: 0 (0%)</span>
         <span id="countLIFR" class="chip" style="background:var(--lifr);color:#fff">LIFR: 0 (0%)</span>
         <span id="countTotal" class="chip">Airports counted: 0</span>
       </div>
-      <canvas id="nationalChart" height="120"></canvas>
+
+      <canvas id="nationalChart" height="120" style="margin-top:1rem"></canvas>
     </article>
 
-    <!-- Right: Airport Explorer -->
+    <!-- Airport Explorer -->
     <article class="card">
       <h2>Airport Explorer</h2>
-      <div class="controls" style="margin-bottom:.7rem">
-        <label class="note" for="airport">Airport:</label>
-        <select id="airport"><option disabled selected>Loading airports…</option></select>
-      </div>
-      <div id="airportPanel" style="display:none">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem">
+      <label class="note" for="airport">Airport:</label>
+      <select id="airport"><option disabled selected>Select an airport…</option></select>
+
+      <div id="airportPanel" style="display:none;margin-top:1rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap">
           <div>
             <div id="apName" style="font-size:1.15rem;font-weight:800"></div>
             <div id="apIcao" class="note"></div>
           </div>
           <span id="apCat" class="badge">—</span>
         </div>
-        <div class="chips" style="margin:.5rem 0">
-          <span id="apObs" class="chip">Observed: —</span>
-        </div>
+        <div class="chips"><span id="apObs" class="chip">Observed: —</span></div>
         <div class="kv">
           <div><div class="k">Temp</div><div id="apTemp">—</div></div>
           <div><div class="k">Dewpoint</div><div id="apDew">—</div></div>
@@ -105,17 +102,17 @@
           <div><div class="k">Altimeter</div><div id="apAlt">—</div></div>
           <div><div class="k">Gust</div><div id="apGust">—</div></div>
         </div>
-        <div class="monospace raw" style="margin-top:.8rem" id="apRaw"></div>
+        <div class="monospace raw" id="apRaw" style="margin-top:.8rem"></div>
       </div>
-      <div id="emptyState" class="note">Select an airport to view its latest METAR.</div>
+
+      <div id="emptyState" class="note" style="margin-top:1rem">Select an airport to view its latest METAR.</div>
     </article>
   </section>
 
   <section class="card">
     <h2>About</h2>
     <p class="note">
-      Data from <code>clean_metars.csv</code> (updated every ~5 min).
-      We use the latest observation per station and compute national percentages for VFR/MVFR/IFR/LIFR.
+      Data from <code>clean_metars.csv</code> (updated every ~5 min). We use the latest observation per station and compute national percentages for VFR/MVFR/IFR/LIFR.
     </p>
   </section>
 </main>
@@ -127,19 +124,11 @@
 <script>
   const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
 
-  function countryOf(icao){
-    if (!icao) return null;
-    const p = icao.toUpperCase()[0];
-    if (p==='C') return 'CA';
-    if (p==='K'||p==='P') return 'US';
-    return null;
-  }
-
-  const $ = (sel)=>document.querySelector(sel);
-  const toLocal=(s)=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';const d=new Date(s);return d.toLocaleString();};
+  function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
+  const $=(s)=>document.querySelector(s);
+  const toLocal=(s)=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
 
   let latestByIcao={},stationsByCountry={CA:[],US:[]},nationalChart=null;
-
   const COLS={icao:['icao'],name:['site'],obs:['observed_utc','obsTime'],cat:['flight_category'],temp:['temp_c'],dewp:['dewpoint_c'],wdir:['wind_dir_deg'],wspd:['wind_kts'],gust:['gust_kts'],vis:['vis_sm'],alt:['altimeter_hpa'],raw:['raw_text']};
   const pick=(r,a)=>{for(const k of a)if(r[k]!=null&&r[k]!=='')return r[k];};
 
@@ -148,48 +137,36 @@
     for(const r of rows){
       const icao=(pick(r,COLS.icao)||'').toUpperCase().trim();const obs=pick(r,COLS.obs);if(!icao||!obs)continue;
       const iso=/[zZ]$/.test(obs)?obs:obs+'Z';const t=new Date(iso);
-      const prev=latestByIcao[icao];if(!prev||t>new Date(prev._iso)){
-        latestByIcao[icao]={_iso:iso,icao,site:pick(r,COLS.name)||'',cat:String(pick(r,COLS.cat)||'').toUpperCase(),temp:parseFloat(pick(r,COLS.temp)),dewp:parseFloat(pick(r,COLS.dewp)),wdir:parseFloat(pick(r,COLS.wdir)),wspd:parseFloat(pick(r,COLS.wspd)),gust:parseFloat(pick(r,COLS.gust)),vis:parseFloat(pick(r,COLS.vis)),alt:parseFloat(pick(r,COLS.alt)),raw:pick(r,COLS.raw)||''};
-      }
+      const prev=latestByIcao[icao];if(!prev||t>new Date(prev._iso)){latestByIcao[icao]={_iso:iso,icao,site:pick(r,COLS.name)||'',cat:String(pick(r,COLS.cat)||'').toUpperCase(),temp:+pick(r,COLS.temp),dewp:+pick(r,COLS.dewp),wdir:+pick(r,COLS.wdir),wspd:+pick(r,COLS.wspd),gust:+pick(r,COLS.gust),vis:+pick(r,COLS.vis),alt:+pick(r,COLS.alt),raw:pick(r,COLS.raw)||''};}
       if(!newestISO||t>new Date(newestISO))newestISO=iso;
     }
-    stationsByCountry={CA:[],US:[]};
-    Object.keys(latestByIcao).forEach(i=>{const c=countryOf(i);if(c)stationsByCountry[c].push(i);});
+    stationsByCountry={CA:[],US:[]};Object.keys(latestByIcao).forEach(i=>{const c=countryOf(i);if(c)stationsByCountry[c].push(i);});
     $('#lastUpdated').textContent=newestISO?('Data as of '+toLocal(newestISO)):'No data';
   }
 
   function populateAirports(){
-    const sel=$('#airport');sel.innerHTML='';
-    const list=stationsByCountry[$('#country').value]||[];
+    const sel=$('#airport');sel.innerHTML='';const list=stationsByCountry[$('#country').value]||[];
     if(!list.length){sel.appendChild(new Option('No airports',''));clearAirportPanel();return;}
-    for(const icao of list)sel.appendChild(new Option((latestByIcao[icao]?.site?icao+' — '+latestByIcao[icao].site:icao),icao));
-    showAirport(list[0]); // auto-load first
+    sel.appendChild(new Option('Select an airport…','',true,true));list.forEach(icao=>sel.appendChild(new Option((latestByIcao[icao]?.site?icao+' — '+latestByIcao[icao].site:icao),icao)));
+    clearAirportPanel();
   }
 
   function clearAirportPanel(){ $('#airportPanel').style.display='none';$('#emptyState').style.display='block'; }
-
-  function showAirport(icao){
-    const r=latestByIcao[icao];if(!r){clearAirportPanel();return;}
+  function showAirport(icao){const r=latestByIcao[icao];if(!r){clearAirportPanel();return;}
     $('#apName').textContent=r.site||icao;$('#apIcao').textContent=icao;
     $('#apCat').textContent=r.cat;$('#apCat').className='badge cat-'+(r.cat||'');
     $('#apObs').textContent='Observed: '+toLocal(r._iso);
-    $('#apTemp').textContent=isFinite(r.temp)?r.temp+' °C':'—';
-    $('#apDew').textContent=isFinite(r.dewp)?r.dewp+' °C':'—';
+    $('#apTemp').textContent=isFinite(r.temp)?r.temp+' °C':'—';$('#apDew').textContent=isFinite(r.dewp)?r.dewp+' °C':'—';
     $('#apWind').textContent=(isFinite(r.wdir)?r.wdir+'°':'—')+' @ '+(isFinite(r.wspd)?r.wspd:'—')+' kt';
-    $('#apVis').textContent=isFinite(r.vis)?r.vis+' sm':'—';
-    $('#apAlt').textContent=isFinite(r.alt)?r.alt+' hPa':'—';
-    $('#apGust').textContent=isFinite(r.gust)?r.gust+' kt':'0 kt';
-    $('#apRaw').textContent=r.raw||'';
-    $('#airportPanel').style.display='block';$('#emptyState').style.display='none';
-  }
+    $('#apVis').textContent=isFinite(r.vis)?r.vis+' sm':'—';$('#apAlt').textContent=isFinite(r.alt)?r.alt+' hPa':'—';$('#apGust').textContent=isFinite(r.gust)?r.gust+' kt':'0 kt';
+    $('#apRaw').textContent=r.raw||'';$('#airportPanel').style.display='block';$('#emptyState').style.display='none';}
 
-  function computeBreakdown(c){const list=(stationsByCountry[c]||[]).map(i=>latestByIcao[i]);const counts={VFR:0,MVFR:0,IFR:0,LIFR:0};for(const r of list){if(r&&counts[r.cat]!==undefined)counts[r.cat]++;}const total=list.length||1;return{counts,pct:{VFR:Math.round(counts.VFR/total*100),MVFR:Math.round(counts.MVFR/total*100),IFR:Math.round(counts.IFR/total*100),LIFR:Math.round(counts.LIFR/total*100)},total};}
-
+  function computeBreakdown(c){const list=(stationsByCountry[c]||[]).map(i=>latestByIcao[i]);const counts={VFR:0,MVFR:0,IFR:0,LIFR:0};list.forEach(r=>{if(r&&counts[r.cat]!==undefined)counts[r.cat]++;});const total=list.length||1;return{counts,pct:{VFR:Math.round(counts.VFR/total*100),MVFR:Math.round(counts.MVFR/total*100),IFR:Math.round(counts.IFR/total*100),LIFR:Math.round(counts.LIFR/total*100)},total};}
   function renderNational(){const c=$('#country').value;const {counts,pct,total}=computeBreakdown(c);$('#countVFR').textContent=`VFR: ${counts.VFR} (${pct.VFR}%)`;$('#countMVFR').textContent=`MVFR: ${counts.MVFR} (${pct.MVFR}%)`;$('#countIFR').textContent=`IFR: ${counts.IFR} (${pct.IFR}%)`;$('#countLIFR').textContent=`LIFR: ${counts.LIFR} (${pct.LIFR}%)`;$('#countTotal').textContent=`Airports counted: ${total}`;
-    const ctx=$('#nationalChart');if(nationalChart)nationalChart.destroy();nationalChart=new Chart(ctx,{type:'bar',data:{labels:['VFR','MVFR','IFR','LIFR'],datasets:[{data:[counts.VFR,counts.MVFR,counts.IFR,counts.LIFR],backgroundColor:['var(--vfr)','var(--mvfr)','var(--ifr)','var(--lifr)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});}
+    if(nationalChart)nationalChart.destroy();nationalChart=new Chart($('#nationalChart'),{type:'bar',data:{labels:['VFR','MVFR','IFR','LIFR'],datasets:[{data:[counts.VFR,counts.MVFR,counts.IFR,counts.LIFR],backgroundColor:['var(--vfr)','var(--mvfr)','var(--ifr)','var(--lifr)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});}
 
   Papa.parse(CSV_URL,{download:true,header:true,complete:(res)=>{const clean=res.data.filter(r=>Object.values(r).some(v=>v));processRows(clean);populateAirports();renderNational();
-    $('#airport').addEventListener('change',e=>showAirport(e.target.value));
+    $('#airport').addEventListener('change',e=>{if(e.target.value)showAirport(e.target.value);});
     $('#country').addEventListener('change',()=>{populateAirports();renderNational();});
   }});
   $('#year').textContent=new Date().getFullYear();
