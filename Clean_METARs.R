@@ -3,6 +3,9 @@
 # Deduplicate METAR rows by ICAO timeline.
 # Keep a row if raw_text changed OR any of these changed:
 # flight_category, temp_c, dewpoint_c, wind_dir_deg, wind_kts, gust_kts, vis_sm, altimeter_hpa
+# Special handling:
+# - wind_dir_deg: if NA → "VAR"
+# - gust_kts: if NA → 0
 
 suppressPackageStartupMessages({
   library(readr)
@@ -29,7 +32,6 @@ if (!dir.exists(DATA_DIR)) dir.create(DATA_DIR, recursive = TRUE)
 message("Reading master: ", MASTER_CSV)
 
 # ------------------- Read -------------------
-# readr::read_csv works for both local files and https URLs
 raw_df <- suppressMessages(read_csv(MASTER_CSV, guess_max = 200000))
 
 if (nrow(raw_df) == 0) {
@@ -38,7 +40,6 @@ if (nrow(raw_df) == 0) {
 }
 
 # ------------------- Normalize columns -------------------
-# Be tolerant to column name variations
 norm_name <- function(df, candidates, default = NULL) {
   hit <- intersect(candidates, names(df))
   if (length(hit)) hit[1] else default
@@ -48,7 +49,6 @@ col_icao   <- norm_name(raw_df, c("icao","station_id","id","icaoId"), "icao")
 col_obs    <- norm_name(raw_df, c("observed_utc","obsTime","observation_time"), "observed_utc")
 col_raw    <- norm_name(raw_df, c("raw_text","rawOb","raw"), "raw_text")
 
-# Ensure required columns exist
 needed <- c(col_icao, col_obs, col_raw,
             "flight_category","temp_c","dewpoint_c","wind_dir_deg",
             "wind_kts","gust_kts","vis_sm","altimeter_hpa")
@@ -65,7 +65,6 @@ df <- raw_df %>%
   ) %>%
   mutate(
     observed_utc = suppressWarnings(ymd_hms(observed_utc, tz = "UTC")),
-    # Coerce numeric fields safely
     temp_c        = suppressWarnings(as.numeric(temp_c)),
     dewpoint_c    = suppressWarnings(as.numeric(dewpoint_c)),
     wind_dir_deg  = suppressWarnings(as.numeric(wind_dir_deg)),
@@ -74,12 +73,16 @@ df <- raw_df %>%
     vis_sm        = suppressWarnings(as.numeric(vis_sm)),
     altimeter_hpa = suppressWarnings(as.numeric(altimeter_hpa))
   ) %>%
+  # Handle NA replacements
+  mutate(
+    wind_dir_deg = ifelse(is.na(wind_dir_deg), "VAR", as.character(wind_dir_deg)),
+    gust_kts     = ifelse(is.na(gust_kts), 0, gust_kts)
+  ) %>%
   filter(!is.na(icao), !is.na(observed_utc)) %>%
   arrange(icao, observed_utc)
 
 # ------------------- Change detection -------------------
 differs <- function(curr, prev) {
-  # TRUE if different, treating NA vs value as different
   if (length(prev) == 0) return(rep(TRUE, length(curr)))
   (is.na(curr) != is.na(prev)) | (curr != prev)
 }
@@ -97,9 +100,7 @@ clean_df <- df %>%
     changed_gust   = differs(gust_kts,        lag(gust_kts)),
     changed_vis    = differs(vis_sm,          lag(vis_sm)),
     changed_alt    = differs(altimeter_hpa,   lag(altimeter_hpa)),
-    
     keep_row = if_else(
-      # first row per ICAO OR any meaningful change
       row_number() == 1L |
         changed_raw |
         changed_cat | changed_temp | changed_dew |
@@ -122,7 +123,6 @@ write_csv(clean_df, CLEAN_CSV)
 message("Writing: ", month_out)
 write_csv(clean_df, month_out)
 
-# Log a summary
 added <- nrow(clean_df)
 orig  <- nrow(df)
 dupes <- orig - added
