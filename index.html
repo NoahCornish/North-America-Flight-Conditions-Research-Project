@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>North America Flight Conditions — Live Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8; --accent:#2ecc71;
+    --shadow:0 10px 26px rgba(0,0,0,.08);
+    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
+    --chip:#eef2f7;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;box-shadow:var(--shadow)}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{display:flex;gap:.8rem;align-items:center}
+  .logo{width:42px;height:42px;border-radius:12px;background:#fff1;border:1px solid #ffffff44;display:grid;place-items:center;font-weight:800}
+  .title h1{margin:0;font-size:1.2rem;font-weight:800}
+  .title p{margin:.25rem 0 0;opacity:.92;font-weight:600;font-size:.9rem}
+  main{max-width:1200px;margin:1rem auto;padding:0 1rem 2rem;display:grid;gap:1rem}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+  .card{background:var(--card);border-radius:18px;padding:1rem 1.2rem;box-shadow:var(--shadow)}
+  .controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+  select,button{font:inherit}
+  select{padding:.6rem .8rem;border:1px solid #d7dee8;border-radius:12px;background:#fff;min-width:240px}
+  .tab{appearance:none;border:none;background:#0b2540;color:#fff;font-weight:800;padding:.6rem .9rem;border-radius:12px;cursor:pointer}
+  .note{color:var(--muted);font-size:.92rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem}
+  .chip{background:var(--chip);color:var(--muted);font-weight:700;border-radius:999px;padding:.28rem .6rem;font-size:.78rem}
+  .badge{padding:.15rem .5rem;border-radius:999px;color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.3px}
+  .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.4rem}
+  .k{color:var(--muted);font-weight:700}
+  .monospace{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .raw{background:#f6f8fb;border-left:4px solid var(--brand);padding:.6rem;border-radius:10px;white-space:pre-wrap}
+  footer{padding:2rem 1rem;color:var(--muted);text-align:center}
+  @media (max-width:980px){ .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">✈️</div>
+      <div class="title">
+        <h1>North America Flight Conditions — Live Dashboard</h1>
+        <p>Live METARs • Canada & USA • VFR / MVFR / IFR / LIFR insights</p>
+      </div>
+    </div>
+    <div class="note" id="lastUpdated">Loading…</div>
+  </div>
+</header>
+
+<main>
+  <section class="grid">
+    <!-- Left: National Overview -->
+    <article class="card">
+      <h2 style="margin:.2rem 0 .6rem">National Overview</h2>
+      <div class="controls" style="margin-bottom:.6rem">
+        <label class="note" for="country">Region:</label>
+        <select id="country">
+          <option value="CA" selected>Canada</option>
+          <option value="US">USA</option>
+        </select>
+        <div class="chips" aria-label="Legend">
+          <span class="chip"><span class="badge cat-VFR">VFR</span></span>
+          <span class="chip"><span class="badge cat-MVFR">MVFR</span></span>
+          <span class="chip"><span class="badge cat-IFR">IFR</span></span>
+          <span class="chip"><span class="badge cat-LIFR">LIFR</span></span>
+        </div>
+      </div>
+
+      <div class="chips" style="margin:.25rem 0 .5rem">
+        <span id="countVFR"  class="chip" style="background:var(--vfr);color:#fff">VFR: 0 (0%)</span>
+        <span id="countMVFR" class="chip" style="background:var(--mvfr);color:#fff">MVFR: 0 (0%)</span>
+        <span id="countIFR"  class="chip" style="background:var(--ifr);color:#fff">IFR: 0 (0%)</span>
+        <span id="countLIFR" class="chip" style="background:var(--lifr);color:#fff">LIFR: 0 (0%)</span>
+        <span id="countTotal" class="chip">Airports counted: 0</span>
+      </div>
+
+      <div style="background:#fbfdff;border:1px dashed #cfe2ff;border-radius:14px;padding:12px">
+        <canvas id="nationalChart" height="120"></canvas>
+      </div>
+      <p class="note" style="margin-top:.5rem">Share of latest reports by category for the selected region.</p>
+    </article>
+
+    <!-- Right: Airport Explorer -->
+    <article class="card">
+      <h2 style="margin:.2rem 0 .6rem">Airport Explorer</h2>
+      <div class="controls" style="margin-bottom:.7rem">
+        <label class="note" for="airport">Airport:</label>
+        <select id="airport"><option disabled selected>Loading airports…</option></select>
+        <button class="tab" id="open">Show</button>
+      </div>
+
+      <div id="airportPanel" style="display:none">
+        <div id="apHeader" style="display:flex;justify-content:space-between;align-items:center;gap:.5rem">
+          <div>
+            <div id="apName" style="font-size:1.15rem;font-weight:800"></div>
+            <div id="apIcao" class="note"></div>
+          </div>
+          <span id="apCat" class="badge">—</span>
+        </div>
+
+        <div class="chips" style="margin:.5rem 0">
+          <span id="apObs" class="chip">Observed: —</span>
+        </div>
+
+        <div class="kv">
+          <div><div class="k">Temp</div><div id="apTemp">—</div></div>
+          <div><div class="k">Dewpoint</div><div id="apDew">—</div></div>
+          <div><div class="k">Wind</div><div id="apWind">—</div></div>
+          <div><div class="k">Visibility</div><div id="apVis">—</div></div>
+          <div><div class="k">Altimeter</div><div id="apAlt">—</div></div>
+          <div><div class="k">Gust</div><div id="apGust">—</div></div>
+        </div>
+
+        <div class="monospace raw" style="margin-top:.8rem" id="apRaw"></div>
+      </div>
+
+      <div id="emptyState" class="note">Select a country, then an airport to view its latest METAR.</div>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2 style="margin:.2rem 0 .6rem">About</h2>
+    <p class="note">
+      Data source: your repository’s <code>clean_metars.csv</code> (append-only, updated every ~5 min).
+      We take the latest observation per station and compute national percentages for VFR/MVFR/IFR/LIFR.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> North America Flight Conditions Research Project • Colours: VFR (green), MVFR (blue), IFR (red), LIFR (purple)
+</footer>
+
+<script>
+  // ---------- Config ----------
+  const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+
+  // Country inference by ICAO prefix: Canada (C***), USA (K*** mainland; P*** for AK/HI/territories)
+  function countryOf(icao) {
+    if (!icao) return null;
+    const p = icao.toUpperCase()[0];
+    if (p === 'C') return 'CA';
+    if (p === 'K' || p === 'P') return 'US';
+    return null;
+  }
+
+  // ---------- DOM helpers ----------
+  const $ = (sel) => document.querySelector(sel);
+  const el = (tag, cls) => { const x = document.createElement(tag); if(cls) x.className = cls; return x; };
+  const toLocal = (utcStr) => {
+    if (!utcStr) return '—';
+    // Ensure Z suffix for UTC parse
+    let s = String(utcStr);
+    if (!/[zZ]$/.test(s)) s += 'Z';
+    const d = new Date(s);
+    try {
+      return d.toLocaleString('en-CA', { timeZone: 'America/Toronto', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+    } catch(e) {
+      return d.toLocaleString();
+    }
+  };
+
+  // ---------- State ----------
+  let latestByIcao = {};   // { ICAO : row }
+  let stationsByCountry = { CA: [], US: [] }; // lists of ICAOs by region
+  let nationalChart = null;
+
+  // Column name resolution (be tolerant)
+  const COLS = {
+    icao:  ['icao','station_id','id','icaoId'],
+    name:  ['site','airport_name','name'],
+    obs:   ['observed_utc','obsTime','observation_time'],
+    cat:   ['flight_category','fltcat','category'],
+    temp:  ['temp_c','temp'],
+    dewp:  ['dewpoint_c','dewp'],
+    wdir:  ['wind_dir_deg','wdir'],
+    wspd:  ['wind_kts','wspd'],
+    gust:  ['gust_kts','wgst'],
+    vis:   ['vis_sm','visib'],
+    alt:   ['altimeter_hpa','altim','altimeter_hg'],
+    raw:   ['raw_text','rawOb','raw']
+  };
+  const pick = (row, arr) => {
+    for (const k of arr) if (row[k] !== undefined && row[k] !== null && row[k] !== '') return row[k];
+    return undefined;
+  };
+
+  // ---------- Data load ----------
+  function processRows(rows) {
+    // For each ICAO, keep the most recent observed_utc
+    latestByIcao = {};
+    let newestISO = null;
+
+    for (const r of rows) {
+      const icao = String(pick(r, COLS.icao) || '').toUpperCase().trim();
+      const obs  = pick(r, COLS.obs);
+      if (!icao || !obs) continue;
+      const iso = /[zZ]$/.test(obs) ? obs : (obs + 'Z');
+      const t = new Date(iso);
+      const prev = latestByIcao[icao];
+      if (!prev || t > new Date(prev._iso)) {
+        latestByIcao[icao] = {
+          _iso: iso,
+          icao,
+          site: pick(r, COLS.name) || '',
+          cat:  String(pick(r, COLS.cat) || '').toUpperCase(),
+          temp: parseFloat(pick(r, COLS.temp)),
+          dewp: parseFloat(pick(r, COLS.dewp)),
+          wdir: parseFloat(pick(r, COLS.wdir)),
+          wspd: parseFloat(pick(r, COLS.wspd)),
+          gust: parseFloat(pick(r, COLS.gust)),
+          vis:  parseFloat(pick(r, COLS.vis)),
+          alt:  parseFloat(pick(r, COLS.alt)),
+          raw:  pick(r, COLS.raw) || ''
+        };
+      }
+      if (!newestISO || t > new Date(newestISO)) newestISO = iso;
+    }
+
+    // Partition by country for selectors
+    stationsByCountry = { CA: [], US: [] };
+    Object.keys(latestByIcao).sort().forEach(icao => {
+      const c = countryOf(icao);
+      if (c === 'CA') stationsByCountry.CA.push(icao);
+      else if (c === 'US') stationsByCountry.US.push(icao);
+    });
+
+    // Set header timestamp
+    $('#lastUpdated').textContent = newestISO ? ('Data as of ' + toLocal(newestISO)) : 'No data';
+  }
+
+  function loadCSV() {
+    // Use Papa to stream/parse CSV from GitHub raw (CORS allowed)
+    Papa.parse(CSV_URL, {
+      download: true,
+      header: true,
+      dynamicTyping: false,
+      complete: (res) => {
+        const rows = res.data || [];
+        // filter out empty trailing row from CSV if any
+        const clean = rows.filter(r => Object.keys(r).some(k => (r[k] !== null && r[k] !== '')));
+        processRows(clean);
+        initUI();
+        renderNational();
+        populateAirports(); // based on default country selection
+      },
+      error: (err) => {
+        console.error('CSV load error:', err);
+        $('#lastUpdated').textContent = 'Failed to load data.';
+      }
+    });
+  }
+
+  // ---------- UI ----------
+  function initUI() {
+    $('#year').textContent = new Date().getFullYear();
+    $('#country').addEventListener('change', () => {
+      populateAirports();
+      renderNational();
+      clearAirportPanel();
+    });
+    $('#open').addEventListener('click', () => {
+      const icao = $('#airport').value;
+      if (icao) showAirport(icao);
+    });
+  }
+
+  function option(label, value) {
+    const o = document.createElement('option');
+    o.value = value; o.textContent = label; return o;
+  }
+
+  function displayName(icao) {
+    const s = latestByIcao[icao]?.site || '';
+    return s ? `${icao} — ${s}` : icao;
+  }
+
+  function populateAirports() {
+    const sel = $('#airport');
+    sel.innerHTML = '';
+    const country = $('#country').value; // 'CA' or 'US'
+    const list = stationsByCountry[country] || [];
+    if (!list.length) {
+      sel.appendChild(option('No airports found', ''));
+      return;
+    }
+    for (const icao of list) sel.appendChild(option(displayName(icao), icao));
+  }
+
+  function clearAirportPanel() {
+    $('#airportPanel').style.display = 'none';
+    $('#emptyState').style.display = 'block';
+  }
+
+  function showAirport(icao) {
+    const r = latestByIcao[icao];
+    if (!r) { clearAirportPanel(); return; }
+    $('#apName').textContent = r.site || icao;
+    $('#apIcao').textContent = icao;
+    const cat = r.cat || '—';
+    const catEl = $('#apCat');
+    catEl.textContent = cat;
+    catEl.className = 'badge ' + (cat ? ('cat-' + cat) : '');
+    $('#apObs').textContent = 'Observed: ' + toLocal(r._iso);
+    $('#apTemp').textContent = (Number.isFinite(r.temp) ? (r.temp + ' °C') : '—');
+    $('#apDew').textContent  = (Number.isFinite(r.dewp) ? (r.dewp + ' °C') : '—');
+    const wind = (Number.isFinite(r.wdir) ? r.wdir + '°' : '—') + ' @ ' + (Number.isFinite(r.wspd) ? r.wspd : '—') + ' kt';
+    $('#apWind').textContent = wind;
+    $('#apVis').textContent  = (Number.isFinite(r.vis) ? (r.vis + ' sm') : '—');
+    $('#apAlt').textContent  = (Number.isFinite(r.alt) ? (r.alt + ' hPa') : '—');
+    $('#apGust').textContent = (Number.isFinite(r.gust) ? (r.gust + ' kt') : '—');
+    $('#apRaw').textContent  = String(r.raw || '');
+    $('#emptyState').style.display = 'none';
+    $('#airportPanel').style.display = 'block';
+  }
+
+  // ---------- National breakdown ----------
+  function computeBreakdown(country) {
+    const list = (stationsByCountry[country] || []).map(icao => latestByIcao[icao]).filter(Boolean);
+    const counts = { VFR:0, MVFR:0, IFR:0, LIFR:0 };
+    for (const r of list) {
+      const c = (r.cat || '').toUpperCase();
+      if (counts[c] !== undefined) counts[c] += 1;
+    }
+    const total = list.length || 1;
+    const pct = {
+      VFR: Math.round((counts.VFR/total)*100),
+      MVFR: Math.round((counts.MVFR/total)*100),
+      IFR: Math.round((counts.IFR/total)*100),
+      LIFR: Math.round((counts.LIFR/total)*100)
+    };
+    return { counts, pct, total };
+  }
+
+  function renderNational() {
+    const country = $('#country').value;
+    const { counts, pct, total } = computeBreakdown(country);
+
+    const cc = (id, label, n, p) => { const el = document.getElementById(id); if (el) el.textContent = `${label}: ${n} (${p}%)`; };
+    cc('countVFR','VFR',counts.VFR,pct.VFR);
+    cc('countMVFR','MVFR',counts.MVFR,pct.MVFR);
+    cc('countIFR','IFR',counts.IFR,pct.IFR);
+    cc('countLIFR','LIFR',counts.LIFR,pct.LIFR);
+    const totalEl = document.getElementById('countTotal'); if (totalEl) totalEl.textContent = `Airports counted: ${total}`;
+
+    const ctx = document.getElementById('nationalChart');
+    if (nationalChart) { nationalChart.destroy(); }
+    nationalChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['VFR','MVFR','IFR','LIFR'],
+        datasets: [{
+          label: 'Latest reports',
+          data: [counts.VFR, counts.MVFR, counts.IFR, counts.LIFR],
+          backgroundColor: ['var(--vfr)','var(--mvfr)','var(--ifr)','var(--lifr)']
+        }]
+      },
+      options: {
+        plugins: { legend: { display:false } },
+        scales: { y: { beginAtZero:true, ticks:{ precision:0 } } }
+      }
+    });
+  }
+
+  // ---------- Boot ----------
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
+    loadCSV();
+  });
+</script>
+</body>
+</html>
