@@ -161,12 +161,15 @@
   function populateAirports(){
     const sel=$('#airport');sel.innerHTML='';
     const list=stationsByCountry[$('#country').value]||[];
+    if(!list.length){sel.appendChild(new Option('No airports',''));clearAirportPanel();return;}
     for(const icao of list)sel.appendChild(new Option((latestByIcao[icao]?.site?icao+' — '+latestByIcao[icao].site:icao),icao));
-    if(list.length) showAirport(list[0]); // auto-select first
+    showAirport(list[0]); // auto-load first
   }
 
+  function clearAirportPanel(){ $('#airportPanel').style.display='none';$('#emptyState').style.display='block'; }
+
   function showAirport(icao){
-    const r=latestByIcao[icao];if(!r){$('#airportPanel').style.display='none';$('#emptyState').style.display='block';return;}
+    const r=latestByIcao[icao];if(!r){clearAirportPanel();return;}
     $('#apName').textContent=r.site||icao;$('#apIcao').textContent=icao;
     $('#apCat').textContent=r.cat;$('#apCat').className='badge cat-'+(r.cat||'');
     $('#apObs').textContent='Observed: '+toLocal(r._iso);
@@ -185,7 +188,10 @@
   function renderNational(){const c=$('#country').value;const {counts,pct,total}=computeBreakdown(c);$('#countVFR').textContent=`VFR: ${counts.VFR} (${pct.VFR}%)`;$('#countMVFR').textContent=`MVFR: ${counts.MVFR} (${pct.MVFR}%)`;$('#countIFR').textContent=`IFR: ${counts.IFR} (${pct.IFR}%)`;$('#countLIFR').textContent=`LIFR: ${counts.LIFR} (${pct.LIFR}%)`;$('#countTotal').textContent=`Airports counted: ${total}`;
     const ctx=$('#nationalChart');if(nationalChart)nationalChart.destroy();nationalChart=new Chart(ctx,{type:'bar',data:{labels:['VFR','MVFR','IFR','LIFR'],datasets:[{data:[counts.VFR,counts.MVFR,counts.IFR,counts.LIFR],backgroundColor:['var(--vfr)','var(--mvfr)','var(--ifr)','var(--lifr)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});}
 
-  Papa.parse(CSV_URL,{download:true,header:true,complete:(res)=>{const clean=res.data.filter(r=>Object.values(r).some(v=>v));processRows(clean);populateAirports();renderNational();$('#airport').addEventListener('change',e=>showAirport(e.target.value));}});
+  Papa.parse(CSV_URL,{download:true,header:true,complete:(res)=>{const clean=res.data.filter(r=>Object.values(r).some(v=>v));processRows(clean);populateAirports();renderNational();
+    $('#airport').addEventListener('change',e=>showAirport(e.target.value));
+    $('#country').addEventListener('change',()=>{populateAirports();renderNational();});
+  }});
   $('#year').textContent=new Date().getFullYear();
 </script>
 </body>
