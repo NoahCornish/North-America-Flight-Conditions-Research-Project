@@ -1,0 +1,72 @@
+name: ⛅ METAR Every 5 min ⛈️
+
+on:
+  schedule:
+    # Every 5 minutes
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metar-fetch
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    name: 📡 Fetch METARs (every 5 minutes)
+    runs-on: ubuntu-latest
+    container:
+      image: rocker/tidyverse:4.3.3
+
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
+
+    steps:
+      - name: 🛎️ Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: 🔐 Trust workspace for Git (fix dubious ownership)
+        run: |
+          git config --global --add safe.directory '*'
+          git rev-parse --is-inside-work-tree
+
+      - name: 🔍 Sanity check workspace
+        run: |
+          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
+          pwd
+          ls -la
+          test -d .git || (echo "::error::.git not found" && exit 1)
+
+      - name: 📦 Ensure required R packages are installed
+        run: |
+          Rscript -e 'need <- c("httr","jsonlite","tibble","dplyr","lubridate","readr");
+                      missing <- need[!(need %in% rownames(installed.packages()))];
+                      if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)'
+
+      - name: 📝 Run METAR fetch script
+        run: Rscript Fetch_METARs.R
+
+      - name: 💾 Commit and push updated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Data/METARs/*.csv Data/METARs/*.txt || true
+
+          echo "---- git status ----"
+          git status
+          echo "---- git diff --cached --stat ----"
+          git diff --cached --stat || true
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Fetch METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git push
+          else
+            echo "No changes to commit."
+          fi
