@@ -2,7 +2,7 @@ name: ⛅ METAR Every 5 min ⛈️
 
 on:
   schedule:
-    # Every 5 minutes
+    # Every 5 minutes (UTC)
     - cron: "*/5 * * * *"
   workflow_dispatch:
 
@@ -10,13 +10,15 @@ permissions:
   contents: write
 
 concurrency:
-  group: metar-fetch
+  group: metar-fetch-clean
   cancel-in-progress: true
 
 jobs:
-  fetch:
-    name: 📡 Fetch METARs (every 5 minutes)
+  fetch_and_clean:
+    name: 📡 Fetch → 🧹 Clean (every 5 min)
     runs-on: ubuntu-latest
+
+    # Use an R environment with tidyverse preinstalled
     container:
       image: rocker/tidyverse:4.3.3
 
@@ -45,18 +47,22 @@ jobs:
 
       - name: 📦 Ensure required R packages are installed
         run: |
-          Rscript -e 'need <- c("httr","jsonlite","tibble","dplyr","lubridate","readr");
+          Rscript -e 'need <- c("httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
                       missing <- need[!(need %in% rownames(installed.packages()))];
                       if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)'
 
       - name: 📝 Run METAR fetch script
         run: Rscript Fetch_METARs.R
 
+      - name: 🧹 Run cleaning script
+        run: Rscript Clean_METARs.R
+
       - name: 💾 Commit and push updated files
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # Add raw + monthly, clean + monthly, and logs under Data/METARs/
           git add Data/METARs/*.csv Data/METARs/*.txt || true
 
           echo "---- git status ----"
@@ -65,7 +71,7 @@ jobs:
           git diff --cached --stat || true
 
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Fetch METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git commit -m "Fetch & Clean METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
             git push
           else
             echo "No changes to commit."
