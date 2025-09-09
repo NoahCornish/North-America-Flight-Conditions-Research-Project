@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>NAFCRP — Live Flight Conditions Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b2540" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+
+<!-- Leaflet + MarkerCluster -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
+    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad; --chip:#eef2f7;
+    --shadow:0 10px 26px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  header{
+    position:sticky; top:0; z-index:1000;
+    background:linear-gradient(135deg,#0b2540,var(--brand));
+    color:#fff; box-shadow:var(--shadow);
+  }
+  .wrap{max-width:1200px;margin:0 auto;padding:.8rem 1rem;display:flex;gap:.8rem;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:.8rem;align-items:center}
+  .logo{width:40px;height:40px;border-radius:12px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800}
+  .title h1{margin:0;font-size:1.05rem;font-weight:800;letter-spacing:.2px}
+  .title p{margin:.25rem 0 0;opacity:.92;font-weight:600;font-size:.86rem}
+  #map{height:calc(100vh - 78px); width:100%}
+  .legend{
+    position:absolute; right:12px; bottom:12px; z-index:1100;
+    background:var(--card); border-radius:14px; padding:.6rem .8rem; box-shadow:var(--shadow)
+  }
+  .legend h3{margin:0 0 .35rem; font-size:.9rem}
+  .legend .row{display:flex;align-items:center;gap:.45rem;margin:.2rem 0}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.vfr{background:var(--vfr)} .dot.mvfr{background:var(--mvfr)} .dot.ifr{background:var(--ifr)} .dot.lifr{background:var(--lifr)}
+  .meta{position:absolute; left:12px; bottom:12px; z-index:1100; font-size:.8rem; color:var(--muted); background:#ffffffcc; padding:.35rem .55rem; border-radius:10px}
+  .badge{display:inline-block; padding:.1rem .45rem; border-radius:999px; color:#fff; font-weight:800; font-size:.75rem; letter-spacing:.3px}
+  .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
+  .leaflet-popup-content{margin:8px 10px; font-size:.92rem}
+  .leaflet-popup-content h4{margin:.1rem 0 .35rem; font-size:1rem}
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)); gap:.3rem .8rem; margin-top:.35rem; font-size:.9rem}
+  .k{color:#6b7b8c; font-weight:700}
+  @media (max-width:640px){
+    .title p{display:none}
+    #map{height:calc(100vh - 66px)}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">🗺️</div>
+      <div class="title">
+        <h1>NAFCRP — Live Flight Conditions Map</h1>
+        <p>VFR / MVFR / IFR / LIFR • Canada & United States</p>
+      </div>
+    </div>
+    <div id="lastUpdated" aria-live="polite">Loading…</div>
+  </div>
+</header>
+
+<div id="map" role="region" aria-label="Flight conditions map"></div>
+
+<div class="legend" aria-label="Legend">
+  <h3>Condition</h3>
+  <div class="row"><span class="dot vfr" aria-hidden="true"></span> VFR</div>
+  <div class="row"><span class="dot mvfr" aria-hidden="true"></span> MVFR</div>
+  <div class="row"><span class="dot ifr" aria-hidden="true"></span> IFR</div>
+  <div class="row"><span class="dot lifr" aria-hidden="true"></span> LIFR</div>
+</div>
+<div class="meta">Source: AviationWeather.gov • Project: NAFCRP</div>
+
+<script>
+/* ---------- Stations (exactly as provided) ---------- */
+const STATIONS = [
+  // Canada (100)
+  "CYER","CYAT","CYMO","CYPL","CYQT","CYAM","CYTS","CYSB","CYYB","CYOW",
+  "CYGK","CYQG","CYVV","CYYZ","CYQA",
+  "CYVR","CYYJ","CYLW","CYXS","CYXT","CYQQ",
+  "CYYC","CYEG","CYMM","CYQF",
+  "CYXE","CYQR","CYWG","CYBR",
+  "CYUL","CYHU","CYQB","CYVO","CYUY","CYZV","CYBC","CYRJ",
+  "CYHZ","CYYG","CYQM","CYFC","CYYT","CYQY",
+  "CYXY","CYZF","CYFB","CYRT","CYBK","CYRB","CYCO",
+
+  "CYAM","CYKF","CYTZ","CYXU","CYHM","CYHD","CYQT","CYQK","CYGQ","CYQH",
+  "CYQX","CYDP","CYMH","CYDF","CYZP","CYWL","CYXD","CYQU","CYQQ","CYXS",
+  "CYPR","CYCD","CYXX","CYBL","CYAZ","CYQQ","CYOD","CYTR","CYBG","CYUY",
+  "CYMT","CYRJ","CYBC","CYVO","CYFB","CYTE","CYVC","CYDQ","CYCO","CYXP",
+  "CYVQ","CYPC","CYLK","CYCK","CYKJ","CYQB","CYGV","CYGL","CYHA","CYKL",
+
+  // USA (100)
+  // Northeast / Mid-Atlantic
+  "KBOS","KPVD","KBED","KBDL","KALB","KSYR","KROC","KBUF","KJFK","KLGA",
+  "KEWR","KHPN","KSWF","KPHL","KPIT","KBWI","KIAD","KDCA","KRIC","KORF",
+
+  // Southeast
+  "KATL","KSAV","KJAX","KMCO","KTPA","KRSW","KFLL","KMIA","KPBI","KEYW",
+  "KBHM","KHSV","KBNA","KMEM","KLIT","KCLT","KRDU","KGSO","KCHS","KMYR",
+
+  // Midwest
+  "KORD","KMDW","KSTL","KMCI","KMSP","KIND","KCVG","KSDF","KDAY","KCLE",
+  "KCMH","KDTW","KGRR","KSBN","KFWA","KDSM","KFSD","KOMA","KLNK","KMLI",
+
+  // Texas / Plains
+  "KDFW","KDAL","KAFW","KHOU","KIAH","KAUS","KSAT","KELP","KAMA","KLBB",
+  "KTUL","KOKC","KICT","KLAW","KLRD","KBRO","KHRL","KMFE","KABI","KACT",
+
+  // Rockies / West
+  "KDEN","KCOS","KPUB","KASE","KEGE","KGJT","KSLC","KBOI","KIDA","KBZN",
+  "KGTF","KBIL","KMSO","KHLN","KSEA","KBFI","KGEG","KPDX","KEUG","KMFR",
+
+  // California / Southwest / Pacific
+  "KLAX","KBUR","KSNA","KLGB","KSAN","KONT","KSMO","KPSP","KSBA","KSJC",
+  "KSFO","KOAK","KSTS","KRNO","KPHX","KTUS","KABQ","KSAF","PHNL","PHOG"
+];
+
+/* ---------- Map setup ---------- */
+const map = L.map('map', {
+  zoomControl: true,
+  preferCanvas: true
+});
+const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+// Start centered roughly on North America
+map.setView([48.5, -98], 4);
+
+/* ---------- Styling ---------- */
+const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
+const catColor = (c) => CAT_COLORS[(c || '').toUpperCase()] || '#999';
+
+function chip(cat){
+  const c = (cat||'').toUpperCase();
+  return `<span class="badge cat-${c}">${c||'—'}</span>`;
+}
+function toLocal(iso){
+  if(!iso) return '—';
+  try{
+    // ensure Z
+    const s = /[zZ]$/.test(iso) ? iso : iso + 'Z';
+    const d = new Date(s);
+    return d.toLocaleString([], { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+  }catch(e){ return iso; }
+}
+
+/* ---------- Fetch & render ---------- */
+const API_BASE = "https://aviationweather.gov/api/data/metar?format=geojson&ids=";
+// URL-safe chunking (keep it conservative)
+const CHUNK_SIZE = 40;
+
+function chunk(arr, size){
+  const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
+}
+
+const cluster = L.markerClusterGroup({
+  showCoverageOnHover:false,
+  spiderfyOnMaxZoom:true,
+  maxClusterRadius: 55
+});
+map.addLayer(cluster);
+
+async function fetchChunk(ids){
+  const url = API_BASE + encodeURIComponent(ids.join(',')) + `&_=${Date.now()}`; // cache-bust
+  const res = await fetch(url, {mode:'cors'});
+  if(!res.ok) throw new Error(`Fetch failed (${res.status})`);
+  return res.json();
+}
+
+function getProp(props, keys){
+  for(const k of keys){ if(props[k] !== undefined && props[k] !== null && props[k] !== '') return props[k]; }
+  return undefined;
+}
+
+function featureToMarker(f){
+  const g = f.geometry || {};
+  const p = f.properties || {};
+  const coords = g.coordinates; // [lon, lat]
+  if(!coords || coords.length < 2) return null;
+
+  const lat = coords[1], lon = coords[0];
+  const icao = getProp(p, ['station','icao','id']) || '—';
+  const site = getProp(p, ['name','site','stationName']) || '';
+  const cat  = (getProp(p, ['flight_category','fltcat','category']) || '').toUpperCase();
+  const obs  = getProp(p, ['obsTime','observation_time','observed','observed_utc']);
+  const temp = getProp(p, ['temp','temp_c']);
+  const dewp = getProp(p, ['dewp','dewpoint_c']);
+  const wdir = getProp(p, ['wdir','wind_dir_deg']);
+  const wspd = getProp(p, ['wspd','wind_kts']);
+  const gust = getProp(p, ['wgst','gust_kts']);
+  const vis  = getProp(p, ['visib','vis_sm']);
+  const alt  = getProp(p, ['altim','altimeter_hpa']);
+  const raw  = getProp(p, ['rawOb','raw_text','raw']) || '';
+
+  const marker = L.circleMarker([lat, lon], {
+    radius: 7,
+    weight: 1.5,
+    color: catColor(cat),
+    fillColor: catColor(cat),
+    fillOpacity: 0.85
+  });
+
+  const name = site ? `${icao} — ${site}` : icao;
+  const html = `
+    <h4>${name} ${chip(cat)}</h4>
+    <div class="kv">
+      <div><div class="k">Observed</div>${toLocal(obs)}</div>
+      <div><div class="k">Visibility</div>${vis!=null? vis+' sm':'—'}</div>
+      <div><div class="k">Temp</div>${temp!=null? temp+' °C':'—'}</div>
+      <div><div class="k">Dewpoint</div>${dewp!=null? dewp+' °C':'—'}</div>
+      <div><div class="k">Wind</div>${(wdir!=null? wdir+'°':'—')} @ ${(wspd!=null? wspd:'—')} kt</div>
+      <div><div class="k">Gust</div>${gust!=null? gust+' kt':'—'}</div>
+      <div><div class="k">Altimeter</div>${alt!=null? alt+' hPa':'—'}</div>
+    </div>
+    <div style="margin-top:.5rem; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.85rem; background:#f6f8fb; border-left:4px solid ${catColor(cat)}; padding:.4rem .5rem; border-radius:8px; white-space:pre-wrap;">
+      ${raw}
+    </div>
+  `;
+  marker.bindPopup(html, { maxWidth: 360 });
+  return marker;
+}
+
+async function loadAll(){
+  const groups = chunk(STATIONS, CHUNK_SIZE);
+  let newestISO = null;
+  const bounds = [];
+
+  for (let i=0;i<groups.length;i++){
+    try{
+      const data = await fetchChunk(groups[i]);
+      const feats = (data && data.features) ? data.features : [];
+      for (const f of feats){
+        const p = f.properties || {};
+        // Track newest observed time
+        const obs = getProp(p, ['obsTime','observation_time','observed','observed_utc']);
+        if (obs){
+          const iso = /[zZ]$/.test(obs) ? obs : (obs+'Z');
+          if (!newestISO || new Date(iso) > new Date(newestISO)) newestISO = iso;
+        }
+        const m = featureToMarker(f);
+        if (m){
+          cluster.addLayer(m);
+          const c = f.geometry.coordinates;
+          if (c && c.length>=2) bounds.push([c[1], c[0]]);
+        }
+      }
+    }catch(e){
+      console.error('Chunk error', e);
+    }
+  }
+
+  if (bounds.length){
+    const b = L.latLngBounds(bounds);
+    map.fitBounds(b.pad(0.08));
+  }
+  document.getElementById('lastUpdated').textContent =
+    newestISO ? ('Data as of ' + toLocal(newestISO)) : 'Data time unavailable';
+}
+
+document.addEventListener('DOMContentLoaded', loadAll);
+</script>
+</body>
+</html>
