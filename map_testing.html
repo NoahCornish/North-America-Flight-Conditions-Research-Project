@@ -257,7 +257,15 @@ window.onload = function() {
     // Global variables for loaded libraries
     let Papa = null;
     let d3 = null;
+    let turf = null;
 
+    // Simplified boundary polygon for North America (Canada + USA)
+    const NORTH_AMERICA_BOUNDARY = turf ? turf.polygon([[
+        [-141.01, 41.68], [-141.01, 83.11], [-52.65, 83.11], [-52.65, 72.77],
+        [-67.26, 67.13], [-67.26, 45.0], [-125.24, 24.52], [-169.01, 71.54],
+        [-141.01, 41.68]
+    ]]) : null;
+    
     /**
      * Dynamically loads a JavaScript file and returns a Promise.
      * @param {string} src The URL of the script to load.
@@ -274,58 +282,26 @@ window.onload = function() {
     }
 
     /**
-     * Clips a polygon to the specified bounding regions
-     * @param {Array} polygon - Array of [lon, lat] coordinates
-     * @param {Array} bounds - Array of bounding polygons
-     * @returns {Array|null} - Clipped polygon or null if completely outside bounds
+     * Simple polygon clipping to rectangular bounds
      */
-    function clipPolygonToBounds(polygon, bounds) {
+    function clipPolygonToNorthAmerica(polygon) {
         if (!polygon || polygon.length < 3) return null;
         
-        // Simple bounding box clipping for North America
         const clipped = [];
-        
         for (let point of polygon) {
             const [lon, lat] = point;
             
-            // Check if point is within any of the bounding regions
-            let isWithinBounds = false;
-            
-            for (let bound of bounds) {
-                if (isPointInBounds(lon, lat, bound)) {
-                    isWithinBounds = true;
-                    break;
+            // Simple bounds check for North America
+            if (lon >= -170 && lon <= -52 && lat >= 24 && lat <= 83) {
+                // Additional check to exclude most ocean areas
+                if (!(lon < -125 && lat < 49) || // Exclude Pacific west of west coast
+                    (lon > -125 && lon < -67)) {  // Include continental area
+                    clipped.push(point);
                 }
-            }
-            
-            if (isWithinBounds) {
-                clipped.push(point);
             }
         }
         
-        // If we have fewer than 3 points after clipping, discard
-        if (clipped.length < 3) return null;
-        
-        return clipped;
-    }
-
-    /**
-     * Check if a point is within a bounding polygon
-     * @param {number} lon - Longitude
-     * @param {number} lat - Latitude  
-     * @param {Array} bound - Bounding polygon as array of [lon, lat] coordinates
-     * @returns {boolean} - True if point is within bounds
-     */
-    function isPointInBounds(lon, lat, bound) {
-        // Simple rectangular bounds check for performance
-        const lons = bound.map(p => p[0]);
-        const lats = bound.map(p => p[1]);
-        const minLon = Math.min(...lons);
-        const maxLon = Math.max(...lons);
-        const minLat = Math.min(...lats);
-        const maxLat = Math.max(...lats);
-        
-        return lon >= minLon && lon <= maxLon && lat >= minLat && lat <= maxLat;
+        return clipped.length >= 3 ? clipped : null;
     }
 
     /**
@@ -344,7 +320,6 @@ window.onload = function() {
       });
       
       if (AppState.displayPolygons && d3) {
-        // Use the d3 object which should now be available
         const points = filteredData.map(r => [parseFloat(r.site_lon), parseFloat(r.site_lat)]);
         
         if (points.length === 0) {
@@ -357,37 +332,21 @@ window.onload = function() {
 
             for (let i = 0; i < filteredData.length; i++) {
                 const r = filteredData[i];
-                const polygon = voronoi.cellPolygon(i);
+                let polygon = voronoi.cellPolygon(i);
+                
+                if (!polygon || polygon.length < 3) {
+                    continue;
+                }
+
+                // Clip the polygon to North America bounds
+                polygon = clipPolygonToNorthAmerica(polygon);
                 
                 if (!polygon || polygon.length < 3) {
                     continue;
                 }
 
                 const latlngs = polygon.map(p => L.latLng(p[1], p[0]));
-                const cat = (r.flight_category || '—').toUpperCase();
-                const color = catColor(cat);
-
-                const poly = L.polygon(latlngs, {
-                    color: color,
-                    fillColor: color,
-                    fillOpacity: 0.5,
-                    weight: 1
-                }).addTo(dataLayer);
-
-                const popupContent = `
-                    <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
-                    <div class="kv">
-                        <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
-                        <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
-                        <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
-                        <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-                        <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
-                        <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
-                        <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
-                    </div>
-                    <pre>${r.raw_text||''}</pre>
-                `;
-                poly.bindPopup(popupContent);
+                createAndBindPolygon(latlngs, r);
             }
         } catch (e) {
             console.error("An error occurred during Voronoi diagram generation:", e);
@@ -437,6 +396,38 @@ window.onload = function() {
           `;
           marker.bindPopup(popupContent);
         });
+    }
+
+    /**
+     * Creates and binds a Leaflet polygon with a popup.
+     * @param {Array} latlngs - Array of L.LatLng objects.
+     * @param {object} r - The data row for the airport.
+     */
+    function createAndBindPolygon(latlngs, r) {
+        const cat = (r.flight_category || '—').toUpperCase();
+        const color = catColor(cat);
+
+        const poly = L.polygon(latlngs, {
+            color: color,
+            fillColor: color,
+            fillOpacity: 0.5,
+            weight: 1
+        }).addTo(dataLayer);
+
+        const popupContent = `
+            <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
+            <div class="kv">
+                <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+                <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+                <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+                <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+                <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+                <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+                <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+            </div>
+            <pre>${r.raw_text||''}</pre>
+        `;
+        poly.bindPopup(popupContent);
     }
 
     /**
