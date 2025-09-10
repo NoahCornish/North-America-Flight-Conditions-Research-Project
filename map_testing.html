@@ -91,58 +91,82 @@ Papa.parse(CSV_URL, {
   download: true,
   header: true,
   complete: function(results) {
-    const rows = results.data;
-    const latestByIcao = {};
-    let globalLatest = null;
+    console.log("PapaParse completed. Results:", results);
+    if (results.data && results.data.length > 0) {
+      console.log("Data loaded successfully. Processing " + results.data.length + " rows.");
+      const rows = results.data;
+      const latestByIcao = {};
+      let globalLatest = null;
 
-    rows.forEach(r => {
-      if(!r.icao || !r.lat || !r.lon) return;
-      const obs = new Date(r.observed_utc);
-      if(isNaN(obs)) return;
+      rows.forEach((r, index) => {
+        if(!r.icao || !r.lat || !r.lon) {
+          console.warn("Skipping row " + index + " due to missing ICAO, lat, or lon:", r);
+          return;
+        }
+        const obs = new Date(r.observed_utc);
+        if(isNaN(obs)) {
+          console.warn("Skipping row " + index + " due to invalid date:", r.observed_utc);
+          return;
+        }
 
-      if(!latestByIcao[r.icao] || obs > new Date(latestByIcao[r.icao].observed_utc)){
-        latestByIcao[r.icao] = r;
+        if(!latestByIcao[r.icao] || obs > new Date(latestByIcao[r.icao].observed_utc)){
+          latestByIcao[r.icao] = r;
+        }
+        if(!globalLatest || obs > globalLatest) globalLatest = obs;
+      });
+
+      console.log("Processed data for " + Object.keys(latestByIcao).length + " unique ICAO stations.");
+      const bounds = [];
+      Object.values(latestByIcao).forEach(r => {
+        const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+        if(!isFinite(lat) || !isFinite(lon)) return;
+        const cat = (r.flight_category || '—').toUpperCase();
+
+        const marker = L.circleMarker([lat, lon], {
+          radius: 7,
+          color: catColor(cat),
+          fillColor: catColor(cat),
+          fillOpacity: 0.85
+        }).addTo(map);
+
+        marker.bindPopup(`
+          <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
+          <div class="kv">
+            <div class="k">Observed:</div><div>${r.observed_local||r.observed_utc}</div>
+            <div class="k">Temp:</div><div>${r.temp_c||'—'} °C</div>
+            <div class="k">Dewpoint:</div><div>${r.dewpoint_c||'—'} °C</div>
+            <div class="k">Wind:</div><div>${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+            <div class="k">Gust:</div><div>${r.gust_kts||0} kt</div>
+            <div class="k">Vis:</div><div>${r.vis_sm||'—'} sm</div>
+            <div class="k">Altimeter:</div><div>${r.altimeter_hpa||'—'} hPa</div>
+          </div>
+          <pre>${r.raw_text||''}</pre>
+        `);
+
+        bounds.push([lat, lon]);
+      });
+
+      if(bounds.length) {
+        console.log("Fitting map to " + bounds.length + " data points.");
+        map.fitBounds(bounds, {padding:[40,40]});
+      } else {
+        console.warn("No valid data points found to display on the map.");
       }
-      if(!globalLatest || obs > globalLatest) globalLatest = obs;
-    });
-
-    const bounds = [];
-    Object.values(latestByIcao).forEach(r => {
-      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
-      if(!isFinite(lat) || !isFinite(lon)) return;
-      const cat = (r.flight_category || '—').toUpperCase();
-
-      const marker = L.circleMarker([lat, lon], {
-        radius: 7,
-        color: catColor(cat),
-        fillColor: catColor(cat),
-        fillOpacity: 0.85
-      }).addTo(map);
-
-      marker.bindPopup(`
-        <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
-        <div class="kv">
-          <div class="k">Observed:</div><div>${r.observed_local||r.observed_utc}</div>
-          <div class="k">Temp:</div><div>${r.temp_c||'—'} °C</div>
-          <div class="k">Dewpoint:</div><div>${r.dewpoint_c||'—'} °C</div>
-          <div class="k">Wind:</div><div>${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-          <div class="k">Gust:</div><div>${r.gust_kts||0} kt</div>
-          <div class="k">Vis:</div><div>${r.vis_sm||'—'} sm</div>
-          <div class="k">Altimeter:</div><div>${r.altimeter_hpa||'—'} hPa</div>
-        </div>
-        <pre>${r.raw_text||''}</pre>
-      `);
-
-      bounds.push([lat, lon]);
-    });
-
-    if(bounds.length) map.fitBounds(bounds, {padding:[40,40]});
-    if(globalLatest) {
-      document.getElementById("lastUpdated").innerText =
-        "Last Update: " + globalLatest.toLocaleString();
+      
+      if(globalLatest) {
+        document.getElementById("lastUpdated").innerText =
+          "Last Update: " + globalLatest.toLocaleString();
+      } else {
+        document.getElementById("lastUpdated").innerText = "Last Update: No data";
+      }
     } else {
-      document.getElementById("lastUpdated").innerText = "Last Update: No data";
+      console.error("PapaParse completed, but no data was returned.");
+      document.getElementById("lastUpdated").innerText = "Last Update: Failed to load data";
     }
+  },
+  error: function(err, file, inputElem, reason) {
+    console.error("PapaParse failed to load or parse the file.", err, reason);
+    document.getElementById("lastUpdated").innerText = "Last Update: Failed to load data";
   }
 });
 </script>
