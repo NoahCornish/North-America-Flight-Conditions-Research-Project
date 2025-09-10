@@ -1,11 +1,11 @@
 #!/usr/bin/env Rscript
 # metar_fetch_awc.R
 # -------------------------------------------------------------------
-# Fetch decoded METARs via AviationWeather.gov for *all Canadian & US airports
-# that issue METARs*. Save into:
-#   • Data/METARs/all_metars.csv       (master, append-only)
-#   • Data/METARs/all_metars_MM_YYYY.csv (monthly, append-only)
-#   • Data/METARs/metar_log.txt        (log file)
+# Fetch decoded METARs via AviationWeather.gov for *all Canadian & US
+# large + medium airports that issue METARs*. Save into:
+#   • Data/METARs/all_metars.csv          (master, append-only)
+#   • Data/METARs/all_metars_MM_YYYY.csv  (monthly, append-only)
+#   • Data/METARs/metar_log.txt           (log file)
 # -------------------------------------------------------------------
 
 # ---------------- File Paths --------------------
@@ -99,7 +99,7 @@ get_metars_chunk <- function(stns){
 }
 
 fetch_all <- function(stns){
-  chunks <- chunk_vec(stns, 100)  # safe chunk size
+  chunks <- chunk_vec(stns, 250)  # safe chunk size
   dfs <- list()
   for (i in seq_along(chunks)) {
     df <- get_metars_chunk(chunks[[i]])
@@ -132,16 +132,19 @@ write_csvs <- function(df, master){
 }
 
 # ---------------- Build STATIONS dynamically --------------------
-message("Fetching airport list from OurAirports ...")
-airports <- read_csv("https://ourairports.com/data/airports.csv", show_col_types = FALSE)
+message("Fetching airport list from GitHub mirror of OurAirports ...")
+tmpfile <- tempfile(fileext = ".csv")
+download.file("https://raw.githubusercontent.com/davidmegginson/ourairports-data/refs/heads/main/airports.csv",
+              tmpfile, method = "curl", quiet = TRUE)
+
+airports <- read_csv(tmpfile, show_col_types = FALSE)
 
 stations_df <- airports %>%
   filter(iso_country %in% c("CA","US"),
-         type %in% c("large_airport","medium_airport")) %>%   # <-- only large + medium
+         type %in% c("large_airport","medium_airport")) %>%
   filter(!is.na(ident), str_length(ident) == 4) %>%
   filter(grepl("^(C|K|P)", ident)) %>%
   distinct(ident)
-
 
 STATIONS <- stations_df$ident
 message("Total airports in STATIONS: ", length(STATIONS))
@@ -155,14 +158,3 @@ if (!is.null(res) && nrow(res) > 0) {
 } else {
   message("⚠️ No METARs returned")
 }
-
-
-#airports %>%
-#  filter(iso_country %in% c("CA","US"),
-#         type %in% c("small_airport", "large_airport","medium_airport")) %>%
-#  count(type, iso_country)
-
-
-
-
-
