@@ -87,7 +87,21 @@ const DATA_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Fl
 const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
 const catColor = (c) => CAT_COLORS[(c || '').toUpperCase()] || '#999';
 function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
-function toLocal(iso){ if(!iso) return '—'; return new Date(iso).toLocaleString(); }
+
+// force into ISO string that JS can parse
+function normalizeTime(t){
+  if(!t) return null;
+  // handles "2025-09-09 20:44:44" → "2025-09-09T20:44:44Z"
+  return t.replace(" ", "T")+"Z";
+}
+
+function toLocal(iso){
+  if(!iso) return '—';
+  const ts = normalizeTime(iso);
+  const d = new Date(ts);
+  if(isNaN(d)) return '—';
+  return d.toLocaleString();
+}
 
 const map = L.map('map',{zoomControl:true,preferCanvas:true});
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
@@ -113,8 +127,9 @@ function render(data){
   const latest = {};
   data.forEach(d=>{
     if(!d.icao || !d.latitude || !d.longitude) return;
-    if(!latest[d.icao] || new Date(d.observed_utc) > new Date(latest[d.icao].observed_utc)){
-      latest[d.icao]=d;
+    const obsTime = normalizeTime(d.observed_utc);
+    if(!latest[d.icao] || new Date(obsTime) > new Date(normalizeTime(latest[d.icao].observed_utc))){
+      latest[d.icao]={...d, observed_utc:obsTime};
     }
   });
   const bounds=[];
@@ -130,8 +145,11 @@ function render(data){
     bounds.push([lat,lon]);
   });
   if(bounds.length) map.fitBounds(bounds,{padding:[40,40]});
+
+  // Last Update text
   const latestTime = new Date(Math.max(...Object.values(latest).map(d=>new Date(d.observed_utc))));
-  document.getElementById('lastUpdated').textContent = "Last Update: "+latestTime.toLocaleString();
+  document.getElementById('lastUpdated').textContent =
+    "Last Update: "+latestTime.toLocaleString();
 }
 
 Papa.parse(DATA_URL,{
