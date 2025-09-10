@@ -16,7 +16,7 @@
     --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
     --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
     --shadow:0 10px 26px rgba(0,0,0,.08);
-    --header-height: 84px;
+    --header-height: 60px;
   }
   *{box-sizing:border-box}
   html,body{height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -25,11 +25,11 @@
     background:linear-gradient(135deg,#0b2540,var(--brand));
     color:#fff; box-shadow:var(--shadow);
   }
-  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:2rem;align-items:center;justify-content:space-between}
+  .wrap{max-width:1200px;margin:0 auto;padding:0.75rem 1.5rem;display:flex;gap:2rem;align-items:center;justify-content:space-between}
   .brand{display:flex;gap:1rem;align-items:center; flex-shrink: 0;}
-  .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
-  .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
-  .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
+  .logo{width:40px;height:40px;border-radius:10px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.2rem;}
+  .title h1{margin:0;font-size:1.0rem;font-weight:800;letter-spacing:.2px}
+  .title p{margin:.15rem 0 0;opacity:.92;font-weight:500;font-size:.8rem}
   #map{height:calc(100vh - var(--header-height)); width:100%}
   
   .header-controls {
@@ -129,17 +129,6 @@
     align-items: center;
     line-height: 1.2;
   }
-  .kv{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:.5rem 1.5rem;
-    margin-top:.8rem;
-    font-size:.95rem;
-    border-top:1px solid #eee;
-    padding-top:1rem;
-  }
-  .k{color:var(--muted); font-weight:600;}
-  .v{font-weight:500;}
   pre{
     background:#f8f9fa;
     border:1px solid #e0e4e8;
@@ -168,7 +157,7 @@
     }
     .title h1 { font-size: 1rem; }
     .title p { font-size: 0.8rem; }
-    #map { height: calc(100vh - 70px); }
+    #map { height: calc(100vh - 60px); }
     .header-controls {
       flex-direction: column;
       align-items: flex-start;
@@ -223,7 +212,7 @@
 
 <script>
 window.onload = function() {
-  const map = L.map('map', { zoomControl: true, preferCanvas: true });
+  const map = L.map('map', { zoomControl: false, preferCanvas: true });
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18, attribution: '&copy; OpenStreetMap'
   }).addTo(map);
@@ -372,17 +361,9 @@ window.onload = function() {
           fillOpacity: 0.85
         }).addTo(dataLayer);
 
+        // Updated popup content
         const popupContent = `
           <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
-          <div class="kv">
-            <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
-            <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
-            <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
-            <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-            <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
-            <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
-            <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
-          </div>
           <pre>${r.raw_text||''}</pre>
         `;
         // Use autoPanPaddingTopLeft to prevent popups from being hidden by the header
@@ -406,17 +387,9 @@ window.onload = function() {
         weight: 1
     }).addTo(dataLayer);
 
+    // Updated popup content
     const popupContent = `
         <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
-        <div class="kv">
-            <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
-            <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
-            <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
-            <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-            <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
-            <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
-            <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
-        </div>
         <pre>${r.raw_text||''}</pre>
     `;
     // Use autoPanPaddingTopLeft to prevent popups from being hidden by the header
