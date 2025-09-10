@@ -67,28 +67,13 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Stage outputs
           git add Data/METARs/*.csv Data/METARs/*.txt Data/Summaries/*.csv Data/Summaries/*.txt || true
-
-          echo "---- git status ----"
-          git status
-          echo "---- git diff --cached --stat ----"
-          git diff --cached --stat || true
 
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Fetch, Clean & Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-
-            # Retry loop for safe pushing in case of race conditions
-            for i in 1 2 3; do
-              echo "Attempt $i to push..."
-              if git pull --rebase origin main && git push origin main; then
-                echo "✅ Push successful"
-                break
-              else
-                echo "⚠️ Push failed, retrying in 10s..."
-                sleep 10
-              fi
-            done
+            git pull --rebase origin main || true
+            git push --force-with-lease origin main
           else
             echo "No changes to commit."
           fi
+
