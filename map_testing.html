@@ -12,7 +12,7 @@
 <!-- PapaParse -->
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <!-- D3 Delaunay for Voronoi diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6/dist/d3-delaunay.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -271,21 +271,22 @@ function renderMap() {
   
   if (AppState.displayPolygons) {
     const points = filteredData.map(r => [parseFloat(r.site_lon), parseFloat(r.site_lat)]);
+    
     // Exit if there are no valid points to create polygons from
     if (points.length === 0) {
-      console.log("No valid data points to create polygons.");
       return;
     }
+    
     const delaunay = Delaunay.from(points);
-    // Use a large, static bounding box to ensure polygons are generated for the entire map
-    // This fixed range covers the majority of North America.
     const voronoi = delaunay.voronoi([-170, 10, -50, 85]);
 
     for (let i = 0; i < filteredData.length; i++) {
       const r = filteredData[i];
       const polygon = voronoi.cellPolygon(i);
       
-      if (!polygon || polygon.length < 3) continue;
+      if (!polygon || polygon.length < 3) {
+        continue;
+      }
 
       const latlngs = polygon.map(p => L.latLng(p[1], p[0]));
       const cat = (r.flight_category || '—').toUpperCase();
