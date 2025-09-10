@@ -258,9 +258,12 @@ const AppState = {
 };
 
 function renderMap() {
+  console.log("--- Starting renderMap() ---");
+  console.log("Current AppState.displayPolygons:", AppState.displayPolygons);
   dataLayer.clearLayers();
   
   const filteredData = AppState.data;
+  console.log("Number of data points to render:", filteredData.length);
 
   const bounds = [];
   filteredData.forEach(r => {
@@ -270,51 +273,63 @@ function renderMap() {
   });
   
   if (AppState.displayPolygons) {
+    console.log("Displaying Polygons...");
     const points = filteredData.map(r => [parseFloat(r.site_lon), parseFloat(r.site_lat)]);
     
     // Exit if there are no valid points to create polygons from
     if (points.length === 0) {
+      console.log("No valid points to create Voronoi polygons. Exiting.");
       return;
     }
     
-    const delaunay = Delaunay.from(points);
-    const voronoi = delaunay.voronoi([-170, 10, -50, 85]);
+    console.log("Points array for Delaunay:", points.slice(0, 5)); // Log a sample
+    try {
+        const delaunay = Delaunay.from(points);
+        console.log("Delaunay object created successfully.");
+        const voronoi = delaunay.voronoi([-170, 10, -50, 85]);
+        console.log("Voronoi object created successfully.");
 
-    for (let i = 0; i < filteredData.length; i++) {
-      const r = filteredData[i];
-      const polygon = voronoi.cellPolygon(i);
-      
-      if (!polygon || polygon.length < 3) {
-        continue;
-      }
+        for (let i = 0; i < filteredData.length; i++) {
+            const r = filteredData[i];
+            const polygon = voronoi.cellPolygon(i);
+            
+            if (!polygon || polygon.length < 3) {
+                console.warn(`Skipping polygon for ${r.icao}. Polygon is invalid or has fewer than 3 points.`, polygon);
+                continue;
+            }
 
-      const latlngs = polygon.map(p => L.latLng(p[1], p[0]));
-      const cat = (r.flight_category || '—').toUpperCase();
-      const color = catColor(cat);
+            const latlngs = polygon.map(p => L.latLng(p[1], p[0]));
+            const cat = (r.flight_category || '—').toUpperCase();
+            const color = catColor(cat);
 
-      const poly = L.polygon(latlngs, {
-        color: color,
-        fillColor: color,
-        fillOpacity: 0.5,
-        weight: 1
-      }).addTo(dataLayer);
+            const poly = L.polygon(latlngs, {
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5,
+                weight: 1
+            }).addTo(dataLayer);
 
-      const popupContent = `
-        <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
-        <div class="kv">
-          <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
-          <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
-          <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
-          <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-          <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
-          <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
-          <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
-        </div>
-        <pre>${r.raw_text||''}</pre>
-      `;
-      poly.bindPopup(popupContent);
+            const popupContent = `
+                <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
+                <div class="kv">
+                    <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+                    <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+                    <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+                    <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+                    <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+                    <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+                    <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+                </div>
+                <pre>${r.raw_text||''}</pre>
+            `;
+            poly.bindPopup(popupContent);
+        }
+        console.log("Polygon rendering loop completed.");
+    } catch (e) {
+        console.error("An error occurred during Voronoi diagram generation:", e);
     }
   } else {
+    console.log("Displaying Markers...");
     filteredData.forEach(r => {
       const lat = parseFloat(r.site_lat), lon = parseFloat(r.site_lon);
       if(!isFinite(lat) || !isFinite(lon)) return;
@@ -343,6 +358,7 @@ function renderMap() {
       `;
       marker.bindPopup(popupContent);
     });
+    console.log("Marker rendering loop completed.");
   }
 
   if(bounds.length) {
@@ -350,6 +366,7 @@ function renderMap() {
   } else {
     map.setView([48.5, -98], 4);
   }
+  console.log("--- renderMap() finished ---");
 }
 
 function setupControlsAndRender() {
@@ -362,11 +379,14 @@ function setupControlsAndRender() {
   renderMap();
 }
 
+console.log("Starting PapaParse to fetch CSV...");
 Papa.parse(CSV_URL, {
   download: true,
   header: true,
   complete: function(results) {
+    console.log("CSV parsing complete. Results:", results);
     const rows = results.data;
+    console.log("Total rows from CSV:", rows.length);
     const latestByIcao = {};
     let globalLatest = null;
 
@@ -375,9 +395,15 @@ Papa.parse(CSV_URL, {
       const lat = parseFloat(r.site_lat);
       const lon = parseFloat(r.site_lon);
 
-      if(!icao || !isFinite(lat) || !isFinite(lon)) return;
+      if(!icao || !isFinite(lat) || !isFinite(lon)) {
+        // console.warn("Skipping row with invalid ICAO or coordinates:", r);
+        return;
+      }
       const obs = new Date(r.observed_utc);
-      if(isNaN(obs)) return;
+      if(isNaN(obs)) {
+        // console.warn("Skipping row with invalid date:", r);
+        return;
+      }
 
       if(!latestByIcao[icao] || obs > new Date(latestByIcao[icao].observed_utc)){
         latestByIcao[icao] = r;
@@ -386,6 +412,7 @@ Papa.parse(CSV_URL, {
     });
 
     AppState.data = Object.values(latestByIcao);
+    console.log("Filtered data (latest observation per airport):", AppState.data.length, "airports.");
     setupControlsAndRender();
 
     if(globalLatest) {
@@ -393,6 +420,7 @@ Papa.parse(CSV_URL, {
     } else {
       document.getElementById("lastUpdated").innerText = "Last Update: No data";
     }
+    console.log("Data processing complete.");
   }
 });
 </script>
