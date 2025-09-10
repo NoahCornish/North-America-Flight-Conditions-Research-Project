@@ -1,58 +1,12 @@
 #!/usr/bin/env Rscript
 # metar_fetch_awc.R
 # -------------------------------------------------------------------
-# Fetch decoded METARs via AviationWeather.gov and append into:
+# Fetch decoded METARs via AviationWeather.gov for *all Canadian & US airports
+# that issue METARs*. Save into:
 #   • Data/METARs/all_metars.csv       (master, append-only)
 #   • Data/METARs/all_metars_MM_YYYY.csv (monthly, append-only)
 #   • Data/METARs/metar_log.txt        (log file)
 # -------------------------------------------------------------------
-
-# ---------------- Airports ---------------------
-STATIONS <- c(
-  # ---------------- Canada (100) ----------------
-  # Original 50 you already had
-  "CYER","CYAT","CYMO","CYPL","CYQT","CYAM","CYTS","CYSB","CYYB","CYOW",
-  "CYGK","CYQG","CYVV","CYYZ","CYQA",
-  "CYVR","CYYJ","CYLW","CYXS","CYXT","CYQQ",
-  "CYYC","CYEG","CYMM","CYQF",
-  "CYXE","CYQR","CYWG","CYBR",
-  "CYUL","CYHU","CYQB","CYVO","CYUY","CYZV","CYBC","CYRJ",
-  "CYHZ","CYYG","CYQM","CYFC","CYYT","CYQY",
-  "CYXY","CYZF","CYFB","CYRT","CYBK","CYRB","CYCO",
-  
-  # +50 more Canadian airports
-  "CYAM","CYKF","CYTZ","CYXU","CYHM","CYHD","CYQT","CYQK","CYGQ","CYQH",
-  "CYQX","CYDP","CYMH","CYDF","CYZP","CYWL","CYXD","CYQU","CYQQ","CYXS",
-  "CYPR","CYCD","CYXX","CYBL","CYAZ","CYQQ","CYOD","CYTR","CYBG","CYUY",
-  "CYMT","CYRJ","CYBC","CYVO","CYFB","CYTE","CYVC","CYDQ","CYCO","CYXP",
-  "CYVQ","CYPC","CYLK","CYCK","CYKJ","CYQB","CYGV","CYGL","CYHA","CYKL",
-  
-  # ---------------- USA (100) ----------------
-  # Northeast / Mid-Atlantic
-  "KBOS","KPVD","KBED","KBDL","KALB","KSYR","KROC","KBUF","KJFK","KLGA",
-  "KEWR","KHPN","KSWF","KPHL","KPIT","KBWI","KIAD","KDCA","KRIC","KORF",
-  
-  # Southeast
-  "KATL","KSAV","KJAX","KMCO","KTPA","KRSW","KFLL","KMIA","KPBI","KEYW",
-  "KBHM","KHSV","KBNA","KMEM","KLIT","KCLT","KRDU","KGSO","KCHS","KMYR",
-  
-  # Midwest
-  "KORD","KMDW","KSTL","KMCI","KMSP","KIND","KCVG","KSDF","KDAY","KCLE",
-  "KCMH","KDTW","KGRR","KSBN","KFWA","KDSM","KFSD","KOMA","KLNK","KMLI",
-  
-  # Texas / Plains
-  "KDFW","KDAL","KAFW","KHOU","KIAH","KAUS","KSAT","KELP","KAMA","KLBB",
-  "KTUL","KOKC","KICT","KLAW","KLRD","KBRO","KHRL","KMFE","KABI","KACT",
-  
-  # Rockies / West
-  "KDEN","KCOS","KPUB","KASE","KEGE","KGJT","KSLC","KBOI","KIDA","KBZN",
-  "KGTF","KBIL","KMSO","KHLN","KSEA","KBFI","KGEG","KPDX","KEUG","KMFR",
-  
-  # California / Southwest / Pacific
-  "KLAX","KBUR","KSNA","KLGB","KSAN","KONT","KSMO","KPSP","KSBA","KSJC",
-  "KSFO","KOAK","KSTS","KRNO","KPHX","KTUS","KABQ","KSAF","PHNL","PHOG"
-)
-
 
 # ---------------- File Paths --------------------
 DATA_DIR <- "Data/METARs"
@@ -62,12 +16,12 @@ MASTER_FILE <- file.path(DATA_DIR, "all_metars.csv")
 LOG_FILE    <- file.path(DATA_DIR, "metar_log.txt")
 
 # ---------------- Packages ----------------------
-need <- c("httr","jsonlite","tibble","dplyr","lubridate")
+need <- c("httr","jsonlite","tibble","dplyr","lubridate","readr","stringr")
 missing <- need[!(need %in% rownames(installed.packages()))]
 if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)
 suppressPackageStartupMessages({
   library(httr); library(jsonlite); library(tibble)
-  library(dplyr); library(lubridate)
+  library(dplyr); library(lubridate); library(readr); library(stringr)
 })
 
 # ---------------- Helpers -----------------------
@@ -145,7 +99,7 @@ get_metars_chunk <- function(stns){
 }
 
 fetch_all <- function(stns){
-  chunks <- chunk_vec(stns, 40)  # safe chunk size
+  chunks <- chunk_vec(stns, 100)  # safe chunk size
   dfs <- list()
   for (i in seq_along(chunks)) {
     df <- get_metars_chunk(chunks[[i]])
@@ -177,6 +131,21 @@ write_csvs <- function(df, master){
       file = LOG_FILE, append = TRUE)
 }
 
+# ---------------- Build STATIONS dynamically --------------------
+message("Fetching airport list from OurAirports ...")
+airports <- read_csv("https://ourairports.com/data/airports.csv", show_col_types = FALSE)
+
+stations_df <- airports %>%
+  filter(iso_country %in% c("CA","US"),
+         type %in% c("large_airport","medium_airport")) %>%   # <-- only large + medium
+  filter(!is.na(ident), str_length(ident) == 4) %>%
+  filter(grepl("^(C|K|P)", ident)) %>%
+  distinct(ident)
+
+
+STATIONS <- stations_df$ident
+message("Total airports in STATIONS: ", length(STATIONS))
+
 # ---------------- Main --------------------------
 res <- fetch_all(STATIONS)
 
@@ -186,3 +155,14 @@ if (!is.null(res) && nrow(res) > 0) {
 } else {
   message("⚠️ No METARs returned")
 }
+
+
+#airports %>%
+#  filter(iso_country %in% c("CA","US"),
+#         type %in% c("small_airport", "large_airport","medium_airport")) %>%
+#  count(type, iso_country)
+
+
+
+
+
