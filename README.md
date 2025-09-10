@@ -1,6 +1,6 @@
 # North America Flight Conditions Research Project  
 
-[![⛅ METAR ⛈️](https://github.com/NoahCornish/North-America-Flight-Conditions-Research-Project/actions/workflows/metar.yml/badge.svg)](https://github.com/NoahCornish/North-America-Flight-Conditions-Research-Project/actions/workflows/metar.yml)  
+[![⛅ METAR Every 5 min ⛈️](https://github.com/NoahCornish/North-America-Flight-Conditions-Research-Project/actions/workflows/fetch_metars.yml/badge.svg)](https://github.com/NoahCornish/North-America-Flight-Conditions-Research-Project/actions/workflows/fetch_metars.yml)
 
 ---
 
