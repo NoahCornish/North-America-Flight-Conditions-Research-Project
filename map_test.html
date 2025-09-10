@@ -24,38 +24,25 @@
     background:linear-gradient(135deg,#0b2540,var(--brand));
     color:#fff; box-shadow:var(--shadow);
   }
-  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}
-  .brand{display:flex;gap:1rem;align-items:center}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:2rem;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:1rem;align-items:center; flex-shrink: 0;}
   .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
   .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
   .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
   #map{height:calc(100vh - 84px); width:100%}
   
-  .controls-container {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 1100;
+  .header-controls {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    align-items: center;
+    flex-grow: 1;
   }
-  .control-group {
-    background: var(--card);
-    border-radius: 18px;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,.1);
-    backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.7);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
-  .control-group h3 {
-    margin: 0 0 0.5rem;
-    font-size: .95rem;
-    font-weight: 700;
+  .header-controls > div {
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    flex-shrink: 0;
   }
 
   /* Toggle switch for polygons */
@@ -74,7 +61,7 @@
     display: block;
     width: 40px;
     height: 22px;
-    background-color: #ccc;
+    background-color: #ffffff44;
     border-radius: 11px;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -92,23 +79,32 @@
     transition: transform 0.2s;
   }
   .toggle-switch input:checked + label {
-    background-color: var(--brand);
+    background-color: var(--vfr);
   }
   .toggle-switch input:checked + label::after {
     transform: translateX(18px);
   }
+  .toggle-switch span {
+    color: #fff;
+  }
 
   .legend{
-    position:absolute; right:16px; bottom:16px; z-index:1100;
-    background:var(--card); border-radius:18px; padding:1rem 1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.1);
-    backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.7);
+    padding:0;
+    box-shadow:none;
+    background:transparent;
+    backdrop-filter: none;
+    display:flex;
+    align-items:center;
+    gap: 1rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
-  .legend h3{margin:0 0 .5rem; font-size:.95rem; font-weight:700;}
-  .legend .row{display:flex;align-items:center;gap:.65rem;margin:.25rem 0; font-size:.9rem; font-weight:500;}
+  .legend h3{display:none;}
+  .legend .row{display:flex;align-items:center;gap:.35rem;margin:0; font-size:.9rem; font-weight:500;}
   .dot{width:14px;height:14px;border-radius:50%; border:2px solid #fff}
   .dot.vfr{background:var(--vfr)} .dot.mvfr{background:var(--mvfr)} .dot.ifr{background:var(--ifr)} .dot.lifr{background:var(--lifr)}
-  .meta{position:absolute; left:16px; bottom:16px; z-index:1100; font-size:.85rem; color:var(--muted); background:#ffffffcc; padding:.45rem .65rem; border-radius:12px; font-weight:500;}
+  .meta{font-size:.85rem; color:#fff9; font-weight:500; flex-basis: 100%; text-align: right;}
   .badge{display:inline-block; padding:.1rem .5rem; border-radius:999px; color:#fff; font-weight:700; font-size:.7rem; letter-spacing:.3px; text-transform: uppercase;}
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
   
@@ -172,27 +168,19 @@
     .title h1 { font-size: 1rem; }
     .title p { font-size: 0.8rem; }
     #map { height: calc(100vh - 70px); }
-    .controls-container, .legend {
-      top: auto;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 1rem;
-      border-radius: 0;
-      box-shadow: none;
-      background: rgba(255,255,255,0.9);
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-    }
-    .controls-container {
-      bottom: 60px;
+    .header-controls {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
     }
     .legend {
-      bottom: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 0;
     }
     .meta {
-      display: none;
+      text-align: left;
     }
   }
 </style>
@@ -207,32 +195,29 @@
         <p>VFR / MVFR / IFR / LIFR • Canada & United States</p>
       </div>
     </div>
+    <div class="header-controls">
+      <div class="control-group">
+        <h3>Display Mode</h3>
+        <div class="toggle-switch">
+          <span>Markers</span>
+          <input type="checkbox" id="displayToggle" />
+          <label for="displayToggle"></label>
+          <span>Polygons</span>
+        </div>
+      </div>
+      <div class="legend" aria-label="Legend">
+        <h3>Condition</h3>
+        <div class="row"><span class="dot vfr"></span> VFR</div>
+        <div class="row"><span class="dot mvfr"></span> MVFR</div>
+        <div class="row"><span class="dot ifr"></span> IFR</div>
+        <div class="row"><span class="dot lifr"></span> LIFR</div>
+      </div>
+    </div>
     <div id="lastUpdated" aria-live="polite">Loading…</div>
   </div>
 </header>
 
 <div id="map" role="region" aria-label="Flight conditions map"></div>
-
-<div class="controls-container">
-  <div class="control-group">
-    <h3>Display Mode</h3>
-    <div class="toggle-switch">
-      <span>Markers</span>
-      <input type="checkbox" id="displayToggle" />
-      <label for="displayToggle"></label>
-      <span>Polygons</span>
-    </div>
-  </div>
-</div>
-
-<div class="legend" aria-label="Legend">
-  <h3>Condition</h3>
-  <div class="row"><span class="dot vfr"></span> VFR</div>
-  <div class="row"><span class="dot mvfr"></span> MVFR</div>
-  <div class="row"><span class="dot ifr"></span> IFR</div>
-  <div class="row"><span class="dot lifr"></span> LIFR</div>
-</div>
-<div class="meta">Source: clean_metars.csv • Project: NAFCRP</div>
 
 <script>
 window.onload = function() {
