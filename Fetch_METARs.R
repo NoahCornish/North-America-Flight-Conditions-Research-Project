@@ -1,8 +1,9 @@
 #!/usr/bin/env Rscript
 # metar_fetch_awc.R
 # -------------------------------------------------------------------
-# Fetch decoded METARs via AviationWeather.gov for *all Canadian & US
-# large + medium airports that issue METARs*. Save into:
+# Fetch decoded METARs via AviationWeather.gov for all Canadian airports
+# (large/medium/small) and U.S. airports (large/medium only).
+# Saves into:
 #   • Data/METARs/all_metars.csv          (master, append-only)
 #   • Data/METARs/all_metars_MM_YYYY.csv  (monthly, append-only)
 #   • Data/METARs/metar_log.txt           (log file)
@@ -99,7 +100,7 @@ get_metars_chunk <- function(stns){
 }
 
 fetch_all <- function(stns){
-  chunks <- chunk_vec(stns, 200)  # safe chunk size
+  chunks <- chunk_vec(stns, 500)  # safe chunk size
   dfs <- list()
   for (i in seq_along(chunks)) {
     df <- get_metars_chunk(chunks[[i]])
@@ -138,20 +139,24 @@ airports <- read_csv(
   show_col_types = FALSE
 )
 
+# Step 1: fetch ALL airports in CA/US
 stations_df <- airports %>%
   filter(iso_country %in% c("CA","US")) %>%
-  filter(
-    # Large & medium everywhere
-    (type %in% c("large_airport","medium_airport")) |
-      # Small only in Canada
-      (iso_country == "CA" & type == "small_airport")
-  ) %>%
   filter(!is.na(ident), str_length(ident) == 4) %>%
   filter(grepl("^(C|K|P)", ident)) %>%
-  distinct(ident)
+  distinct(ident, iso_country, type)
 
+# Step 2: filter OUT small_airport in US (keep small in Canada)
+stations_df <- stations_df %>%
+  filter(!(iso_country == "US" & type == "small_airport"))
 
 STATIONS <- stations_df$ident
+
+# Logging
+ca_count <- sum(stations_df$iso_country == "CA")
+us_count <- sum(stations_df$iso_country == "US")
+message("Canadian airports included: ", ca_count)
+message("U.S. airports included: ", us_count)
 message("Total airports in STATIONS: ", length(STATIONS))
 
 # ---------------- Main --------------------------
