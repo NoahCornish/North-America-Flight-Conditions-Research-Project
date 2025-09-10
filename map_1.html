@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>NAFCRP — Live Flight Conditions Map</title>
+<title>NAFCRP — Live Flight Conditions Map (CSV)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0b2540" />
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
-<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
 
 <!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- PapaParse -->
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -77,16 +76,24 @@
   <div class="row"><span class="dot ifr" aria-hidden="true"></span> IFR</div>
   <div class="row"><span class="dot lifr" aria-hidden="true"></span> LIFR</div>
 </div>
-<div class="meta">Source: GitHub clean_metars.csv • Project: NAFCRP</div>
+<div class="meta">Source: clean_metars.csv • Project: NAFCRP</div>
 
-<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
-const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+/* ---------- Map setup ---------- */
+const map = L.map('map', { zoomControl: true, preferCanvas: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+map.setView([48.5, -98], 4);
 
+/* ---------- Styling ---------- */
 const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
 function catColor(c){ return CAT_COLORS[(c||'').toUpperCase()] || '#999'; }
-
 function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
+
+/* ---------- Fetch from CSV ---------- */
+const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
 
 Papa.parse(CSV_URL, {
   download: true,
@@ -95,7 +102,6 @@ Papa.parse(CSV_URL, {
     const rows = results.data;
     const latestByIcao = {};
 
-    // Pick latest METAR per airport
     rows.forEach(r => {
       if(!r.icao || !r.lat || !r.lon) return;
       const obs = new Date(r.observed_utc);
