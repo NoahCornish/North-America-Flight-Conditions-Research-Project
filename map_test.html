@@ -385,7 +385,8 @@ window.onload = function() {
           </div>
           <pre>${r.raw_text||''}</pre>
         `;
-        marker.bindPopup(popupContent);
+        // Use autoPanPaddingTopLeft to prevent popups from being hidden by the header
+        marker.bindPopup(popupContent, { autoPanPaddingTopLeft: L.point(0, 94) });
       });
   }
 
@@ -418,7 +419,8 @@ window.onload = function() {
         </div>
         <pre>${r.raw_text||''}</pre>
     `;
-    poly.bindPopup(popupContent);
+    // Use autoPanPaddingTopLeft to prevent popups from being hidden by the header
+    poly.bindPopup(popupContent, { autoPanPaddingTopLeft: L.point(0, 94) });
   }
 
   /**
@@ -480,6 +482,18 @@ window.onload = function() {
       });
   }
 
+  /**
+   * Prevents touch-based scrolling when interacting with the header.
+   */
+  function preventHeaderScroll() {
+    const header = document.querySelector('header');
+    if (header) {
+      header.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+    }
+  }
+
   // Load the necessary libraries sequentially, then parse the data.
   async function initializeMap() {
       try {
@@ -492,6 +506,9 @@ window.onload = function() {
           // Load D3 Delaunay
           await loadScript("https://cdn.jsdelivr.net/npm/d3-delaunay@6/dist/d3-delaunay.min.js");
           d3 = window.d3;
+
+          // Prevent header scroll after libraries are loaded
+          preventHeaderScroll();
           
           document.getElementById("lastUpdated").innerText = "Loading data...";
           parseCSVData();
