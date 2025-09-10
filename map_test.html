@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>NAFCRP — Live Flight Conditions Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b2540" />
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
+    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
+    --shadow:0 10px 26px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  header{
+    position:sticky; top:0; z-index:1000;
+    background:linear-gradient(135deg,#0b2540,var(--brand));
+    color:#fff; box-shadow:var(--shadow);
+  }
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:1rem;align-items:center}
+  .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
+  .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
+  .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
+  #map{height:calc(100vh - 84px); width:100%}
+  
+  .controls-container {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .control-group {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .control-group h3 {
+    margin: 0 0 0.5rem;
+    font-size: .95rem;
+    font-weight: 700;
+  }
+
+  /* Toggle switch for polygons */
+  .toggle-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .toggle-switch input {
+    display: none;
+  }
+  .toggle-switch label {
+    display: block;
+    width: 40px;
+    height: 22px;
+    background-color: #ccc;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+  }
+  .toggle-switch label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  .toggle-switch input:checked + label {
+    background-color: var(--brand);
+  }
+  .toggle-switch input:checked + label::after {
+    transform: translateX(18px);
+  }
+
+  .legend{
+    position:absolute; right:16px; bottom:16px; z-index:1100;
+    background:var(--card); border-radius:18px; padding:1rem 1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.7);
+  }
+  .legend h3{margin:0 0 .5rem; font-size:.95rem; font-weight:700;}
+  .legend .row{display:flex;align-items:center;gap:.65rem;margin:.25rem 0; font-size:.9rem; font-weight:500;}
+  .dot{width:14px;height:14px;border-radius:50%; border:2px solid #fff}
+  .dot.vfr{background:var(--vfr)} .dot.mvfr{background:var(--mvfr)} .dot.ifr{background:var(--ifr)} .dot.lifr{background:var(--lifr)}
+  .meta{position:absolute; left:16px; bottom:16px; z-index:1100; font-size:.85rem; color:var(--muted); background:#ffffffcc; padding:.45rem .65rem; border-radius:12px; font-weight:500;}
+  .badge{display:inline-block; padding:.1rem .5rem; border-radius:999px; color:#fff; font-weight:700; font-size:.7rem; letter-spacing:.3px; text-transform: uppercase;}
+  .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
+  
+  /* --- Popup Styling --- */
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    border-radius: 12px;
+  }
+  .leaflet-popup-content{
+    margin:12px 16px; 
+    font-size:1rem; 
+    padding:0;
+  }
+  .leaflet-popup-content h4{
+    margin:.1rem 0 .5rem; 
+    font-size:1.2rem;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    line-height: 1.2;
+  }
+  .kv{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.5rem 1.5rem;
+    margin-top:.8rem;
+    font-size:.95rem;
+    border-top:1px solid #eee;
+    padding-top:1rem;
+  }
+  .k{color:var(--muted); font-weight:600;}
+  .v{font-weight:500;}
+  pre{
+    background:#f8f9fa;
+    border:1px solid #e0e4e8;
+    border-radius:8px;
+    padding:.75rem;
+    font-size:.8rem;
+    line-height:1.4;
+    font-family: monospace;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+    }
+    .brand {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .title h1 { font-size: 1rem; }
+    .title p { font-size: 0.8rem; }
+    #map { height: calc(100vh - 70px); }
+    .controls-container, .legend {
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1rem;
+      border-radius: 0;
+      box-shadow: none;
+      background: rgba(255,255,255,0.9);
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .controls-container {
+      bottom: 60px;
+    }
+    .legend {
+      bottom: 0;
+    }
+    .meta {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">🗺️</div>
+      <div class="title">
+        <h1>NAFCRP — Live Flight Conditions Map</h1>
+        <p>VFR / MVFR / IFR / LIFR • Canada & United States</p>
+      </div>
+    </div>
+    <div id="lastUpdated" aria-live="polite">Loading…</div>
+  </div>
+</header>
+
+<div id="map" role="region" aria-label="Flight conditions map"></div>
+
+<div class="controls-container">
+  <div class="control-group">
+    <h3>Display Mode</h3>
+    <div class="toggle-switch">
+      <span>Markers</span>
+      <input type="checkbox" id="displayToggle" />
+      <label for="displayToggle"></label>
+      <span>Polygons</span>
+    </div>
+  </div>
+</div>
+
+<div class="legend" aria-label="Legend">
+  <h3>Condition</h3>
+  <div class="row"><span class="dot vfr"></span> VFR</div>
+  <div class="row"><span class="dot mvfr"></span> MVFR</div>
+  <div class="row"><span class="dot ifr"></span> IFR</div>
+  <div class="row"><span class="dot lifr"></span> LIFR</div>
+</div>
+<div class="meta">Source: clean_metars.csv • Project: NAFCRP</div>
+
+<script>
+window.onload = function() {
+  const map = L.map('map', { zoomControl: true, preferCanvas: true });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18, attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
+
+  // Initial view is now centered on Ontario, Canada
+  map.setView([51.25, -85.32], 5);
+
+  const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
+  function catColor(c){ return CAT_COLORS[(c||'').toUpperCase()] || '#999'; }
+  function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
+
+  const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/main/Data/METARs/clean_metars.csv";
+  const dataLayer = L.layerGroup().addTo(map);
+
+  const AppState = {
+    data: [],
+    displayPolygons: false,
+  };
+
+  // Global variables for loaded libraries
+  let Papa = null;
+  let d3 = null;
+  let turf = null;
+
+  // Simplified boundary polygon for North America (Canada + USA)
+  const NORTH_AMERICA_BOUNDARY = turf ? turf.polygon([[
+      [-141.01, 41.68], [-141.01, 83.11], [-52.65, 83.11], [-52.65, 72.77],
+      [-67.26, 67.13], [-67.26, 45.0], [-125.24, 24.52], [-169.01, 71.54],
+      [-141.01, 41.68]
+  ]]) : null;
+  
+  /**
+    * Dynamically loads a JavaScript file and returns a Promise.
+    * @param {string} src The URL of the script to load.
+    * @returns {Promise<void>} A promise that resolves when the script is loaded.
+    */
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+      document.head.appendChild(script);
+    });
+  }
+
+  /**
+    * Simple polygon clipping to rectangular bounds
+    */
+  function clipPolygonToNorthAmerica(polygon) {
+    if (!polygon || polygon.length < 3) return null;
+    
+    const clipped = [];
+    for (let point of polygon) {
+      const [lon, lat] = point;
+      
+      // Simple bounds check for North America
+      if (lon >= -170 && lon <= -52 && lat >= 24 && lat <= 83) {
+        // Additional check to exclude most ocean areas
+        if (!(lon < -125 && lat < 49) || // Exclude Pacific west of west coast
+            (lon > -125 && lon < -67)) {  // Include continental area
+          clipped.push(point);
+        }
+      }
+    }
+    
+    return clipped.length >= 3 ? clipped : null;
+  }
+
+  /**
+    * Renders the map with either markers or polygons based on AppState.
+    */
+  function renderMap() {
+    dataLayer.clearLayers();
+    
+    const filteredData = AppState.data;
+
+    const bounds = [];
+    filteredData.forEach(r => {
+      const lat = parseFloat(r.site_lat), lon = parseFloat(r.site_lon);
+      if(!isFinite(lat) || !isFinite(lon)) return;
+      bounds.push([lat, lon]);
+    });
+    
+    if (AppState.displayPolygons && d3) {
+      const points = filteredData.map(r => [parseFloat(r.site_lon), parseFloat(r.site_lat)]);
+      
+      if (points.length === 0) {
+        return;
+      }
+      
+      try {
+          const delaunay = d3.Delaunay.from(points);
+          const voronoi = delaunay.voronoi([-170, 10, -50, 85]);
+
+          for (let i = 0; i < filteredData.length; i++) {
+              const r = filteredData[i];
+              let polygon = voronoi.cellPolygon(i);
+              
+              if (!polygon || polygon.length < 3) {
+                  continue;
+              }
+
+              // Clip the polygon to North America bounds
+              polygon = clipPolygonToNorthAmerica(polygon);
+              
+              if (!polygon || polygon.length < 3) {
+                  continue;
+              }
+
+              const latlngs = polygon.map(p => L.latLng(p[1], p[0]));
+              createAndBindPolygon(latlngs, r);
+          }
+      } catch (e) {
+          console.error("An error occurred during Voronoi diagram generation:", e);
+          // Fallback to markers if polygon generation fails
+          renderMarkersView(filteredData);
+      }
+    } else {
+      renderMarkersView(filteredData);
+    }
+
+    if(bounds.length) {
+      // This part is now optional as we start in Ontario, but can be useful for dynamic updates
+      // For the initial load, it will zoom out. To prevent this, you could add a flag.
+    } else {
+      // Changed to set the view to Ontario if no data is found initially
+      map.setView([51.25, -85.32], 5);
+    }
+  }
+
+  /**
+    * Renders markers view (extracted to avoid code duplication)
+    */
+  function renderMarkersView(filteredData) {
+      filteredData.forEach(r => {
+        const lat = parseFloat(r.site_lat), lon = parseFloat(r.site_lon);
+        if(!isFinite(lat) || !isFinite(lon)) return;
+        const cat = (r.flight_category || '—').toUpperCase();
+        const color = catColor(cat);
+
+        const marker = L.circleMarker([lat, lon], {
+          radius: 7,
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.85
+        }).addTo(dataLayer);
+
+        const popupContent = `
+          <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
+          <div class="kv">
+            <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+            <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+            <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+            <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+            <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+            <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+            <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+          </div>
+          <pre>${r.raw_text||''}</pre>
+        `;
+        marker.bindPopup(popupContent);
+      });
+  }
+
+  /**
+    * Creates and binds a Leaflet polygon with a popup.
+    * @param {Array} latlngs - Array of L.LatLng objects.
+    * @param {object} r - The data row for the airport.
+    */
+  function createAndBindPolygon(latlngs, r) {
+    const cat = (r.flight_category || '—').toUpperCase();
+    const color = catColor(cat);
+
+    const poly = L.polygon(latlngs, {
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.5,
+        weight: 1
+    }).addTo(dataLayer);
+
+    const popupContent = `
+        <h4>${r.icao} — ${r.site_name||''} ${chip(cat)}</h4>
+        <div class="kv">
+            <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+            <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+            <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+            <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+            <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+            <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+            <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+        </div>
+        <pre>${r.raw_text||''}</pre>
+    `;
+    poly.bindPopup(popupContent);
+  }
+
+  /**
+    * Sets up the control event listeners and initiates the first render.
+    */
+  function setupControlsAndRender() {
+    const displayToggle = document.getElementById('displayToggle');
+    displayToggle.addEventListener('change', () => {
+      AppState.displayPolygons = displayToggle.checked;
+      renderMap();
+    });
+    renderMap();
+  }
+
+  /**
+    * Parses the CSV data and populates the AppState.
+    */
+  function parseCSVData() {
+      Papa.parse(CSV_URL, {
+          download: true,
+          header: true,
+          complete: function(results) {
+              const rows = results.data;
+              const latestByIcao = {};
+              let globalLatest = null;
+
+              rows.forEach(r => {
+                const icao = r.icao;
+                const lat = parseFloat(r.site_lat);
+                const lon = parseFloat(r.site_lon);
+
+                if(!icao || !isFinite(lat) || !isFinite(lon)) {
+                  return;
+                }
+                const obs = new Date(r.observed_utc);
+                if(isNaN(obs)) {
+                  return;
+                }
+
+                if(!latestByIcao[icao] || obs > new Date(latestByIcao[icao].observed_utc)){
+                  latestByIcao[icao] = r;
+                }
+                if(!globalLatest || obs > globalLatest) globalLatest = obs;
+              });
+
+              AppState.data = Object.values(latestByIcao);
+              setupControlsAndRender();
+
+              if(globalLatest) {
+                document.getElementById("lastUpdated").innerText = "Last Update: " + globalLatest.toLocaleString();
+              } else {
+                document.getElementById("lastUpdated").innerText = "Last Update: No data";
+              }
+          },
+          error: function(error) {
+              console.error("Error parsing CSV:", error);
+              document.getElementById("lastUpdated").innerText = "Error loading data";
+          }
+      });
+  }
+
+  // Load the necessary libraries sequentially, then parse the data.
+  async function initializeMap() {
+      try {
+          document.getElementById("lastUpdated").innerText = "Loading libraries...";
+          
+          // Load PapaParse first
+          await loadScript("https://unpkg.com/papaparse@5.4.1/papaparse.min.js");
+          Papa = window.Papa;
+          
+          // Load D3 Delaunay
+          await loadScript("https://cdn.jsdelivr.net/npm/d3-delaunay@6/dist/d3-delaunay.min.js");
+          d3 = window.d3;
+          
+          document.getElementById("lastUpdated").innerText = "Loading data...";
+          parseCSVData();
+          
+      } catch (e) {
+          console.error("Error loading map dependencies:", e);
+          document.getElementById("lastUpdated").innerText = "Error loading map dependencies.";
+      }
+  }
+
+  // Initialize the map
+  initializeMap();
+};
+</script>
+</body>
+</html>
