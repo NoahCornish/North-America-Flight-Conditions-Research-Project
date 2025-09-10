@@ -12,7 +12,7 @@
 <!-- PapaParse -->
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
@@ -26,27 +26,70 @@
     background:linear-gradient(135deg,#0b2540,var(--brand));
     color:#fff; box-shadow:var(--shadow);
   }
-  .wrap{max-width:1200px;margin:0 auto;padding:.8rem 1rem;display:flex;gap:.8rem;align-items:center;justify-content:space-between}
-  .brand{display:flex;gap:.8rem;align-items:center}
-  .logo{width:40px;height:40px;border-radius:12px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800}
-  .title h1{margin:0;font-size:1.05rem;font-weight:800;letter-spacing:.2px}
-  .title p{margin:.25rem 0 0;opacity:.92;font-weight:600;font-size:.86rem}
-  #map{height:calc(100vh - 78px); width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:1rem;align-items:center}
+  .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
+  .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
+  .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
+  #map{height:calc(100vh - 84px); width:100%}
   .legend{
-    position:absolute; right:12px; bottom:12px; z-index:1100;
-    background:var(--card); border-radius:14px; padding:.6rem .8rem; box-shadow:var(--shadow)
+    position:absolute; right:16px; bottom:16px; z-index:1100;
+    background:var(--card); border-radius:18px; padding:1rem 1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.7);
   }
-  .legend h3{margin:0 0 .35rem; font-size:.9rem}
-  .legend .row{display:flex;align-items:center;gap:.45rem;margin:.2rem 0}
-  .dot{width:12px;height:12px;border-radius:50%}
+  .legend h3{margin:0 0 .5rem; font-size:.95rem; font-weight:700;}
+  .legend .row{display:flex;align-items:center;gap:.65rem;margin:.25rem 0; font-size:.9rem; font-weight:500;}
+  .dot{width:14px;height:14px;border-radius:50%; border:2px solid #fff}
   .dot.vfr{background:var(--vfr)} .dot.mvfr{background:var(--mvfr)} .dot.ifr{background:var(--ifr)} .dot.lifr{background:var(--lifr)}
-  .meta{position:absolute; left:12px; bottom:12px; z-index:1100; font-size:.8rem; color:var(--muted); background:#ffffffcc; padding:.35rem .55rem; border-radius:10px}
-  .badge{display:inline-block; padding:.1rem .45rem; border-radius:999px; color:#fff; font-weight:800; font-size:.75rem; letter-spacing:.3px}
+  .meta{position:absolute; left:16px; bottom:16px; z-index:1100; font-size:.85rem; color:var(--muted); background:#ffffffcc; padding:.45rem .65rem; border-radius:12px; font-weight:500;}
+  .badge{display:inline-block; padding:.1rem .5rem; border-radius:999px; color:#fff; font-weight:700; font-size:.7rem; letter-spacing:.3px; text-transform: uppercase;}
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
-  .leaflet-popup-content{margin:8px 10px; font-size:.92rem}
-  .leaflet-popup-content h4{margin:.1rem 0 .35rem; font-size:1rem}
-  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)); gap:.3rem .8rem; margin-top:.35rem; font-size:.9rem}
-  .k{color:#6b7b8c; font-weight:700}
+  
+  /* --- Popup Styling --- */
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    border-radius: 12px;
+  }
+  .leaflet-popup-content{
+    margin:12px 16px; 
+    font-size:1rem; 
+    padding:0;
+  }
+  .leaflet-popup-content h4{
+    margin:.1rem 0 .5rem; 
+    font-size:1.2rem;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    line-height: 1.2;
+  }
+  .kv{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.5rem 1.5rem;
+    margin-top:.8rem;
+    font-size:.95rem;
+    border-top:1px solid #eee;
+    padding-top:1rem;
+  }
+  .k{color:var(--muted); font-weight:600;}
+  .v{font-weight:500;}
+  pre{
+    background:#f8f9fa;
+    border:1px solid #e0e4e8;
+    border-radius:8px;
+    padding:.75rem;
+    font-size:.8rem;
+    line-height:1.4;
+    font-family: monospace;
+    overflow: auto; /* Allow scrolling if necessary */
+    white-space: pre-wrap; /* The key fix for wrapping */
+    word-wrap: break-word;
+    margin-top: 1rem;
+  }
 </style>
 </head>
 <body>
@@ -91,82 +134,63 @@ Papa.parse(CSV_URL, {
   download: true,
   header: true,
   complete: function(results) {
-    console.log("PapaParse completed. Results:", results);
-    if (results.data && results.data.length > 0) {
-      console.log("Data loaded successfully. Processing " + results.data.length + " rows.");
-      const rows = results.data;
-      const latestByIcao = {};
-      let globalLatest = null;
+    const rows = results.data;
+    const latestByIcao = {};
+    let globalLatest = null;
 
-      rows.forEach((r, index) => {
-        if(!r.icao || !r.lat || !r.lon) {
-          console.warn("Skipping row " + index + " due to missing ICAO, lat, or lon:", r);
-          return;
-        }
-        const obs = new Date(r.observed_utc);
-        if(isNaN(obs)) {
-          console.warn("Skipping row " + index + " due to invalid date:", r.observed_utc);
-          return;
-        }
+    rows.forEach(r => {
+      // Use the correct column names provided by the user
+      const icao = r.icao;
+      const lat = parseFloat(r.site_lat);
+      const lon = parseFloat(r.site_lon);
 
-        if(!latestByIcao[r.icao] || obs > new Date(latestByIcao[r.icao].observed_utc)){
-          latestByIcao[r.icao] = r;
-        }
-        if(!globalLatest || obs > globalLatest) globalLatest = obs;
-      });
+      if(!icao || !isFinite(lat) || !isFinite(lon)) return;
+      const obs = new Date(r.observed_utc);
+      if(isNaN(obs)) return;
 
-      console.log("Processed data for " + Object.keys(latestByIcao).length + " unique ICAO stations.");
-      const bounds = [];
-      Object.values(latestByIcao).forEach(r => {
-        const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
-        if(!isFinite(lat) || !isFinite(lon)) return;
-        const cat = (r.flight_category || '—').toUpperCase();
-
-        const marker = L.circleMarker([lat, lon], {
-          radius: 7,
-          color: catColor(cat),
-          fillColor: catColor(cat),
-          fillOpacity: 0.85
-        }).addTo(map);
-
-        marker.bindPopup(`
-          <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
-          <div class="kv">
-            <div class="k">Observed:</div><div>${r.observed_local||r.observed_utc}</div>
-            <div class="k">Temp:</div><div>${r.temp_c||'—'} °C</div>
-            <div class="k">Dewpoint:</div><div>${r.dewpoint_c||'—'} °C</div>
-            <div class="k">Wind:</div><div>${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
-            <div class="k">Gust:</div><div>${r.gust_kts||0} kt</div>
-            <div class="k">Vis:</div><div>${r.vis_sm||'—'} sm</div>
-            <div class="k">Altimeter:</div><div>${r.altimeter_hpa||'—'} hPa</div>
-          </div>
-          <pre>${r.raw_text||''}</pre>
-        `);
-
-        bounds.push([lat, lon]);
-      });
-
-      if(bounds.length) {
-        console.log("Fitting map to " + bounds.length + " data points.");
-        map.fitBounds(bounds, {padding:[40,40]});
-      } else {
-        console.warn("No valid data points found to display on the map.");
+      if(!latestByIcao[icao] || obs > new Date(latestByIcao[icao].observed_utc)){
+        latestByIcao[icao] = r;
       }
-      
-      if(globalLatest) {
-        document.getElementById("lastUpdated").innerText =
-          "Last Update: " + globalLatest.toLocaleString();
-      } else {
-        document.getElementById("lastUpdated").innerText = "Last Update: No data";
-      }
+      if(!globalLatest || obs > globalLatest) globalLatest = obs;
+    });
+
+    const bounds = [];
+    Object.values(latestByIcao).forEach(r => {
+      const lat = parseFloat(r.site_lat), lon = parseFloat(r.site_lon);
+      if(!isFinite(lat) || !isFinite(lon)) return;
+      const cat = (r.flight_category || '—').toUpperCase();
+
+      const marker = L.circleMarker([lat, lon], {
+        radius: 7,
+        color: catColor(cat),
+        fillColor: catColor(cat),
+        fillOpacity: 0.85
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
+        <div class="kv">
+          <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+          <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+          <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+          <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+          <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+          <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+          <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+        </div>
+        <pre>${r.raw_text||''}</pre>
+      `);
+
+      bounds.push([lat, lon]);
+    });
+
+    if(bounds.length) map.fitBounds(bounds, {padding:[40,40]});
+    if(globalLatest) {
+      document.getElementById("lastUpdated").innerText =
+        "Last Update: " + globalLatest.toLocaleString();
     } else {
-      console.error("PapaParse completed, but no data was returned.");
-      document.getElementById("lastUpdated").innerText = "Last Update: Failed to load data";
+      document.getElementById("lastUpdated").innerText = "Last Update: No data";
     }
-  },
-  error: function(err, file, inputElem, reason) {
-    console.error("PapaParse failed to load or parse the file.", err, reason);
-    document.getElementById("lastUpdated").innerText = "Last Update: Failed to load data";
   }
 });
 </script>
