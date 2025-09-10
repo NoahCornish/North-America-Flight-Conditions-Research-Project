@@ -11,8 +11,6 @@
 <!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- PapaParse (CSV parsing) -->
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -46,9 +44,9 @@
   .meta{position:absolute; left:12px; bottom:12px; z-index:1100; font-size:.8rem; color:var(--muted); background:#ffffffcc; padding:.35rem .55rem; border-radius:10px}
   .badge{display:inline-block; padding:.1rem .45rem; border-radius:999px; color:#fff; font-weight:800; font-size:.75rem; letter-spacing:.3px}
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
-  .leaflet-popup-content{margin:8px 10px; font-size:.9rem; line-height:1.3}
-  .leaflet-popup-content h4{margin:.1rem 0 .4rem; font-size:1rem}
-  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)); gap:.3rem .8rem; margin-top:.4rem; font-size:.85rem}
+  .leaflet-popup-content{margin:8px 10px; font-size:.92rem}
+  .leaflet-popup-content h4{margin:.1rem 0 .35rem; font-size:1rem}
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)); gap:.3rem .8rem; margin-top:.35rem; font-size:.9rem}
   .k{color:#6b7b8c; font-weight:700}
   @media (max-width:640px){
     .title p{display:none}
@@ -82,80 +80,86 @@
 <div class="meta">Source: GitHub clean_metars.csv • Project: NAFCRP</div>
 
 <script>
-const DATA_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/main/Data/METARs/clean_metars.csv";
+const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
 
+// Colors
 const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
 const catColor = (c) => CAT_COLORS[(c || '').toUpperCase()] || '#999';
 function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
 
-// force into ISO string that JS can parse
+// Time normalizer
 function normalizeTime(t){
   if(!t) return null;
-  // handles "2025-09-09 20:44:44" → "2025-09-09T20:44:44Z"
-  return t.replace(" ", "T")+"Z";
+  const parts = t.trim().split(" ");
+  if(parts.length === 2){
+    return parts[0] + "T" + parts[1] + "Z"; // ISO 8601
+  }
+  return t;
 }
 
-function toLocal(iso){
-  if(!iso) return '—';
-  const ts = normalizeTime(iso);
-  const d = new Date(ts);
-  if(isNaN(d)) return '—';
-  return d.toLocaleString();
-}
+// Map init
+const map = L.map('map', { zoomControl: true, preferCanvas: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+map.setView([48.5, -98], 4);
 
-const map = L.map('map',{zoomControl:true,preferCanvas:true});
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
-map.setView([48.5,-98],4);
+// Load CSV
+async function loadData(){
+  const res = await fetch(CSV_URL);
+  const text = await res.text();
+  const parsed = Papa.parse(text, { header: true, skipEmptyLines: true });
+  let data = parsed.data;
 
-function makePopup(d){
-  return `
-    <h4>${d.icao} — ${d.site||''} ${chip(d.flight_category||'—')}</h4>
-    <div><b>Observed:</b> ${toLocal(d.observed_utc)}</div>
-    <div class="kv">
-      <div class="k">Temp:</div><div>${d.temp_c??'—'} °C</div>
-      <div class="k">Dewpoint:</div><div>${d.dewpoint_c??'—'} °C</div>
-      <div class="k">Wind:</div><div>${d.wind_dir_deg||'VAR'}° @ ${d.wind_kts??'—'} kt</div>
-      <div class="k">Gust:</div><div>${d.gust_kts??'—'} kt</div>
-      <div class="k">Vis:</div><div>${d.vis_sm??'—'} sm</div>
-      <div class="k">Altimeter:</div><div>${d.altimeter_hpa??'—'} hPa</div>
-    </div>
-    <div style="margin-top:.4rem;font-size:.8rem;color:#555"><b>Raw:</b> ${d.raw_text||'—'}</div>
-  `;
-}
+  console.log("Sample timestamps from CSV:", data.slice(0,5).map(d => d.observed_utc));
 
-function render(data){
+  // Deduplicate: most recent per ICAO
   const latest = {};
-  data.forEach(d=>{
-    if(!d.icao || !d.latitude || !d.longitude) return;
-    const obsTime = normalizeTime(d.observed_utc);
-    if(!latest[d.icao] || new Date(obsTime) > new Date(normalizeTime(latest[d.icao].observed_utc))){
-      latest[d.icao]={...d, observed_utc:obsTime};
+  data.forEach(d => {
+    const t = normalizeTime(d.observed_utc);
+    if(!t) return;
+    const ts = new Date(t).getTime();
+    if(!isFinite(ts)) return;
+    if(!latest[d.icao] || ts > latest[d.icao].ts){
+      latest[d.icao] = { ...d, ts, observed_iso: t };
     }
   });
-  const bounds=[];
-  Object.values(latest).forEach(d=>{
-    const lat=parseFloat(d.latitude), lon=parseFloat(d.longitude);
-    if(isNaN(lat)||isNaN(lon)) return;
-    const cat=(d.flight_category||'').toUpperCase();
-    const marker=L.circleMarker([lat,lon],{
-      radius:7,color:catColor(cat),fillColor:catColor(cat),fillOpacity:0.9
-    });
-    marker.bindPopup(makePopup(d));
-    marker.addTo(map);
-    bounds.push([lat,lon]);
-  });
-  if(bounds.length) map.fitBounds(bounds,{padding:[40,40]});
 
-  // Last Update text
-  const latestTime = new Date(Math.max(...Object.values(latest).map(d=>new Date(d.observed_utc))));
+  const bounds = [];
+  Object.values(latest).forEach(d => {
+    if(!d.latitude || !d.longitude) return;
+    const lat = parseFloat(d.latitude), lon = parseFloat(d.longitude);
+    if(isNaN(lat) || isNaN(lon)) return;
+    const cat = (d.flight_category || '').toUpperCase();
+    const marker = L.circleMarker([lat, lon], {
+      radius: 7, color: catColor(cat), fillColor: catColor(cat), fillOpacity: 0.85
+    });
+    marker.bindPopup(`
+      <h4>${d.icao} — ${d.site||''} ${chip(cat)}</h4>
+      <div class="kv">
+        <div class="k">Observed:</div><div>${new Date(d.observed_iso).toLocaleString()}</div>
+        <div class="k">Temp:</div><div>${d.temp_c||'—'} °C</div>
+        <div class="k">Dewpt:</div><div>${d.dewpoint_c||'—'} °C</div>
+        <div class="k">Wind:</div><div>${d.wind_dir_deg||'VAR'}° ${d.wind_kts||0} kt (gust ${d.gust_kts||0})</div>
+        <div class="k">Vis:</div><div>${d.vis_sm||'—'} sm</div>
+        <div class="k">Alt:</div><div>${d.altimeter_hpa||'—'} hPa</div>
+        <div class="k">Raw:</div><div>${d.raw_text||''}</div>
+      </div>
+    `);
+    marker.addTo(map);
+    bounds.push([lat, lon]);
+  });
+
+  if(bounds.length) map.fitBounds(bounds, { padding: [40,40] });
+
+  // Update "Last Updated"
+  const latestTime = Math.max(...Object.values(latest).map(d => d.ts));
   document.getElementById('lastUpdated').textContent =
-    "Last Update: "+latestTime.toLocaleString();
+    "Last Update: " + new Date(latestTime).toLocaleString();
 }
 
-Papa.parse(DATA_URL,{
-  download:true,header:true,dynamicTyping:true,skipEmptyLines:true,
-  complete:res=>render(res.data)
-});
+document.addEventListener('DOMContentLoaded', loadData);
 </script>
 </body>
 </html>
