@@ -133,11 +133,10 @@ write_csvs <- function(df, master){
 
 # ---------------- Build STATIONS dynamically --------------------
 message("Fetching airport list from GitHub mirror of OurAirports ...")
-tmpfile <- tempfile(fileext = ".csv")
-download.file("https://raw.githubusercontent.com/davidmegginson/ourairports-data/refs/heads/main/airports.csv",
-              tmpfile, method = "curl", quiet = TRUE)
-
-airports <- read_csv(tmpfile, show_col_types = FALSE)
+airports <- read_csv(
+  "https://raw.githubusercontent.com/davidmegginson/ourairports-data/refs/heads/main/airports.csv",
+  show_col_types = FALSE
+)
 
 stations_df <- airports %>%
   filter(iso_country %in% c("CA","US"),
