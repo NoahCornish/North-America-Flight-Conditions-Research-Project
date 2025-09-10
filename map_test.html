@@ -135,7 +135,7 @@ function render(data){
 }
 
 Papa.parse(DATA_URL,{
-  download:true,header:true,dynamicTyping:true,
+  download:true,header:true,dynamicTyping:true,skipEmptyLines:true,
   complete:res=>render(res.data)
 });
 </script>
