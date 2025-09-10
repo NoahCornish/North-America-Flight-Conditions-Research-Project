@@ -29,8 +29,15 @@
   .monospace{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
   .raw{background:#f6f8fb;border-left:4px solid var(--brand);padding:.6rem;border-radius:10px;white-space:pre-wrap}
   .summary-box{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.5rem}
-  .chip{border-radius:999px;padding:.3rem .7rem;font-size:.85rem;font-weight:700;color:#fff}
+  .chip{border-radius:999px;padding:.25rem .6rem;font-size:.78rem;font-weight:700;color:#fff}
+  .pie-container{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+  .pie-block{flex:1 1 180px;max-width:220px;text-align:center}
+  canvas{max-width:180px !important;max-height:180px !important;margin:0 auto}
   footer{padding:2rem 1rem;color:var(--muted);text-align:center}
+  @media(max-width:700px){
+    .pie-container{flex-direction:column;align-items:center}
+    .pie-block{max-width:100%}
+  }
   @media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -47,15 +54,15 @@
     <!-- Overview (Pie Charts) -->
     <article class="card">
       <h2>National Overview</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center">
-        <div style="text-align:center">
+      <div class="pie-container">
+        <div class="pie-block">
           <h3>Canada</h3>
-          <canvas id="chartCA" width="280" height="280"></canvas>
+          <canvas id="chartCA"></canvas>
           <div id="summaryCA" class="summary-box"></div>
         </div>
-        <div style="text-align:center">
+        <div class="pie-block">
           <h3>USA</h3>
-          <canvas id="chartUS" width="280" height="280"></canvas>
+          <canvas id="chartUS"></canvas>
           <div id="summaryUS" class="summary-box"></div>
         </div>
       </div>
@@ -96,12 +103,9 @@ const CSV_URL="https://raw.githubusercontent.com/NoahCornish/North-America-Fligh
 const $=s=>document.querySelector(s);
 const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
 function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
-
-// ✅ Use CSS vars for colours
 function cssVar(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim();}
 const COLORS={VFR:cssVar("--vfr"),MVFR:cssVar("--mvfr"),IFR:cssVar("--ifr"),LIFR:cssVar("--lifr")};
-
-let latestByIcao={};let charts={};
+let latestByIcao={},charts={};
 
 function processRows(rows){
   latestByIcao={};let newestISO=null;
@@ -128,8 +132,8 @@ function renderPieCharts(){
   const ctxCA=$("#chartCA"),ctxUS=$("#chartUS");
   const dataCA=computeBreakdown("CA"),dataUS=computeBreakdown("US");
   if(charts.CA)charts.CA.destroy();if(charts.US)charts.US.destroy();
-  charts.CA=new Chart(ctxCA,{type:"pie",data:{labels:Object.keys(dataCA.counts),datasets:[{data:Object.values(dataCA.counts),backgroundColor:Object.keys(dataCA.counts).map(k=>COLORS[k])}]},options:{plugins:{legend:{display:false}}}});
-  charts.US=new Chart(ctxUS,{type:"pie",data:{labels:Object.keys(dataUS.counts),datasets:[{data:Object.values(dataUS.counts),backgroundColor:Object.keys(dataUS.counts).map(k=>COLORS[k])}]},options:{plugins:{legend:{display:false}}}});
+  charts.CA=new Chart(ctxCA,{type:"pie",data:{labels:Object.keys(dataCA.counts),datasets:[{data:Object.values(dataCA.counts),backgroundColor:Object.keys(dataCA.counts).map(k=>COLORS[k])}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
+  charts.US=new Chart(ctxUS,{type:"pie",data:{labels:Object.keys(dataUS.counts),datasets:[{data:Object.values(dataUS.counts),backgroundColor:Object.keys(dataUS.counts).map(k=>COLORS[k])}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
   renderSummaryBox("summaryCA",dataCA);renderSummaryBox("summaryUS",dataUS);
 }
 
@@ -152,7 +156,7 @@ function showAirport(icao){
   const r=latestByIcao[icao];if(!r)return;
   $("#apName").textContent=r.site||icao;$("#apIcao").textContent=icao;
   $("#apCat").textContent=r.cat;$("#apCat").className="badge cat-"+(r.cat||"");
-  $("#apTemp").textContent=isFinite(r.temp)?r.temp+" °C":"—";$("#apDew").textContent=isFinite(r.dewp)?r.dewpoint+" °C":"—";
+  $("#apTemp").textContent=isFinite(r.temp)?r.temp+" °C":"—";$("#apDew").textContent=isFinite(r.dewp)?r.dewp+" °C":"—";
   $("#apWind").textContent=(isFinite(r.wdir)?r.wdir+"°":"—")+" @ "+(isFinite(r.wspd)?r.wspd:"—")+" kt";
   $("#apVis").textContent=isFinite(r.vis)?r.vis+" sm":"—";$("#apAlt").textContent=isFinite(r.alt)?r.alt+" hPa":"—";
   $("#apGust").textContent=isFinite(r.gust)?r.gust+" kt":"0 kt";$("#apRaw").textContent=r.raw||"";
