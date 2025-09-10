@@ -57,6 +57,9 @@ jobs:
       - name: 🧹 Run cleaning script
         run: Rscript Clean_METARs.R
 
+      - name: Run Airport Flight Condition Summaries Script
+        run: Rscript METAR_Summaries.R
+
       - name: 💾 Commit and push updated files
         run: |
           git config user.name  "github-actions[bot]"
