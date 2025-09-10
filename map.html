@@ -5,18 +5,18 @@
 <title>NAFCRP — Live Flight Conditions Map</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0b2540" />
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
-<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
 
-<!-- Leaflet only (no clustering) -->
+<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- PapaParse -->
+<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
-    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad; --chip:#eef2f7;
+    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
     --shadow:0 10px 26px rgba(0,0,0,.08);
   }
   *{box-sizing:border-box}
@@ -26,30 +26,69 @@
     background:linear-gradient(135deg,#0b2540,var(--brand));
     color:#fff; box-shadow:var(--shadow);
   }
-  .wrap{max-width:1200px;margin:0 auto;padding:.8rem 1rem;display:flex;gap:.8rem;align-items:center;justify-content:space-between}
-  .brand{display:flex;gap:.8rem;align-items:center}
-  .logo{width:40px;height:40px;border-radius:12px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800}
-  .title h1{margin:0;font-size:1.05rem;font-weight:800;letter-spacing:.2px}
-  .title p{margin:.25rem 0 0;opacity:.92;font-weight:600;font-size:.86rem}
-  #map{height:calc(100vh - 78px); width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:1rem;align-items:center}
+  .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
+  .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
+  .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
+  #map{height:calc(100vh - 84px); width:100%}
   .legend{
-    position:absolute; right:12px; bottom:12px; z-index:1100;
-    background:var(--card); border-radius:14px; padding:.6rem .8rem; box-shadow:var(--shadow)
+    position:absolute; right:16px; bottom:16px; z-index:1100;
+    background:var(--card); border-radius:18px; padding:1rem 1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.1);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.7);
   }
-  .legend h3{margin:0 0 .35rem; font-size:.9rem}
-  .legend .row{display:flex;align-items:center;gap:.45rem;margin:.2rem 0}
-  .dot{width:12px;height:12px;border-radius:50%}
+  .legend h3{margin:0 0 .5rem; font-size:.95rem; font-weight:700;}
+  .legend .row{display:flex;align-items:center;gap:.65rem;margin:.25rem 0; font-size:.9rem; font-weight:500;}
+  .dot{width:14px;height:14px;border-radius:50%; border:2px solid #fff}
   .dot.vfr{background:var(--vfr)} .dot.mvfr{background:var(--mvfr)} .dot.ifr{background:var(--ifr)} .dot.lifr{background:var(--lifr)}
-  .meta{position:absolute; left:12px; bottom:12px; z-index:1100; font-size:.8rem; color:var(--muted); background:#ffffffcc; padding:.35rem .55rem; border-radius:10px}
-  .badge{display:inline-block; padding:.1rem .45rem; border-radius:999px; color:#fff; font-weight:800; font-size:.75rem; letter-spacing:.3px}
+  .meta{position:absolute; left:16px; bottom:16px; z-index:1100; font-size:.85rem; color:var(--muted); background:#ffffffcc; padding:.45rem .65rem; border-radius:12px; font-weight:500;}
+  .badge{display:inline-block; padding:.1rem .5rem; border-radius:999px; color:#fff; font-weight:700; font-size:.7rem; letter-spacing:.3px; text-transform: uppercase;}
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
-  .leaflet-popup-content{margin:8px 10px; font-size:.92rem}
-  .leaflet-popup-content h4{margin:.1rem 0 .35rem; font-size:1rem}
-  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)); gap:.3rem .8rem; margin-top:.35rem; font-size:.9rem}
-  .k{color:#6b7b8c; font-weight:700}
-  @media (max-width:640px){
-    .title p{display:none}
-    #map{height:calc(100vh - 66px)}
+  
+  /* --- Popup Styling --- */
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    border-radius: 12px;
+  }
+  .leaflet-popup-content{
+    margin:12px 16px; 
+    font-size:1rem; 
+    padding:0;
+  }
+  .leaflet-popup-content h4{
+    margin:.1rem 0 .5rem; 
+    font-size:1.2rem;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    line-height: 1.2;
+  }
+  .kv{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.5rem 1.5rem;
+    margin-top:.8rem;
+    font-size:.95rem;
+    border-top:1px solid #eee;
+    padding-top:1rem;
+  }
+  .k{color:var(--muted); font-weight:600;}
+  .v{font-weight:500;}
+  pre{
+    background:#f8f9fa;
+    border:1px solid #e0e4e8;
+    border-radius:8px;
+    padding:.75rem;
+    font-size:.8rem;
+    line-height:1.4;
+    font-family: monospace;
+    overflow: auto; /* Allow scrolling if necessary */
+    white-space: pre-wrap; /* The key fix for wrapping */
+    word-wrap: break-word;
+    margin-top: 1rem;
   }
 </style>
 </head>
@@ -71,106 +110,89 @@
 
 <div class="legend" aria-label="Legend">
   <h3>Condition</h3>
-  <div class="row"><span class="dot vfr" aria-hidden="true"></span> VFR</div>
-  <div class="row"><span class="dot mvfr" aria-hidden="true"></span> MVFR</div>
-  <div class="row"><span class="dot ifr" aria-hidden="true"></span> IFR</div>
-  <div class="row"><span class="dot lifr" aria-hidden="true"></span> LIFR</div>
+  <div class="row"><span class="dot vfr"></span> VFR</div>
+  <div class="row"><span class="dot mvfr"></span> MVFR</div>
+  <div class="row"><span class="dot ifr"></span> IFR</div>
+  <div class="row"><span class="dot lifr"></span> LIFR</div>
 </div>
-<div class="meta">Source: AviationWeather.gov • Project: NAFCRP</div>
+<div class="meta">Source: clean_metars.csv • Project: NAFCRP</div>
 
 <script>
-/* ---------- Stations ---------- */
-const STATIONS = [
-  // ---------------- Canada (100) ----------------
-  // Original 50
-  "CYER","CYAT","CYMO","CYPL","CYQT","CYAM","CYTS","CYSB","CYYB","CYOW",
-  "CYGK","CYQG","CYVV","CYYZ","CYQA",
-  "CYVR","CYYJ","CYLW","CYXS","CYXT","CYQQ",
-  "CYYC","CYEG","CYMM","CYQF",
-  "CYXE","CYQR","CYWG","CYBR",
-  "CYUL","CYHU","CYQB","CYVO","CYUY","CYZV","CYBC","CYRJ",
-  "CYHZ","CYYG","CYQM","CYFC","CYYT","CYQY",
-  "CYXY","CYZF","CYFB","CYRT","CYBK","CYRB","CYCO",
-
-  // +50 more Canadian airports
-  "CYAM","CYKF","CYTZ","CYXU","CYHM","CYHD","CYQT","CYQK","CYGQ","CYQH",
-  "CYQX","CYDP","CYMH","CYDF","CYZP","CYWL","CYXD","CYQU","CYQQ","CYXS",
-  "CYPR","CYCD","CYXX","CYBL","CYAZ","CYQQ","CYOD","CYTR","CYBG","CYUY",
-  "CYMT","CYRJ","CYBC","CYVO","CYFB","CYTE","CYVC","CYDQ","CYCO","CYXP",
-  "CYVQ","CYPC","CYLK","CYCK","CYKJ","CYQB","CYGV","CYGL","CYHA","CYKL",
-
-  // ---------------- USA (100) ----------------
-  // Northeast / Mid-Atlantic
-  "KBOS","KPVD","KBED","KBDL","KALB","KSYR","KROC","KBUF","KJFK","KLGA",
-  "KEWR","KHPN","KSWF","KPHL","KPIT","KBWI","KIAD","KDCA","KRIC","KORF",
-
-  // Southeast
-  "KATL","KSAV","KJAX","KMCO","KTPA","KRSW","KFLL","KMIA","KPBI","KEYW",
-  "KBHM","KHSV","KBNA","KMEM","KLIT","KCLT","KRDU","KGSO","KCHS","KMYR",
-
-  // Midwest
-  "KORD","KMDW","KSTL","KMCI","KMSP","KIND","KCVG","KSDF","KDAY","KCLE",
-  "KCMH","KDTW","KGRR","KSBN","KFWA","KDSM","KFSD","KOMA","KLNK","KMLI",
-
-  // Texas / Plains
-  "KDFW","KDAL","KAFW","KHOU","KIAH","KAUS","KSAT","KELP","KAMA","KLBB",
-  "KTUL","KOKC","KICT","KLAW","KLRD","KBRO","KHRL","KMFE","KABI","KACT",
-
-  // Rockies / West
-  "KDEN","KCOS","KPUB","KASE","KEGE","KGJT","KSLC","KBOI","KIDA","KBZN",
-  "KGTF","KBIL","KMSO","KHLN","KSEA","KBFI","KGEG","KPDX","KEUG","KMFR",
-
-  // California / Southwest / Pacific
-  "KLAX","KBUR","KSNA","KLGB","KSAN","KONT","KSMO","KPSP","KSBA","KSJC",
-  "KSFO","KOAK","KSTS","KRNO","KPHX","KTUS","KABQ","KSAF","PHNL","PHOG"
-];
-
-
-/* ---------- Map setup ---------- */
-const map = L.map('map', {
-  zoomControl: true,
-  preferCanvas: true
-});
-const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-  attribution: '&copy; OpenStreetMap'
+const map = L.map('map', { zoomControl: true, preferCanvas: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18, attribution: '&copy; OpenStreetMap'
 }).addTo(map);
 map.setView([48.5, -98], 4);
 
-/* ---------- Styling ---------- */
 const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
-const catColor = (c) => CAT_COLORS[(c || '').toUpperCase()] || '#999';
+function catColor(c){ return CAT_COLORS[(c||'').toUpperCase()] || '#999'; }
 function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
-function toLocal(iso){ if(!iso) return '—'; const s = /[zZ]$/.test(iso)? iso : iso+'Z'; return new Date(s).toLocaleString(); }
 
-/* ---------- Fetch & render ---------- */
-const API_BASE = "https://aviationweather.gov/api/data/metar?format=geojson&ids=";
-const CHUNK_SIZE = 40;
+const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/main/Data/METARs/clean_metars.csv";
 
-function chunk(arr, size){ const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out; }
-async function fetchChunk(ids){ const url = API_BASE + encodeURIComponent(ids.join(',')) + `&_=${Date.now()}`; const res=await fetch(url); return res.json(); }
-function getProp(p, keys){ for(const k of keys) if(p[k]!=null && p[k]!=='') return p[k]; return undefined; }
+Papa.parse(CSV_URL, {
+  download: true,
+  header: true,
+  complete: function(results) {
+    const rows = results.data;
+    const latestByIcao = {};
+    let globalLatest = null;
 
-function featureToMarker(f){
-  const g=f.geometry||{}, p=f.properties||{}; if(!g.coordinates) return null;
-  const [lon,lat]=g.coordinates; const icao=getProp(p,['station','icao','id'])||'—'; const site=getProp(p,['name','site'])||''; const cat=(getProp(p,['flight_category','fltcat'])||'').toUpperCase();
-  const marker=L.circleMarker([lat,lon],{radius:7,color:catColor(cat),fillColor:catColor(cat),fillOpacity:0.85});
-  marker.bindPopup(`<h4>${icao} — ${site} ${chip(cat)}</h4>`);
-  return marker;
-}
+    rows.forEach(r => {
+      // Use the correct column names provided by the user
+      const icao = r.icao;
+      const lat = parseFloat(r.site_lat);
+      const lon = parseFloat(r.site_lon);
 
-async function loadAll(){
-  const groups=chunk(STATIONS,CHUNK_SIZE); let newest=null; const bounds=[];
-  for(const group of groups){
-    try{
-      const data=await fetchChunk(group); for(const f of (data.features||[])){
-        const m=featureToMarker(f); if(m){ m.addTo(map); bounds.push([f.geometry.coordinates[1],f.geometry.coordinates[0]]); }
+      if(!icao || !isFinite(lat) || !isFinite(lon)) return;
+      const obs = new Date(r.observed_utc);
+      if(isNaN(obs)) return;
+
+      if(!latestByIcao[icao] || obs > new Date(latestByIcao[icao].observed_utc)){
+        latestByIcao[icao] = r;
       }
-    }catch(e){console.error(e);}
+      if(!globalLatest || obs > globalLatest) globalLatest = obs;
+    });
+
+    const bounds = [];
+    Object.values(latestByIcao).forEach(r => {
+      const lat = parseFloat(r.site_lat), lon = parseFloat(r.site_lon);
+      if(!isFinite(lat) || !isFinite(lon)) return;
+      const cat = (r.flight_category || '—').toUpperCase();
+
+      const marker = L.circleMarker([lat, lon], {
+        radius: 7,
+        color: catColor(cat),
+        fillColor: catColor(cat),
+        fillOpacity: 0.85
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
+        <div class="kv">
+          <div class="k">Observed:</div><div class="v">${r.observed_local||r.observed_utc}</div>
+          <div class="k">Temp:</div><div class="v">${r.temp_c||'—'} °C</div>
+          <div class="k">Dewpoint:</div><div class="v">${r.dewpoint_c||'—'} °C</div>
+          <div class="k">Wind:</div><div class="v">${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+          <div class="k">Gust:</div><div class="v">${r.gust_kts||0} kt</div>
+          <div class="k">Vis:</div><div class="v">${r.vis_sm||'—'} sm</div>
+          <div class="k">Altimeter:</div><div class="v">${r.altimeter_hpa||'—'} hPa</div>
+        </div>
+        <pre>${r.raw_text||''}</pre>
+      `);
+
+      bounds.push([lat, lon]);
+    });
+
+    if(bounds.length) map.fitBounds(bounds, {padding:[40,40]});
+    if(globalLatest) {
+      document.getElementById("lastUpdated").innerText =
+        "Last Update: " + globalLatest.toLocaleString();
+    } else {
+      document.getElementById("lastUpdated").innerText = "Last Update: No data";
+    }
   }
-  if(bounds.length) map.fitBounds(bounds.pad?bounds.pad(0.08):bounds);
-}
-document.addEventListener('DOMContentLoaded', loadAll);
+});
 </script>
 </body>
 </html>
