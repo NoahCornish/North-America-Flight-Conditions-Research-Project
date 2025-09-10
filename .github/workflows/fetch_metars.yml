@@ -15,10 +15,9 @@ concurrency:
 
 jobs:
   fetch_and_clean:
-    name: 📡 Fetch → 🧹 Clean (every 5 min)
+    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (every 5 min)
     runs-on: ubuntu-latest
 
-    # Use an R environment with tidyverse preinstalled
     container:
       image: rocker/tidyverse:4.3.3
 
@@ -47,7 +46,7 @@ jobs:
 
       - name: 📦 Ensure required R packages are installed
         run: |
-          Rscript -e 'need <- c("here", "httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
+          Rscript -e 'need <- c("here","httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
                       missing <- need[!(need %in% rownames(installed.packages()))];
                       if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)'
 
@@ -57,15 +56,18 @@ jobs:
       - name: 🧹 Run cleaning script
         run: Rscript Clean_METARs.R
 
-      - name: Run Airport Flight Condition Summaries Script
+      - name: 📊 Run summaries script
         run: Rscript METAR_Summaries.R
+
+      - name: 📂 List generated outputs
+        run: ls -lh Data/METARs Data/Summaries || true
 
       - name: 💾 Commit and push updated files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add METAR files + Summaries outputs
+          # Stage outputs
           git add Data/METARs/*.csv Data/METARs/*.txt Data/Summaries/*.csv Data/Summaries/*.txt || true
 
           echo "---- git status ----"
@@ -75,8 +77,18 @@ jobs:
 
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Fetch, Clean & Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            git push
+
+            # Retry loop for safe pushing in case of race conditions
+            for i in 1 2 3; do
+              echo "Attempt $i to push..."
+              if git pull --rebase origin main && git push origin main; then
+                echo "✅ Push successful"
+                break
+              else
+                echo "⚠️ Push failed, retrying in 10s..."
+                sleep 10
+              fi
+            done
           else
             echo "No changes to commit."
           fi
-
