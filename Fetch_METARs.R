@@ -99,7 +99,7 @@ get_metars_chunk <- function(stns){
 }
 
 fetch_all <- function(stns){
-  chunks <- chunk_vec(stns, 250)  # safe chunk size
+  chunks <- chunk_vec(stns, 200)  # safe chunk size
   dfs <- list()
   for (i in seq_along(chunks)) {
     df <- get_metars_chunk(chunks[[i]])
@@ -139,11 +139,17 @@ airports <- read_csv(
 )
 
 stations_df <- airports %>%
-  filter(iso_country %in% c("CA","US"),
-         type %in% c("large_airport","medium_airport")) %>%
+  filter(iso_country %in% c("CA","US")) %>%
+  filter(
+    # Large & medium everywhere
+    (type %in% c("large_airport","medium_airport")) |
+      # Small only in Canada
+      (iso_country == "CA" & type == "small_airport")
+  ) %>%
   filter(!is.na(ident), str_length(ident) == 4) %>%
   filter(grepl("^(C|K|P)", ident)) %>%
   distinct(ident)
+
 
 STATIONS <- stations_df$ident
 message("Total airports in STATIONS: ", length(STATIONS))
