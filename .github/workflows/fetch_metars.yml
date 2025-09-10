@@ -65,8 +65,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add raw + monthly, clean + monthly, and logs under Data/METARs/
-          git add Data/METARs/*.csv Data/METARs/*.txt || true
+          # Add METAR files + Summaries outputs
+          git add Data/METARs/*.csv Data/METARs/*.txt Data/Summaries/*.csv Data/Summaries/*.txt || true
 
           echo "---- git status ----"
           git status
@@ -74,8 +74,9 @@ jobs:
           git diff --cached --stat || true
 
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Fetch & Clean METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git commit -m "Fetch, Clean & Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
             git push
           else
             echo "No changes to commit."
           fi
+
