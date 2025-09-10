@@ -1,11 +1,12 @@
 #!/usr/bin/env Rscript
 
-# Deduplicate METAR rows by ICAO timeline.
+# Deduplicate METAR rows by ICAO timeline and enrich with lat/lon.
 # Keep a row if raw_text changed OR any of these changed:
 # flight_category, temp_c, dewpoint_c, wind_dir_deg, wind_kts, gust_kts, vis_sm, altimeter_hpa
 # Special handling:
 # - wind_dir_deg: if NA → "VAR"
 # - gust_kts: if NA → 0
+# Adds site_lat / site_lon from OurAirports.
 
 suppressPackageStartupMessages({
   library(readr)
@@ -32,7 +33,7 @@ if (!dir.exists(DATA_DIR)) dir.create(DATA_DIR, recursive = TRUE)
 message("Reading master: ", MASTER_CSV)
 
 # ------------------- Read -------------------
-raw_df <- suppressMessages(read_csv(MASTER_CSV, guess_max = 200000))
+raw_df <- suppressMessages(read_csv(MASTER_CSV, guess_max = 500000))
 
 if (nrow(raw_df) == 0) {
   message("No rows found in master. Exiting.")
@@ -113,6 +114,24 @@ clean_df <- df %>%
   filter(keep_row) %>%
   select(-starts_with("changed_"), -keep_row)
 
+# ------------------- Enrich with lat/lon -------------------
+message("Fetching OurAirports data for coordinates...")
+airports <- read_csv(
+  "https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv",
+  show_col_types = FALSE
+) %>%
+  select(ident, name, latitude_deg, longitude_deg, iso_country, iso_region)
+
+clean_df <- clean_df %>%
+  left_join(airports, by = c("icao" = "ident")) %>%
+  rename(
+    site_name = name,
+    site_lat  = latitude_deg,
+    site_lon  = longitude_deg,
+    country   = iso_country,
+    region    = iso_region
+  )
+
 # ------------------- Write outputs -------------------
 now_local <- with_tz(Sys.time(), "America/Toronto")
 month_out <- file.path(DATA_DIR, sprintf("clean_metars_%s.csv", format(now_local, "%m_%Y")))
@@ -127,8 +146,8 @@ added <- nrow(clean_df)
 orig  <- nrow(df)
 dupes <- orig - added
 
-cat(sprintf("[%s] Cleaned METARs — input: %d rows, kept: %d rows, dropped: %d rows\n",
-            format(now_local, "%Y-%m-%d %H:%M:%S %Z"), orig, added, dupes),
+cat(sprintf("[%s] Cleaned METARs — input: %d rows, kept: %d rows, dropped: %d rows, enriched: %d rows\n",
+            format(now_local, "%Y-%m-%d %H:%M:%S %Z"), orig, added, dupes, added),
     file = LOG_FILE, append = TRUE)
 
-message("Done. Kept ", added, " / ", orig, " rows (", dupes, " dropped).")
+message("Done. Kept ", added, " / ", orig, " rows (", dupes, " dropped). Enriched with lat/lon.")
