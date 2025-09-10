@@ -16,6 +16,7 @@
     --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8;
     --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
     --shadow:0 10px 26px rgba(0,0,0,.08);
+    --header-height: 84px;
   }
   *{box-sizing:border-box}
   html,body{height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -29,7 +30,7 @@
   .logo{width:48px;height:48px;border-radius:14px;background:#fff1;border:1px solid #ffffff33;display:grid;place-items:center;font-weight:800; font-size:1.5rem;}
   .title h1{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:.2px}
   .title p{margin:.25rem 0 0;opacity:.92;font-weight:500;font-size:.9rem}
-  #map{height:calc(100vh - 84px); width:100%}
+  #map{height:calc(100vh - var(--header-height)); width:100%}
   
   .header-controls {
     display: flex;
@@ -212,6 +213,7 @@
         <div class="row"><span class="dot ifr"></span> IFR</div>
         <div class="row"><span class="dot lifr"></span> LIFR</div>
       </div>
+      <div class="meta">Source: clean_metars.csv</div>
     </div>
     <div id="lastUpdated" aria-live="polite">Loading…</div>
   </div>
