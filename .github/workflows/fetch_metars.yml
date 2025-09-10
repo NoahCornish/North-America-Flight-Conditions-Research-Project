@@ -47,7 +47,7 @@ jobs:
 
       - name: 📦 Ensure required R packages are installed
         run: |
-          Rscript -e 'need <- c("httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
+          Rscript -e 'need <- c("here", "httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
                       missing <- need[!(need %in% rownames(installed.packages()))];
                       if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)'
 
