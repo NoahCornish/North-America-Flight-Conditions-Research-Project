@@ -79,87 +79,66 @@
 </div>
 <div class="meta">Source: GitHub clean_metars.csv • Project: NAFCRP</div>
 
+<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
 const CSV_URL = "https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
 
-// Colors
 const CAT_COLORS = { VFR:'#2ecc71', MVFR:'#3498db', IFR:'#e74c3c', LIFR:'#8e44ad' };
-const catColor = (c) => CAT_COLORS[(c || '').toUpperCase()] || '#999';
+function catColor(c){ return CAT_COLORS[(c||'').toUpperCase()] || '#999'; }
+
 function chip(cat){ return `<span class="badge cat-${cat}">${cat||'—'}</span>`; }
 
-// Time normalizer
-function normalizeTime(t){
-  if(!t) return null;
-  const parts = t.trim().split(" ");
-  if(parts.length === 2){
-    return parts[0] + "T" + parts[1] + "Z"; // ISO 8601
-  }
-  return t;
-}
+Papa.parse(CSV_URL, {
+  download: true,
+  header: true,
+  complete: function(results) {
+    const rows = results.data;
+    const latestByIcao = {};
 
-// Map init
-const map = L.map('map', { zoomControl: true, preferCanvas: true });
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-  attribution: '&copy; OpenStreetMap'
-}).addTo(map);
-map.setView([48.5, -98], 4);
-
-// Load CSV
-async function loadData(){
-  const res = await fetch(CSV_URL);
-  const text = await res.text();
-  const parsed = Papa.parse(text, { header: true, skipEmptyLines: true });
-  let data = parsed.data;
-
-  console.log("Sample timestamps from CSV:", data.slice(0,5).map(d => d.observed_utc));
-
-  // Deduplicate: most recent per ICAO
-  const latest = {};
-  data.forEach(d => {
-    const t = normalizeTime(d.observed_utc);
-    if(!t) return;
-    const ts = new Date(t).getTime();
-    if(!isFinite(ts)) return;
-    if(!latest[d.icao] || ts > latest[d.icao].ts){
-      latest[d.icao] = { ...d, ts, observed_iso: t };
-    }
-  });
-
-  const bounds = [];
-  Object.values(latest).forEach(d => {
-    if(!d.latitude || !d.longitude) return;
-    const lat = parseFloat(d.latitude), lon = parseFloat(d.longitude);
-    if(isNaN(lat) || isNaN(lon)) return;
-    const cat = (d.flight_category || '').toUpperCase();
-    const marker = L.circleMarker([lat, lon], {
-      radius: 7, color: catColor(cat), fillColor: catColor(cat), fillOpacity: 0.85
+    // Pick latest METAR per airport
+    rows.forEach(r => {
+      if(!r.icao || !r.lat || !r.lon) return;
+      const obs = new Date(r.observed_utc);
+      if(!latestByIcao[r.icao] || obs > new Date(latestByIcao[r.icao].observed_utc)){
+        latestByIcao[r.icao] = r;
+      }
     });
-    marker.bindPopup(`
-      <h4>${d.icao} — ${d.site||''} ${chip(cat)}</h4>
-      <div class="kv">
-        <div class="k">Observed:</div><div>${new Date(d.observed_iso).toLocaleString()}</div>
-        <div class="k">Temp:</div><div>${d.temp_c||'—'} °C</div>
-        <div class="k">Dewpt:</div><div>${d.dewpoint_c||'—'} °C</div>
-        <div class="k">Wind:</div><div>${d.wind_dir_deg||'VAR'}° ${d.wind_kts||0} kt (gust ${d.gust_kts||0})</div>
-        <div class="k">Vis:</div><div>${d.vis_sm||'—'} sm</div>
-        <div class="k">Alt:</div><div>${d.altimeter_hpa||'—'} hPa</div>
-        <div class="k">Raw:</div><div>${d.raw_text||''}</div>
-      </div>
-    `);
-    marker.addTo(map);
-    bounds.push([lat, lon]);
-  });
 
-  if(bounds.length) map.fitBounds(bounds, { padding: [40,40] });
+    const bounds = [];
+    Object.values(latestByIcao).forEach(r => {
+      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+      if(isNaN(lat) || isNaN(lon)) return;
+      const cat = (r.flight_category || '—').toUpperCase();
 
-  // Update "Last Updated"
-  const latestTime = Math.max(...Object.values(latest).map(d => d.ts));
-  document.getElementById('lastUpdated').textContent =
-    "Last Update: " + new Date(latestTime).toLocaleString();
-}
+      const marker = L.circleMarker([lat, lon], {
+        radius: 7,
+        color: catColor(cat),
+        fillColor: catColor(cat),
+        fillOpacity: 0.85
+      }).addTo(map);
 
-document.addEventListener('DOMContentLoaded', loadData);
+      marker.bindPopup(`
+        <h4>${r.icao} — ${r.site||''} ${chip(cat)}</h4>
+        <div class="kv">
+          <div class="k">Observed:</div><div>${r.observed_local||r.observed_utc}</div>
+          <div class="k">Temp:</div><div>${r.temp_c||'—'} °C</div>
+          <div class="k">Dewpoint:</div><div>${r.dewpoint_c||'—'} °C</div>
+          <div class="k">Wind:</div><div>${r.wind_dir_deg||'VAR'}° @ ${r.wind_kts||0} kt</div>
+          <div class="k">Gust:</div><div>${r.gust_kts||0} kt</div>
+          <div class="k">Vis:</div><div>${r.vis_sm||'—'} sm</div>
+          <div class="k">Altimeter:</div><div>${r.altimeter_hpa||'—'} hPa</div>
+        </div>
+        <pre>${r.raw_text||''}</pre>
+      `);
+
+      bounds.push([lat, lon]);
+    });
+
+    if(bounds.length) map.fitBounds(bounds, {padding:[40,40]});
+    document.getElementById("lastUpdated").innerText =
+      "Last Update: " + new Date().toLocaleString();
+  }
+});
 </script>
 </body>
 </html>
