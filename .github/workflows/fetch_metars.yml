@@ -1,21 +1,21 @@
-name: ⛅ METAR Every 5 min ⛈️
+name: ⛅ METAR — Max Frequency ⛈️
 
 on:
   schedule:
-    # Run every 2 minutes to catch late runners, skip if not on a 5-min mark
-    - cron: "*/2 * * * *"
+    # Run every 4 minutes (fastest possible without overlap)
+    - cron: "*/4 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: metar-fetch-clean-5min
+  group: metar-fetch-clean-4min
   cancel-in-progress: true
 
 jobs:
   fetch_and_clean:
-    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (every 5 min)
+    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (every 4 min)
     runs-on: ubuntu-latest
 
     container:
@@ -26,15 +26,10 @@ jobs:
         working-directory: ${{ github.workspace }}
 
     steps:
-      - name: 🕒 Log UTC start + minute check
+      - name: 🕒 Log UTC start
         shell: bash
         run: |
           echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          minute=$(date -u +"%M")
-          if (( minute % 5 != 0 )); then
-            echo "::notice::Skipped because minute $minute not on a 5-min mark."
-            exit 0
-          fi
 
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
