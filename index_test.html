@@ -387,15 +387,8 @@ function refreshLiveViewer(){
     return tokenMatch(hay, q);
   });
 
-  // If query empty, show a stable set: newest 24 across both regions
-  if(!q.trim()){
-    list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
-    list = list.slice(0, 24);
-  } else {
-    // If query present, cap to 36 results to keep layout tight
-    list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
-    list = list.slice(0, 36);
-  }
+  // 🔁 NEW: always show ALL matching latest METARs (no slicing/capping), sorted by most recent
+  list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
 
   renderCards(list);
   const regTxt = region==="ALL" ? "All" : (region==="CA" ? "Canada" : "USA");
