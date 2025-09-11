@@ -2,15 +2,15 @@ name: ⛅ METAR Every 5 min ⛈️
 
 on:
   schedule:
-    # Every 5 minutes (UTC)
-    - cron: "*/5 * * * *"
+    # Every 2 minutes to avoid missing 5-min windows
+    - cron: "*/2 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: metar-fetch-clean
+  group: metar-fetch-clean-every5min
   cancel-in-progress: true
 
 jobs:
@@ -26,23 +26,26 @@ jobs:
         working-directory: ${{ github.workspace }}
 
     steps:
+      - name: 🕒 Log UTC start time
+        run: |
+          echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          minute=$(date -u +"%M")
+          # Only run if current minute is divisible by 5
+          if [ $((10#$minute % 5)) -ne 0 ]; then
+            echo "::notice::Skipped because minute $minute not on a 5-min mark."
+            exit 0
+          fi
+
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: 🔐 Trust workspace for Git (fix dubious ownership)
+      - name: 🔐 Trust workspace for Git
         run: |
           git config --global --add safe.directory '*'
           git rev-parse --is-inside-work-tree
-
-      - name: 🔍 Sanity check workspace
-        run: |
-          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
-          pwd
-          ls -la
-          test -d .git || (echo "::error::.git not found" && exit 1)
 
       - name: 📦 Ensure required R packages are installed
         run: |
@@ -59,9 +62,6 @@ jobs:
       - name: 📊 Run summaries script
         run: Rscript METAR_Summaries.R
 
-      - name: 📂 List generated outputs
-        run: ls -lh Data/METARs Data/Summaries || true
-
       - name: 💾 Commit and push updated files
         run: |
           git config user.name  "github-actions[bot]"
@@ -76,4 +76,3 @@ jobs:
           else
             echo "No changes to commit."
           fi
-
