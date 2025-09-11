@@ -7,8 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root{
     --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8; --accent:#2ecc71;
@@ -43,6 +41,9 @@
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
   .chip{border-radius:999px;padding:.25rem .6rem;font-size:.78rem;font-weight:700;color:var(--chip-ink);background:var(--chip);border:1px solid var(--ring)}
   .chip.color{color:#fff;border:none}
+  .btn{border:1px solid var(--ring);background:var(--card);color:var(--ink);padding:.5rem .85rem;border-radius:10px;font-weight:800;cursor:pointer}
+  .btn.brand{background:var(--brand);color:#fff;border-color:transparent}
+  .btn:disabled{opacity:.6;cursor:not-allowed}
 
   /* Overview pies */
   .legend{display:flex;flex-wrap:wrap;gap:.4rem}
@@ -59,35 +60,20 @@
   .seg .seg-btn.active{background:var(--brand);color:#fff;border-color:transparent}
   #trendChart{width:100%;height:460px !important}
 
-  /* IFR/LIFR Map */
-  #mapCard .seg{margin-bottom:.6rem}
-  #ifrlifrMap{height:460px;border-radius:14px;border:1px solid var(--ring);overflow:hidden}
-  .map-note{margin-top:.4rem}
-
-  /* Live METAR viewer (fixed footprint) */
-  .controls{display:flex;gap:.6rem;flex-wrap:wrap;margin:.2rem 0 .6rem}
-  select,input[type="number"],input[type="text"]{padding:.55rem .7rem;border:1px solid var(--ring);border-radius:10px;background:var(--card);color:var(--ink)}
-  .chips{display:flex;gap:.5rem;flex-wrap:wrap}
-  .btn{border:1px solid var(--ring);background:var(--card);color:var(--ink);padding:.5rem .85rem;border-radius:10px;font-weight:800;cursor:pointer}
-  .btn.brand{background:var(--brand);color:#fff;border-color:transparent}
-  .btn:disabled{opacity:.6;cursor:not-allowed}
-  .table-wrap{border:1px solid var(--ring);border-radius:12px;overflow:auto;max-height:360px;min-height:360px}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:.95rem}
-  colgroup col.w-time{width:160px}
-  colgroup col.w-icao{width:80px}
-  colgroup col.w-site{width:200px}
-  colgroup col.w-cat{width:84px}
-  colgroup col.w-wind{width:120px}
-  colgroup col.w-vis{width:80px}
-  colgroup col.w-alt{width:90px}
-  colgroup col.w-td{width:100px}
-  colgroup col.w-raw{width:320px}
-  colgroup col.w-act{width:96px}
-  thead th{position:sticky;top:0;background:var(--card);z-index:1}
-  th, td{padding:.6rem .7rem;border-bottom:1px solid var(--ring);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  tbody tr:last-child td{border-bottom:none}
-  .right{text-align:right}
-  .nowrap{white-space:nowrap}
+  /* Live METAR viewer (cards, fixed-height container) */
+  .lv-controls{display:flex;gap:.6rem;flex-wrap:wrap;margin:.2rem 0 .6rem}
+  select,input[type="text"]{padding:.55rem .7rem;border:1px solid var(--ring);border-radius:10px;background:var(--card);color:var(--ink)}
+  .lv-results{height:clamp(320px,45vh,520px);overflow:auto;border:1px solid var(--ring);border-radius:14px;padding:.6rem;background:var(--card)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.7rem}
+  .metar-card{border:1px solid var(--ring);border-radius:14px;padding:.8rem;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.5rem}
+  .mc-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+  .mc-title{font-weight:800}
+  .mc-sub{font-size:.86rem;color:var(--muted)}
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+  .k{color:var(--muted);font-weight:700;font-size:.86rem}
+  .raw{background:var(--chip);border-left:4px solid var(--brand);padding:.45rem;border-radius:10px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem}
+  .toolbar{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+  .empty{padding:.6rem;border:1px dashed var(--ring);border-radius:10px;text-align:center;color:var(--muted)}
 
   footer{padding:2rem 1rem;color:var(--muted);text-align:center;font-size:.9rem}
 </style>
@@ -143,58 +129,33 @@
     </div>
   </section>
 
-  <!-- IFR/LIFR Map -->
-  <section id="mapCard" class="card">
-    <h2>IFR / LIFR Map</h2>
-    <div class="seg">
-      <button class="seg-btn active" data-mapregion="CA">Canada</button>
-      <button class="seg-btn" data-mapregion="US">USA</button>
-    </div>
-    <div id="ifrlifrMap"></div>
-    <div id="mapNote" class="note map-note">Showing airports in IFR or LIFR from the latest observations.</div>
-  </section>
-
-  <!-- LIVE METAR VIEWER (latest only; fixed size; no layout shift) -->
+  <!-- LIVE METAR VIEWER — latest only, fixed height, searchable -->
   <section class="card">
     <h2>Live METAR Viewer (Latest Only)</h2>
-    <div class="controls">
-      <label style="flex:2;min-width:260px">ICAOs (comma/space-separated)
-        <input id="lvIcaos" type="text" placeholder="CYTZ CYYZ KSEA KJFK" />
+    <div class="lv-controls">
+      <label style="flex:2;min-width:260px">Search (Airport name or ICAO)
+        <input id="lvQuery" type="text" placeholder="e.g., Toronto, CYTZ, JFK, Seattle" />
       </label>
-      <div class="chips" style="align-items:center">
+      <label>Region
+        <select id="lvRegion">
+          <option value="ALL" selected>All</option>
+          <option value="CA">Canada</option>
+          <option value="US">USA</option>
+        </select>
+      </label>
+      <div class="toolbar">
         <label class="chip"><input id="lvIFRLIFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> IFR+LIFR</label>
         <label class="chip"><input id="lvMVFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> MVFR</label>
         <label class="chip"><input id="lvVFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> VFR</label>
-        <label class="chip"><input id="lvAutoCopy" type="checkbox" style="transform:translateY(2px);margin-right:.35rem"> Auto-copy RAW on row click</label>
+        <label class="chip" title="Copy RAW METAR to clipboard when you click a card"><input id="lvAutoCopy" type="checkbox" style="transform:translateY(2px);margin-right:.35rem"> Auto-copy RAW on click</label>
+        <button id="lvReload" class="btn">Reload data</button>
+        <span class="note" id="lvInfo">—</span>
       </div>
     </div>
-    <div class="controls">
-      <button id="lvRun" class="btn brand">Load Latest</button>
-      <button id="lvReload" class="btn">Reload data</button>
-      <span class="note" id="lvInfo">—</span>
-    </div>
-    <div class="table-wrap">
-      <table id="lvTable">
-        <colgroup>
-          <col class="w-time"><col class="w-icao"><col class="w-site"><col class="w-cat"><col class="w-wind">
-          <col class="w-vis"><col class="w-alt"><col class="w-td"><col class="w-raw"><col class="w-act">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Local Time</th>
-            <th>ICAO</th>
-            <th>Site</th>
-            <th>Cat</th>
-            <th>Wind</th>
-            <th>Vis</th>
-            <th>Alt</th>
-            <th>Temp/Dew</th>
-            <th>RAW</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="lvBody"></tbody>
-      </table>
+
+    <div class="lv-results">
+      <div id="cards" class="cards"></div>
+      <div id="cardsEmpty" class="empty" style="display:none">No airports match your search/filters.</div>
     </div>
   </section>
 
@@ -203,7 +164,7 @@
     <h2>About This Research Project</h2>
     <p class="note">
       Live monitoring of <code>METAR</code> reports across Canada and the USA. National snapshots, a 24-hour category trend,
-      an IFR/LIFR map, and a compact Live METAR viewer (latest only). Data updates ~every 5 minutes from <code>clean_metars.csv</code>.
+      and a compact Live METAR viewer (latest only). Data updates ~every 5 minutes from <code>clean_metars.csv</code>.
     </p>
   </section>
 </main>
@@ -224,6 +185,7 @@ const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s
 const toTime=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';const d=new Date(s);return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});}
 function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
 function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
+function throttle(fn, wait){let t=0; return (...args)=>{const now=Date.now(); if(now-t>wait){t=now; fn(...args);} }}
 
 /* Theme */
 const themeToggle=$("#themeToggle");
@@ -236,7 +198,6 @@ themeToggle.addEventListener("change",()=>{
 /* State */
 let allRows=[], latestByIcao={}, newestISO=null, hiddenCats=new Set();
 let charts={CA:null, US:null, trend:null};
-let map, mapLayer, hasGeo=false;
 
 /* ----------------------- Load data ----------------------- */
 function loadMetars(cb){
@@ -253,36 +214,25 @@ function loadMetars(cb){
 loadMetars(()=>{
   renderOverview();
   renderTrend("CA");
-  initMap();
-  updateMap("CA");
+  initLiveViewer();
+  refreshLiveViewer();
 });
 
 /* ----------------------- Processing ----------------------- */
-function getLatLonFromRow(r){
-  const keys = Object.keys(r);
-  let latKey = keys.find(k=>/^lat(itude)?(_deg)?$/i.test(k)) || keys.find(k=>/latitude/i.test(k));
-  let lonKey = keys.find(k=>/^(lon(gitude)?|lng)(_deg)?$/i.test(k)) || keys.find(k=>/longitude/i.test(k));
-  const lat = asNum(r[latKey]), lon = asNum(r[lonKey]);
-  return {lat, lon};
-}
 function processLatest(rows){
-  latestByIcao={}; newestISO=null; hasGeo=false;
+  latestByIcao={}; newestISO=null;
   for(const r of rows){
     const icao=(r.icao||"").toUpperCase(); const obs=r.observed_utc;
     if(!icao||!obs) continue;
     const iso=/[zZ]$/.test(obs)?obs:obs+'Z';
     const t=new Date(iso);
     const prev=latestByIcao[icao];
-
-    const {lat, lon} = getLatLonFromRow(r);
-    if(isFinite(lat) && isFinite(lon)) hasGeo=true;
-
     if(!prev || t>new Date(prev._iso)){
       latestByIcao[icao]={
         _iso:iso, icao, site:r.site||"", cat:(r.flight_category||"").toUpperCase(),
         temp:asNum(r.temp_c), dewp:asNum(r.dewpoint_c), wdir:asNum(r.wind_dir_deg),
         wspd:asNum(r.wind_kts), gust:asNum(r.gust_kts), vis:asNum(r.vis_sm),
-        alt:asNum(r.altimeter_hpa), raw:r.raw_text||"", lat, lon
+        alt:asNum(r.altimeter_hpa), raw:r.raw_text||""
       };
     }
     if(!newestISO || t>new Date(newestISO)) newestISO=iso;
@@ -325,7 +275,6 @@ function renderOverview(){
   renderSummaryBox("summaryCA",dataCA);
   renderSummaryBox("summaryUS",dataUS);
 
-  // legend toggles
   $$("#legendChips .chip").forEach(ch=>{
     ch.onclick=()=>{
       const cat=ch.dataset.cat;
@@ -364,10 +313,7 @@ function computeTrend(region){
 }
 function renderTrend(region){
   const segBtns=$$(".seg .seg-btn");
-  segBtns.forEach(b=>{
-    if(b.dataset.region===region){ b.classList.add("active"); } 
-    else if(b.dataset.region){ b.classList.remove("active"); }
-  });
+  segBtns.forEach(b=>b.classList.toggle("active", b.dataset.region===region));
   const t=computeTrend(region);
   if(charts.trend) charts.trend.destroy();
   charts.trend=new Chart($("#trendChart"),{
@@ -385,118 +331,138 @@ function renderTrend(region){
 }
 document.querySelectorAll('.seg .seg-btn[data-region]').forEach(b=>b.addEventListener('click',()=>renderTrend(b.dataset.region)));
 
-/* ----------------------- IFR/LIFR Map (Leaflet) ----------------------- */
-function initMap(){
-  if(map) return;
-  map = L.map('ifrlifrMap',{zoomControl:true, attributionControl:true});
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:10,minZoom:2,attribution:'© OpenStreetMap'}).addTo(map);
-  mapLayer = L.layerGroup().addTo(map);
-  fitMapTo("CA");
-  setTimeout(()=>map.invalidateSize(), 150);
-  document.querySelectorAll('.seg .seg-btn[data-mapregion]').forEach(b=>{
-    b.addEventListener('click',()=>{
-      document.querySelectorAll('.seg .seg-btn[data-mapregion]').forEach(x=>x.classList.toggle('active', x===b));
-      updateMap(b.dataset.mapregion);
-    });
-  });
-}
-function fitMapTo(region){
-  if(region==="US"){ map.setView([39,-98], 4); }
-  else { map.setView([56,-96], 4); } // Canada default
-}
-function updateMap(region){
-  if(!map) return;
-  mapLayer.clearLayers();
-  fitMapTo(region);
-  if(!hasGeo){
-    $("#mapNote").textContent = "No latitude/longitude found in the dataset — map points unavailable.";
-    return;
-  } else {
-    $("#mapNote").textContent = "Showing airports in IFR or LIFR from the latest observations.";
-  }
-  const rows = Object.values(latestByIcao).filter(r=>{
-    return countryOf(r.icao)===region && (r.cat==="IFR"||r.cat==="LIFR") && isFinite(r.lat) && isFinite(r.lon);
-  });
-  rows.forEach(r=>{
-    const color = r.cat==="LIFR" ? getComputedStyle(document.documentElement).getPropertyValue('--lifr').trim() : getComputedStyle(document.documentElement).getPropertyValue('--ifr').trim();
-    const m = L.circleMarker([r.lat, r.lon],{radius:6, weight:1, color:"#00000040", fillColor:color, fillOpacity:.9});
-    const txt = `<b>${r.site||r.icao}</b> — ${r.icao}<br/>Cat: <span style="color:#fff;background:${color};padding:2px 6px;border-radius:8px;font-weight:800">${r.cat}</span><br/>Obs: ${toLocal(r._iso)}<br/><code style="font-size:.85rem">${(r.raw||"").replaceAll("<","&lt;")}</code>`;
-    m.bindPopup(txt);
-    m.addTo(mapLayer);
-  });
-}
-
-/* ----------------------- Live METAR Viewer (latest only) ----------------------- */
+/* ----------------------- Live METAR Viewer (cards) ----------------------- */
 const lv = {
-  icaos: $("#lvIcaos"),
+  q: $("#lvQuery"),
+  region: $("#lvRegion"),
   chkIFRLIFR: $("#lvIFRLIFR"),
   chkMVFR: $("#lvMVFR"),
   chkVFR: $("#lvVFR"),
-  run: $("#lvRun"),
   reload: $("#lvReload"),
   autoCopy: $("#lvAutoCopy"),
-  body: $("#lvBody"),
-  info: $("#lvInfo")
+  info: $("#lvInfo"),
+  cards: $("#cards"),
+  empty: $("#cardsEmpty"),
 };
-(function initLV(){
-  const saved = localStorage.getItem("lv_icaos");
-  if(saved) lv.icaos.value = saved;
-  if(!lv.icaos.value.trim()) lv.icaos.value = "CYTZ CYYZ CYOW KJFK KBOS";
-  lv.run.onclick = runLV;
-  lv.reload.onclick = ()=>loadMetars(()=>{ renderOverview(); renderTrend($(".seg .seg-btn.active[data-region]")?.dataset.region || "CA"); updateMap(document.querySelector('.seg .seg-btn.active[data-mapregion]')?.dataset.mapregion || "CA"); runLV(); });
-})();
-function parseICAOs(txt){
-  return [...new Set(txt.toUpperCase().split(/[^A-Z0-9]+/).filter(x=>x.length>=3 && x.length<=5))].sort();
+function initLiveViewer(){
+  // Seed query from URL (?q=) for sharable searches
+  const url = new URL(window.location);
+  const seed = url.searchParams.get("q");
+  if(seed) lv.q.value = seed;
+
+  lv.q.addEventListener("input", throttle(refreshLiveViewer, 120));
+  lv.region.addEventListener("change", refreshLiveViewer);
+  lv.chkIFRLIFR.addEventListener("change", refreshLiveViewer);
+  lv.chkMVFR.addEventListener("change", refreshLiveViewer);
+  lv.chkVFR.addEventListener("change", refreshLiveViewer);
+  lv.reload.addEventListener("click", ()=>loadMetars(()=>{
+    renderOverview();
+    renderTrend($(".seg-btn.active")?.dataset.region || "CA");
+    refreshLiveViewer();
+  }));
+
+  // initial
+  refreshLiveViewer();
 }
-function runLV(){
-  const picks = parseICAOs(lv.icaos.value);
-  localStorage.setItem("lv_icaos", lv.icaos.value);
+function normalize(s){ return (s||"").toString().trim().toLowerCase(); }
+function tokenMatch(hay, query){
+  if(!query) return true;
+  const h = normalize(hay);
+  const tokens = normalize(query).split(/\s+/).filter(Boolean);
+  return tokens.every(t=>h.includes(t));
+}
+function refreshLiveViewer(){
+  const q = lv.q.value || "";
+  const region = lv.region.value;
   const allowIFR = lv.chkIFRLIFR.checked, allowMVFR=lv.chkMVFR.checked, allowVFR=lv.chkVFR.checked;
 
-  const out=[];
-  for(const icao of picks){
-    const r = latestByIcao[icao];
-    if(!r) continue;
+  const all = Object.values(latestByIcao);
+  // Filter by region, category, and query (name or ICAO)
+  let list = all.filter(r=>{
+    if(region!=="ALL" && countryOf(r.icao)!==region) return false;
     const cat=r.cat;
     const inCat = (allowIFR && (cat==="IFR"||cat==="LIFR")) || (allowMVFR && cat==="MVFR") || (allowVFR && cat==="VFR");
-    if(!inCat) continue;
-    out.push(r);
+    if(!inCat) return false;
+    const hay = `${r.icao} ${r.site||""}`;
+    return tokenMatch(hay, q);
+  });
+
+  // If query empty, show a stable set: newest 24 across both regions
+  if(!q.trim()){
+    list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
+    list = list.slice(0, 24);
+  } else {
+    // If query present, cap to 36 results to keep layout tight
+    list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
+    list = list.slice(0, 36);
   }
-  renderLV(out);
-  lv.info.textContent = `${out.length} stations · latest only`;
+
+  renderCards(list);
+  const regTxt = region==="ALL" ? "All" : (region==="CA" ? "Canada" : "USA");
+  lv.info.textContent = `${list.length} results · ${regTxt} · latest only`;
+  // Persist query to URL (without reloading)
+  const url = new URL(window.location);
+  if(q.trim()){ url.searchParams.set("q", q.trim()); } else { url.searchParams.delete("q"); }
+  history.replaceState({}, "", url);
 }
-function renderLV(rows){
-  lv.body.innerHTML="";
+
+function renderCards(rows){
+  lv.cards.innerHTML="";
+  if(rows.length===0){
+    lv.empty.style.display="block";
+    return;
+  }
+  lv.empty.style.display="none";
   for(const r of rows){
-    const tr=document.createElement("tr");
-    const windTxt  = `${isFinite(r.wdir)?r.wdir+"°":""} ${isFinite(r.wspd)?("@ "+r.wspd+" kt"):""}${isFinite(r.gust)?(" G"+r.gust):""}`;
-    tr.innerHTML = `
-      <td class="nowrap">${toLocal(r._iso)}</td>
-      <td><b>${r.icao}</b></td>
-      <td class="note">${(r.site||"")}</td>
-      <td><span class="badge cat-${r.cat}">${r.cat}</span></td>
-      <td>${windTxt||"—"}</td>
-      <td>${isFinite(r.vis)?r.vis+" sm":"—"}</td>
-      <td>${isFinite(r.alt)?r.alt+" hPa":"—"}</td>
-      <td>${isFinite(r.temp)?r.temp:"—"}/${isFinite(r.dewp)?r.dewp:"—"} °C</td>
-      <td class="monospace">${(r.raw||"").replaceAll("<","&lt;")}</td>
-      <td class="right"><button class="btn" data-raw>Copy</button></td>
+    const card=document.createElement("div");
+    card.className="metar-card";
+    const hdr=document.createElement("div");
+    hdr.className="mc-head";
+
+    const titleWrap=document.createElement("div");
+    titleWrap.innerHTML = `<div class="mc-title">${r.site||r.icao}</div><div class="mc-sub">${r.icao} · Obs ${toTime(r._iso)}</div>`;
+    const badge=document.createElement("span");
+    badge.className="badge cat-"+(r.cat||"");
+    badge.textContent=r.cat||"—";
+    hdr.append(titleWrap,badge);
+
+    const grid=document.createElement("div");
+    grid.className="kv";
+    grid.innerHTML = `
+      <div><div class="k">Temp</div><div>${isFinite(r.temp)?r.temp+" °C":"—"}</div></div>
+      <div><div class="k">Dewpoint</div><div>${isFinite(r.dewp)?r.dewp+" °C":"—"}</div></div>
+      <div><div class="k">Wind</div><div>${(isFinite(r.wdir)?r.wdir+"°":"—")} @ ${(isFinite(r.wspd)?r.wspd:"—")} kt${isFinite(r.gust)?(" (G"+r.gust+")"):""}</div></div>
+      <div><div class="k">Visibility</div><div>${isFinite(r.vis)?r.vis+" sm":"—"}</div></div>
+      <div><div class="k">Altimeter</div><div>${isFinite(r.alt)?r.alt+" hPa":"—"}</div></div>
+      <div><div class="k">Local Time</div><div>${toLocal(r._iso)}</div></div>
     `;
-    const copyBtn = tr.querySelector("[data-raw]");
-    copyBtn.onclick = (e)=>{ e.stopPropagation(); navigator.clipboard.writeText(r.raw||""); copyBtn.textContent="Copied!"; setTimeout(()=>copyBtn.textContent="Copy",700); };
-    if(lv.autoCopy.checked){
-      tr.style.cursor="pointer";
-      tr.onclick=(e)=>{ if(!(e.target && e.target.hasAttribute("data-raw"))) navigator.clipboard.writeText(r.raw||""); };
+
+    const raw=document.createElement("div");
+    raw.className="raw";
+    raw.textContent = r.raw || "";
+
+    const tools=document.createElement("div");
+    tools.className="toolbar";
+    const copyBtn=document.createElement("button");
+    copyBtn.className="btn";
+    copyBtn.textContent="Copy RAW";
+    copyBtn.onclick=(e)=>{e.stopPropagation(); navigator.clipboard.writeText(r.raw||""); copyBtn.textContent="Copied!"; setTimeout(()=>copyBtn.textContent="Copy RAW",700);};
+
+    tools.append(copyBtn);
+
+    card.append(hdr, grid, raw, tools);
+
+    if($("#lvAutoCopy").checked){
+      card.style.cursor="pointer";
+      card.onclick=(e)=>{ if(e.target!==copyBtn) navigator.clipboard.writeText(r.raw||""); };
     }
-    lv.body.appendChild(tr);
+
+    lv.cards.appendChild(card);
   }
 }
 
 /* ----------------------- Init ----------------------- */
 $("#year").textContent=new Date().getFullYear();
-
-// Trend region buttons
-document.querySelectorAll(".seg .seg-btn[data-region]").forEach(b=>b.addEventListener("click",()=>renderTrend(b.dataset.region)));
 </script>
 </body>
 </html>
