@@ -1683,10 +1683,10 @@ KDEC,"Decatur Arpt, IL, US",United States,IL,VFR,2730,2730,100
 KDEC,"Decatur Arpt, IL, US",United States,IL,IFR,0,0,0
 KDEC,"Decatur Arpt, IL, US",United States,IL,LIFR,0,0,0
 KDEC,"Decatur Arpt, IL, US",United States,IL,MVFR,0,0,0
-KDEN,"Denver Intl, CO, US",United States,CO,VFR,3296,3296,100
+KDEN,"Denver Intl, CO, US",United States,CO,VFR,3273,3303,99.09
+KDEN,"Denver Intl, CO, US",United States,CO,MVFR,30,3303,0.91
 KDEN,"Denver Intl, CO, US",United States,CO,IFR,0,0,0
 KDEN,"Denver Intl, CO, US",United States,CO,LIFR,0,0,0
-KDEN,"Denver Intl, CO, US",United States,CO,MVFR,0,0,0
 KDET,"Detroit/C Young Arpt, MI, US",United States,MI,VFR,2730,2730,100
 KDET,"Detroit/C Young Arpt, MI, US",United States,MI,IFR,0,0,0
 KDET,"Detroit/C Young Arpt, MI, US",United States,MI,LIFR,0,0,0
@@ -2091,8 +2091,8 @@ KGGW,"Glasgow Intl Arpt, MT, US",United States,MT,VFR,2730,2730,100
 KGGW,"Glasgow Intl Arpt, MT, US",United States,MT,IFR,0,0,0
 KGGW,"Glasgow Intl Arpt, MT, US",United States,MT,LIFR,0,0,0
 KGGW,"Glasgow Intl Arpt, MT, US",United States,MT,MVFR,0,0,0
-KGJT,"Grand Junction Rgnl, CO, US",United States,CO,VFR,3262,3270,99.76
-KGJT,"Grand Junction Rgnl, CO, US",United States,CO,MVFR,8,3270,0.24
+KGJT,"Grand Junction Rgnl, CO, US",United States,CO,VFR,3295,3303,99.76
+KGJT,"Grand Junction Rgnl, CO, US",United States,CO,MVFR,8,3303,0.24
 KGJT,"Grand Junction Rgnl, CO, US",United States,CO,IFR,0,0,0
 KGJT,"Grand Junction Rgnl, CO, US",United States,CO,LIFR,0,0,0
 KGLD,"Goodland/Renner Fld, KS, US",United States,KS,VFR,2508,2730,91.87
@@ -2987,10 +2987,10 @@ KMXF,"Maxwell AFB, AL, US",United States,AL,VFR,2730,2730,100
 KMXF,"Maxwell AFB, AL, US",United States,AL,IFR,0,0,0
 KMXF,"Maxwell AFB, AL, US",United States,AL,LIFR,0,0,0
 KMXF,"Maxwell AFB, AL, US",United States,AL,MVFR,0,0,0
-KMYL,"McCall Muni, ID, US",United States,ID,VFR,2551,2755,92.6
-KMYL,"McCall Muni, ID, US",United States,ID,LIFR,149,2755,5.41
-KMYL,"McCall Muni, ID, US",United States,ID,MVFR,30,2755,1.09
-KMYL,"McCall Muni, ID, US",United States,ID,IFR,25,2755,0.91
+KMYL,"McCall Muni, ID, US",United States,ID,VFR,2551,2765,92.26
+KMYL,"McCall Muni, ID, US",United States,ID,LIFR,149,2765,5.39
+KMYL,"McCall Muni, ID, US",United States,ID,MVFR,40,2765,1.45
+KMYL,"McCall Muni, ID, US",United States,ID,IFR,25,2765,0.9
 KMYR,"Myrtle Beach Intl, SC, US",United States,SC,MVFR,2069,3270,63.27
 KMYR,"Myrtle Beach Intl, SC, US",United States,SC,VFR,792,3270,24.22
 KMYR,"Myrtle Beach Intl, SC, US",United States,SC,IFR,409,3270,12.51
@@ -3195,9 +3195,9 @@ KONT,"Ontario Intl, CA, US",United States,CA,VFR,2537,3270,77.58
 KONT,"Ontario Intl, CA, US",United States,CA,MVFR,733,3270,22.42
 KONT,"Ontario Intl, CA, US",United States,CA,IFR,0,0,0
 KONT,"Ontario Intl, CA, US",United States,CA,LIFR,0,0,0
-KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,VFR,2482,2730,90.92
-KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,IFR,208,2730,7.62
-KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,MVFR,40,2730,1.47
+KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,VFR,2485,2763,89.94
+KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,IFR,238,2763,8.61
+KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,MVFR,40,2763,1.45
 KOPF,"Miami/Opa Locka Arpt, FL, US",United States,FL,LIFR,0,0,0
 KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,VFR,2725,2725,100
 KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,IFR,0,0,0
