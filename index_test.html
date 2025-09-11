@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>North America Flight Conditions — Research Dashboard</title>
+<title>North America Flight Conditions — Research Dashboard (Test)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -32,6 +32,7 @@
   .toggle:before{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
   .toggle:checked{background:#0000003b}
   .toggle:checked:before{transform:translateX(18px)}
+
   main{max-width:1200px;margin:1rem auto;padding:0 1rem 2rem;display:grid;gap:1rem}
   .card{background:var(--card);border-radius:18px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);border:1px solid var(--ring)}
   .card h2{margin:.1rem 0 .8rem;font-size:1.15rem}
@@ -40,16 +41,6 @@
   .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
   .chip{border-radius:999px;padding:.25rem .6rem;font-size:.78rem;font-weight:700;color:var(--chip-ink);background:var(--chip);border:1px solid var(--ring)}
   .chip.color{color:#fff;border:none}
-  footer{padding:2rem 1rem;color:var(--muted);text-align:center;font-size:.9rem}
-
-  /* Quick stats */
-  .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-  .stat{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:.9rem;box-shadow:var(--shadow)}
-  .stat .t{font-size:.8rem;color:var(--muted);font-weight:700}
-  .stat .v{font-size:1.35rem;font-weight:800;margin-top:.15rem}
-  .meter{height:8px;background:var(--chip);border-radius:999px;margin-top:.55rem;overflow:hidden;border:1px solid var(--ring)}
-  .meter span{display:block;height:100%;background:linear-gradient(90deg,var(--vfr),var(--mvfr));width:0%}
-  .mini{font-size:.8rem}
 
   /* Overview pies */
   .legend{display:flex;flex-wrap:wrap;gap:.4rem}
@@ -60,22 +51,19 @@
   .summary-box{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin-top:.5rem}
   canvas.pie{max-width:220px !important;max-height:220px !important;margin:0 auto}
 
-  /* Trend (bigger + full width) */
-  .trend-card{padding:1.1rem 1.2rem}
-  #trendChart{width:100%;height:420px !important}
+  /* Trend (bigger + region toggle) */
+  .seg{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+  .seg .seg-btn{border:1px solid var(--ring);background:var(--card);color:var(--ink);padding:.45rem .8rem;border-radius:10px;font-weight:700;cursor:pointer}
+  .seg .seg-btn.active{background:var(--brand);color:#fff;border-color:transparent}
+  #trendChart{width:100%;height:460px !important}
 
-  /* Airport explorer */
-  .controls{display:grid;grid-template-columns:1fr;gap:.6rem;margin-bottom:.5rem}
-  select{padding:.7rem .9rem;border:1px solid var(--ring);border-radius:12px;background:var(--card);font-size:1rem;color:var(--ink);width:100%}
-  label{font-size:.86rem;color:var(--muted);font-weight:700}
-  .control-row{display:flex;gap:.5rem;flex-wrap:wrap}
-  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.4rem}
-  .k{color:var(--muted);font-weight:700}
-  .monospace{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  .raw{background:var(--chip);border-left:4px solid var(--brand);padding:.6rem;border-radius:10px;white-space:pre-wrap}
+  /* Leaderboards */
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;margin:.2rem 0 .6rem}
+  select,input[type="number"],input[type="text"]{padding:.55rem .7rem;border:1px solid var(--ring);border-radius:10px;background:var(--card);color:var(--ink)}
+  .row{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+  @media(max-width:1000px){.row{grid-template-columns:1fr}}
 
   /* Feed */
-  .grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
   .feed{display:grid;gap:.6rem;max-height:540px;overflow:auto;padding-right:.2rem}
   .feed-item{display:flex;align-items:center;justify-content:space-between;gap:.6rem;border:1px solid var(--ring);background:var(--card);border-radius:12px;padding:.5rem .65rem;cursor:pointer}
   .feed-left{display:flex;align-items:center;gap:.55rem}
@@ -83,8 +71,18 @@
   .site{color:var(--muted);font-size:.85rem}
   .time{color:var(--muted);font-size:.82rem}
 
-  @media(max-width:1000px){.grid-2{grid-template-columns:1fr}}
-  @media(max-width:900px){.stats{grid-template-columns:1fr}}
+  /* Live METAR viewer */
+  .table-wrap{overflow:auto;border:1px solid var(--ring);border-radius:12px}
+  table{width:100%;border-collapse:separate;border-spacing:0}
+  thead th{position:sticky;top:0;background:var(--card);z-index:1}
+  th, td{padding:.6rem .7rem;border-bottom:1px solid var(--ring);white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  .right{text-align:right}
+  .nowrap{white-space:nowrap}
+  .btn{border:1px solid var(--ring);background:var(--card);color:var(--ink);padding:.5rem .85rem;border-radius:10px;font-weight:800;cursor:pointer}
+  .btn.brand{background:var(--brand);color:#fff;border-color:transparent}
+  .btn:disabled{opacity:.6;cursor:not-allowed}
+  .chips{display:flex;gap:.5rem;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -102,22 +100,6 @@
 </header>
 
 <main>
-  <!-- Quick stats (Canada & USA only) -->
-  <section class="stats">
-    <div class="stat">
-      <div class="t">🇨🇦 Canada — Airports</div>
-      <div class="v" id="statCA_total">—</div>
-      <div class="meter"><span id="statCA_vfr" style="width:0%"></span></div>
-      <div class="mini"><span class="badge cat-VFR">VFR</span> <span id="statCA_vfrTxt">—</span> · <span class="badge cat-IFR">IFR</span> <span id="statCA_ifrTxt">—</span></div>
-    </div>
-    <div class="stat">
-      <div class="t">🇺🇸 USA — Airports</div>
-      <div class="v" id="statUS_total">—</div>
-      <div class="meter"><span id="statUS_vfr" style="width:0%"></span></div>
-      <div class="mini"><span class="badge cat-VFR">VFR</span> <span id="statUS_vfrTxt">—</span> · <span class="badge cat-IFR">IFR</span> <span id="statUS_ifrTxt">—</span></div>
-    </div>
-  </section>
-
   <!-- National overview pies -->
   <section class="card">
     <h2>National Overview</h2>
@@ -141,69 +123,125 @@
     </div>
   </section>
 
-  <!-- Bigger, full-width trend -->
-  <section class="card trend-card">
-    <h2>24-Hour Trend — IFR+LIFR Percent</h2>
+  <!-- Bigger Trend: % IFR+LIFR, MVFR, VFR (region toggle) -->
+  <section class="card">
+    <h2>24-Hour Trend — % by Category</h2>
+    <div class="seg">
+      <button class="seg-btn active" data-region="CA">Canada</button>
+      <button class="seg-btn" data-region="US">USA</button>
+    </div>
     <canvas id="trendChart"></canvas>
-    <div class="mini note" style="margin-top:.4rem">Hourly buckets from the latest data window. Toggle legend above to filter categories in pies (trend always shows IFR+LIFR).</div>
+    <div class="note" style="margin-top:.4rem">
+      Three series: <strong>IFR+LIFR</strong>, <strong>MVFR</strong>, <strong>VFR</strong> (share of observations per hour).
+    </div>
   </section>
 
-  <!-- Explorer + feed -->
-  <section class="grid-2">
-    <article class="card">
-      <h2>Airport Explorer</h2>
-      <div class="controls">
-        <div>
-          <label for="airport">Select an airport</label>
-          <select id="airport"><option disabled selected>Select an airport…</option></select>
-        </div>
-        <div class="control-row">
-          <label class="chip"><input id="filterIFR" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only IFR</label>
-          <label class="chip"><input id="filterLIFR" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only LIFR</label>
-          <label class="chip"><input id="filterUS" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only USA</label>
-          <label class="chip"><input id="filterCA" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only Canada</label>
-          <label class="chip"><input id="filterFav" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Favorites</label>
-        </div>
+  <!-- Leaderboards powered by airport_flight_share.csv -->
+  <section class="card">
+    <h2>Airport Category Share — Leaderboards</h2>
+    <div class="controls">
+      <label>Region:
+        <select id="lbRegion">
+          <option value="CA">Canada</option>
+          <option value="US">USA</option>
+          <option value="ALL">All</option>
+        </select>
+      </label>
+      <label>Category:
+        <select id="lbCategory">
+          <option value="IFR_LIFR">% IFR+LIFR</option>
+          <option value="MVFR">% MVFR</option>
+          <option value="VFR">% VFR</option>
+        </select>
+      </label>
+      <label>Min obs:
+        <input id="lbMinObs" type="number" value="200" min="0" step="50" />
+      </label>
+      <label>Top N:
+        <input id="lbTopN" type="number" value="10" min="5" max="30" />
+      </label>
+    </div>
+    <div class="row">
+      <div>
+        <canvas id="lbChart" height="360"></canvas>
       </div>
-
-      <div id="airportPanel" style="display:none;margin-top:.5rem">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap">
-          <div>
-            <div id="apName" style="font-size:1.15rem;font-weight:800"></div>
-            <div class="note"><span id="apIcao"></span> · <span id="apTime"></span></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:.5rem">
-            <span id="apCat" class="badge">—</span>
-            <span id="apFav" class="chip" title="Toggle favorite" style="cursor:pointer">☆ Favorite</span>
-            <button id="copyRaw" class="chip" title="Copy raw METAR" style="cursor:pointer">Copy RAW</button>
-          </div>
-        </div>
-
-        <div class="kv" style="margin-top:.6rem">
-          <div><div class="k">Temp</div><div id="apTemp">—</div></div>
-          <div><div class="k">Dewpoint</div><div id="apDew">—</div></div>
-          <div><div class="k">Wind</div><div id="apWind">—</div></div>
-          <div><div class="k">Visibility</div><div id="apVis">—</div></div>
-          <div><div class="k">Altimeter</div><div id="apAlt">—</div></div>
-          <div><div class="k">Gust</div><div id="apGust">—</div></div>
-        </div>
-        <div class="monospace raw" id="apRaw" style="margin-top:.8rem"></div>
+      <div>
+        <div class="note" id="lbNotes">—</div>
+        <div id="lbTable" class="note" style="margin-top:.6rem"></div>
       </div>
-    </article>
-
-    <article class="card">
-      <h2>Recent METAR Updates</h2>
-      <div class="feed" id="feed"></div>
-      <div class="mini note" style="margin-top:.5rem" id="feedInfo">—</div>
-    </article>
+    </div>
   </section>
 
-  <!-- About kept as-is -->
+  <!-- LIVE METAR VIEWER -->
+  <section class="card">
+    <h2>Live METAR Viewer</h2>
+    <div class="controls">
+      <label style="flex:2;min-width:260px">ICAOs (comma/space-separated)
+        <input id="lvIcaos" type="text" placeholder="CYTZ CYYZ KSEA KJFK" />
+      </label>
+      <label>Past hours
+        <select id="lvHours">
+          <option>3</option><option selected>6</option><option>12</option><option>24</option><option>48</option>
+        </select>
+      </label>
+      <label>Per-station limit
+        <select id="lvPer">
+          <option>3</option><option selected>5</option><option>10</option><option>25</option>
+        </select>
+      </label>
+      <label>Sort
+        <select id="lvSort">
+          <option value="desc" selected>Newest → Oldest</option>
+          <option value="asc">Oldest → Newest</option>
+        </select>
+      </label>
+    </div>
+    <div class="chips" style="margin:-.2rem 0 .5rem">
+      <label class="chip"><input id="lvIFRLIFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> IFR+LIFR</label>
+      <label class="chip"><input id="lvMVFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> MVFR</label>
+      <label class="chip"><input id="lvVFR" type="checkbox" checked style="transform:translateY(2px);margin-right:.35rem"> VFR</label>
+      <label class="chip"><input id="lvAutoCopy" type="checkbox" style="transform:translateY(2px);margin-right:.35rem"> Auto-copy RAW on row click</label>
+    </div>
+    <div class="controls">
+      <button id="lvRun" class="btn brand">Load METARs</button>
+      <button id="lvReload" class="btn">Reload data</button>
+      <button id="lvDownload" class="btn">Download CSV</button>
+      <span class="note" id="lvInfo">—</span>
+    </div>
+    <div class="table-wrap">
+      <table id="lvTable">
+        <thead>
+          <tr>
+            <th>Local Time</th>
+            <th>ICAO</th>
+            <th>Site</th>
+            <th>Cat</th>
+            <th>Wind</th>
+            <th>Vis</th>
+            <th>Alt</th>
+            <th>Temp/Dew</th>
+            <th>RAW</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="lvBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Recent feed -->
+  <section class="card">
+    <h2>Recent METAR Updates</h2>
+    <div class="feed" id="feed"></div>
+    <div class="note" style="margin-top:.5rem" id="feedInfo">—</div>
+  </section>
+
+  <!-- About -->
   <section class="card">
     <h2>About This Research Project</h2>
     <p class="note">
-      Live monitoring of <code>METAR</code> reports across Canada and the USA. National snapshots, 24-hour IFR/LIFR trend,
-      and airport-level details. Data updates ~every 5 minutes from <code>clean_metars.csv</code>.
+      Live monitoring of <code>METAR</code> reports across Canada and the USA. National snapshots, a 24-hour category trend,
+      airport leaderboards, and a Live METAR viewer. Data updates ~every 5 minutes from <code>clean_metars.csv</code>.
     </p>
   </section>
 </main>
@@ -213,7 +251,10 @@
 </footer>
 
 <script>
-const CSV_URL="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+/* ----------------------- Config & helpers ----------------------- */
+const CSV_METARS="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+const CSV_SHARE ="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/Summaries/airport_flight_share.csv";
+
 const $=s=>document.querySelector(s);
 const $$=s=>document.querySelectorAll(s);
 const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -221,29 +262,56 @@ const COLORS={VFR:cssVar("--vfr"),MVFR:cssVar("--mvfr"),IFR:cssVar("--ifr"),LIFR
 const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
 const toTime=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';const d=new Date(s);return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});}
 function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
+function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
 
-let allRows=[], latestByIcao={}, newestISO=null, charts={}, trendChart=null, hiddenCats=new Set();
-let favorites = new Set(JSON.parse(localStorage.getItem("favICAOs")||"[]"));
-
-/* THEME */
+/* Theme */
 const themeToggle=$("#themeToggle");
-(() => {
-  const saved=localStorage.getItem("nafcrp_theme");
-  if(saved==="dark"){document.documentElement.setAttribute("data-theme","dark"); themeToggle.checked=true;}
-})();
+(()=>{const saved=localStorage.getItem("nafcrp_theme"); if(saved==="dark"){document.documentElement.setAttribute("data-theme","dark"); themeToggle.checked=true;}})();
 themeToggle.addEventListener("change",()=>{
   if(themeToggle.checked){document.documentElement.setAttribute("data-theme","dark"); localStorage.setItem("nafcrp_theme","dark");}
   else{document.documentElement.removeAttribute("data-theme"); localStorage.setItem("nafcrp_theme","light");}
 });
 
-/* PROCESSING */
-function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
-function processRows(rows){
+/* State */
+let allRows=[], latestByIcao={}, newestISO=null, hiddenCats=new Set();
+let charts={CA:null, US:null, lb:null, trend:null};
+let shareRows=[];
+
+/* ----------------------- Load data ----------------------- */
+function loadMetars(cb){
+  console.time("parse-metars");
+  Papa.parse(CSV_METARS,{download:true, header:true, worker:true, complete:(res)=>{
+    console.timeEnd("parse-metars");
+    allRows = res.data.filter(r=>Object.values(r).some(v=>v)); // drop empties
+    processLatest(allRows);
+    $('#lastUpdated').textContent=newestISO?("Data as of "+toLocal(newestISO)):"No data";
+    $("#metaLine").textContent = `${Object.keys(latestByIcao).length} airports · ${allRows.length.toLocaleString()} rows`;
+    cb && cb();
+  }});
+}
+function loadShare(cb){
+  console.time("parse-share");
+  Papa.parse(CSV_SHARE,{download:true, header:true, worker:true, complete:(res)=>{
+    console.timeEnd("parse-share");
+    shareRows = res.data.filter(r=>Object.values(r).some(v=>v));
+    cb && cb();
+  }});
+}
+loadMetars(()=>{
+  renderOverview();
+  renderTrend("CA");
+  renderFeed();
+});
+loadShare(()=>initLeaderboards());
+
+/* ----------------------- Processing ----------------------- */
+function processLatest(rows){
   latestByIcao={}; newestISO=null;
   for(const r of rows){
     const icao=(r.icao||"").toUpperCase(); const obs=r.observed_utc;
     if(!icao||!obs) continue;
-    const iso=/[zZ]$/.test(obs)?obs:obs+'Z'; const t=new Date(iso);
+    const iso=/[zZ]$/.test(obs)?obs:obs+'Z';
+    const t=new Date(iso);
     const prev=latestByIcao[icao];
     if(!prev || t>new Date(prev._iso)){
       latestByIcao[icao]={
@@ -255,10 +323,9 @@ function processRows(rows){
     }
     if(!newestISO || t>new Date(newestISO)) newestISO=iso;
   }
-  $('#lastUpdated').textContent=newestISO?("Data as of "+toLocal(newestISO)):"No data";
 }
 
-/* BREAKDOWNS / STATS */
+/* ----------------------- Overview pies ----------------------- */
 function computeBreakdown(country){
   const counts={VFR:0,MVFR:0,IFR:0,LIFR:0};
   Object.values(latestByIcao).forEach(r=>{
@@ -270,19 +337,6 @@ function computeBreakdown(country){
   const pct=Object.fromEntries(Object.keys(counts).map(k=>[k, Math.round(counts[k]/total*100)]));
   return {counts,pct,total};
 }
-function computeStats(){
-  const ca=computeBreakdown("CA"), us=computeBreakdown("US");
-  $("#statCA_total").textContent=ca.total.toLocaleString();
-  $("#statUS_total").textContent=us.total.toLocaleString();
-  const caV=((ca.counts.VFR||0)/ca.total*100)|0, usV=((us.counts.VFR||0)/us.total*100)|0;
-  $("#statCA_vfr").style.width=caV+"%"; $("#statUS_vfr").style.width=usV+"%";
-  $("#statCA_vfrTxt").textContent=caV+"%"; $("#statUS_vfrTxt").textContent=usV+"%";
-  const caIFR=(ca.counts.IFR+ca.counts.LIFR)||0, usIFR=(us.counts.IFR+us.counts.LIFR)||0;
-  $("#statCA_ifrTxt").textContent=caIFR.toLocaleString(); $("#statUS_ifrTxt").textContent=usIFR.toLocaleString();
-  $("#metaLine").textContent = `${Object.keys(latestByIcao).length} airports · ${allRows.length.toLocaleString()} rows`;
-}
-
-/* PIES */
 function renderSummaryBox(id,data){
   const box=$("#"+id); box.innerHTML="";
   Object.keys(data.counts).forEach(k=>{
@@ -293,169 +347,139 @@ function renderSummaryBox(id,data){
     box.appendChild(el);
   });
 }
-function renderPieCharts(){
+function renderOverview(){
   const ctxCA=$("#chartCA"), ctxUS=$("#chartUS");
   const dataCA=computeBreakdown("CA"), dataUS=computeBreakdown("US");
   if(charts.CA)charts.CA.destroy(); if(charts.US)charts.US.destroy();
 
   const labels = Object.keys(dataCA.counts).filter(k=>!hiddenCats.has(k));
-  function ds(obj){return labels.map(k=>obj.counts[k]||0)}
   const bg = labels.map(k=>COLORS[k]);
+  const ds=(obj)=>labels.map(k=>obj.counts[k]||0);
 
-  charts.CA=new Chart(ctxCA,{type:"pie",
-    data:{labels,datasets:[{data:ds(dataCA),backgroundColor:bg}]},
-    options:{plugins:{legend:{display:false}},maintainAspectRatio:false}
-  });
-  charts.US=new Chart(ctxUS,{type:"pie",
-    data:{labels,datasets:[{data:ds(dataUS),backgroundColor:bg}]},
-    options:{plugins:{legend:{display:false}},maintainAspectRatio:false}
-  });
-
+  charts.CA=new Chart(ctxCA,{type:"pie",data:{labels,datasets:[{data:ds(dataCA),backgroundColor:bg}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
+  charts.US=new Chart(ctxUS,{type:"pie",data:{labels,datasets:[{data:ds(dataUS),backgroundColor:bg}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
   renderSummaryBox("summaryCA",dataCA);
   renderSummaryBox("summaryUS",dataUS);
-}
 
-/* TREND (bigger canvas, full width) */
-function hourKey(iso){ const d=new Date(/[zZ]$/.test(iso)?iso:iso+'Z'); d.setMinutes(0,0,0); return d.toISOString(); }
-function computeTrend(country){
-  const buckets=new Map(); // hour -> {total, bad}
-  for(const r of allRows){
-    const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
-    if(country && countryOf(icao)!==country) continue;
-    const obs=r.observed_utc; if(!obs) continue;
-    const key=hourKey(obs);
-    const cat=(r.flight_category||"").toUpperCase();
-    const obj=buckets.get(key)||{total:0, bad:0};
-    obj.total++;
-    if(cat==="IFR"||cat==="LIFR") obj.bad++;
-    buckets.set(key,obj);
-  }
-  const keys=[...buckets.keys()].sort((a,b)=>new Date(a)-new Date(b));
-  const last=keys.slice(-24);
-  const labels=last.map(k=>new Date(k).toLocaleTimeString([], {hour:'2-digit'}));
-  const vals=last.map(k=>{const v=buckets.get(k); return v? Math.round(100*(v.bad/(v.total||1))) : 0;});
-  return {labels, vals};
-}
-function padTo(master, childLabels, childVals){
-  const map=new Map(childLabels.map((l,i)=>[l, childVals[i]]));
-  return master.map(l=>map.get(l)??null);
-}
-function renderTrend(){
-  const ca=computeTrend("CA"), us=computeTrend("US");
-  const labels = ca.labels.length>=us.labels.length ? ca.labels : us.labels;
-  if(trendChart) trendChart.destroy();
-  trendChart=new Chart($("#trendChart"),{
-    type:"line",
-    data:{
-      labels,
-      datasets:[
-        {label:"Canada", data:padTo(labels, ca.labels, ca.vals), tension:.25, borderWidth:3, fill:false},
-        {label:"USA", data:padTo(labels, us.labels, us.vals), tension:.25, borderWidth:3, fill:false}
-      ]
-    },
-    options:{
-      scales:{y:{beginAtZero:true, max:100, ticks:{callback:v=>v+"%"}}, x:{ticks:{maxRotation:0}}},
-      plugins:{legend:{position:'bottom'}},
-      maintainAspectRatio:false
-    }
-  });
-}
-
-/* LEGEND TOGGLES */
-function initLegend(){
+  // legend toggles
   $$("#legendChips .chip").forEach(ch=>{
-    ch.addEventListener("click", ()=>{
+    ch.onclick=()=>{
       const cat=ch.dataset.cat;
       if(hiddenCats.has(cat)){ hiddenCats.delete(cat); ch.style.opacity=1; }
       else { hiddenCats.add(cat); ch.style.opacity=.4; }
-      renderPieCharts(); populateAirports(); applyFilters();
-      computeStats();
-    });
+      renderOverview();
+    };
   });
 }
 
-/* EXPLORER */
-function opt(txt,val,grp){
-  const o=document.createElement("option"); o.text=txt; o.value=val; if(grp) grp.appendChild(o); return o;
+/* ----------------------- Trend (percent series) ----------------------- */
+function hourKey(iso){ const d=new Date(/[zZ]$/.test(iso)?iso:iso+'Z'); d.setMinutes(0,0,0); return d.toISOString(); }
+function computeTrend(region){
+  const buckets=new Map(); // hour -> {total,vfr,mvfr,ifr,lifr}
+  for(const r of allRows){
+    const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+    if(region && countryOf(icao)!==region) continue;
+    const obs=r.observed_utc; if(!obs) continue;
+    const key=hourKey(obs);
+    const cat=(r.flight_category||"").toUpperCase();
+    const obj=buckets.get(key)||{total:0,vfr:0,mvfr:0,ifr:0,lifr:0};
+    obj.total++;
+    if(cat==="VFR") obj.vfr++;
+    else if(cat==="MVFR") obj.mvfr++;
+    else if(cat==="IFR") obj.ifr++;
+    else if(cat==="LIFR") obj.lifr++;
+    buckets.set(key,obj);
+  }
+  const keys=[...buckets.keys()].sort((a,b)=>new Date(a)-new Date(b)).slice(-24);
+  const labels=keys.map(k=>new Date(k).toLocaleTimeString([], {hour:'2-digit'}));
+  const pct=(n,t)=>Math.round(100*(n/(t||1)));
+  const series = keys.map(k=>buckets.get(k)).map(v=>({
+    vfr: pct(v.vfr,v.total), mvfr: pct(v.mvfr,v.total), ifrlifr: pct(v.ifr+v.lifr,v.total)
+  }));
+  return {labels, vfr:series.map(s=>s.vfr), mvfr:series.map(s=>s.mvfr), ifrlifr:series.map(s=>s.ifrlifr)};
 }
-function populateAirports(){
-  const sel=$("#airport"); sel.innerHTML="";
-  sel.appendChild(new Option("Select an airport…","",true,true));
-  const cats=["LIFR","IFR","MVFR","VFR"];
-  const groups = Object.fromEntries(cats.map(c=>[c, document.createElement("optgroup")]));
-  cats.forEach(c=>groups[c].label=c);
-
-  const rows=Object.values(latestByIcao).sort((a,b)=>{
-    const ca=cats.indexOf(a.cat), cb=cats.indexOf(b.cat);
-    if(ca!==cb) return ca-cb;
-    return a.icao.localeCompare(b.icao);
+function renderTrend(region){
+  const segBtns=$$(".seg .seg-btn");
+  segBtns.forEach(b=>b.classList.toggle("active", b.dataset.region===region));
+  const t=computeTrend(region);
+  if(charts.trend) charts.trend.destroy();
+  charts.trend=new Chart($("#trendChart"),{
+    type:"line",
+    data:{
+      labels:t.labels,
+      datasets:[
+        {label:"IFR+LIFR", data:t.ifrlifr, borderWidth:3, tension:.25},
+        {label:"MVFR", data:t.mvfr, borderWidth:3, tension:.25},
+        {label:"VFR", data:t.vfr, borderWidth:3, tension:.25}
+      ]
+    },
+    options:{scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+"%"}},x:{ticks:{maxRotation:0}}},plugins:{legend:{position:'bottom'}},maintainAspectRatio:false}
   });
-  for(const r of rows){
-    if(hiddenCats.has(r.cat)) continue;
-    const grp=groups[r.cat]||null;
-    opt(`${r.icao} — ${r.site||"—"}`, r.icao, grp);
-  }
-  cats.forEach(c=>$("#airport").appendChild(groups[c]));
+  segBtns.forEach(b=>b.onclick=()=>renderTrend(b.dataset.region));
 }
-function applyFilters(){
-  const onlyIFR=$("#filterIFR").checked, onlyLIFR=$("#filterLIFR").checked;
-  const onlyUS=$("#filterUS").checked, onlyCA=$("#filterCA").checked;
-  const onlyFav=$("#filterFav").checked;
 
-  const sel=$("#airport"); sel.innerHTML="";
-  sel.appendChild(new Option("Select an airport…","",true,true));
+/* ----------------------- Leaderboards (airport_flight_share.csv) ----------------------- */
+function normKeys(obj){const n={}; for(const k of Object.keys(obj)){ n[k.toLowerCase().replace(/[^a-z0-9]+/g,'_')]=k; } return n;}
+function pick(obj, names){const nk=normKeys(obj); for(const nm of names){ const k=nk[nm]; if(k!=null) return obj[k]; } return undefined;}
+function toNumSafe(v){ const n=+v; return isFinite(n)?n:NaN; }
 
-  const rows=Object.values(latestByIcao).filter(r=>{
-    if(hiddenCats.has(r.cat)) return false;
-    if(onlyIFR && r.cat!=="IFR") return false;
-    if(onlyLIFR && r.cat!=="LIFR") return false;
-    if(onlyUS && countryOf(r.icao)!=="US") return false;
-    if(onlyCA && countryOf(r.icao)!=="CA") return false;
-    if(onlyFav && !favorites.has(r.icao)) return false;
-    return true;
-  }).sort((a,b)=>a.icao.localeCompare(b.icao));
+function computeShareRow(r){
+  const c_icao = pick(r,["icao","station","id"]);
+  const c_site = pick(r,["site","name","station_name"]);
+  const tot = toNumSafe(pick(r,["total_obs","obs_total","n_total","total","count_total","observations","n"]));
+  let sh_vfr = toNumSafe(pick(r,["vfr_share","share_vfr","pct_vfr","vfr_pct","vfr_percent","percent_vfr","vfr_ratio"]));
+  let sh_mvfr= toNumSafe(pick(r,["mvfr_share","share_mvfr","pct_mvfr","mvfr_pct","mvfr_percent","percent_mvfr","mvfr_ratio"]));
+  let sh_ifr = toNumSafe(pick(r,["ifr_share","share_ifr","pct_ifr","ifr_pct","ifr_percent","percent_ifr","ifr_ratio"]));
+  let sh_lifr= toNumSafe(pick(r,["lifr_share","share_lifr","pct_lifr","lifr_pct","lifr_percent","percent_lifr","lifr_ratio"]));
 
-  for(const r of rows){
-    sel.appendChild(new Option(`${r.icao} — ${r.site||"—"}`, r.icao));
+  if(!(isFinite(sh_vfr)||isFinite(sh_mvfr)||isFinite(sh_ifr)||isFinite(sh_lifr))){
+    const c_vfr = toNumSafe(pick(r,["vfr","vfr_count","count_vfr"]));
+    const c_mvfr= toNumSafe(pick(r,["mvfr","mvfr_count","count_mvfr"]));
+    const c_ifr = toNumSafe(pick(r,["ifr","ifr_count","count_ifr"]));
+    const c_lifr= toNumSafe(pick(r,["lifr","lifr_count","count_lifr"]));
+    const sum = (isFinite(tot)&&tot>0)?tot:([c_vfr,c_mvfr,c_ifr,c_lifr].filter(x=>isFinite(x)).reduce((a,b)=>a+b,0));
+    sh_vfr = isFinite(c_vfr)&&sum? (c_vfr/sum*100):NaN;
+    sh_mvfr= isFinite(c_mvfr)&&sum? (c_mvfr/sum*100):NaN;
+    sh_ifr = isFinite(c_ifr)&&sum? (c_ifr/sum*100):NaN;
+    sh_lifr= isFinite(c_lifr)&&sum? (c_lifr/sum*100):NaN;
+  } else {
+    [sh_vfr,sh_mvfr,sh_ifr,sh_lifr] = [sh_vfr,sh_mvfr,sh_ifr,sh_lifr].map(x=>isFinite(x)?(x>1.001?x:x*100):NaN);
   }
+  const ifr_lifr = (isFinite(sh_ifr)?sh_ifr:0) + (isFinite(sh_lifr)?sh_lifr:0);
+  return {icao:(c_icao||"").toUpperCase(), site:c_site||"", total:isFinite(tot)?Math.round(tot):NaN, vfr:isFinite(sh_vfr)?sh_vfr:NaN, mvfr:isFinite(sh_mvfr)?sh_mvfr:NaN, ifr_lifr:isFinite(ifr_lifr)?ifr_lifr:NaN};
 }
-function showAirport(icao){
-  const r=latestByIcao[icao]; if(!r) return;
-  $("#apName").textContent=r.site||icao;
-  $("#apIcao").textContent=icao;
-  $("#apTime").textContent="Obs "+toTime(r._iso);
-  $("#apCat").textContent=r.cat; $("#apCat").className="badge cat-"+(r.cat||"");
-  $("#apTemp").textContent=isFinite(r.temp)?`${r.temp} °C`:"—";
-  $("#apDew").textContent=isFinite(r.dewp)?`${r.dewp} °C`:"—";
-  $("#apWind").textContent=(isFinite(r.wdir)?r.wdir+"°":"—")+" @ "+(isFinite(r.wspd)?r.wspd:"—")+" kt";
-  $("#apVis").textContent=isFinite(r.vis)?`${r.vis} sm`:"—";
-  $("#apAlt").textContent=isFinite(r.alt)?`${r.alt} hPa`:"—";
-  $("#apGust").textContent=isFinite(r.gust)?`${r.gust} kt`:"0 kt";
-  $("#apRaw").textContent=r.raw||"";
-  $("#airportPanel").style.display="block";
-
-  // favorite toggle
-  const favEl=$("#apFav");
-  favEl.textContent = favorites.has(icao) ? "★ Favorited" : "☆ Favorite";
-  favEl.onclick = ()=>{
-    if(favorites.has(icao)) favorites.delete(icao); else favorites.add(icao);
-    localStorage.setItem("favICAOs", JSON.stringify([...favorites]));
-    favEl.textContent = favorites.has(icao) ? "★ Favorited" : "☆ Favorite";
-    applyFilters();
-  };
-
-  // copy raw
-  $("#copyRaw").onclick=()=>{
-    navigator.clipboard.writeText(r.raw||"").then(()=>{
-      $("#copyRaw").textContent="Copied!"; setTimeout(()=>$("#copyRaw").textContent="Copy RAW",800);
+function initLeaderboards(){
+  const cooked = shareRows.map(computeShareRow).filter(r=>r.icao);
+  const elR=$("#lbRegion"), elC=$("#lbCategory"), elM=$("#lbMinObs"), elN=$("#lbTopN");
+  function refresh(){
+    const region=elR.value, cat=elC.value, minObs=+elM.value||0, topN=Math.min(Math.max(+elN.value||10,5),30);
+    const filtered = cooked.filter(r=>{
+      if(minObs && !(isFinite(r.total) && r.total>=minObs)) return false;
+      if(region==="CA" && countryOf(r.icao)!=="CA") return false;
+      if(region==="US" && countryOf(r.icao)!=="US") return false;
+      return isFinite(r[cat]);
     });
-  };
-
-  // deep link
-  const url=new URL(window.location); url.searchParams.set("icao", icao); history.replaceState({}, "", url);
+    filtered.sort((a,b)=>b[cat]-a[cat]);
+    const top = filtered.slice(0, topN);
+    renderLBChart(top, cat); renderLBTable(top, cat, region, minObs);
+  }
+  [elR,elC,elM,elN].forEach(el=>el.addEventListener("change", refresh));
+  refresh();
+}
+function renderLBChart(rows, cat){
+  const ctx=$("#lbChart"); if(charts.lb) charts.lb.destroy();
+  const labels = rows.map(r=>r.icao).reverse();
+  const data   = rows.map(r=>Math.round(r[cat]*10)/10).reverse();
+  charts.lb=new Chart(ctx,{type:"bar",data:{labels,datasets:[{label: labelForCat(cat), data, borderWidth:1}]},options:{indexAxis:'y',scales:{ x:{ beginAtZero:true, max:100, ticks:{callback:v=>v+"%"} } },plugins:{ legend:{display:false}, tooltip:{callbacks:{label:(c)=>`${c.raw}%`}} },maintainAspectRatio:false}});
+}
+function labelForCat(cat){ if(cat==="IFR_LIFR") return "% IFR+LIFR"; if(cat==="MVFR") return "% MVFR"; return "% VFR"; }
+function renderLBTable(rows, cat, region, minObs){
+  $("#lbNotes").textContent = `Showing top ${rows.length} airports by ${labelForCat(cat)} — Region: ${region}, Min obs: ${minObs}`;
+  const html = rows.map(r=>`<div>• <b>${r.icao}</b> — ${r.site ? r.site+" — " : ""}${labelForCat(cat)}: <b>${(Math.round(r[cat]*10)/10).toFixed(1)}%</b>${isFinite(r.total)?` · n=${r.total}`:""}</div>`).join("");
+  $("#lbTable").innerHTML = html || "No rows match filters.";
 }
 
-/* FEED */
+/* ----------------------- Recent feed ----------------------- */
 function renderFeed(){
   const feed=$("#feed"); feed.innerHTML="";
   const withObs = allRows.filter(r=>r.observed_utc && r.icao);
@@ -472,45 +496,171 @@ function renderFeed(){
     left.append(b,i,s);
     const t=document.createElement("span"); t.className="time"; t.textContent=toTime(r.observed_utc);
     item.append(left,t);
-    item.onclick=()=>{ $("#airport").value=icao; showAirport(icao); };
+    item.onclick=()=>{
+      const latest = latestByIcao[icao]; if(!latest) return;
+      const info =
+`${latest.site||icao} (${icao})
+Obs: ${toTime(latest._iso)}
+CAT: ${latest.cat}
+Wind: ${isFinite(latest.wdir)?latest.wdir+"°":""} @ ${isFinite(latest.wspd)?latest.wspd+" kt":"—"} ${isFinite(latest.gust)?" G"+latest.gust:""}
+Vis: ${isFinite(latest.vis)?latest.vis+" sm":"—"}
+Alt: ${isFinite(latest.alt)?latest.alt+" hPa":"—"}
+
+RAW: ${latest.raw||""}`;
+      navigator.clipboard.writeText(latest.raw||"");
+      alert(info+"\n\n(RAW copied to clipboard)");
+    };
     feed.appendChild(item);
   }
   $("#feedInfo").textContent = `Showing ${chosen.length} most recent observations`;
 }
 
-/* UTIL */
-function syncYear(){ $("#year").textContent=new Date().getFullYear(); }
-function pickFromURL(){
-  const url=new URL(window.location); const p=url.searchParams.get("icao");
-  if(p && latestByIcao[p]) { $("#airport").value=p; showAirport(p); }
+/* ----------------------- Live METAR Viewer ----------------------- */
+const lv = {
+  icaos: $("#lvIcaos"),
+  hours: $("#lvHours"),
+  per: $("#lvPer"),
+  sort: $("#lvSort"),
+  chkIFRLIFR: $("#lvIFRLIFR"),
+  chkMVFR: $("#lvMVFR"),
+  chkVFR: $("#lvVFR"),
+  run: $("#lvRun"),
+  reload: $("#lvReload"),
+  dl: $("#lvDownload"),
+  autoCopy: $("#lvAutoCopy"),
+  body: $("#lvBody"),
+  info: $("#lvInfo")
+};
+
+(function initLV(){
+  // restore ICAOs from localStorage
+  const saved = localStorage.getItem("lv_icaos");
+  if(saved) lv.icaos.value = saved;
+
+  lv.run.onclick = runLV;
+  lv.reload.onclick = ()=>loadMetars(()=>{ runLV(); renderOverview(); renderTrend($(".seg-btn.active")?.dataset.region || "CA"); renderFeed(); });
+  lv.dl.onclick = downloadLV;
+  // default examples if empty:
+  if(!lv.icaos.value.trim()) lv.icaos.value = "CYTZ CYYZ CYOW KJFK KBOS";
+})();
+
+function parseICAOs(txt){
+  return [...new Set(txt.toUpperCase().split(/[^A-Z0-9]+/).filter(x=>x.length>=3 && x.length<=5))].sort();
+}
+function runLV(){
+  const picks = parseICAOs(lv.icaos.value);
+  localStorage.setItem("lv_icaos", lv.icaos.value);
+  const hours = +lv.hours.value || 6;
+  const perStation = +lv.per.value || 5;
+  const sortDir = lv.sort.value; // "desc" or "asc"
+  const allowIFR = lv.chkIFRLIFR.checked, allowMVFR=lv.chkMVFR.checked, allowVFR=lv.chkVFR.checked;
+
+  const now = Date.now();
+  const cutoff = now - hours*3600*1000;
+
+  // Build filtered list
+  let out = [];
+  const perCount = Object.create(null);
+
+  // Pre-sort allRows by time according to sort selection for consistent limiting
+  const rows = allRows.filter(r=>r.observed_utc && r.icao);
+  rows.sort((a,b)=> sortDir==="desc" ? (new Date(b.observed_utc)-new Date(a.observed_utc))
+                                     : (new Date(a.observed_utc)-new Date(b.observed_utc)));
+
+  for(const r of rows){
+    const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+    if(picks.length && !picks.includes(icao)) continue;
+
+    const t = new Date(/[zZ]$/.test(r.observed_utc)?r.observed_utc:r.observed_utc+'Z').getTime();
+    if(!(t>=cutoff)) continue;
+
+    const cat=(r.flight_category||"").toUpperCase();
+    const inCat = (allowIFR && (cat==="IFR"||cat==="LIFR")) || (allowMVFR && cat==="MVFR") || (allowVFR && cat==="VFR");
+    if(!inCat) continue;
+
+    const n = (perCount[icao]||0);
+    if(n>=perStation) continue; // respect per-station limit
+    perCount[icao]=n+1;
+
+    out.push({
+      icao, site:r.site||"", obs:r.observed_utc, cat,
+      wdir:asNum(r.wind_dir_deg), wspd:asNum(r.wind_kts), gust:asNum(r.gust_kts),
+      vis:asNum(r.vis_sm), alt:asNum(r.altimeter_hpa), temp:asNum(r.temp_c), dewp:asNum(r.dewpoint_c),
+      raw:r.raw_text||""
+    });
+  }
+
+  renderLV(out, sortDir);
+  lv.info.textContent = `${out.length} rows · ${picks.length? picks.join(", "):"All picked"} · past ${hours}h · ${perStation}/station · ${sortDir}`;
 }
 
-/* LOAD */
-console.time("parse");
-Papa.parse(CSV_URL,{
-  download:true, header:true, worker:true,
-  complete:(res)=>{
-    console.timeEnd("parse");
-    allRows = res.data.filter(r=>Object.values(r).some(v=>v)); // drop empty lines
-    processRows(allRows);
-    renderPieCharts();
-    computeStats();
-    renderTrend();
-    populateAirports();
-    applyFilters();
-    renderFeed();
-    initLegend();
-
-    $("#airport").addEventListener("change",e=>{ if(e.target.value) showAirport(e.target.value); });
-    $("#filterIFR").addEventListener("change", applyFilters);
-    $("#filterLIFR").addEventListener("change", applyFilters);
-    $("#filterUS").addEventListener("change", applyFilters);
-    $("#filterCA").addEventListener("change", applyFilters);
-    $("#filterFav").addEventListener("change", applyFilters);
-    pickFromURL();
+function renderLV(rows, sortDir){
+  lv.body.innerHTML = "";
+  for(const r of rows){
+    const tr=document.createElement("tr");
+    const timeCell = `<td class="nowrap">${toLocal(r.obs)}</td>`;
+    const icaoCell = `<td><b>${r.icao}</b></td>`;
+    const siteCell = `<td class="note">${r.site||""}</td>`;
+    const catCell  = `<td><span class="badge cat-${r.cat}">${r.cat}</span></td>`;
+    const windTxt  = `${isFinite(r.wdir)?r.wdir+"°":""} ${isFinite(r.wspd)?("@ "+r.wspd+" kt"):""}${isFinite(r.gust)?(" G"+r.gust):""}`;
+    const windCell = `<td>${windTxt||"—"}</td>`;
+    const visCell  = `<td>${isFinite(r.vis)?r.vis+" sm":"—"}</td>`;
+    const altCell  = `<td>${isFinite(r.alt)?r.alt+" hPa":"—"}</td>`;
+    const tdCell   = `<td>${isFinite(r.temp)?r.temp:"—"}/${isFinite(r.dewp)?r.dewp:"—"} °C</td>`;
+    const rawCell  = `<td class="monospace">${(r.raw||"").replaceAll("<","&lt;")}</td>`;
+    const btnCell  = `<td class="right"><button class="btn" data-raw>Copy</button></td>`;
+    tr.innerHTML = timeCell+icaoCell+siteCell+catCell+windCell+visCell+altCell+tdCell+rawCell+btnCell;
+    tr.querySelector("[data-raw]").onclick = ()=>{
+      navigator.clipboard.writeText(r.raw||"");
+      const b=tr.querySelector("[data-raw]"); b.textContent="Copied!"; setTimeout(()=>b.textContent="Copy",700);
+    };
+    if(lv.autoCopy.checked){
+      tr.style.cursor="pointer";
+      tr.onclick=(e)=>{ if(!(e.target && e.target.hasAttribute("data-raw"))) navigator.clipboard.writeText(r.raw||""); };
+    }
+    lv.body.appendChild(tr);
   }
-});
-syncYear();
+}
+
+/* download current filtered results as CSV */
+function downloadLV(){
+  // reconstruct from current table rows if desired; easier: re-run filter then dump
+  const picks = parseICAOs(lv.icaos.value);
+  const hours = +lv.hours.value || 6;
+  const perStation = +lv.per.value || 5;
+  const sortDir = lv.sort.value;
+  const allowIFR = lv.chkIFRLIFR.checked, allowMVFR=lv.chkMVFR.checked, allowVFR=lv.chkVFR.checked;
+  const now = Date.now(), cutoff = now - hours*3600*1000;
+
+  let out=[], perCount={};
+  const rows = allRows.filter(r=>r.observed_utc && r.icao);
+  rows.sort((a,b)=> sortDir==="desc" ? (new Date(b.observed_utc)-new Date(a.observed_utc))
+                                     : (new Date(a.observed_utc)-new Date(b.observed_utc)));
+  for(const r of rows){
+    const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+    if(picks.length && !picks.includes(icao)) continue;
+    const t=new Date(/[zZ]$/.test(r.observed_utc)?r.observed_utc:r.observed_utc+'Z').getTime();
+    if(!(t>=cutoff)) continue;
+    const cat=(r.flight_category||"").toUpperCase();
+    const inCat = (allowIFR && (cat==="IFR"||cat==="LIFR")) || (allowMVFR && cat==="MVFR") || (allowVFR && cat==="VFR");
+    if(!inCat) continue;
+    const n=(perCount[icao]||0); if(n>=perStation) continue; perCount[icao]=n+1;
+
+    out.push({
+      observed_utc:r.observed_utc, icao, site:r.site||"", flight_category:cat,
+      temp_c:r.temp_c, dewpoint_c:r.dewpoint_c, wind_dir_deg:r.wind_dir_deg, wind_kts:r.wind_kts, gust_kts:r.gust_kts,
+      vis_sm:r.vis_sm, altimeter_hpa:r.altimeter_hpa, raw_text:r.raw_text||""
+    });
+  }
+  const header = Object.keys(out[0]||{observed_utc:"",icao:"",site:"",flight_category:"",temp_c:"",dewpoint_c:"",wind_dir_deg:"",wind_kts:"",gust_kts:"",vis_sm:"",altimeter_hpa:"",raw_text:""});
+  const csv = [header.join(","), ...out.map(o=>header.map(h=>String(o[h]??"").replace(/"/g,'""')).map(v=>/[,\"\n]/.test(v)?`"${v}"`:v).join(","))].join("\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="live_metars.csv"; a.click(); URL.revokeObjectURL(a.href);
+}
+
+/* ----------------------- Init UI ----------------------- */
+$("#year").textContent=new Date().getFullYear();
+document.querySelectorAll(".seg .seg-btn").forEach(b=>b.onclick=()=>renderTrend(b.dataset.region));
 </script>
 </body>
 </html>
