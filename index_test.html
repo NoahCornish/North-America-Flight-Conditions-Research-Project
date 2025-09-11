@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>North America Flight Conditions — Research Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:#f5f7fb; --card:#fff; --ink:#0b2540; --muted:#62748a; --brand:#1a73e8; --accent:#2ecc71;
+    --shadow:0 10px 26px rgba(0,0,0,.08);
+    --vfr:#2ecc71; --mvfr:#3498db; --ifr:#e74c3c; --lifr:#8e44ad;
+    --chip:#eef2f7; --ring:#d7dee8; --chip-ink:#334155;
+  }
+  [data-theme="dark"]{
+    --bg:#0b1220; --card:#0f172a; --ink:#e2e8f0; --muted:#93a4b8; --brand:#4f8dff; --accent:#37d084;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --chip:#0b2540; --chip-ink:#cbd5e1; --ring:#1f2a44;
+    --vfr:#38d39f; --mvfr:#4ea8de; --ifr:#ef4444; --lifr:#a78bfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;box-shadow:var(--shadow)}
+  .wrap{max-width:1200px;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:.2px;display:flex;align-items:center;gap:.5rem}
+  .sub{opacity:.9;font-weight:600;font-size:.9rem}
+  .bar{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+  .pill{background:rgba(255,255,255,.15);padding:.25rem .55rem;border-radius:999px;font-size:.82rem}
+  .toggle{appearance:none;width:44px;height:26px;background:#ffffff3b;border-radius:999px;position:relative;cursor:pointer;outline:none;border:1px solid #ffffff55}
+  .toggle:before{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+  .toggle:checked{background:#0000003b}
+  .toggle:checked:before{transform:translateX(18px)}
+  main{max-width:1200px;margin:1rem auto;padding:0 1rem 2rem;display:grid;gap:1rem}
+  .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
+  .card{background:var(--card);border-radius:18px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);border:1px solid var(--ring)}
+  .card h2{margin:.1rem 0 .8rem;font-size:1.15rem}
+  .note{color:var(--muted);font-size:.92rem}
+  .badge{padding:.2rem .6rem;border-radius:999px;color:#fff;font-weight:800;font-size:.8rem;box-shadow:var(--shadow)}
+  .cat-VFR{background:var(--vfr)} .cat-MVFR{background:var(--mvfr)} .cat-IFR{background:var(--ifr)} .cat-LIFR{background:var(--lifr)}
+  .chip{border-radius:999px;padding:.25rem .6rem;font-size:.78rem;font-weight:700;color:var(--chip-ink);background:var(--chip);border:1px solid var(--ring)}
+  .chip.color{color:#fff;border:none}
+  .legend{display:flex;flex-wrap:wrap;gap:.4rem}
+  .legend .chip{cursor:pointer;transition:.12s transform}
+  .legend .chip:hover{transform:translateY(-1px)}
+  .pie-container{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center}
+  .pie-block{flex:1 1 220px;max-width:260px;text-align:center}
+  canvas{max-width:200px !important;max-height:200px !important;margin:0 auto}
+  .summary-box{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin-top:.5rem}
+  .btn{display:inline-block;margin-top:1rem;padding:.65rem 1.1rem;background:var(--brand);color:#fff;border-radius:10px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);transition:.15s}
+  .btn:hover{opacity:.92;transform:translateY(-1px)}
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.4rem}
+  .k{color:var(--muted);font-weight:700}
+  .monospace{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .raw{background:var(--chip);border-left:4px solid var(--brand);padding:.6rem;border-radius:10px;white-space:pre-wrap}
+  .about h2{margin-bottom:.6rem}
+  .about p{line-height:1.6;color:var(--muted);margin:.6rem 0}
+  .about code{background:var(--chip);padding:.15rem .35rem;border-radius:6px;font-size:.85rem}
+  footer{padding:2rem 1rem;color:var(--muted);text-align:center;font-size:.9rem}
+  /* Stats row */
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+  .stat{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:.9rem;box-shadow:var(--shadow)}
+  .stat .t{font-size:.8rem;color:var(--muted);font-weight:700}
+  .stat .v{font-size:1.35rem;font-weight:800;margin-top:.15rem}
+  .meter{height:8px;background:var(--chip);border-radius:999px;margin-top:.55rem;overflow:hidden;border:1px solid var(--ring)}
+  .meter span{display:block;height:100%;background:linear-gradient(90deg,var(--vfr),var(--mvfr));width:0%}
+  /* Explorer extras */
+  .controls{display:grid;grid-template-columns:1fr;gap:.5rem;margin-bottom:.5rem}
+  .control-row{display:flex;gap:.5rem;flex-wrap:wrap}
+  input[type="search"], select{padding:.7rem .9rem;border:1px solid var(--ring);border-radius:12px;background:#fff;font-size:1rem;width:100%;background:var(--card);color:var(--ink)}
+  label{font-size:.86rem;color:var(--muted);font-weight:700}
+  .mini{font-size:.8rem}
+  .fav{cursor:pointer;font-size:1.1rem}
+  .feed{display:grid;gap:.6rem;max-height:540px;overflow:auto;padding-right:.2rem}
+  .feed-item{display:flex;align-items:center;justify-content:space-between;gap:.6rem;border:1px solid var(--ring);background:var(--card);border-radius:12px;padding:.5rem .65rem}
+  .feed-left{display:flex;align-items:center;gap:.55rem}
+  .icao{font-weight:800}
+  .site{color:var(--muted);font-size:.85rem}
+  .time{color:var(--muted);font-size:.82rem}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:1000px){.grid{grid-template-columns:1fr}}
+  @media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:700px){
+    .pie-container{flex-direction:column;align-items:center}
+    .pie-block{max-width:100%}
+    .row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">✈️ North America Flight Conditions — <span class="sub">Research Dashboard</span></div>
+    <div class="bar">
+      <span class="pill" id="lastUpdated">Loading…</span>
+      <span class="pill" id="metaLine">—</span>
+      <label class="pill" style="display:flex;align-items:center;gap:.5rem;cursor:pointer">
+        <span>Dark</span>
+        <input id="themeToggle" class="toggle" type="checkbox" />
+      </label>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Quick stats -->
+  <section class="stats" id="statsRow">
+    <div class="stat">
+      <div class="t">🇨🇦 Canada — Airports</div>
+      <div class="v" id="statCA_total">—</div>
+      <div class="meter"><span id="statCA_vfr" style="width:0%"></span></div>
+      <div class="mini"><span class="badge cat-VFR">VFR</span> <span id="statCA_vfrTxt">—</span> · <span class="badge cat-IFR">IFR</span> <span id="statCA_ifrTxt">—</span></div>
+    </div>
+    <div class="stat">
+      <div class="t">🇺🇸 USA — Airports</div>
+      <div class="v" id="statUS_total">—</div>
+      <div class="meter"><span id="statUS_vfr" style="width:0%"></span></div>
+      <div class="mini"><span class="badge cat-VFR">VFR</span> <span id="statUS_vfrTxt">—</span> · <span class="badge cat-IFR">IFR</span> <span id="statUS_ifrTxt">—</span></div>
+    </div>
+    <div class="stat">
+      <div class="t">Strongest Winds (kt)</div>
+      <div class="v" id="statWind">—</div>
+      <div class="mini" id="statWindList">—</div>
+    </div>
+    <div class="stat">
+      <div class="t">Lowest Visibility (sm)</div>
+      <div class="v" id="statVis">—</div>
+      <div class="mini" id="statVisList">—</div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <!-- Overview (Pie Charts) -->
+    <article class="card">
+      <h2>National Overview</h2>
+      <div class="legend" id="legendChips">
+        <span class="chip color" data-cat="VFR" style="background:var(--vfr)">VFR</span>
+        <span class="chip color" data-cat="MVFR" style="background:var(--mvfr)">MVFR</span>
+        <span class="chip color" data-cat="IFR" style="background:var(--ifr)">IFR</span>
+        <span class="chip color" data-cat="LIFR" style="background:var(--lifr)">LIFR</span>
+      </div>
+      <div class="pie-container" style="margin-top:.6rem">
+        <div class="pie-block">
+          <h3>Canada</h3>
+          <canvas id="chartCA"></canvas>
+          <div id="summaryCA" class="summary-box"></div>
+        </div>
+        <div class="pie-block">
+          <h3>USA</h3>
+          <canvas id="chartUS"></canvas>
+          <div id="summaryUS" class="summary-box"></div>
+        </div>
+      </div>
+      <a href="map.html" class="btn">🌍 View Interactive Map</a>
+    </article>
+
+    <!-- 24h Trend -->
+    <article class="card">
+      <h2>24-Hour Trend — IFR+LIFR Percent</h2>
+      <canvas id="trendChart" height="200"></canvas>
+      <div class="mini note" style="margin-top:.4rem">Hourly buckets from the latest data window. Toggle legend to compare.</div>
+    </article>
+  </section>
+
+  <section class="grid">
+    <!-- Airport Explorer (enhanced) -->
+    <article class="card">
+      <h2>Airport Explorer</h2>
+
+      <div class="controls">
+        <div class="control-row">
+          <div style="flex:2">
+            <label for="search">Search airports (ICAO / name)</label>
+            <input id="search" type="search" placeholder="Start typing… e.g., CYTZ or Toronto" />
+          </div>
+          <div style="flex:1">
+            <label for="airport">Or select from list</label>
+            <select id="airport"><option disabled selected>Select an airport…</option></select>
+          </div>
+        </div>
+        <div class="control-row">
+          <label class="chip"><input id="filterIFR" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only IFR</label>
+          <label class="chip"><input id="filterLIFR" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only LIFR</label>
+          <label class="chip"><input id="filterUS" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only USA</label>
+          <label class="chip"><input id="filterCA" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Only Canada</label>
+          <label class="chip"><input id="filterFav" type="checkbox" style="transform:translateY(2px);margin-right:.4rem"> Favorites</label>
+        </div>
+      </div>
+
+      <div id="airportPanel" style="display:none;margin-top:.5rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap">
+          <div>
+            <div id="apName" style="font-size:1.15rem;font-weight:800"></div>
+            <div class="note"><span id="apIcao"></span> · <span id="apTime"></span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <span id="apCat" class="badge">—</span>
+            <span id="apFav" class="fav" title="Toggle favorite">☆</span>
+            <button id="copyRaw" class="chip" title="Copy raw METAR" style="cursor:pointer">Copy RAW</button>
+            <a id="linkAWC" class="chip" target="_blank" rel="noopener">Open AWC</a>
+          </div>
+        </div>
+
+        <div class="kv" style="margin-top:.6rem">
+          <div><div class="k">Temp</div><div id="apTemp">—</div></div>
+          <div><div class="k">Dewpoint</div><div id="apDew">—</div></div>
+          <div><div class="k">Wind</div><div id="apWind">—</div></div>
+          <div><div class="k">Visibility</div><div id="apVis">—</div></div>
+          <div><div class="k">Altimeter</div><div id="apAlt">—</div></div>
+          <div><div class="k">Gust</div><div id="apGust">—</div></div>
+        </div>
+        <div class="monospace raw" id="apRaw" style="margin-top:.8rem"></div>
+      </div>
+    </article>
+
+    <!-- Recent updates feed -->
+    <article class="card">
+      <h2>Recent METAR Updates</h2>
+      <div class="feed" id="feed"></div>
+      <div class="mini note" style="margin-top:.5rem" id="feedInfo">—</div>
+    </article>
+  </section>
+
+  <!-- About / README (kept) -->
+  <section class="card about">
+    <h2>About This Research Project</h2>
+    <p>
+      The <strong>North America Flight Conditions Research Project</strong> is a live monitoring platform
+      analyzing <code>METAR</code> (aviation weather) reports across Canada and the USA.  
+      This dashboard provides a real-time view of airport conditions, national summaries, and airport-level details.
+    </p>
+    <p>
+      ✈️ <strong>VFR</strong> (Visual Flight Rules), <strong>MVFR</strong> (Marginal), <strong>IFR</strong> (Instrument), 
+      and <strong>LIFR</strong> (Low Instrument) categories are calculated and displayed with clear visual indicators.  
+      The project is designed to support aviation enthusiasts, researchers, and meteorology students in exploring trends
+      across thousands of airports.
+    </p>
+    <p>
+      📊 Data is updated automatically every ~5 minutes from the latest METAR feeds and processed into 
+      a cleaned dataset (<code>clean_metars.csv</code>). The research combines climatology, aviation, 
+      and data science to understand how North America’s flight conditions evolve daily.
+    </p>
+    <p>
+      🌍 This project also includes interactive maps, daily trend charts, and province/state-level breakdowns.
+      Explore the <a href="map.html">Interactive Map</a> to dive deeper into localized weather impacts.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> North America Flight Conditions Research Project · Built with ❤️ for aviation & data science
+</footer>
+
+<script>
+const CSV_URL="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const cssVar=name=>getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const COLORS={VFR:cssVar("--vfr"),MVFR:cssVar("--mvfr"),IFR:cssVar("--ifr"),LIFR:cssVar("--lifr")};
+const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
+const toTime=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';const d=new Date(s);return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});}
+function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
+
+let allRows=[], latestByIcao={}, newestISO=null, charts={}, trendChart=null, hiddenCats=new Set();
+let favorites = new Set(JSON.parse(localStorage.getItem("favICAOs")||"[]"));
+
+/* THEME */
+const themeToggle=$("#themeToggle");
+( ()=>{const saved=localStorage.getItem("nafcrp_theme"); if(saved==="dark"){document.documentElement.setAttribute("data-theme","dark"); themeToggle.checked=true;}})();
+themeToggle.addEventListener("change",()=>{
+  if(themeToggle.checked){document.documentElement.setAttribute("data-theme","dark"); localStorage.setItem("nafcrp_theme","dark");}
+  else{document.documentElement.removeAttribute("data-theme"); localStorage.setItem("nafcrp_theme","light");}
+});
+
+/* PROCESSING */
+function processRows(rows){
+  latestByIcao={}; newestISO=null;
+  for(const r of rows){
+    const icao=(r.icao||"").toUpperCase(); const obs=r.observed_utc;
+    if(!icao||!obs) continue;
+    const iso=/[zZ]$/.test(obs)?obs:obs+'Z'; const t=new Date(iso);
+    const prev=latestByIcao[icao];
+    if(!prev || t>new Date(prev._iso)){
+      latestByIcao[icao]={
+        _iso:iso, icao, site:r.site||"", cat:(r.flight_category||"").toUpperCase(),
+        temp:asNum(r.temp_c), dewp:asNum(r.dewpoint_c), wdir:asNum(r.wind_dir_deg),
+        wspd:asNum(r.wind_kts), gust:asNum(r.gust_kts), vis:asNum(r.vis_sm),
+        alt:asNum(r.altimeter_hpa), raw:r.raw_text||""
+      };
+    }
+    if(!newestISO || t>new Date(newestISO)) newestISO=iso;
+  }
+  $('#lastUpdated').textContent=newestISO?("Data as of "+toLocal(newestISO)):"No data";
+}
+function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
+function computeBreakdown(country){
+  const counts={VFR:0,MVFR:0,IFR:0,LIFR:0};
+  Object.values(latestByIcao).forEach(r=>{
+    if(country && countryOf(r.icao)!==country) return;
+    if(hiddenCats.has(r.cat)) return;
+    if(counts[r.cat]!=null) counts[r.cat]++;
+  });
+  const total=Object.values(counts).reduce((a,b)=>a+b,0)||1;
+  const pct=Object.fromEntries(Object.keys(counts).map(k=>[k, Math.round(counts[k]/total*100)]));
+  return {counts,pct,total};
+}
+function computeStats(){
+  const ca=computeBreakdown("CA"), us=computeBreakdown("US");
+  $("#statCA_total").textContent=ca.total.toLocaleString();
+  $("#statUS_total").textContent=us.total.toLocaleString();
+  const caV = ((ca.counts.VFR||0)/ca.total*100)|0, usV=((us.counts.VFR||0)/us.total*100)|0;
+  $("#statCA_vfr").style.width=caV+"%"; $("#statUS_vfr").style.width=usV+"%";
+  $("#statCA_vfrTxt").textContent=caV+"%"; $("#statUS_vfrTxt").textContent=usV+"%";
+  const caIFR=(ca.counts.IFR+ca.counts.LIFR)||0, usIFR=(us.counts.IFR+us.counts.LIFR)||0;
+  $("#statCA_ifrTxt").textContent=caIFR.toLocaleString(); $("#statUS_ifrTxt").textContent=usIFR.toLocaleString();
+
+  // Extremes
+  const vals=Object.values(latestByIcao);
+  const windTop = vals.filter(v=>isFinite(v.gust)||isFinite(v.wspd))
+    .map(v=>({icao:v.icao, site:v.site, wind:isFinite(v.gust)?v.gust:(isFinite(v.wspd)?v.wspd:0)}))
+    .sort((a,b)=>b.wind-a.wind).slice(0,3);
+  $("#statWind").textContent = windTop.length? windTop[0].wind+" kt" : "—";
+  $("#statWindList").textContent = windTop.map(x=>`${x.icao} ${x.wind}`).join(" · ") || "—";
+
+  const visLow = vals.filter(v=>isFinite(v.vis)).sort((a,b)=>a.vis-b.vis).slice(0,3);
+  $("#statVis").textContent = visLow.length? visLow[0].vis+" sm" : "—";
+  $("#statVisList").textContent = visLow.map(x=>`${x.icao} ${x.vis}`).join(" · ") || "—";
+
+  // meta line
+  $("#metaLine").textContent = `${Object.keys(latestByIcao).length} airports · ${allRows.length.toLocaleString()} rows`;
+}
+
+function renderSummaryBox(id,data){
+  const box=$("#"+id); box.innerHTML="";
+  Object.keys(data.counts).forEach(k=>{
+    if(hiddenCats.has(k)) return;
+    const el=document.createElement("span");
+    el.className="chip color"; el.style.background=COLORS[k];
+    el.textContent=`${k}: ${data.counts[k]} (${data.pct[k]}%)`;
+    box.appendChild(el);
+  });
+}
+
+function renderPieCharts(){
+  const ctxCA=$("#chartCA"), ctxUS=$("#chartUS");
+  const dataCA=computeBreakdown("CA"), dataUS=computeBreakdown("US");
+  if(charts.CA)charts.CA.destroy(); if(charts.US)charts.US.destroy();
+
+  const labels = Object.keys(dataCA.counts).filter(k=>!hiddenCats.has(k));
+  function ds(obj){return labels.map(k=>obj.counts[k]||0)}
+  const bg = labels.map(k=>COLORS[k]);
+
+  charts.CA=new Chart(ctxCA,{type:"pie",
+    data:{labels,datasets:[{data:ds(dataCA),backgroundColor:bg}]},
+    options:{plugins:{legend:{display:false}},maintainAspectRatio:false}
+  });
+  charts.US=new Chart(ctxUS,{type:"pie",
+    data:{labels,datasets:[{data:ds(dataUS),backgroundColor:bg}]},
+    options:{plugins:{legend:{display:false}},maintainAspectRatio:false}
+  });
+
+  renderSummaryBox("summaryCA",dataCA);
+  renderSummaryBox("summaryUS",dataUS);
+}
+
+/* TREND: hourly IFR+LIFR% over last 24 buckets for CA & US */
+function hourKey(iso){
+  const d=new Date(/[zZ]$/.test(iso)?iso:iso+'Z');
+  d.setMinutes(0,0,0);
+  return d.toISOString();
+}
+function computeTrend(country){
+  const buckets=new Map(); // key -> {total, ifrlifr}
+  for(const r of allRows){
+    const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+    if(country && countryOf(icao)!==country) continue;
+    const obs=r.observed_utc; if(!obs) continue;
+    const key=hourKey(obs);
+    const cat=(r.flight_category||"").toUpperCase();
+    const obj=buckets.get(key)||{total:0, bad:0};
+    obj.total++;
+    if(cat==="IFR"||cat==="LIFR") obj.bad++;
+    buckets.set(key,obj);
+  }
+  const keys=[...buckets.keys()].sort((a,b)=>new Date(a)-new Date(b));
+  const last=keys.slice(-24); // last 24 hours
+  const labels=last.map(k=>new Date(k).toLocaleTimeString([], {hour:'2-digit'}));
+  const vals=last.map(k=>{const v=buckets.get(k); return v? Math.round(100*(v.bad/(v.total||1))) : 0;});
+  return {labels, vals};
+}
+function renderTrend(){
+  const ca=computeTrend("CA"), us=computeTrend("US");
+  const labels = ca.labels.length>=us.labels.length ? ca.labels : us.labels;
+  if(trendChart) trendChart.destroy();
+  trendChart=new Chart($("#trendChart"),{
+    type:"line",
+    data:{
+      labels,
+      datasets:[
+        {label:"Canada", data:padTo(labels, ca.labels, ca.vals), tension:.25, borderWidth:2, fill:false},
+        {label:"USA", data:padTo(labels, us.labels, us.vals), tension:.25, borderWidth:2, fill:false}
+      ]
+    },
+    options:{
+      scales:{y:{beginAtZero:true, max:100, ticks:{callback:v=>v+"%"}}, x:{ticks:{maxRotation:0}}},
+      plugins:{legend:{position:'bottom'}},
+      maintainAspectRatio:false
+    }
+  });
+}
+function padTo(masterLabels, childLabels, childVals){
+  const map=new Map(childLabels.map((l,i)=>[l, childVals[i]]));
+  return masterLabels.map(l=>map.get(l)??null);
+}
+
+/* AIRPORT EXPLORER */
+function opt(txt,val,grp){
+  const o=document.createElement("option"); o.text=txt; o.value=val; if(grp) grp.appendChild(o); return o;
+}
+function populateAirports(){
+  const sel=$("#airport"); sel.innerHTML="";
+  sel.appendChild(new Option("Select an airport…","",true,true));
+
+  // optional grouping by category for ergonomics
+  const cats=["LIFR","IFR","MVFR","VFR"]; // show lower first
+  const groups = Object.fromEntries(cats.map(c=>[c, document.createElement("optgroup")]));
+  cats.forEach(c=>groups[c].label=c);
+
+  const rows=Object.values(latestByIcao);
+  rows.sort((a,b)=>{
+    const ca=cats.indexOf(a.cat), cb=cats.indexOf(b.cat);
+    if(ca!==cb) return ca-cb;
+    return a.icao.localeCompare(b.icao);
+  });
+  for(const r of rows){
+    if(hiddenCats.has(r.cat)) continue;
+    const grp=groups[r.cat]||null;
+    opt(`${r.icao} — ${r.site||"—"}`, r.icao, grp);
+  }
+  cats.forEach(c=>sel.appendChild(groups[c]));
+}
+function applyFiltersAndSearch(){
+  const q=$("#search").value.trim().toLowerCase();
+  const onlyIFR=$("#filterIFR").checked, onlyLIFR=$("#filterLIFR").checked;
+  const onlyUS=$("#filterUS").checked, onlyCA=$("#filterCA").checked;
+  const onlyFav=$("#filterFav").checked;
+
+  const sel=$("#airport"); sel.innerHTML="";
+  sel.appendChild(new Option("Select an airport…","",true,true));
+
+  const rows=Object.values(latestByIcao).filter(r=>{
+    if(hiddenCats.has(r.cat)) return false;
+    if(onlyIFR && r.cat!=="IFR") return false;
+    if(onlyLIFR && r.cat!=="LIFR") return false;
+    if(onlyUS && countryOf(r.icao)!=="US") return false;
+    if(onlyCA && countryOf(r.icao)!=="CA") return false;
+    if(onlyFav && !favorites.has(r.icao)) return false;
+    if(!q) return true;
+    const hay=(r.icao+" "+(r.site||"")).toLowerCase();
+    return hay.includes(q);
+  }).sort((a,b)=>a.icao.localeCompare(b.icao));
+
+  for(const r of rows){
+    sel.appendChild(new Option(`${r.icao} — ${r.site||"—"}`, r.icao));
+  }
+}
+
+function showAirport(icao){
+  const r=latestByIcao[icao]; if(!r) return;
+  $("#apName").textContent=r.site||icao;
+  $("#apIcao").textContent=icao;
+  $("#apTime").textContent="Obs "+toTime(r._iso);
+  $("#apCat").textContent=r.cat; $("#apCat").className="badge cat-"+(r.cat||"");
+  $("#apTemp").textContent=isFinite(r.temp)?`${r.temp} °C`:"—";
+  $("#apDew").textContent=isFinite(r.dewp)?`${r.dewp} °C`:"—";
+  $("#apWind").textContent=(isFinite(r.wdir)?r.wdir+"°":"—")+" @ "+(isFinite(r.wspd)?r.wspd:"—")+" kt";
+  $("#apVis").textContent=isFinite(r.vis)?`${r.vis} sm`:"—";
+  $("#apAlt").textContent=isFinite(r.alt)?`${r.alt} hPa`:"—";
+  $("#apGust").textContent=isFinite(r.gust)?`${r.gust} kt`:"0 kt";
+  $("#apRaw").textContent=r.raw||"";
+  $("#airportPanel").style.display="block";
+
+  // favorites
+  const favEl=$("#apFav");
+  favEl.textContent = favorites.has(icao) ? "★" : "☆";
+  favEl.onclick = ()=>{
+    if(favorites.has(icao)) favorites.delete(icao); else favorites.add(icao);
+    localStorage.setItem("favICAOs", JSON.stringify([...favorites]));
+    favEl.textContent = favorites.has(icao) ? "★" : "☆";
+    applyFiltersAndSearch();
+  };
+
+  // copy & external link
+  $("#copyRaw").onclick=()=>{
+    navigator.clipboard.writeText(r.raw||"").then(()=>{
+      $("#copyRaw").textContent="Copied!"; setTimeout(()=>$("#copyRaw").textContent="Copy RAW",800);
+    });
+  };
+  $("#linkAWC").href=`https://aviationweather.gov/metar/data?ids=${encodeURIComponent(icao)}&format=decoded&hours=0`;
+  $("#linkAWC").textContent="AWC";
+  // deep link
+  const url=new URL(window.location); url.searchParams.set("icao", icao); history.replaceState({}, "", url);
+}
+
+/* FEED */
+function renderFeed(){
+  const feed=$("#feed"); feed.innerHTML="";
+  // sort by observed_utc desc; take last 25
+  const withObs = allRows.filter(r=>r.observed_utc && r.icao);
+  withObs.sort((a,b)=>new Date(b.observed_utc)-new Date(a.observed_utc));
+  const chosen = withObs.slice(0,25);
+  for(const r of chosen){
+    const icao=(r.icao||"").toUpperCase();
+    const cat=(r.flight_category||"").toUpperCase();
+    const item=document.createElement("div"); item.className="feed-item";
+    const left=document.createElement("div"); left.className="feed-left";
+    const b=document.createElement("span"); b.className="badge cat-"+cat; b.textContent=cat||"—";
+    const i=document.createElement("span"); i.className="icao"; i.textContent=icao||"—";
+    const s=document.createElement("span"); s.className="site"; s.textContent=r.site||"";
+    left.append(b,i,s);
+    const t=document.createElement("span"); t.className="time"; t.textContent=toTime(r.observed_utc);
+    item.append(left,t);
+    item.style.cursor="pointer";
+    item.onclick=()=>{ $("#airport").value=icao; showAirport(icao); };
+    feed.appendChild(item);
+  }
+  $("#feedInfo").textContent = `Showing ${chosen.length} most recent observations`;
+}
+
+/* LEGEND TOGGLES (hide categories in pies & lists) */
+function initLegend(){
+  $$("#legendChips .chip").forEach(ch=>{
+    ch.addEventListener("click", ()=>{
+      const cat=ch.dataset.cat;
+      if(hiddenCats.has(cat)){ hiddenCats.delete(cat); ch.style.opacity=1; }
+      else { hiddenCats.add(cat); ch.style.opacity=.4; }
+      renderPieCharts(); populateAirports(); applyFiltersAndSearch();
+    });
+  });
+}
+
+/* HELPERS */
+function syncYear(){ $("#year").textContent=new Date().getFullYear(); }
+function pickFromURL(){
+  const url=new URL(window.location); const p=url.searchParams.get("icao");
+  if(p && latestByIcao[p]) { $("#airport").value=p; showAirport(p); }
+}
+function throttle(fn, wait){ let t=0; return (...args)=>{ const now=Date.now(); if(now-t>wait){ t=now; fn(...args);} }}
+
+/* LOAD */
+console.time("parse");
+Papa.parse(CSV_URL,{
+  download:true, header:true, worker:true,
+  complete:(res)=>{
+    console.timeEnd("parse");
+    allRows = res.data.filter(r=>Object.values(r).some(v=>v)); // drop empty
+    processRows(allRows);
+    renderPieCharts();
+    computeStats();
+    renderTrend();
+    populateAirports();
+    applyFiltersAndSearch();
+    renderFeed();
+    initLegend();
+    $("#airport").addEventListener("change",e=>{ if(e.target.value) showAirport(e.target.value); });
+    $("#search").addEventListener("input", throttle(applyFiltersAndSearch, 120));
+    $("#filterIFR").addEventListener("change", applyFiltersAndSearch);
+    $("#filterLIFR").addEventListener("change", applyFiltersAndSearch);
+    $("#filterUS").addEventListener("change", applyFiltersAndSearch);
+    $("#filterCA").addEventListener("change", applyFiltersAndSearch);
+    $("#filterFav").addEventListener("change", applyFiltersAndSearch);
+    pickFromURL();
+  }
+});
+syncYear();
+</script>
+</body>
+</html>
