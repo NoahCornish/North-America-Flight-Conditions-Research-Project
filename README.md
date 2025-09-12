@@ -8,7 +8,6 @@
 ![Airports](https://img.shields.io/badge/airports-tracked%202500+-informational)
 ![Made%20With](https://img.shields.io/badge/made%20with-R%20%26%20GitHub%20Actions-lightgrey)
 ![Maintainer](https://img.shields.io/badge/maintainer-Noah%20Cornish-yellow)
-![Location](https://img.shields.io/badge/location-Moosonee,%20Ontario-critical)
 
 
 ---
