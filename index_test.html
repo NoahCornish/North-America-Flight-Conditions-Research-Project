@@ -181,8 +181,16 @@ const $=s=>document.querySelector(s);
 const $$=s=>document.querySelectorAll(s);
 const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const COLORS={VFR:cssVar("--vfr"),MVFR:cssVar("--mvfr"),IFR:cssVar("--ifr"),LIFR:cssVar("--lifr")};
+
+// Show as browser-local (used for “Data as of …” only)
 const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
-const toTime=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';const d=new Date(s);return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});}
+// Render HH:MM in UTC for header “Obs UTC …”
+const toTimeUTC=s=>{
+  if(!s) return '—';
+  const iso = /[zZ]$/.test(s)?s:s+'Z';
+  return new Date(iso).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', timeZone:'UTC'});
+};
+
 function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
 function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
 function throttle(fn, wait){let t=0; return (...args)=>{const now=Date.now(); if(now-t>wait){t=now; fn(...args);} }}
@@ -229,7 +237,12 @@ function processLatest(rows){
     const prev=latestByIcao[icao];
     if(!prev || t>new Date(prev._iso)){
       latestByIcao[icao]={
-        _iso:iso, icao, site:r.site||"", cat:(r.flight_category||"").toUpperCase(),
+        _iso:iso,               // observed_utc (Z)
+        icao,
+        site:r.site||"",
+        cat:(r.flight_category||"").toUpperCase(),
+        // NEW: keep station-local as provided by your dataset (already computed upstream)
+        loc:(r.observed_local||""),
         temp:asNum(r.temp_c), dewp:asNum(r.dewpoint_c), wdir:asNum(r.wind_dir_deg),
         wspd:asNum(r.wind_kts), gust:asNum(r.gust_kts), vis:asNum(r.vis_sm),
         alt:asNum(r.altimeter_hpa), raw:r.raw_text||""
@@ -387,7 +400,7 @@ function refreshLiveViewer(){
     return tokenMatch(hay, q);
   });
 
-  // 🔁 NEW: always show ALL matching latest METARs (no slicing/capping), sorted by most recent
+  // Always show ALL matching latest METARs, most recent first
   list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
 
   renderCards(list);
@@ -413,7 +426,8 @@ function renderCards(rows){
     hdr.className="mc-head";
 
     const titleWrap=document.createElement("div");
-    titleWrap.innerHTML = `<div class="mc-title">${r.site||r.icao}</div><div class="mc-sub">${r.icao} · Obs ${toTime(r._iso)}</div>`;
+    // Show UTC explicitly to avoid browser TZ confusion; local shown below from dataset
+    titleWrap.innerHTML = `<div class="mc-title">${r.site||r.icao}</div><div class="mc-sub">${r.icao} · Obs UTC ${toTimeUTC(r._iso)}</div>`;
     const badge=document.createElement("span");
     badge.className="badge cat-"+(r.cat||"");
     badge.textContent=r.cat||"—";
@@ -427,7 +441,7 @@ function renderCards(rows){
       <div><div class="k">Wind</div><div>${(isFinite(r.wdir)?r.wdir+"°":"—")} @ ${(isFinite(r.wspd)?r.wspd:"—")} kt${isFinite(r.gust)?(" (G"+r.gust+")"):""}</div></div>
       <div><div class="k">Visibility</div><div>${isFinite(r.vis)?r.vis+" sm":"—"}</div></div>
       <div><div class="k">Altimeter</div><div>${isFinite(r.alt)?r.alt+" hPa":"—"}</div></div>
-      <div><div class="k">Local Time</div><div>${toLocal(r._iso)}</div></div>
+      <div><div class="k">Local Time</div><div>${r.loc && /\d/.test(r.loc) ? r.loc : "—"}</div></div>
     `;
 
     const raw=document.createElement("div");
