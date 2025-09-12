@@ -1,11 +1,8 @@
 #!/usr/bin/env Rscript
 # Clean_METARs.R
 # -------------------------------------------------------------------
-# Deduplicate METAR rows by ICAO timeline and enrich with lat/lon.
-# Recomputes observed_local per row from observed_utc using station IANA TZ
-# (OurAirports -> IATA -> Matt Johnson-Pint timezones.csv), fixing US rows
-# that previously showed Eastern time. No new columns are added—
-# observed_local is overwritten in-place as a character "YYYY-MM-DD HH:MM:SS".
+# Deduplicate METAR rows by ICAO timeline, keep last 48 hours per ICAO,
+# recompute observed_local per IANA timezone, and enrich with lat/lon.
 # -------------------------------------------------------------------
 
 suppressPackageStartupMessages({
@@ -100,16 +97,15 @@ df <- df %>%
   left_join(air, by = c("icao" = "ident")) %>%
   left_join(tzmap, by = "iata_code")
 
-local_list <- mapply(function(dt, tz){
-  if (is.na(dt)) return(NA)
-  if (is.na(tz) || !nzchar(tz)) return(with_tz(dt, "UTC"))
-  tryCatch(with_tz(dt, tz), error = function(e) with_tz(dt, "UTC"))
-}, df$observed_utc, df$iana_tz, SIMPLIFY = FALSE)
-
-df$observed_local <- vapply(local_list, function(x){
-  if (length(x) == 0 || is.na(x)) return(NA_character_)
-  format(x, "%Y-%m-%d %H:%M:%S")
-}, character(1))
+# recompute local timestamps
+df$observed_local <- mapply(function(dt, tz){
+  if (is.na(dt)) return(NA_character_)
+  local_dt <- tryCatch(
+    if (!is.na(tz) && nzchar(tz)) with_tz(dt, tz) else with_tz(dt, "UTC"),
+    error = function(e) with_tz(dt, "UTC")
+  )
+  format(local_dt, "%Y-%m-%d %H:%M:%S")
+}, df$observed_utc, df$iana_tz)
 
 # -------- Deduplicate by change --------
 differs <- function(curr, prev) (is.na(curr) != is.na(prev)) | (curr != prev)
@@ -139,7 +135,15 @@ clean_df <- df %>%
   filter(keep_row) %>%
   select(-starts_with("changed_"), -keep_row, -iata_code, -iana_tz)
 
-# -------- Track missing flight_category (grey stations) --------
+# -------- Filter to last 48h per ICAO (based on local time) --------
+clean_df <- clean_df %>%
+  group_by(icao) %>%
+  mutate(observed_local_dt = ymd_hms(observed_local, tz = "UTC")) %>%  # parse local time back
+  filter(observed_local_dt >= max(observed_local_dt, na.rm = TRUE) - hours(48)) %>%
+  ungroup() %>%
+  select(-observed_local_dt)
+
+# -------- Track missing flight_category --------
 missing_fc <- clean_df %>%
   filter(is.na(flight_category) | flight_category == "") %>%
   distinct(icao, site, observed_utc)
@@ -150,10 +154,9 @@ if (nrow(missing_fc) > 0) {
     missing_fc <- bind_rows(old, missing_fc) %>% distinct()
   }
   write_csv(missing_fc, MISSING_FC)
-  message("Saved ", nrow(missing_fc), " ICAOs with missing flight_category to ", MISSING_FC)
 }
 
-# -------- Handle NA replacements --------
+# -------- NA handling --------
 clean_df <- clean_df %>%
   mutate(
     wind_dir_deg = ifelse(is.na(wind_dir_deg), "VAR", as.character(wind_dir_deg)),
@@ -184,14 +187,9 @@ front_cols <- c("icao","site","observed_utc","observed_local","flight_category",
 other_cols <- setdiff(names(clean_df), front_cols)
 ordered <- clean_df %>% select(all_of(front_cols), all_of(other_cols))
 
-message("Writing: ", CLEAN_CSV)
 write_csv(ordered, CLEAN_CSV)
-
-message("Writing: ", month_out)
 write_csv(ordered, month_out)
 
-cat(sprintf("[%s] Cleaned METARs — input: %d rows, kept: %d rows (local times recomputed)\n",
+cat(sprintf("[%s] Cleaned METARs — input: %d rows, kept: %d rows (last 48h per ICAO)\n",
             format(now_local, "%Y-%m-%d %H:%M:%S %Z"), nrow(df), nrow(ordered)),
     file = LOG_FILE, append = TRUE)
-
-message("Done. Kept ", nrow(ordered), " / ", nrow(df), " rows. Local times fixed for US stations.")
