@@ -98,7 +98,7 @@ get_metars_chunk <- function(stns){
 }
 
 fetch_all <- function(stns){
-  chunks <- chunk_vec(unique(stns), 100)
+  chunks <- chunk_vec(unique(stns), 500)
   dfs <- vector("list", length(chunks))
   for (i in seq_along(chunks)) {
     df <- get_metars_chunk(chunks[[i]])
