@@ -81,4 +81,15 @@ If you notice any issues, missing data, or inaccuracies, please open an [Issue](
 This version is about **accuracy and infrastructure hardening** — the dashboard should now show correct times everywhere, track grey stations for investigation, and provide more reliable data for end users.  
 We’re working toward long-term scalability so the dataset remains sustainable as more data is collected.
 
+
+### 🚀 v0.1.1 Highlights
+
+- ✅ **Local Time Fix:** U.S. station times now show *true station-local wall time* (no more Eastern Time everywhere!)
+- 🟡 **Grey Station Tracking:** METARs with missing flight categories are now logged in `airports_missing_flight_category.csv` for review.
+- 🧹 **Better Data Cleaning:** Improved deduplication and error handling to ensure cleaner, more reliable data.
+- 🔄 **Faster Updates:** Workflow now runs every **4 minutes** with safe commits and automatic monthly snapshots.
+
+⚠️ **Known Issue:** `all_metars.csv` grows quickly (~50 MB in 8–12 hours). Manual deletion is currently required once or twice per day — long-term fixes are being explored.
+
+
 ---
