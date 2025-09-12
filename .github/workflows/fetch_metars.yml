@@ -2,7 +2,6 @@ name: ⛅ METAR Fetch ⛈️
 
 on:
   schedule:
-    # Run every 4 minutes (fastest possible without overlap)
     - cron: "*/4 * * * *"
   workflow_dispatch:
 
@@ -17,19 +16,15 @@ jobs:
   fetch_and_clean:
     name: 📡 Fetch → 🧹 Clean → 📊 Summarize (every 4 min)
     runs-on: ubuntu-latest
-
     container:
       image: rocker/tidyverse:4.3.3
-
     defaults:
       run:
         working-directory: ${{ github.workspace }}
 
     steps:
       - name: 🕒 Log UTC start
-        shell: bash
-        run: |
-          echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+        run: echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
@@ -38,16 +33,7 @@ jobs:
           persist-credentials: true
 
       - name: 🔐 Trust workspace for Git
-        run: |
-          git config --global --add safe.directory '*'
-          git rev-parse --is-inside-work-tree
-
-      - name: 🔍 Sanity check workspace
-        run: |
-          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
-          pwd
-          ls -la
-          test -d .git || (echo "::error::.git not found" && exit 1)
+        run: git config --global --add safe.directory '*'
 
       - name: 📦 Ensure required R packages are installed
         run: |
@@ -58,7 +44,7 @@ jobs:
       - name: 📝 Run METAR fetch script
         run: Rscript Fetch_METARs.R
 
-      - name: 🧹 Run cleaning script
+      - name: 🧹 Run cleaning script (generates grey-airport list)
         run: Rscript Clean_METARs.R
 
       - name: 📊 Run summaries script
@@ -71,11 +57,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add Data/METARs/*.csv Data/METARs/*.txt Data/Summaries/*.csv Data/Summaries/*.txt || true
-
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Fetch, Clean & Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git commit -m "Fetch, Clean & Summarize METARs (incl. grey-airport list) $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
             git pull --rebase origin main || true
             git push --force-with-lease origin main
           else
