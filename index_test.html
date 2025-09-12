@@ -808,4 +808,362 @@
 
   <script>
     /* ----------------------- Config & helpers ----------------------- */
-    const CSV_METARS="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/
+    const CSV_METARS="https://raw.githubusercontent.com/NoahCornish/North-America-Flight-Conditions-Research-Project/refs/heads/main/Data/METARs/clean_metars.csv";
+
+    const $=s=>document.querySelector(s);
+    const $=s=>document.querySelectorAll(s);
+    const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const COLORS={VFR:cssVar("--vfr"),MVFR:cssVar("--mvfr"),IFR:cssVar("--ifr"),LIFR:cssVar("--lifr")};
+
+    // For header "Data as of …" (viewer local clock)
+    const toLocal=s=>{if(!s)return'—';if(!/[zZ]$/.test(s))s+='Z';return new Date(s).toLocaleString();};
+    // Explicit UTC HH:MM (avoids browser TZ drift)
+    const toTimeUTC=s=>{
+      if(!s) return '—';
+      const iso = /[zZ]$/.test(s)?s:s+'Z';
+      return new Date(iso).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', timeZone:'UTC'});
+    };
+
+    function countryOf(icao){if(!icao)return null;const p=icao[0].toUpperCase();if(p==='C')return'CA';if(p==='K'||p==='P')return'US';return null;}
+    function asNum(v){const n=+v; return isFinite(n)?n:NaN;}
+    function throttle(fn, wait){let t=0; return (...args)=>{const now=Date.now(); if(now-t>wait){t=now; fn(...args);} }}
+
+    /* Theme */
+    const themeToggle=$("#themeToggle");
+    (()=>{const saved=localStorage.getItem("nafcrp_theme"); if(saved==="dark"){document.documentElement.setAttribute("data-theme","dark"); themeToggle.checked=true;}})();
+    themeToggle.addEventListener("change",()=>{
+      if(themeToggle.checked){document.documentElement.setAttribute("data-theme","dark"); localStorage.setItem("nafcrp_theme","dark");}
+      else{document.documentElement.removeAttribute("data-theme"); localStorage.setItem("nafcrp_theme","light");}
+    });
+
+    /* State */
+    let allRows=[], latestByIcao={}, newestISO=null, hiddenCats=new Set();
+    let charts={CA:null, US:null, trend:null};
+    let clockMode="UTC"; // "UTC" or "LOCAL"
+
+    /* ----------------------- Load data ----------------------- */
+    function loadMetars(cb){
+      console.time("parse-metars");
+      Papa.parse(CSV_METARS,{download:true, header:true, worker:true, complete:(res)=>{
+        console.timeEnd("parse-metars");
+        allRows = res.data.filter(r=>Object.values(r).some(v=>v)); // drop empties
+        processLatest(allRows);
+        $('#lastUpdated').textContent=newestISO?("Data as of "+toLocal(newestISO)):"No data";
+        $("#metaLine").textContent = `${Object.keys(latestByIcao).length} airports · ${allRows.length.toLocaleString()} rows`;
+        cb && cb();
+      }});
+    }
+    loadMetars(()=>{
+      renderOverview();
+      renderTrend("CA", clockMode);
+      initTrendToggles();
+      initLiveViewer();
+      refreshLiveViewer();
+    });
+
+    /* ----------------------- Processing ----------------------- */
+    function processLatest(rows){
+      latestByIcao={}; newestISO=null;
+      for(const r of rows){
+        const icao=(r.icao||"").toUpperCase(); const obs=r.observed_utc;
+        if(!icao||!obs) continue;
+        const iso=/[zZ]$/.test(obs)?obs:obs+'Z';
+        const t=new Date(iso);
+        const prev=latestByIcao[icao];
+        if(!prev || t>new Date(prev._iso)){
+          latestByIcao[icao]={
+            _iso:iso, icao, site:r.site||"", cat:(r.flight_category||"").toUpperCase(),
+            loc:(r.observed_local||""),
+            temp:asNum(r.temp_c), dewp:asNum(r.dewpoint_c), wdir:asNum(r.wind_dir_deg),
+            wspd:asNum(r.wind_kts), gust:asNum(r.gust_kts), vis:asNum(r.vis_sm),
+            alt:asNum(r.altimeter_hpa), raw:r.raw_text||""
+          };
+        }
+        if(!newestISO || t>new Date(newestISO)) newestISO=iso;
+      }
+    }
+
+    /* ----------------------- Overview pies ----------------------- */
+    function computeBreakdown(country){
+      const counts={VFR:0,MVFR:0,IFR:0,LIFR:0};
+      Object.values(latestByIcao).forEach(r=>{
+        if(country && countryOf(r.icao)!==country) return;
+        if(hiddenCats.has(r.cat)) return;
+        if(counts[r.cat]!=null) counts[r.cat]++;
+      });
+      const total=Object.values(counts).reduce((a,b)=>a+b,0)||1;
+      const pct=Object.fromEntries(Object.keys(counts).map(k=>[k, Math.round(counts[k]/total*100)]));
+      return {counts,pct,total};
+    }
+    function renderSummaryBox(id,data){
+      const box=$("#"+id); box.innerHTML="";
+      Object.keys(data.counts).forEach(k=>{
+        if(hiddenCats.has(k)) return;
+        const el=document.createElement("span");
+        el.className="chip color"; el.style.background=COLORS[k];
+        el.textContent=`${k}: ${data.counts[k]} (${data.pct[k]}%)`;
+        box.appendChild(el);
+      });
+    }
+    function renderOverview(){
+      const ctxCA=$("#chartCA"), ctxUS=$("#chartUS");
+      const dataCA=computeBreakdown("CA"), dataUS=computeBreakdown("US");
+      if(charts.CA)charts.CA.destroy(); if(charts.US)charts.US.destroy();
+
+      const labels = Object.keys(dataCA.counts).filter(k=>!hiddenCats.has(k));
+      const bg = labels.map(k=>COLORS[k]);
+      const ds=(obj)=>labels.map(k=>obj.counts[k]||0);
+
+      charts.CA=new Chart(ctxCA,{type:"pie",data:{labels,datasets:[{data:ds(dataCA),backgroundColor:bg}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
+      charts.US=new Chart(ctxUS,{type:"pie",data:{labels,datasets:[{data:ds(dataUS),backgroundColor:bg}]},options:{plugins:{legend:{display:false}},maintainAspectRatio:false}});
+      renderSummaryBox("summaryCA",dataCA);
+      renderSummaryBox("summaryUS",dataUS);
+
+      $("#legendChips .chip").forEach(ch=>{
+        ch.onclick=()=>{
+          const cat=ch.dataset.cat;
+          if(hiddenCats.has(cat)){ hiddenCats.delete(cat); ch.style.opacity=1; }
+          else { hiddenCats.add(cat); ch.style.opacity=.4; }
+          renderOverview();
+        };
+      });
+    }
+
+    /* ----------------------- Trend (UTC vs Local Hour) ----------------------- */
+    function hourKey(iso){ const d=new Date(/[zZ]$/.test(iso)?iso:iso+'Z'); d.setMinutes(0,0,0); return d.toISOString(); }
+
+    // UTC timeline: last 24 UTC hours
+    function computeTrendUTC(region){
+      const buckets=new Map(); // key=ISO hour UTC -> {total,vfr,mvfr,ifr,lifr}
+      for(const r of allRows){
+        const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+        if(region && countryOf(icao)!==region) continue;
+        const obs=r.observed_utc; if(!obs) continue;
+        const key=hourKey(obs);
+        const cat=(r.flight_category||"").toUpperCase();
+        const obj=buckets.get(key)||{total:0,vfr:0,mvfr:0,ifr:0,lifr:0};
+        obj.total++;
+        if(cat==="VFR") obj.vfr++; else if(cat==="MVFR") obj.mvfr++;
+        else if(cat==="IFR") obj.ifr++; else if(cat==="LIFR") obj.lifr++;
+        buckets.set(key,obj);
+      }
+      const keys=[...buckets.keys()].sort((a,b)=>new Date(a)-new Date(b)).slice(-24);
+      const labels=keys.map(k=>new Date(k).toLocaleTimeString([], {hour:'2-digit', timeZone:'UTC'}));
+      const pct=(n,t)=>Math.round(100*(n/(t||1)));
+      const series = keys.map(k=>buckets.get(k)).map(v=>({
+        vfr: pct(v.vfr,v.total), mvfr: pct(v.mvfr,v.total), ifrlifr: pct(v.ifr+v.lifr,v.total)
+      }));
+      return {labels, vfr:series.map(s=>s.vfr), mvfr:series.map(s=>s.mvfr), ifrlifr:series.map(s=>s.ifrlifr)};
+    }
+
+    // Local hour-of-day (00–23): aggregate last 24h of data by station local hour
+    function computeTrendLocalHour(region){
+      const now = Date.now();
+      const cutoff = now - 24*3600*1000;
+      const buckets = Array.from({length:24}, ()=>({total:0,vfr:0,mvfr:0,ifr:0,lifr:0}));
+
+      for(const r of allRows){
+        const icao=(r.icao||"").toUpperCase(); if(!icao) continue;
+        if(region && countryOf(icao)!==region) continue;
+
+        const obsUTC = r.observed_utc; if(!obsUTC) continue;
+        const iso = /[zZ]$/.test(obsUTC)?obsUTC:obsUTC+'Z';
+        const t = new Date(iso).getTime();
+        if(!(t>=cutoff)) continue;
+
+        const localStr = r.observed_local || "";
+        const hh = parseInt(localStr.slice(11,13),10);
+        if(Number.isNaN(hh) || hh<0 || hh>23) continue;
+
+        const cat=(r.flight_category||"").toUpperCase();
+        const b = buckets[hh];
+        b.total++;
+        if(cat==="VFR") b.vfr++; else if(cat==="MVFR") b.mvfr++;
+        else if(cat==="IFR") b.ifr++; else if(cat==="LIFR") b.lifr++;
+      }
+
+      const labels = Array.from({length:24}, (_,i)=>String(i).padStart(2,'0'));
+      const pct=(n,t)=>Math.round(100*(n/(t||1)));
+      const ifrlifr = buckets.map(b=>pct(b.ifr+b.lifr, b.total));
+      const mvfr    = buckets.map(b=>pct(b.mvfr, b.total));
+      const vfr     = buckets.map(b=>pct(b.vfr,  b.total));
+      return {labels, vfr, mvfr, ifrlifr};
+    }
+
+    function renderTrend(region, clock="UTC"){
+      // button active states
+      $(".seg .seg-btn").forEach(b=>b.classList.toggle("active", b.dataset.region===region));
+      $(".seg .seg-btn.clock").forEach(b=>b.classList.toggle("active", b.dataset.clock===clock));
+
+      const t = clock==="LOCAL" ? computeTrendLocalHour(region) : computeTrendUTC(region);
+
+      if(charts.trend) charts.trend.destroy();
+      charts.trend=new Chart($("#trendChart"),{
+        type:"line",
+        data:{
+          labels:t.labels,
+          datasets:[
+            {label:"IFR+LIFR", data:t.ifrlifr, borderWidth:3, tension:.25},
+            {label:"MVFR", data:t.mvfr, borderWidth:3, tension:.25},
+            {label:"VFR", data:t.vfr, borderWidth:3, tension:.25}
+          ]
+        },
+        options:{
+          scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+"%"}},x:{ticks:{maxRotation:0}}},
+          plugins:{legend:{position:'bottom'}},
+          maintainAspectRatio:false
+        }
+      });
+
+      $("#trendNote").innerHTML =
+        clock==="LOCAL"
+          ? 'Three series: <strong>IFR+LIFR</strong>, <strong>MVFR</strong>, <strong>VFR</strong> (aggregated by <strong>station local hour</strong>, last 24h of data).'
+          : 'Three series: <strong>IFR+LIFR</strong>, <strong>MVFR</strong>, <strong>VFR</strong> (share per hour, <strong>UTC</strong> timeline).';
+    }
+
+    function initTrendToggles(){
+      // region toggles
+      document.querySelectorAll('.seg .seg-btn[data-region]').forEach(b=>{
+        b.addEventListener('click',()=>{
+          const region = b.dataset.region;
+          const mode = clockMode;
+          renderTrend(region, mode);
+        });
+      });
+      // clock toggles
+      document.querySelectorAll('.seg .seg-btn.clock').forEach(b=>{
+        b.addEventListener('click',()=>{
+          clockMode = b.dataset.clock; // "UTC" or "LOCAL"
+          const activeRegion = document.querySelector('.seg .seg-btn[data-region].active')?.dataset.region || "CA";
+          renderTrend(activeRegion, clockMode);
+        });
+      });
+    }
+
+    /* ----------------------- Live METAR Viewer (cards) ----------------------- */
+    const lv = {
+      q: $("#lvQuery"),
+      region: $("#lvRegion"),
+      chkLIFR: $("#lvLIFR"),
+      chkIFR: $("#lvIFR"),
+      chkMVFR: $("#lvMVFR"),
+      chkVFR: $("#lvVFR"),
+      reload: $("#lvReload"),
+      autoCopy: $("#lvAutoCopy"),
+      info: $("#lvInfo"),
+      cards: $("#cards"),
+      empty: $("#cardsEmpty"),
+    };
+    function initLiveViewer(){
+      // Seed query from URL (?q=) for sharable searches
+      const url = new URL(window.location);
+      const seed = url.searchParams.get("q");
+      if(seed) lv.q.value = seed;
+
+      lv.q.addEventListener("input", throttle(refreshLiveViewer, 120));
+      lv.region.addEventListener("change", refreshLiveViewer);
+      lv.chkLIFR.addEventListener("change", refreshLiveViewer);
+      lv.chkIFR.addEventListener("change", refreshLiveViewer);
+      lv.chkMVFR.addEventListener("change", refreshLiveViewer);
+      lv.chkVFR.addEventListener("change", refreshLiveViewer);
+      lv.reload.addEventListener("click", ()=>loadMetars(()=>{
+        renderOverview();
+        const activeRegion = document.querySelector('.seg .seg-btn[data-region].active')?.dataset.region || "CA";
+        renderTrend(activeRegion, clockMode);
+        refreshLiveViewer();
+      }));
+
+      refreshLiveViewer();
+    }
+    function normalize(s){ return (s||"").toString().trim().toLowerCase(); }
+    function tokenMatch(hay, query){
+      if(!query) return true;
+      const h = normalize(hay);
+      const tokens = normalize(query).split(/\s+/).filter(Boolean);
+      return tokens.every(t=>h.includes(t));
+    }
+    function refreshLiveViewer(){
+      const q = lv.q.value || "";
+      const region = lv.region.value;
+      const allowLIFR = lv.chkLIFR.checked;
+      const allowIFR = lv.chkIFR.checked;
+      const allowMVFR = lv.chkMVFR.checked;
+      const allowVFR = lv.chkVFR.checked;
+
+      const all = Object.values(latestByIcao);
+      let list = all.filter(r=>{
+        if(region!=="ALL" && countryOf(r.icao)!==region) return false;
+        const cat=r.cat;
+        const inCat = (allowLIFR && cat==="LIFR") || (allowIFR && cat==="IFR") || (allowMVFR && cat==="MVFR") || (allowVFR && cat==="VFR");
+        if(!inCat) return false;
+        const hay = `${r.icao} ${r.site||""}`;
+        return tokenMatch(hay, q);
+      });
+
+      list.sort((a,b)=>new Date(b._iso)-new Date(a._iso));
+      renderCards(list);
+
+      const regTxt = region==="ALL" ? "All" : (region==="CA" ? "Canada" : "USA");
+      lv.info.textContent = `${list.length} results · ${regTxt} · latest only`;
+
+      const url = new URL(window.location);
+      if(q.trim()){ url.searchParams.set("q", q.trim()); } else { url.searchParams.delete("q"); }
+      history.replaceState({}, "", url);
+    }
+
+    function renderCards(rows){
+      lv.cards.innerHTML="";
+      if(rows.length===0){
+        lv.empty.style.display="block";
+        return;
+      }
+      lv.empty.style.display="none";
+      for(const r of rows){
+        const card=document.createElement("div");
+        card.className="metar-card";
+        const hdr=document.createElement("div");
+        hdr.className="mc-head";
+
+        const titleWrap=document.createElement("div");
+        titleWrap.innerHTML = `<div class="mc-title">${r.site||r.icao}</div><div class="mc-sub">${r.icao} · Obs UTC ${toTimeUTC(r._iso)}</div>`;
+        const badge=document.createElement("span");
+        badge.className="badge cat-"+(r.cat||"");
+        badge.textContent=r.cat||"—";
+        hdr.append(titleWrap,badge);
+
+        const grid=document.createElement("div");
+        grid.className="kv";
+        grid.innerHTML = `
+          <div><div class="k">Temp</div><div>${isFinite(r.temp)?r.temp+" °C":"—"}</div></div>
+          <div><div class="k">Dewpoint</div><div>${isFinite(r.dewp)?r.dewp+" °C":"—"}</div></div>
+          <div><div class="k">Wind</div><div>${(isFinite(r.wdir)?r.wdir+"°":"—")} @ ${(isFinite(r.wspd)?r.wspd:"—")} kt${isFinite(r.gust)?(" (G"+r.gust+")"):""}</div></div>
+          <div><div class="k">Visibility</div><div>${isFinite(r.vis)?r.vis+" sm":"—"}</div></div>
+          <div><div class="k">Altimeter</div><div>${isFinite(r.alt)?r.alt+" hPa":"—"}</div></div>
+          <div><div class="k">Local Time</div><div>${r.loc && /\d/.test(r.loc) ? r.loc : "—"}</div></div>
+        `;
+
+        const raw=document.createElement("div");
+        raw.className="raw";
+        raw.textContent = r.raw || "";
+
+        const tools=document.createElement("div");
+        tools.className="toolbar";
+        const copyBtn=document.createElement("button");
+        copyBtn.className="btn";
+        copyBtn.textContent="Copy RAW";
+        copyBtn.onclick=(e)=>{e.stopPropagation(); navigator.clipboard.writeText(r.raw||""); copyBtn.textContent="Copied!"; setTimeout(()=>copyBtn.textContent="Copy RAW",700);};
+
+        tools.append(copyBtn);
+        card.append(hdr, grid, raw, tools);
+
+        if($("#lvAutoCopy").checked){
+          card.style.cursor="pointer";
+          card.onclick=(e)=>{ if(e.target!==copyBtn) navigator.clipboard.writeText(r.raw||""); };
+        }
+
+        lv.cards.appendChild(card);
+      }
+    }
+
+    /* ----------------------- Init ----------------------- */
+    $("#year").textContent=new Date().getFullYear();
