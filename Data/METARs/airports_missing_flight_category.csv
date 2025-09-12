@@ -1,160 +1,2309 @@
-icao
-CWJC
-CYOJ
-CYPR
-CYPX
-CYTE
-CYTZ
-CZMD
-CZUM
-K08D
-K0R0
-K12N
-K1A5
-K1M5
-K20U
-K2A0
-K2C8
-K2D5
-K2IS
-K2M8
-K2R2
-K35A
-K4M3
-K6B9
-K6R6
-K79J
-K82V
-K8D3
-KABE
-KADS
-KADU
-KAEJ
-KAJG
-KAQW
-KATS
-KAWG
-KAXA
-KAXH
-KAYS
-KBBG
-KBFR
-KBKD
-KBML
-KBOW
-KBQP
-KBTL
-KCAV
-KCBG
-KCCY
-KCKM
-KCRQ
-KCSB
-KCTZ
-KCZL
-KD07
-KD60
-KDKK
-KDKX
-KDLO
-KDMW
-KDUH
-KDZB
-KEDJ
-KEHO
-KEMM
-KEYW
-KEZS
-KEZZ
-KFDK
-KFFL
-KFFT
-KFMM
-KFMN
-KFSE
-KGAD
-KGAF
-KGDJ
-KGPH
-KGSH
-KGWR
-KGZN
-KHRX
-KHVE
-KHZE
-KI35
-KI95
-KIGQ
-KIKV
-KISQ
-KJAS
-KJDN
-KJKJ
-KLCI
-KLNC
-KLXT
-KM08
-KMFV
-KMHR
-KMPE
-KMRF
-KMRN
-KMTP
-KMVL
-KNEL
-KNFE
-KNKT
-KNQA
-KNUI
-KNXP
-KNYG
-KOBE
-KPCW
-KPVU
-KPYX
-KRAS
-KRBO
-KREO
-KRGK
-KRKW
-KRUG
-KRUQ
-KS21
-KS32
-KS52
-KSAA
-KSBD
-KSCD
-KSEF
-KSFQ
-KSGS
-KSHL
-KSIK
-KSLB
-KSLK
-KSNH
-KSPA
-KSPG
-KSPI
-KSUO
-KSWW
-KTMB
-KTME
-KTOB
-KTPL
-KTQH
-KTVK
-KTWF
-KTWT
-KU52
-KUCY
-KULM
-KVCB
-KVWU
-KW22
-KY19
-PABE
-PAFR
-PASL
-PFCL
-PHNG
+icao,site,observed_utc
+CWJC,NA,NA
+CYOJ,NA,NA
+CYPR,NA,NA
+CYPX,NA,NA
+CYTE,NA,NA
+CYTZ,NA,NA
+CZMD,NA,NA
+CZUM,NA,NA
+K08D,NA,NA
+K0R0,NA,NA
+K12N,NA,NA
+K1A5,NA,NA
+K1M5,NA,NA
+K20U,NA,NA
+K2A0,NA,NA
+K2C8,NA,NA
+K2D5,NA,NA
+K2IS,NA,NA
+K2M8,NA,NA
+K2R2,NA,NA
+K35A,NA,NA
+K4M3,NA,NA
+K6B9,NA,NA
+K6R6,NA,NA
+K79J,NA,NA
+K82V,NA,NA
+K8D3,NA,NA
+KABE,NA,NA
+KADS,NA,NA
+KADU,NA,NA
+KAEJ,NA,NA
+KAJG,NA,NA
+KAQW,NA,NA
+KATS,NA,NA
+KAWG,NA,NA
+KAXA,NA,NA
+KAXH,NA,NA
+KAYS,NA,NA
+KBBG,NA,NA
+KBFR,NA,NA
+KBKD,NA,NA
+KBML,NA,NA
+KBOW,NA,NA
+KBQP,NA,NA
+KBTL,NA,NA
+KCAV,NA,NA
+KCBG,NA,NA
+KCCY,NA,NA
+KCKM,NA,NA
+KCRQ,NA,NA
+KCSB,NA,NA
+KCTZ,NA,NA
+KCZL,NA,NA
+KD07,NA,NA
+KD60,NA,NA
+KDKK,NA,NA
+KDKX,NA,NA
+KDLO,NA,NA
+KDMW,NA,NA
+KDUH,NA,NA
+KDZB,NA,NA
+KEDJ,NA,NA
+KEHO,NA,NA
+KEMM,NA,NA
+KEYW,NA,NA
+KEZS,NA,NA
+KEZZ,NA,NA
+KFDK,NA,NA
+KFFL,NA,NA
+KFFT,NA,NA
+KFMM,NA,NA
+KFMN,NA,NA
+KFSE,NA,NA
+KGAD,NA,NA
+KGAF,NA,NA
+KGDJ,NA,NA
+KGPH,NA,NA
+KGSH,NA,NA
+KGWR,NA,NA
+KGZN,NA,NA
+KHRX,NA,NA
+KHVE,NA,NA
+KHZE,NA,NA
+KI35,NA,NA
+KI95,NA,NA
+KIGQ,NA,NA
+KIKV,NA,NA
+KISQ,NA,NA
+KJAS,NA,NA
+KJDN,NA,NA
+KJKJ,NA,NA
+KLCI,NA,NA
+KLNC,NA,NA
+KLXT,NA,NA
+KM08,NA,NA
+KMFV,NA,NA
+KMHR,NA,NA
+KMPE,NA,NA
+KMRF,NA,NA
+KMRN,NA,NA
+KMTP,NA,NA
+KMVL,NA,NA
+KNEL,NA,NA
+KNFE,NA,NA
+KNKT,NA,NA
+KNQA,NA,NA
+KNUI,NA,NA
+KNXP,NA,NA
+KNYG,NA,NA
+KOBE,NA,NA
+KPCW,NA,NA
+KPVU,NA,NA
+KPYX,NA,NA
+KRAS,NA,NA
+KRBO,NA,NA
+KREO,NA,NA
+KRGK,NA,NA
+KRKW,NA,NA
+KRUG,NA,NA
+KRUQ,NA,NA
+KS21,NA,NA
+KS32,NA,NA
+KS52,NA,NA
+KSAA,NA,NA
+KSBD,NA,NA
+KSCD,NA,NA
+KSEF,NA,NA
+KSFQ,NA,NA
+KSGS,NA,NA
+KSHL,NA,NA
+KSIK,NA,NA
+KSLB,NA,NA
+KSLK,NA,NA
+KSNH,NA,NA
+KSPA,NA,NA
+KSPG,NA,NA
+KSPI,NA,NA
+KSUO,NA,NA
+KSWW,NA,NA
+KTMB,NA,NA
+KTME,NA,NA
+KTOB,NA,NA
+KTPL,NA,NA
+KTQH,NA,NA
+KTVK,NA,NA
+KTWF,NA,NA
+KTWT,NA,NA
+KU52,NA,NA
+KUCY,NA,NA
+KULM,NA,NA
+KVCB,NA,NA
+KVWU,NA,NA
+KW22,NA,NA
+KY19,NA,NA
+PABE,NA,NA
+PAFR,NA,NA
+PASL,NA,NA
+PFCL,NA,NA
+PHNG,NA,NA
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T04:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T05:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T06:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T07:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T08:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T09:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T10:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T11:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T12:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T13:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T14:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T15:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T16:00:00Z
+CWJC,"Ennadai Lake(MAPS), NU, CA",2025-09-12T17:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T04:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T05:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T06:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T07:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T08:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T09:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T10:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T11:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T12:00:00Z
+CYOJ,"High Level Arpt, AB, CA",2025-09-12T13:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T04:56:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T05:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T05:55:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T06:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T07:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T08:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T09:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T09:21:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T10:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T10:34:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T11:14:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T11:23:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T12:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T12:54:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T13:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T13:29:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T14:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T15:00:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T16:07:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T16:14:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T16:38:00Z
+CYPR,"Prince Rupert Arpt, BC, CA",2025-09-12T17:00:00Z
+CYPX,"Puvungnituq Arpt, QC, CA",2025-09-12T12:00:00Z
+CYPX,"Puvungnituq Arpt, QC, CA",2025-09-12T13:00:00Z
+CYPX,"Puvungnituq Arpt, QC, CA",2025-09-12T14:07:00Z
+CYTE,"Cape Dorset Arpt, NU, CA",2025-09-12T16:00:00Z
+CYTZ,"Toronto/Bishop Arpt, ON, CA",2025-09-12T16:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T04:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T05:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T06:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T07:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T08:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T09:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T10:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T11:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T12:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T13:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T14:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T15:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T16:00:00Z
+CZMD,"Muskrat Dam Arpt, ON, CA",2025-09-12T17:00:00Z
+CZUM,"Churchill Falls Arpt, NL, CA",2025-09-12T09:00:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T04:55:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T05:15:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T05:35:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T07:15:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T07:35:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T07:55:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T08:15:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T10:15:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T10:35:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T10:55:00Z
+K08D,"Stanley Muni, ND, US",2025-09-12T11:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T04:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T04:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T05:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T05:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T05:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T06:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T06:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T06:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T07:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T07:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T07:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T08:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T08:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T08:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T09:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T09:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T09:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T10:10:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T10:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T10:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T11:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T11:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T11:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T12:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T12:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T13:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T13:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T13:50:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T14:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T14:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T14:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T15:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T15:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T15:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T16:15:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T16:35:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T16:55:00Z
+K0R0,"Columbia/Marion Cnty, MS, US",2025-09-12T17:15:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T04:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T05:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T06:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T07:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T08:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T09:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T10:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T11:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T12:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T13:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T14:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T15:54:00Z
+K12N,"Andover/Aeroflex Arpt, NJ, US",2025-09-12T16:54:00Z
+K1A5,"Franklin/Macon Cnty, NC, US",2025-09-12T14:05:00Z
+K1M5,"Portland Muni, TN, US",2025-09-12T15:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T04:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T05:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T05:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T05:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T06:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T06:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T06:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T07:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T07:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T07:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T08:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T08:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T08:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T09:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T09:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T09:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T10:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T10:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T10:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T11:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T11:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T11:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T12:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T12:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T13:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T13:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T13:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T14:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T14:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T14:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T15:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T15:35:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T15:55:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T16:15:00Z
+K20U,"Beach Arpt, ND, US",2025-09-12T17:15:00Z
+K2A0,"Dayton/Anton Arpt, TN, US",2025-09-12T15:15:00Z
+K2C8,"Cavalier Muni, ND, US",2025-09-12T05:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T04:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T05:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T05:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T05:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T06:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T06:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T06:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T07:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T07:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T07:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T08:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T08:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T08:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T09:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T09:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T09:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T10:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T10:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T10:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T11:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T11:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T11:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T12:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T12:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T13:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T13:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T13:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T14:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T14:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T14:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T15:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T15:35:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T15:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T16:15:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T16:55:00Z
+K2D5,"Oakes Muni, ND, US",2025-09-12T17:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T04:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T05:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T05:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T06:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T06:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T06:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T07:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T07:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T08:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T08:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T08:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T09:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T09:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T09:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T10:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T10:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T10:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T11:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T11:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T12:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T12:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T12:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T13:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T13:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T13:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T14:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T14:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T14:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T15:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T15:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T15:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T16:15:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T16:35:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T16:55:00Z
+K2IS,"Clewistown/Airglades Arpt, FL, US",2025-09-12T17:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T04:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T05:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T05:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T06:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T06:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T06:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T07:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T08:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T08:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T08:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T09:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T09:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T09:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T10:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T10:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T11:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T11:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T11:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T12:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T13:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T13:35:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T13:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T14:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T14:55:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T15:15:00Z
+K2M8,"Millington/Baker Arpt, TN, US",2025-09-12T15:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T04:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T05:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T05:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T05:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T06:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T06:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T06:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T07:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T07:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T07:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T08:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T08:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T08:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T09:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T09:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T09:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T10:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T10:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T10:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T11:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T11:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T11:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T12:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T12:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T13:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T13:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T13:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T14:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T14:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T14:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T15:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T15:35:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T15:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T16:15:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T16:55:00Z
+K2R2,"Indianapolis/Hendrick Cnty, IN, US",2025-09-12T17:15:00Z
+K35A,"Union/Union Cnty, SC, US",2025-09-12T05:15:00Z
+K35A,"Union/Union Cnty, SC, US",2025-09-12T05:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T04:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T05:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T05:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T05:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T06:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T06:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T06:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T07:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T07:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T07:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T08:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T08:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T08:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T09:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T09:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T09:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T10:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T10:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T10:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T11:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T11:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T11:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T12:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T12:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T13:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T13:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T13:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T14:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T14:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T14:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T15:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T15:35:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T15:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T16:15:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T16:55:00Z
+K4M3,"Carlisle Muni, AR, US",2025-09-12T17:15:00Z
+K6B9,"Skaneateles Arpt, NY, US",2025-09-12T06:55:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T04:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T05:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T06:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T07:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T08:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T09:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T10:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T11:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T12:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T13:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T14:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T15:51:00Z
+K6R6,"Dryden/Terrell Cnty, TX, US",2025-09-12T16:51:00Z
+K79J,"Andalusia/Benton Fld, AL, US",2025-09-12T15:56:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T04:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T05:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T05:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T05:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T06:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T06:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T06:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T07:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T07:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T07:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T08:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T08:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T08:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T09:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T09:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T09:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T10:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T10:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T10:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T11:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T11:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T12:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T12:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T13:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T13:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T13:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T14:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T14:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T14:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T15:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T15:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T15:55:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T16:15:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T16:35:00Z
+K82V,"Pine Bluffs Muni, WY, US",2025-09-12T17:15:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T04:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T05:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T06:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T07:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T08:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T09:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T10:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T11:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T12:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T13:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T14:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T15:56:00Z
+K8D3,"Sisseton Muni, SD, US",2025-09-12T16:56:00Z
+KABE,"Allentown/Lehigh Valley Intl, PA, US",2025-09-12T12:51:00Z
+KABE,"Allentown/Lehigh Valley Intl, PA, US",2025-09-12T13:51:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T04:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T05:15:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T05:35:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T05:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T06:35:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T06:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T07:15:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T07:35:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T07:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T08:15:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T08:35:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T08:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T09:15:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T09:35:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T09:55:00Z
+KADS,"Dallas/Addison Arpt, TX, US",2025-09-12T10:15:00Z
+KADU,"Audubon Cnty Arpt, IA, US",2025-09-12T11:15:00Z
+KADU,"Audubon Cnty Arpt, IA, US",2025-09-12T11:35:00Z
+KADU,"Audubon Cnty Arpt, IA, US",2025-09-12T12:15:00Z
+KADU,"Audubon Cnty Arpt, IA, US",2025-09-12T12:35:00Z
+KADU,"Audubon Cnty Arpt, IA, US",2025-09-12T12:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T04:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T05:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T05:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T05:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T06:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T06:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T06:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T07:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T07:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T07:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T08:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T08:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T08:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T09:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T09:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T09:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T10:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T10:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T10:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T11:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T11:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T12:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T12:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T13:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T13:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T13:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T14:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T14:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T14:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T15:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T15:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T15:55:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T16:15:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T16:35:00Z
+KAEJ,"Buena Vista/Central Colorado Rgnl, CO, US",2025-09-12T17:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T04:55:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T05:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T05:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T06:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T06:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T06:55:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T07:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T08:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T08:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T08:55:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T09:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T09:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T09:55:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T10:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T11:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T12:15:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T12:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T14:35:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T14:55:00Z
+KAJG,"Mount Carmel Muni, IL, US",2025-09-12T15:55:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T04:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T05:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T06:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T07:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T08:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T09:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T10:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T11:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T12:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T13:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T14:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T15:52:00Z
+KAQW,"North Adams/Harriman West Arpt, MA, US",2025-09-12T16:52:00Z
+KATS,"Artesia Muni, NM, US",2025-09-12T15:15:00Z
+KATS,"Artesia Muni, NM, US",2025-09-12T15:35:00Z
+KAWG,"Washington Muni, IA, US",2025-09-12T10:15:00Z
+KAXA,"Algona Muni, IA, US",2025-09-12T08:35:00Z
+KAXH,"Houston/SW Arpt, TX, US",2025-09-12T15:35:00Z
+KAXH,"Houston/SW Arpt, TX, US",2025-09-12T15:55:00Z
+KAXH,"Houston/SW Arpt, TX, US",2025-09-12T17:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T04:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T05:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T05:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T05:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T06:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T06:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T07:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T07:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T07:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T08:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T08:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T08:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T09:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T09:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T09:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T10:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T10:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T10:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T11:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T11:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T12:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T12:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T12:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T13:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T13:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T13:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T14:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T14:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T14:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T15:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T15:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T16:15:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T16:35:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T16:55:00Z
+KAYS,"Waycross/Ware Cnty, GA, US",2025-09-12T17:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T04:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T04:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T05:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T05:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T05:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T06:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T06:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T07:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T07:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T07:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T08:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T08:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T08:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T09:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T09:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T09:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T10:15:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T10:35:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T10:55:00Z
+KBBG,"Branson Arpt, MO, US",2025-09-12T11:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T04:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T04:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T05:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T05:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T05:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T06:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T07:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T07:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T07:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T08:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T08:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T08:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T09:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T09:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T10:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T10:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T10:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T11:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T11:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T12:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T12:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T12:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T13:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T13:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T13:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T14:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T14:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T14:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T15:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T15:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T16:15:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T16:35:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T16:55:00Z
+KBFR,"Bedford/Grissom Arpt, IN, US",2025-09-12T17:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T04:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T05:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T05:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T05:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T06:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T06:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T06:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T07:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T07:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T07:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T08:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T08:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T08:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T09:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T09:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T09:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T10:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T10:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T10:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T11:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T11:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T12:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T12:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T13:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T13:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T13:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T14:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T14:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T14:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T15:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T15:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T15:55:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T16:15:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T16:35:00Z
+KBKD,"Breckenridge/Stephens Cnty, TX, US",2025-09-12T17:15:00Z
+KBML,"Berlin Muni, NH, US",2025-09-12T05:42:00Z
+KBML,"Berlin Muni, NH, US",2025-09-12T05:52:00Z
+KBML,"Berlin Muni, NH, US",2025-09-12T06:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T04:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T05:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T05:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T05:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T06:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T06:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T06:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T07:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T07:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T07:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T08:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T08:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T08:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T09:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T09:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T09:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T10:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T10:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T10:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T11:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T12:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T12:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T14:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T14:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T14:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T15:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T15:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T16:15:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T16:35:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T16:55:00Z
+KBOW,"Bartow Muni, FL, US",2025-09-12T17:15:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T04:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T04:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T05:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T05:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T05:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T06:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T06:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T07:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T07:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T07:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T08:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T08:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T08:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T09:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T09:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T09:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T10:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T10:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T10:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T11:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T11:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T11:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T12:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T12:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T13:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T13:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T13:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T14:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T14:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T14:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T15:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T15:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T16:10:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T16:30:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T16:50:00Z
+KBQP,"Morehouse Mem Arpt, LA, US",2025-09-12T17:10:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T04:53:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T05:53:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T06:53:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T07:53:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T08:53:00Z
+KBTL,"Battle Creek/Kellogg Fld Arpt, MI, US",2025-09-12T09:53:00Z
+KCAV,"Clarion Muni, IA, US",2025-09-12T08:15:00Z
+KCAV,"Clarion Muni, IA, US",2025-09-12T09:35:00Z
+KCAV,"Clarion Muni, IA, US",2025-09-12T09:55:00Z
+KCAV,"Clarion Muni, IA, US",2025-09-12T10:15:00Z
+KCAV,"Clarion Muni, IA, US",2025-09-12T11:15:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T04:42:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T05:03:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T05:22:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T05:42:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T06:02:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T06:49:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T07:08:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T07:30:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T07:50:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T08:10:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T08:29:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T08:50:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T09:10:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T09:30:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T09:48:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T10:10:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T10:30:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T10:50:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T11:06:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T12:04:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T12:46:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T13:24:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T13:44:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T14:20:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T15:52:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T16:08:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T16:52:00Z
+KCBG,"Cambridge Muni, MN, US",2025-09-12T17:12:00Z
+KCCY,"Charles City/NE Iowa Rgnl, IA, US",2025-09-12T14:55:00Z
+KCIN,"Carroll/Neu Arpt, IA, US",2025-09-12T17:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T04:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T05:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T05:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T05:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T06:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T06:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T06:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T07:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T07:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T07:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T08:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T08:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T08:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T09:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T09:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T09:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T10:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T10:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T10:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T11:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T11:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T11:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T12:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T12:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T13:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T13:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T13:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T14:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T14:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T14:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T15:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T15:35:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T15:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T16:15:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T16:55:00Z
+KCKM,"Clarksdale/Fletcher Fld, MS, US",2025-09-12T17:15:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T04:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T05:20:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T05:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T06:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T07:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T08:17:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T08:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T09:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T10:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T11:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T12:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T13:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T14:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T15:31:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T15:53:00Z
+KCRQ,"Carlsbad/Palomar Arpt, CA, US",2025-09-12T16:53:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T04:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T05:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T05:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T05:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T06:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T06:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T07:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T07:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T07:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T08:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T08:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T08:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T09:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T09:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T09:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T10:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T10:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T10:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T11:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T11:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T12:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T12:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T12:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T13:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T13:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T13:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T14:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T14:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T14:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T15:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T15:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T15:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T16:15:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T16:35:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T16:55:00Z
+KCSB,"Cambridge Muni, NE, US",2025-09-12T17:15:00Z
+KCTZ,"Clinton/Sampson Cnty, NC, US",2025-09-12T14:35:00Z
+KCTZ,"Clinton/Sampson Cnty, NC, US",2025-09-12T16:05:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T15:15:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T15:35:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T15:55:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T16:15:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T16:35:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T16:55:00Z
+KCZL,"Calhoun/Tom David Fld, GA, US",2025-09-12T17:15:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T04:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T05:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T06:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T07:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T08:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T09:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T10:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T11:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T12:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T13:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T14:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T15:56:00Z
+KD07,"Faith Muni, SD, US",2025-09-12T16:56:00Z
+KD60,"Tioga Muni, ND, US",2025-09-12T04:55:00Z
+KD60,"Tioga Muni, ND, US",2025-09-12T09:55:00Z
+KD60,"Tioga Muni, ND, US",2025-09-12T10:15:00Z
+KDKK,"Dunkirk/Chautauqua Cnty, NY, US",2025-09-12T13:53:00Z
+KDKX,"Knoxville/Downtown Aprt, TN, US",2025-09-12T05:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T04:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T05:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T05:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T05:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T06:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T06:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T06:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T07:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T07:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T07:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T08:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T08:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T08:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T09:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T09:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T09:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T10:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T10:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T10:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T11:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T11:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T11:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T12:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T12:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T13:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T13:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T13:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T14:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T14:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T14:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T15:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T15:35:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T15:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T16:15:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T16:55:00Z
+KDLO,"Delano Muni, CA, US",2025-09-12T17:15:00Z
+KDMW,"Westminster/Carroll Cnty Rgnl, MD, US",2025-09-12T10:05:00Z
+KDMW,"Westminster/Carroll Cnty Rgnl, MD, US",2025-09-12T12:05:00Z
+KDMW,"Westminster/Carroll Cnty Rgnl, MD, US",2025-09-12T16:05:00Z
+KDUH,"Toledo/Suburban Arpt, MI, US",2025-09-12T09:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T04:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T05:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T05:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T05:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T06:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T06:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T07:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T07:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T07:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T08:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T08:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T08:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T09:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T09:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T09:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T10:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T10:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T10:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T11:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T11:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T12:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T12:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T12:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T13:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T13:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T13:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T14:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T14:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T14:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T15:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T15:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T15:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T16:15:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T16:35:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T16:55:00Z
+KDZB,"Marble Falls/Horseshoe Bay Arpt, TX, US",2025-09-12T17:15:00Z
+KEDJ,"Bellefontaine Rgnl, OH, US",2025-09-12T09:55:00Z
+KEHO,"Shelby/Cleveland Cnty, NC, US",2025-09-12T15:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T04:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T04:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T05:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T05:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T05:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T06:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T06:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T07:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T07:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T07:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T08:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T08:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T08:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T09:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T09:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T09:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T10:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T10:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T10:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T11:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T11:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T11:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T12:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T12:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T13:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T13:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T13:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T14:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T14:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T14:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T15:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T15:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T15:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T16:15:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T16:35:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T16:55:00Z
+KEMM,"Kemmerer Muni, WY, US",2025-09-12T17:15:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T04:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T05:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T06:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T07:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T08:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T09:53:00Z
+KEYW,"Key West Intl, FL, US",2025-09-12T10:17:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T04:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T05:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T05:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T06:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T06:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T06:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T07:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T07:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T08:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T08:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T08:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T09:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T09:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T09:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T10:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T10:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T10:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T11:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T11:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T12:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T12:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T12:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T13:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T13:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T13:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T14:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T14:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T14:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T15:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T15:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T15:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T16:15:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T16:35:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T16:55:00Z
+KEZS,"Shawano Muni, WI, US",2025-09-12T17:15:00Z
+KEZZ,"Cameron Arpt, MO, US",2025-09-12T13:55:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T04:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T05:10:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T05:30:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T05:40:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T05:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T06:10:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T06:40:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T06:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T07:10:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T07:20:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T07:30:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T07:40:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T07:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T08:10:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T08:30:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T08:40:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T08:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T09:00:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T09:20:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T09:30:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T09:40:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T09:50:00Z
+KFDK,"Frederick Muni, MD, US",2025-09-12T10:00:00Z
+KFFL,"Fairfield Muni, IA, US",2025-09-12T04:55:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T04:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T05:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T06:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T07:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T08:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T09:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T10:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T11:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T12:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T13:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T14:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T15:53:00Z
+KFFT,"Frankfort/Capital City Arpt, KY, US",2025-09-12T16:53:00Z
+KFMM,"Fort Morgan Muni, CO, US",2025-09-12T14:55:00Z
+KFMM,"Fort Morgan Muni, CO, US",2025-09-12T15:15:00Z
+KFMM,"Fort Morgan Muni, CO, US",2025-09-12T15:35:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T04:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T05:14:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T05:29:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T05:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T06:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T07:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T08:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T09:53:00Z
+KFMN,"Farmington/Four Corners Rgnl, NM, US",2025-09-12T10:53:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T04:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T05:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T05:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T05:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T06:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T06:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T06:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T07:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T07:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T07:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T08:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T08:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T08:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T09:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T09:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T09:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T10:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T10:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T10:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T11:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T11:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T11:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T12:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T12:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T13:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T13:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T13:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T14:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T14:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T14:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T15:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T15:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T15:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T16:15:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T16:35:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T16:55:00Z
+KFSE,"Fosston Muni, MN, US",2025-09-12T17:15:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T04:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T05:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T06:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T07:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T08:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T09:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T10:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T11:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T12:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T13:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T14:23:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T14:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T15:56:00Z
+KGAD,"Gadsden/NE Alabama Rgnl, AL, US",2025-09-12T16:56:00Z
+KGAF,"Grafton/Hutson Fld, ND, US",2025-09-12T10:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T04:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T05:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T05:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T05:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T06:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T06:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T06:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T07:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T07:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T07:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T08:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T08:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T08:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T09:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T09:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T09:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T10:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T10:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T10:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T11:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T11:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T11:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T12:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T12:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T13:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T13:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T13:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T14:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T14:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T14:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T15:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T15:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T15:55:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T16:15:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T16:35:00Z
+KGDJ,"Granbury Muni, TX, US",2025-09-12T17:15:00Z
+KGPH,"Mosby/Midwest Air Center, MO, US",2025-09-12T08:15:00Z
+KGPH,"Mosby/Midwest Air Center, MO, US",2025-09-12T16:15:00Z
+KGSH,"Goshen Muni, IN, US",2025-09-12T04:53:00Z
+KGSH,"Goshen Muni, IN, US",2025-09-12T12:53:00Z
+KGSH,"Goshen Muni, IN, US",2025-09-12T13:53:00Z
+KGSH,"Goshen Muni, IN, US",2025-09-12T14:53:00Z
+KGWR,"Gwinner Muni, ND, US",2025-09-12T09:35:00Z
+KGZN,"Cisco/Simmons Mem, TX, US",2025-09-12T13:35:00Z
+KGZN,"Cisco/Simmons Mem, TX, US",2025-09-12T13:45:00Z
+KHRX,"Hereford Muni, TX, US",2025-09-12T15:55:00Z
+KHRX,"Hereford Muni, TX, US",2025-09-12T16:35:00Z
+KHRX,"Hereford Muni, TX, US",2025-09-12T16:55:00Z
+KHRX,"Hereford Muni, TX, US",2025-09-12T17:15:00Z
+KHVE,"Hanksville Arpt, UT, US",2025-09-12T09:50:00Z
+KHVE,"Hanksville Arpt, UT, US",2025-09-12T13:50:00Z
+KHZE,"Hazen/Mercer Cnty, ND, US",2025-09-12T06:15:00Z
+KHZE,"Hazen/Mercer Cnty, ND, US",2025-09-12T07:15:00Z
+KHZE,"Hazen/Mercer Cnty, ND, US",2025-09-12T07:35:00Z
+KI35,"Harlan/Guthrie Mem, KY, US",2025-09-12T13:35:00Z
+KI95,"Kenton/Hardin Cnty, OH, US",2025-09-12T09:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T04:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T05:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T05:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T05:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T06:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T06:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T06:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T07:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T07:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T08:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T08:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T09:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T09:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T09:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T10:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T10:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T10:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T11:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T11:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T11:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T12:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T12:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T13:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T13:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T13:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T14:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T14:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T14:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T15:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T15:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T15:55:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T16:15:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T16:35:00Z
+KIGQ,"Chicago/Lansing Muni, IL, US",2025-09-12T17:15:00Z
+KIKV,"Ankeny Rgnl, IA, US",2025-09-12T14:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T04:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T05:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T05:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T06:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T06:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T07:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T07:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T08:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T08:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T09:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T09:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T09:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T10:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T10:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T10:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T11:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T12:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T12:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T13:15:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T14:35:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T14:55:00Z
+KISQ,"Manistique/Schoolcraft Cnty, MI, US",2025-09-12T17:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T04:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T05:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T05:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T05:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T06:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T06:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T07:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T08:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T08:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T08:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T09:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T09:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T09:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T10:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T10:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T10:55:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T11:15:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T11:35:00Z
+KJAS,"Jasper/Bell Fld, TX, US",2025-09-12T12:15:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T04:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T05:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T06:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T07:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T08:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T09:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T10:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T11:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T12:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T13:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T14:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T15:48:00Z
+KJDN,"Jordan Arpt, MT, US",2025-09-12T16:48:00Z
+KJKJ,"Moorhead Muni, MN, US",2025-09-12T06:55:00Z
+KJKJ,"Moorhead Muni, MN, US",2025-09-12T07:15:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T10:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T11:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T12:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T13:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T14:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T15:56:00Z
+KLCI,"Laconia Muni, NH, US",2025-09-12T16:56:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T04:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T05:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T05:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T05:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T06:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T06:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T06:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T07:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T07:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T07:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T08:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T08:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T08:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T09:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T09:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T09:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T10:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T10:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T10:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T11:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T11:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T11:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T12:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T12:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T13:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T13:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T13:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T14:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T14:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T14:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T15:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T15:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T15:55:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T16:15:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T16:35:00Z
+KLNC,"Lancaster Arpt, TX, US",2025-09-12T17:15:00Z
+KLRO,"Mt Pleasant Rgnl, SC, US",2025-09-12T17:15:00Z
+KLXT,"Lee's Summit Muni, MO, US",2025-09-12T13:53:00Z
+KLXT,"Lee's Summit Muni, MO, US",2025-09-12T16:53:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T04:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T05:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T05:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T05:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T06:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T06:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T06:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T07:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T07:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T07:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T08:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T08:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T08:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T09:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T09:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T09:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T10:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T10:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T10:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T11:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T11:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T11:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T12:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T12:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T13:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T13:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T13:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T14:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T14:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T14:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T15:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T15:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T15:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T16:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T16:20:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T16:40:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T17:00:00Z
+KM08,"Bolivar/Whitehurst Fld, TN, US",2025-09-12T17:20:00Z
+KMFV,"Melfa/Accomack Cnty, VA, US",2025-09-12T16:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T04:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T04:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T05:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T05:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T05:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T06:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T06:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T06:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T07:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T07:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T07:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T08:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T08:30:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T08:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T09:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T09:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T09:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T10:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T10:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T10:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T11:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T11:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T11:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T12:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T12:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T13:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T13:35:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T13:55:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T14:15:00Z
+KMHR,"Sacramento/Mather Fld, CA, US",2025-09-12T14:35:00Z
+KMPE,"Philadelphia Muni, MS, US",2025-09-12T10:35:00Z
+KMPE,"Philadelphia Muni, MS, US",2025-09-12T10:55:00Z
+KMPE,"Philadelphia Muni, MS, US",2025-09-12T11:15:00Z
+KMPE,"Philadelphia Muni, MS, US",2025-09-12T15:55:00Z
+KMPE,"Philadelphia Muni, MS, US",2025-09-12T16:15:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T07:01:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T09:01:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T10:01:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T11:01:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T12:01:00Z
+KMRF,"Marfa Muni, TX, US",2025-09-12T13:01:00Z
+KMRN,"Morganton/Foothills Rgnl, NC, US",2025-09-12T14:15:00Z
+KMRN,"Morganton/Foothills Rgnl, NC, US",2025-09-12T14:35:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T04:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T05:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T06:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T07:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T08:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T09:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T10:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T11:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T12:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T13:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T14:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T15:54:00Z
+KMTP,"Montauk Arpt, NY, US",2025-09-12T16:54:00Z
+KMVL,"Morrisville-Stowe State Arpt, VT, US",2025-09-12T07:31:00Z
+KMVL,"Morrisville-Stowe State Arpt, VT, US",2025-09-12T07:54:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T04:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T05:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T06:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T07:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T08:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T09:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T10:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T11:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T12:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T13:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T14:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T15:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T16:00:00Z
+KNEL,"Lakehurst(NAS), NJ, US",2025-09-12T17:00:00Z
+KNFE,"Fentress(NALF), VA, US",2025-09-12T05:06:09Z
+KNFE,"Fentress(NALF), VA, US",2025-09-12T06:12:05Z
+KNFE,"Fentress(NALF), VA, US",2025-09-12T07:16:04Z
+KNFE,"Fentress(NALF), VA, US",2025-09-12T09:12:00Z
+KNKT,"Cherry Point MCAS, NC, US",2025-09-12T15:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T07:15:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T07:35:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T07:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T08:15:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T08:35:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T08:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T09:15:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T09:35:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T09:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T10:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T11:15:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T11:35:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T11:55:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T12:15:00Z
+KNQA,"Millington Rgnl, TN, US",2025-09-12T12:55:00Z
+KNUI,"St Inigoes/Webster Fld, MD, US",2025-09-12T09:04:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T05:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T08:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T09:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T11:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T12:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T13:54:00Z
+KNXP,"Twentynine Palms/Self Arpt, CA, US",2025-09-12T14:54:00Z
+KNYG,"Quantico (MCAF), VA, US",2025-09-12T09:00:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T04:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T05:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T05:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T05:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T06:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T06:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T07:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T07:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T07:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T08:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T08:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T08:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T09:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T09:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T09:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T10:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T10:35:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T10:55:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T11:15:00Z
+KOBE,"Okeechobee Cnty Arpt, FL, US",2025-09-12T11:35:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T13:35:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T13:45:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T14:05:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T15:15:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T15:25:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T16:25:00Z
+KPCW,"Port Clinton/Erie-Ottawa Arpt, OH, US",2025-09-12T16:45:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T04:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T05:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T06:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T07:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T08:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T09:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T10:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T11:56:00Z
+KPVU,"Provo Muni, UT, US",2025-09-12T16:56:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T04:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T05:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T05:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T05:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T06:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T06:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T06:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T07:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T07:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T07:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T08:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T08:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T08:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T09:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T09:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T09:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T10:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T10:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T10:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T11:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T11:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T11:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T12:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T12:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T13:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T13:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T13:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T14:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T14:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T14:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T15:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T15:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T15:55:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T16:15:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T16:35:00Z
+KPYX,"Perryton/Ochiltree Cnty, TX, US",2025-09-12T17:15:00Z
+KRAS,"Port Aransas/Mustang Beach Arpt, TX, US",2025-09-12T13:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T04:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T05:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T05:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T05:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T06:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T06:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T06:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T07:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T07:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T07:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T08:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T08:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T08:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T09:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T09:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T09:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T10:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T10:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T10:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T11:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T11:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T11:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T12:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T12:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T13:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T13:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T13:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T14:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T15:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T15:35:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T15:55:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T16:15:00Z
+KRBO,"Robstown/Nueces Cnty, TX, US",2025-09-12T16:35:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T04:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T05:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T06:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T07:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T08:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T09:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T10:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T11:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T12:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T13:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T14:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T15:52:00Z
+KREO,"Rome/State Arpt, OR, US",2025-09-12T16:52:00Z
+KRGK,"Red Wing Rgnl, WI, US",2025-09-12T15:23:00Z
+KRKW,"Rockwood Muni, TN, US",2025-09-12T14:35:00Z
+KRKW,"Rockwood Muni, TN, US",2025-09-12T14:55:00Z
+KRUG,"Rugby Muni, ND, US",2025-09-12T05:15:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T04:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T05:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T05:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T05:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T05:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T06:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T06:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T06:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T07:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T07:15:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T07:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T07:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T07:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T08:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T08:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T08:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T08:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T08:55:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T09:15:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T09:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T09:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T09:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T10:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T10:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T10:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T10:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T11:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T11:15:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T11:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T11:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T11:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T12:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T12:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T13:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T13:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T13:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T13:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T13:55:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T14:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T14:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T14:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T14:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T15:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T15:15:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T15:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T15:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T15:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T16:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T16:25:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T16:35:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T16:45:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T16:55:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T17:05:00Z
+KRUQ,"Salisbury/Rowan Cnty, NC, US",2025-09-12T17:25:00Z
+KS21,"Sunriver Arpt, OR, US",2025-09-12T05:35:00Z
+KS21,"Sunriver Arpt, OR, US",2025-09-12T05:55:00Z
+KS21,"Sunriver Arpt, OR, US",2025-09-12T10:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T04:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T05:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T05:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T05:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T06:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T06:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T06:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T07:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T07:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T07:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T08:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T08:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T08:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T09:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T09:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T09:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T10:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T10:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T10:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T11:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T11:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T11:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T12:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T12:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T13:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T13:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T13:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T14:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T14:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T14:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T15:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T15:35:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T15:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T16:15:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T16:55:00Z
+KS32,"Cooperstown Muni, ND, US",2025-09-12T17:15:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T04:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T04:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T05:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T05:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T05:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T06:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T06:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T07:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T07:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T07:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T08:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T08:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T08:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T09:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T09:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T09:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T10:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T10:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T10:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T11:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T11:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T12:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T12:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T13:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T13:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T13:50:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T16:10:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T16:30:00Z
+KS52,"Methow Valley State Arpt, WA, US",2025-09-12T16:50:00Z
+KSAA,"Saratoga/Shively Fld, WY, US",2025-09-12T14:55:00Z
+KSAA,"Saratoga/Shively Fld, WY, US",2025-09-12T15:35:00Z
+KSAA,"Saratoga/Shively Fld, WY, US",2025-09-12T15:55:00Z
+KSBD,"San Bernardino Intl, CA, US",2025-09-12T16:52:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T04:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T05:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T05:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T05:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T06:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T06:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T06:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T07:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T07:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T07:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T08:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T08:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T08:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T09:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T09:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T09:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T10:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T10:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T10:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T11:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T11:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T11:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T12:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T12:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T13:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T13:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T13:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T14:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T14:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T14:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T15:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T15:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T15:55:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T16:15:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T16:35:00Z
+KSCD,"Sylacauga Muni, AL, US",2025-09-12T17:15:00Z
+KSEE,"San Diego/Gillespie Fld, CA, US",2025-09-12T17:28:00Z
+KSEF,"Sebring Rgnl, FL, US",2025-09-12T09:15:00Z
+KSEF,"Sebring Rgnl, FL, US",2025-09-12T16:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T04:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T05:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T05:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T05:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T06:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T06:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T06:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T07:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T07:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T07:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T08:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T08:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T08:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T09:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T09:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T09:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T10:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T10:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T10:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T11:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T11:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T12:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T12:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T13:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T13:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T13:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T14:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T14:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T14:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T15:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T15:35:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T15:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T16:15:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T16:55:00Z
+KSFQ,"Suffolk Muni, VA, US",2025-09-12T17:15:00Z
+KSGS,"South St Paul Muni, MN, US",2025-09-12T16:15:00Z
+KSHL,"Sheldon Muni, IA, US",2025-09-12T10:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T04:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T05:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T05:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T05:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T06:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T06:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T06:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T07:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T07:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T07:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T08:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T08:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T08:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T09:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T09:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T09:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T10:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T10:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T10:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T11:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T11:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T11:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T12:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T12:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T13:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T13:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T13:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T14:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T14:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T14:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T15:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T15:35:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T15:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T16:15:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T16:55:00Z
+KSIK,"Sikeston Arpt, MO, US",2025-09-12T17:15:00Z
+KSLB,"Storm Lake Muni, IA, US",2025-09-12T09:35:00Z
+KSLK,"Saranac Lake/Adirondack Rgnl, NY, US",2025-09-12T09:21:00Z
+KSLK,"Saranac Lake/Adirondack Rgnl, NY, US",2025-09-12T09:28:00Z
+KSNH,"Savannah/Hardin Cnty, TN, US",2025-09-12T16:10:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T04:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T05:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T05:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T06:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T06:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T07:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T07:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T07:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T08:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T08:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T08:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T09:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T09:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T10:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T10:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T10:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T11:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T11:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T12:15:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T12:35:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T12:55:00Z
+KSPA,"Spartanburg/Downtown Arpt, SC, US",2025-09-12T13:10:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T04:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T05:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T06:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T07:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T08:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T09:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T10:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T11:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T12:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T13:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T14:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T15:53:00Z
+KSPG,"St Petersburg/Whitted Arpt, FL, US",2025-09-12T16:53:00Z
+KSPI,"Springfield/Lincoln Capital Arpt, IL, US",2025-09-12T08:52:00Z
+KSPI,"Springfield/Lincoln Capital Arpt, IL, US",2025-09-12T09:52:00Z
+KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",2025-09-12T04:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T04:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T05:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T05:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T05:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T06:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T06:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T07:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T07:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T07:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T08:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T08:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T08:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T09:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T09:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T09:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T10:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T10:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T10:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T11:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T11:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T12:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T12:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T12:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T13:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T13:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T14:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T14:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T15:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T15:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T15:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T16:15:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T16:35:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T16:55:00Z
+KSWW,"Sweetwater/Avenger Fld, TX, US",2025-09-12T17:15:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T04:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T05:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T06:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T07:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T08:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T09:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T10:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T11:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T12:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T13:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T14:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T15:53:00Z
+KTMB,"Miami Exec Arpt, FL, US",2025-09-12T16:53:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T04:55:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T05:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T05:35:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T05:55:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T06:55:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T07:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T08:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T09:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T12:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T12:35:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T13:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T13:35:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T14:15:00Z
+KTME,"Houston/Executive Arpt, TX, US",2025-09-12T14:35:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T04:54:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T05:13:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T05:32:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T06:15:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T06:46:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T07:06:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T07:28:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T07:48:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T08:28:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T09:58:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T10:16:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T10:36:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T11:13:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T11:31:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T11:50:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T12:52:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T13:11:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T14:49:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T15:31:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T16:47:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T17:07:00Z
+KTOB,"Dodge Center Arpt, MN, US",2025-09-12T17:26:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T04:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T05:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T06:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T07:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T08:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T09:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T10:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T11:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T12:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T13:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T14:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T15:51:00Z
+KTPL,"Temple/Miller Rgnl, TX, US",2025-09-12T16:51:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T04:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T05:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T05:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T05:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T06:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T06:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T06:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T07:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T07:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T07:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T08:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T08:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T08:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T09:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T09:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T09:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T10:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T10:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T10:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T11:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T11:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T11:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T12:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T12:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T13:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T13:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T13:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T14:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T14:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T14:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T15:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T15:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T15:55:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T16:15:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T16:35:00Z
+KTQH,"Tahlequah Muni, OK, US",2025-09-12T17:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T04:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T05:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T05:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T05:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T06:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T06:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T07:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T07:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T07:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T08:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T08:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T08:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T09:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T09:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T09:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T10:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T10:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T10:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T11:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T11:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T12:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T12:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T12:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T13:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T13:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T13:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T14:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T14:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T14:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T15:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T15:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T15:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T16:15:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T16:35:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T16:55:00Z
+KTVK,"Centerville Muni, IA, US",2025-09-12T17:15:00Z
+KTWF,"Twin Falls/Joslin Fld, ID, US",2025-09-12T07:53:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T04:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T05:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T05:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T05:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T06:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T06:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T06:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T07:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T07:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T07:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T08:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T08:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T08:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T09:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T09:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T09:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T10:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T10:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T10:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T11:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T11:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T11:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T12:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T12:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T13:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T13:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T13:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T14:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T14:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T14:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T15:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T15:35:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T15:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T16:15:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T16:55:00Z
+KTWT,"Sturgis Muni, KY, US",2025-09-12T17:15:00Z
+KU52,"Beaver Muni, UT, US",2025-09-12T06:55:00Z
+KU52,"Beaver Muni, UT, US",2025-09-12T09:55:00Z
+KU52,"Beaver Muni, UT, US",2025-09-12T10:15:00Z
+KU52,"Beaver Muni, UT, US",2025-09-12T14:15:00Z
+KU52,"Beaver Muni, UT, US",2025-09-12T16:55:00Z
+KUCY,"Union City/Everett-Stewart Rgnl, TN, US",2025-09-12T15:30:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T05:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T05:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T05:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T06:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T06:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T06:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T07:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T07:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T07:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T08:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T08:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T08:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T09:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T09:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T09:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T10:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T10:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T10:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T11:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T11:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T11:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T12:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T12:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T13:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T13:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T13:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T14:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T14:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T14:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T15:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T15:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T15:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T16:15:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T16:35:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T16:55:00Z
+KULM,"New Ulm Muni, MN, US",2025-09-12T17:15:00Z
+KVCB,"Vacaville/Nut Tree Arpt, CA, US",2025-09-12T14:53:00Z
+KVWU,"Waskish Muni, MN, US",2025-09-12T08:15:00Z
+KVWU,"Waskish Muni, MN, US",2025-09-12T08:35:00Z
+KVWU,"Waskish Muni, MN, US",2025-09-12T16:15:00Z
+KW22,"Buckhannon/Upshur Cnty, WV, US",2025-09-12T13:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T04:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T05:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T05:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T05:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T06:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T06:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T06:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T07:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T07:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T07:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T08:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T08:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T08:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T09:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T09:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T09:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T10:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T10:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T10:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T11:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T11:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T11:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T12:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T12:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T13:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T13:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T13:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T14:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T14:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T14:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T15:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T15:35:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T15:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T16:15:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T16:55:00Z
+KY19,"Mandan Muni, ND, US",2025-09-12T17:15:00Z
+PABE,"Bethel Arpt, AK, US",2025-09-12T14:53:00Z
+PABE,"Bethel Arpt, AK, US",2025-09-12T15:54:00Z
+PAFR,"Ft Richardson/Bryant AAF, AK, US",2025-09-12T15:44:00Z
+PAFR,"Ft Richardson/Bryant AAF, AK, US",2025-09-12T15:55:00Z
+PASL,"Sleetmute Arpt, AK, US",2025-09-12T12:56:00Z
+PASL,"Sleetmute Arpt, AK, US",2025-09-12T13:12:00Z
+PASL,"Sleetmute Arpt, AK, US",2025-09-12T13:25:00Z
+PFCL,"Clarks Point Arpt, AK, US",2025-09-12T12:56:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T10:57:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T11:57:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T12:44:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T13:04:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T13:49:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T13:57:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T14:36:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T15:00:00Z
+PHNG,"Kaneohe Bay (MCAS), HI, US",2025-09-12T15:57:00Z
