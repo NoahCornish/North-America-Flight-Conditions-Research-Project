@@ -157,8 +157,8 @@ stations_df <- airports %>%
   distinct(ident, iso_country, type, iata_code)
 
 # US: drop small_airport; keep small in CA
-stations_df <- stations_df %>%
-  filter(!(iso_country == "US" & type == "small_airport"))
+#stations_df <- stations_df %>%
+#  filter(!(iso_country == "US" & type == "small_airport"))
 
 STATIONS <- stations_df$ident
 message("Canadian airports included: ", sum(stations_df$iso_country == "CA"))
