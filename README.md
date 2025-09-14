@@ -1,7 +1,7 @@
 # 🌎 North America Flight Conditions Research Project (NAFCRP)
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/NoahCornish/North-America-Flight-Conditions-Research-Project)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/NoahCornish/North-America-Flight-Conditions-Research-Project/fetch_metars.yml?label=METAR%20Fetch)
 ![Data Pipeline](https://img.shields.io/badge/data%20updates-every%204%20min-ff69b4)
