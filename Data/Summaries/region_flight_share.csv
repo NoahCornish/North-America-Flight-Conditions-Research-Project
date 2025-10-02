@@ -1,8 +1,8 @@
 country,region,flight_category,minutes,total,pct
-Canada,AB,VFR,17767,25766,68.96
-Canada,AB,MVFR,3887,25766,15.09
-Canada,AB,IFR,2441,25766,9.47
-Canada,AB,LIFR,1671,25766,6.49
+Canada,AB,VFR,17771,25961,68.45
+Canada,AB,MVFR,3897,25961,15.01
+Canada,AB,IFR,2511,25961,9.67
+Canada,AB,LIFR,1782,25961,6.86
 Canada,AK,IFR,0,0,0
 Canada,AK,LIFR,0,0,0
 Canada,AK,MVFR,0,0,0
@@ -19,10 +19,10 @@ Canada,AZ,IFR,0,0,0
 Canada,AZ,LIFR,0,0,0
 Canada,AZ,MVFR,0,0,0
 Canada,AZ,VFR,0,0,0
-Canada,BC,VFR,36311,46240,78.53
-Canada,BC,MVFR,5713,46240,12.36
-Canada,BC,IFR,2324,46240,5.03
-Canada,BC,LIFR,1892,46240,4.09
+Canada,BC,VFR,36449,46517,78.36
+Canada,BC,MVFR,5752,46517,12.37
+Canada,BC,IFR,2379,46517,5.11
+Canada,BC,LIFR,1937,46517,4.16
 Canada,CA,IFR,0,0,0
 Canada,CA,LIFR,0,0,0
 Canada,CA,MVFR,0,0,0
@@ -151,14 +151,14 @@ Canada,NS,VFR,7585,7980,95.05
 Canada,NS,MVFR,395,7980,4.95
 Canada,NS,IFR,0,0,0
 Canada,NS,LIFR,0,0,0
-Canada,NT,MVFR,7158,19152,37.37
-Canada,NT,VFR,6895,19152,36
-Canada,NT,LIFR,2656,19152,13.87
-Canada,NT,IFR,2443,19152,12.76
-Canada,NU,VFR,11333,26663,42.5
-Canada,NU,MVFR,7349,26663,27.56
-Canada,NU,IFR,4026,26663,15.1
-Canada,NU,LIFR,3955,26663,14.83
+Canada,NT,MVFR,7158,19189,37.3
+Canada,NT,VFR,6895,19189,35.93
+Canada,NT,LIFR,2693,19189,14.03
+Canada,NT,IFR,2443,19189,12.73
+Canada,NU,VFR,11369,26823,42.39
+Canada,NU,MVFR,7440,26823,27.74
+Canada,NU,IFR,4026,26823,15.01
+Canada,NU,LIFR,3988,26823,14.87
 Canada,NV,IFR,0,0,0
 Canada,NV,LIFR,0,0,0
 Canada,NV,MVFR,0,0,0
@@ -175,10 +175,10 @@ Canada,OK,IFR,0,0,0
 Canada,OK,LIFR,0,0,0
 Canada,OK,MVFR,0,0,0
 Canada,OK,VFR,0,0,0
-Canada,ON,VFR,57160,57649,99.15
-Canada,ON,MVFR,361,57649,0.63
-Canada,ON,IFR,118,57649,0.2
-Canada,ON,LIFR,10,57649,0.02
+Canada,ON,VFR,57180,57699,99.1
+Canada,ON,MVFR,391,57699,0.68
+Canada,ON,IFR,118,57699,0.2
+Canada,ON,LIFR,10,57699,0.02
 Canada,OR,IFR,0,0,0
 Canada,OR,LIFR,0,0,0
 Canada,OR,MVFR,0,0,0
@@ -191,10 +191,10 @@ Canada,PE,VFR,1254,1410,88.94
 Canada,PE,MVFR,156,1410,11.06
 Canada,PE,IFR,0,0,0
 Canada,PE,LIFR,0,0,0
-Canada,QC,VFR,38929,45739,85.11
-Canada,QC,MVFR,5137,45739,11.23
-Canada,QC,IFR,1387,45739,3.03
-Canada,QC,LIFR,286,45739,0.63
+Canada,QC,VFR,38953,45845,84.97
+Canada,QC,MVFR,5177,45845,11.29
+Canada,QC,IFR,1399,45845,3.05
+Canada,QC,LIFR,316,45845,0.69
 Canada,RI,IFR,0,0,0
 Canada,RI,LIFR,0,0,0
 Canada,RI,MVFR,0,0,0
@@ -255,32 +255,32 @@ United States,AB,IFR,0,0,0
 United States,AB,LIFR,0,0,0
 United States,AB,MVFR,0,0,0
 United States,AB,VFR,0,0,0
-United States,AK,VFR,96822,186706,51.86
-United States,AK,MVFR,62338,186706,33.39
-United States,AK,IFR,17983,186706,9.63
-United States,AK,LIFR,9563,186706,5.12
-United States,AL,VFR,41746,42131,99.09
-United States,AL,MVFR,365,42131,0.87
-United States,AL,IFR,20,42131,0.05
+United States,AK,VFR,96989,187566,51.71
+United States,AK,MVFR,62691,187566,33.42
+United States,AK,IFR,18240,187566,9.72
+United States,AK,LIFR,9646,187566,5.14
+United States,AL,VFR,41873,42258,99.09
+United States,AL,MVFR,365,42258,0.86
+United States,AL,IFR,20,42258,0.05
 United States,AL,LIFR,0,0,0
-United States,AR,VFR,44218,47540,93.01
-United States,AR,MVFR,2256,47540,4.75
-United States,AR,IFR,769,47540,1.62
-United States,AR,LIFR,297,47540,0.62
-United States,AZ,VFR,53683,53713,99.94
-United States,AZ,MVFR,30,53713,0.06
+United States,AR,VFR,44339,47691,92.97
+United States,AR,MVFR,2256,47691,4.73
+United States,AR,IFR,799,47691,1.68
+United States,AR,LIFR,297,47691,0.62
+United States,AZ,VFR,54079,54109,99.94
+United States,AZ,MVFR,30,54109,0.06
 United States,AZ,IFR,0,0,0
 United States,AZ,LIFR,0,0,0
 United States,BC,IFR,0,0,0
 United States,BC,LIFR,0,0,0
 United States,BC,MVFR,0,0,0
 United States,BC,VFR,0,0,0
-United States,CA,VFR,148442,174944,84.85
-United States,CA,MVFR,18039,174944,10.31
-United States,CA,IFR,4409,174944,2.52
-United States,CA,LIFR,4054,174944,2.32
-United States,CO,VFR,56995,57635,98.89
-United States,CO,MVFR,640,57635,1.11
+United States,CA,VFR,148802,175682,84.7
+United States,CA,MVFR,18107,175682,10.31
+United States,CA,IFR,4565,175682,2.6
+United States,CA,LIFR,4208,175682,2.4
+United States,CO,VFR,57166,57806,98.89
+United States,CO,MVFR,640,57806,1.11
 United States,CO,IFR,0,0,0
 United States,CO,LIFR,0,0,0
 United States,CT,VFR,14800,14800,100
@@ -291,45 +291,45 @@ United States,DE,VFR,4470,4470,100
 United States,DE,IFR,0,0,0
 United States,DE,LIFR,0,0,0
 United States,DE,MVFR,0,0,0
-United States,FL,VFR,101672,111428,91.24
-United States,FL,MVFR,8928,111428,8.01
-United States,FL,IFR,755,111428,0.68
-United States,FL,LIFR,73,111428,0.07
-United States,GA,VFR,92194,93865,98.22
-United States,GA,MVFR,876,93865,0.93
-United States,GA,IFR,415,93865,0.44
-United States,GA,LIFR,380,93865,0.4
-United States,HI,VFR,15370,16775,91.62
-United States,HI,MVFR,1235,16775,7.36
-United States,HI,IFR,170,16775,1.01
+United States,FL,VFR,101924,111869,91.11
+United States,FL,MVFR,9040,111869,8.08
+United States,FL,IFR,832,111869,0.74
+United States,FL,LIFR,73,111869,0.07
+United States,GA,VFR,92594,94285,98.21
+United States,GA,MVFR,896,94285,0.95
+United States,GA,IFR,415,94285,0.44
+United States,GA,LIFR,380,94285,0.4
+United States,HI,VFR,15362,16797,91.46
+United States,HI,MVFR,1265,16797,7.53
+United States,HI,IFR,170,16797,1.01
 United States,HI,LIFR,0,0,0
-United States,IA,VFR,80010,81960,97.62
-United States,IA,LIFR,1000,81960,1.22
-United States,IA,IFR,500,81960,0.61
-United States,IA,MVFR,450,81960,0.55
-United States,ID,VFR,26846,27817,96.51
-United States,ID,MVFR,443,27817,1.59
-United States,ID,LIFR,276,27817,0.99
-United States,ID,IFR,252,27817,0.91
-United States,IL,VFR,71399,73414,97.26
-United States,IL,MVFR,1044,73414,1.42
-United States,IL,IFR,885,73414,1.21
-United States,IL,LIFR,86,73414,0.12
-United States,IN,VFR,62868,63958,98.3
-United States,IN,MVFR,890,63958,1.39
-United States,IN,LIFR,200,63958,0.31
+United States,IA,VFR,80515,82455,97.65
+United States,IA,LIFR,1000,82455,1.21
+United States,IA,IFR,500,82455,0.61
+United States,IA,MVFR,440,82455,0.53
+United States,ID,VFR,26866,27877,96.37
+United States,ID,MVFR,443,27877,1.59
+United States,ID,LIFR,296,27877,1.06
+United States,ID,IFR,272,27877,0.98
+United States,IL,VFR,71819,73834,97.27
+United States,IL,MVFR,1044,73834,1.41
+United States,IL,IFR,885,73834,1.2
+United States,IL,LIFR,86,73834,0.12
+United States,IN,VFR,63228,64318,98.31
+United States,IN,MVFR,890,64318,1.38
+United States,IN,LIFR,200,64318,0.31
 United States,IN,IFR,0,0,0
-United States,KS,VFR,71613,74392,96.26
-United States,KS,MVFR,1536,74392,2.06
-United States,KS,LIFR,951,74392,1.28
-United States,KS,IFR,292,74392,0.39
-United States,KY,VFR,36376,37088,98.08
-United States,KY,MVFR,478,37088,1.29
-United States,KY,LIFR,160,37088,0.43
-United States,KY,IFR,74,37088,0.2
-United States,LA,VFR,42736,43403,98.46
-United States,LA,MVFR,387,43403,0.89
-United States,LA,LIFR,280,43403,0.65
+United States,KS,VFR,71888,74677,96.27
+United States,KS,MVFR,1526,74677,2.04
+United States,KS,LIFR,941,74677,1.26
+United States,KS,IFR,322,74677,0.43
+United States,KY,VFR,36496,37208,98.09
+United States,KY,MVFR,478,37208,1.28
+United States,KY,LIFR,160,37208,0.43
+United States,KY,IFR,74,37208,0.2
+United States,LA,VFR,42926,43593,98.47
+United States,LA,MVFR,387,43593,0.89
+United States,LA,LIFR,280,43593,0.64
 United States,LA,IFR,0,0,0
 United States,MA,VFR,29515,30433,96.98
 United States,MA,MVFR,918,30433,3.02
@@ -339,55 +339,55 @@ United States,MB,IFR,0,0,0
 United States,MB,LIFR,0,0,0
 United States,MB,MVFR,0,0,0
 United States,MB,VFR,0,0,0
-United States,MD,VFR,24523,24543,99.92
-United States,MD,IFR,20,24543,0.08
+United States,MD,VFR,24713,24733,99.92
+United States,MD,IFR,20,24733,0.08
 United States,MD,LIFR,0,0,0
 United States,MD,MVFR,0,0,0
-United States,ME,VFR,21082,21594,97.63
-United States,ME,MVFR,399,21594,1.85
-United States,ME,IFR,63,21594,0.29
-United States,ME,LIFR,50,21594,0.23
-United States,MI,VFR,99842,103190,96.76
-United States,MI,MVFR,1455,103190,1.41
-United States,MI,LIFR,1285,103190,1.25
-United States,MI,IFR,608,103190,0.59
-United States,MN,VFR,117914,119988,98.27
-United States,MN,MVFR,1280,119988,1.07
-United States,MN,IFR,709,119988,0.59
-United States,MN,LIFR,85,119988,0.07
-United States,MO,VFR,54551,56170,97.12
-United States,MO,MVFR,820,56170,1.46
-United States,MO,IFR,559,56170,1
-United States,MO,LIFR,240,56170,0.43
-United States,MS,VFR,42667,44778,95.29
-United States,MS,MVFR,816,44778,1.82
-United States,MS,LIFR,778,44778,1.74
-United States,MS,IFR,517,44778,1.15
-United States,MT,VFR,32262,32818,98.31
-United States,MT,MVFR,287,32818,0.87
-United States,MT,LIFR,269,32818,0.82
+United States,ME,VFR,21102,21614,97.63
+United States,ME,MVFR,399,21614,1.85
+United States,ME,IFR,63,21614,0.29
+United States,ME,LIFR,50,21614,0.23
+United States,MI,VFR,99922,103270,96.76
+United States,MI,MVFR,1455,103270,1.41
+United States,MI,LIFR,1285,103270,1.24
+United States,MI,IFR,608,103270,0.59
+United States,MN,VFR,118033,120107,98.27
+United States,MN,MVFR,1280,120107,1.07
+United States,MN,IFR,709,120107,0.59
+United States,MN,LIFR,85,120107,0.07
+United States,MO,VFR,54651,56270,97.12
+United States,MO,MVFR,820,56270,1.46
+United States,MO,IFR,559,56270,0.99
+United States,MO,LIFR,240,56270,0.43
+United States,MS,VFR,42827,44938,95.3
+United States,MS,MVFR,816,44938,1.82
+United States,MS,LIFR,778,44938,1.73
+United States,MS,IFR,517,44938,1.15
+United States,MT,VFR,32342,32908,98.28
+United States,MT,MVFR,287,32908,0.87
+United States,MT,LIFR,279,32908,0.85
 United States,MT,IFR,0,0,0
 United States,NB,IFR,0,0,0
 United States,NB,LIFR,0,0,0
 United States,NB,MVFR,0,0,0
 United States,NB,VFR,0,0,0
-United States,NC,VFR,93038,97583,95.34
-United States,NC,MVFR,3325,97583,3.41
-United States,NC,IFR,610,97583,0.63
-United States,NC,LIFR,610,97583,0.63
-United States,ND,VFR,24350,24750,98.38
-United States,ND,MVFR,300,24750,1.21
-United States,ND,IFR,100,24750,0.4
+United States,NC,VFR,93847,98382,95.39
+United States,NC,MVFR,3315,98382,3.37
+United States,NC,IFR,610,98382,0.62
+United States,NC,LIFR,610,98382,0.62
+United States,ND,VFR,24370,24770,98.39
+United States,ND,MVFR,300,24770,1.21
+United States,ND,IFR,100,24770,0.4
 United States,ND,LIFR,0,0,0
-United States,NE,VFR,57836,59713,96.86
-United States,NE,MVFR,840,59713,1.41
-United States,NE,LIFR,652,59713,1.09
-United States,NE,IFR,385,59713,0.64
-United States,NH,VFR,16092,16896,95.24
-United States,NH,LIFR,428,16896,2.53
-United States,NH,MVFR,192,16896,1.14
-United States,NH,IFR,184,16896,1.09
-United States,NJ,VFR,21910,21910,100
+United States,NE,VFR,58076,60010,96.78
+United States,NE,MVFR,900,60010,1.5
+United States,NE,LIFR,676,60010,1.13
+United States,NE,IFR,358,60010,0.6
+United States,NH,VFR,16154,16958,95.26
+United States,NH,LIFR,428,16958,2.52
+United States,NH,MVFR,192,16958,1.13
+United States,NH,IFR,184,16958,1.09
+United States,NJ,VFR,21970,21970,100
 United States,NJ,IFR,0,0,0
 United States,NJ,LIFR,0,0,0
 United States,NJ,MVFR,0,0,0
@@ -395,9 +395,9 @@ United States,NL,IFR,0,0,0
 United States,NL,LIFR,0,0,0
 United States,NL,MVFR,0,0,0
 United States,NL,VFR,0,0,0
-United States,NM,VFR,40086,40151,99.84
-United States,NM,IFR,45,40151,0.11
-United States,NM,MVFR,20,40151,0.05
+United States,NM,VFR,40146,40211,99.84
+United States,NM,IFR,45,40211,0.11
+United States,NM,MVFR,20,40211,0.05
 United States,NM,LIFR,0,0,0
 United States,NS,IFR,0,0,0
 United States,NS,LIFR,0,0,0
@@ -411,33 +411,33 @@ United States,NU,IFR,0,0,0
 United States,NU,LIFR,0,0,0
 United States,NU,MVFR,0,0,0
 United States,NU,VFR,0,0,0
-United States,NV,VFR,25200,25200,100
+United States,NV,VFR,25331,25331,100
 United States,NV,IFR,0,0,0
 United States,NV,LIFR,0,0,0
 United States,NV,MVFR,0,0,0
-United States,NY,VFR,58484,58926,99.25
-United States,NY,LIFR,365,58926,0.62
-United States,NY,MVFR,41,58926,0.07
-United States,NY,IFR,36,58926,0.06
-United States,OH,VFR,69990,70587,99.15
-United States,OH,MVFR,401,70587,0.57
-United States,OH,IFR,138,70587,0.2
-United States,OH,LIFR,58,70587,0.08
-United States,OK,VFR,69378,71438,97.12
-United States,OK,MVFR,1410,71438,1.97
-United States,OK,IFR,500,71438,0.7
-United States,OK,LIFR,150,71438,0.21
+United States,NY,VFR,58614,59047,99.27
+United States,NY,LIFR,356,59047,0.6
+United States,NY,MVFR,41,59047,0.07
+United States,NY,IFR,36,59047,0.06
+United States,OH,VFR,70220,70807,99.17
+United States,OH,MVFR,401,70807,0.57
+United States,OH,IFR,128,70807,0.18
+United States,OH,LIFR,58,70807,0.08
+United States,OK,VFR,69842,71912,97.12
+United States,OK,MVFR,1400,71912,1.95
+United States,OK,IFR,530,71912,0.74
+United States,OK,LIFR,140,71912,0.19
 United States,ON,IFR,0,0,0
 United States,ON,LIFR,0,0,0
 United States,ON,MVFR,0,0,0
 United States,ON,VFR,0,0,0
-United States,OR,VFR,35823,41522,86.27
-United States,OR,MVFR,3583,41522,8.63
-United States,OR,IFR,1194,41522,2.88
-United States,OR,LIFR,922,41522,2.22
-United States,PA,VFR,65828,66329,99.24
-United States,PA,MVFR,481,66329,0.73
-United States,PA,IFR,20,66329,0.03
+United States,OR,VFR,35883,41582,86.29
+United States,OR,MVFR,3583,41582,8.62
+United States,OR,IFR,1194,41582,2.87
+United States,OR,LIFR,922,41582,2.22
+United States,PA,VFR,65980,66481,99.25
+United States,PA,MVFR,481,66481,0.72
+United States,PA,IFR,20,66481,0.03
 United States,PA,LIFR,0,0,0
 United States,PE,IFR,0,0,0
 United States,PE,LIFR,0,0,0
@@ -451,53 +451,53 @@ United States,RI,VFR,8588,8700,98.71
 United States,RI,MVFR,112,8700,1.29
 United States,RI,IFR,0,0,0
 United States,RI,LIFR,0,0,0
-United States,SC,VFR,62200,62480,99.55
-United States,SC,MVFR,280,62480,0.45
+United States,SC,VFR,62580,62860,99.55
+United States,SC,MVFR,280,62860,0.45
 United States,SC,IFR,0,0,0
 United States,SC,LIFR,0,0,0
-United States,SD,VFR,29210,29560,98.82
-United States,SD,MVFR,210,29560,0.71
-United States,SD,IFR,140,29560,0.47
+United States,SD,VFR,29270,29620,98.82
+United States,SD,MVFR,210,29620,0.71
+United States,SD,IFR,140,29620,0.47
 United States,SD,LIFR,0,0,0
 United States,SK,IFR,0,0,0
 United States,SK,LIFR,0,0,0
 United States,SK,MVFR,0,0,0
 United States,SK,VFR,0,0,0
-United States,TN,VFR,50414,52682,95.69
-United States,TN,LIFR,1062,52682,2.02
-United States,TN,IFR,673,52682,1.28
-United States,TN,MVFR,533,52682,1.01
-United States,TX,VFR,219017,223281,98.09
-United States,TX,MVFR,2784,223281,1.25
-United States,TX,IFR,1228,223281,0.55
-United States,TX,LIFR,252,223281,0.11
-United States,UT,VFR,30840,30860,99.94
-United States,UT,IFR,20,30860,0.06
+United States,TN,VFR,50889,53157,95.73
+United States,TN,LIFR,1062,53157,2
+United States,TN,IFR,673,53157,1.27
+United States,TN,MVFR,533,53157,1
+United States,TX,VFR,219879,224118,98.11
+United States,TX,MVFR,2759,224118,1.23
+United States,TX,IFR,1228,224118,0.55
+United States,TX,LIFR,252,224118,0.11
+United States,UT,VFR,30940,30960,99.94
+United States,UT,IFR,20,30960,0.06
 United States,UT,LIFR,0,0,0
 United States,UT,MVFR,0,0,0
-United States,VA,VFR,75686.13333333333,79104.13333333333,95.68
-United States,VA,MVFR,2313,79104.13333333333,2.92
-United States,VA,LIFR,650,79104.13333333333,0.82
-United States,VA,IFR,455,79104.13333333333,0.58
+United States,VA,VFR,75726.13333333333,79144.13333333333,95.68
+United States,VA,MVFR,2313,79144.13333333333,2.92
+United States,VA,LIFR,650,79144.13333333333,0.82
+United States,VA,IFR,455,79144.13333333333,0.57
 United States,VT,VFR,11581,11900,97.32
 United States,VT,LIFR,295,11900,2.48
 United States,VT,IFR,24,11900,0.2
 United States,VT,MVFR,0,0,0
-United States,WA,VFR,51773,57601,89.88
-United States,WA,MVFR,3482,57601,6.05
-United States,WA,IFR,1245,57601,2.16
-United States,WA,LIFR,1101,57601,1.91
-United States,WI,VFR,80004,86026,93
-United States,WI,IFR,2245,86026,2.61
-United States,WI,MVFR,2224,86026,2.59
-United States,WI,LIFR,1553,86026,1.81
-United States,WV,VFR,14881,15564,95.61
-United States,WV,LIFR,642,15564,4.12
-United States,WV,MVFR,41,15564,0.26
+United States,WA,VFR,51893,57829,89.74
+United States,WA,MVFR,3482,57829,6.02
+United States,WA,IFR,1245,57829,2.15
+United States,WA,LIFR,1209,57829,2.09
+United States,WI,VFR,80511,86533,93.04
+United States,WI,IFR,2245,86533,2.59
+United States,WI,MVFR,2224,86533,2.57
+United States,WI,LIFR,1553,86533,1.79
+United States,WV,VFR,14935,15618,95.63
+United States,WV,LIFR,642,15618,4.11
+United States,WV,MVFR,41,15618,0.26
 United States,WV,IFR,0,0,0
-United States,WY,VFR,36399,36528,99.65
-United States,WY,MVFR,115,36528,0.31
-United States,WY,LIFR,14,36528,0.04
+United States,WY,VFR,36499,36628,99.65
+United States,WY,MVFR,115,36628,0.31
+United States,WY,LIFR,14,36628,0.04
 United States,WY,IFR,0,0,0
 United States,YT,IFR,0,0,0
 United States,YT,LIFR,0,0,0
