@@ -1,7 +1,7 @@
 icao,site,country,region,flight_category,minutes,total,pct
-CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,VFR,1697,2887,58.78
-CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,MVFR,1168,2887,40.46
-CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,IFR,22,2887,0.76
+CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,VFR,1703,2893,58.87
+CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,MVFR,1168,2893,40.37
+CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,IFR,22,2893,0.76
 CBBC,"Bella Bella Arpt, BC, CA",Canada,BC,LIFR,0,0,0
 CWJC,"Ennadai Lake, NU, CA",Canada,NU,IFR,0,0,0
 CWJC,"Ennadai Lake, NU, CA",Canada,NU,LIFR,0,0,0
@@ -23,8 +23,8 @@ CYAT,"Attawapisket Arpt, ON, CA",Canada,ON,VFR,1901,2910,65.33
 CYAT,"Attawapisket Arpt, ON, CA",Canada,ON,MVFR,515,2910,17.7
 CYAT,"Attawapisket Arpt, ON, CA",Canada,ON,IFR,342,2910,11.75
 CYAT,"Attawapisket Arpt, ON, CA",Canada,ON,LIFR,152,2910,5.22
-CYAW,"Shearwater, NS, CA",Canada,NS,MVFR,1410,1530,92.16
-CYAW,"Shearwater, NS, CA",Canada,NS,VFR,120,1530,7.84
+CYAW,"Shearwater, NS, CA",Canada,NS,MVFR,1452,1572,92.37
+CYAW,"Shearwater, NS, CA",Canada,NS,VFR,120,1572,7.63
 CYAW,"Shearwater, NS, CA",Canada,NS,IFR,0,0,0
 CYAW,"Shearwater, NS, CA",Canada,NS,LIFR,0,0,0
 CYAY,"St Anthony Arpt, NL, CA",Canada,NL,IFR,1463,2904,50.38
@@ -79,9 +79,9 @@ CYBW,"Calgary/Springbank Arpt, AB, CA",Canada,AB,VFR,2871,2910,98.66
 CYBW,"Calgary/Springbank Arpt, AB, CA",Canada,AB,MVFR,39,2910,1.34
 CYBW,"Calgary/Springbank Arpt, AB, CA",Canada,AB,IFR,0,0,0
 CYBW,"Calgary/Springbank Arpt, AB, CA",Canada,AB,LIFR,0,0,0
-CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,MVFR,2068,2862,72.26
-CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,VFR,769,2862,26.87
-CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,IFR,25,2862,0.87
+CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,MVFR,2089,2883,72.46
+CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,VFR,769,2883,26.67
+CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,IFR,25,2883,0.87
 CYBX,"Blanc Sablon Arpt, QC, CA",Canada,QC,LIFR,0,0,0
 CYCA,"Cartwright Arpt, NL, CA",Canada,NL,IFR,1594,2888,55.19
 CYCA,"Cartwright Arpt, NL, CA",Canada,NL,LIFR,1175,2888,40.69
@@ -143,10 +143,10 @@ CYDL,"Dease Lake Arpt, BC, CA",Canada,BC,VFR,2770,2878,96.25
 CYDL,"Dease Lake Arpt, BC, CA",Canada,BC,MVFR,84,2878,2.92
 CYDL,"Dease Lake Arpt, BC, CA",Canada,BC,IFR,24,2878,0.83
 CYDL,"Dease Lake Arpt, BC, CA",Canada,BC,LIFR,0,0,0
-CYDN,"Dauphin Arpt, MB, CA",Canada,MB,VFR,1544,2910,53.06
-CYDN,"Dauphin Arpt, MB, CA",Canada,MB,LIFR,619,2910,21.27
-CYDN,"Dauphin Arpt, MB, CA",Canada,MB,MVFR,553,2910,19
-CYDN,"Dauphin Arpt, MB, CA",Canada,MB,IFR,194,2910,6.67
+CYDN,"Dauphin Arpt, MB, CA",Canada,MB,VFR,1522,2888,52.7
+CYDN,"Dauphin Arpt, MB, CA",Canada,MB,LIFR,619,2888,21.43
+CYDN,"Dauphin Arpt, MB, CA",Canada,MB,MVFR,553,2888,19.15
+CYDN,"Dauphin Arpt, MB, CA",Canada,MB,IFR,194,2888,6.72
 CYDP,"Nain Arpt, NL, CA",Canada,NL,MVFR,1720,2190,78.54
 CYDP,"Nain Arpt, NL, CA",Canada,NL,VFR,470,2190,21.46
 CYDP,"Nain Arpt, NL, CA",Canada,NL,IFR,0,0,0
@@ -219,10 +219,10 @@ CYGK,"Kingston Arpt, ON, CA",Canada,ON,VFR,2430,2430,100
 CYGK,"Kingston Arpt, ON, CA",Canada,ON,IFR,0,0,0
 CYGK,"Kingston Arpt, ON, CA",Canada,ON,LIFR,0,0,0
 CYGK,"Kingston Arpt, ON, CA",Canada,ON,MVFR,0,0,0
-CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,VFR,1980,2879,68.77
-CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,LIFR,534,2879,18.55
-CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,IFR,280,2879,9.73
-CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,MVFR,85,2879,2.95
+CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,VFR,1980,2897,68.35
+CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,LIFR,552,2897,19.05
+CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,IFR,280,2897,9.67
+CYGL,"La Grande Riviere Arpt, QC, CA",Canada,QC,MVFR,85,2897,2.93
 CYGP,"Gaspé Arpt, QC, CA",Canada,QC,MVFR,1844,2910,63.37
 CYGP,"Gaspé Arpt, QC, CA",Canada,QC,VFR,992,2910,34.09
 CYGP,"Gaspé Arpt, QC, CA",Canada,QC,IFR,74,2910,2.54
@@ -239,9 +239,9 @@ CYGV,"Havre St Pierre Arpt, QC, CA",Canada,QC,VFR,1904,2910,65.43
 CYGV,"Havre St Pierre Arpt, QC, CA",Canada,QC,MVFR,954,2910,32.78
 CYGV,"Havre St Pierre Arpt, QC, CA",Canada,QC,IFR,52,2910,1.79
 CYGV,"Havre St Pierre Arpt, QC, CA",Canada,QC,LIFR,0,0,0
-CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,VFR,2196,2878,76.3
-CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,MVFR,675,2878,23.45
-CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,IFR,7,2878,0.24
+CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,VFR,2226,2902,76.71
+CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,MVFR,669,2902,23.05
+CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,IFR,7,2902,0.24
 CYGW,"Kuujjuarapik Arpt, QC, CA",Canada,QC,LIFR,0,0,0
 CYGX,"Gillam Arpt, MB, CA",Canada,MB,VFR,499,615,81.14
 CYGX,"Gillam Arpt, MB, CA",Canada,MB,IFR,64,615,10.41
@@ -459,9 +459,9 @@ CYPG,"Portage la Prairie/Southport Arpt, MB, CA",Canada,MB,MVFR,558,968,57.64
 CYPG,"Portage la Prairie/Southport Arpt, MB, CA",Canada,MB,LIFR,300,968,30.99
 CYPG,"Portage la Prairie/Southport Arpt, MB, CA",Canada,MB,IFR,68,968,7.02
 CYPG,"Portage la Prairie/Southport Arpt, MB, CA",Canada,MB,VFR,42,968,4.34
-CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,VFR,1688,2880,58.61
-CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,MVFR,915,2880,31.77
-CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,IFR,277,2880,9.62
+CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,VFR,1688,2896,58.29
+CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,MVFR,915,2896,31.6
+CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,IFR,293,2896,10.12
 CYPH,"Inukjuak Arpt, QC, CA",Canada,QC,LIFR,0,0,0
 CYPL,"Pickle Lake Arpt, ON, CA",Canada,ON,IFR,838,2910,28.8
 CYPL,"Pickle Lake Arpt, ON, CA",Canada,ON,MVFR,748,2910,25.7
@@ -483,9 +483,9 @@ CYPW,"Powell River Arpt, BC, CA",Canada,BC,VFR,1746,1950,89.54
 CYPW,"Powell River Arpt, BC, CA",Canada,BC,MVFR,150,1950,7.69
 CYPW,"Powell River Arpt, BC, CA",Canada,BC,LIFR,54,1950,2.77
 CYPW,"Powell River Arpt, BC, CA",Canada,BC,IFR,0,0,0
-CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,VFR,1914,2902,65.95
-CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,MVFR,946,2902,32.6
-CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,IFR,42,2902,1.45
+CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,VFR,1914,2910,65.77
+CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,MVFR,946,2910,32.51
+CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,IFR,50,2910,1.72
 CYPX,"Puvungnituq Arpt, QC, CA",Canada,QC,LIFR,0,0,0
 CYPY,"Fort Chipewyan Arpt, AB, CA",Canada,AB,VFR,1984,2910,68.18
 CYPY,"Fort Chipewyan Arpt, AB, CA",Canada,AB,MVFR,765,2910,26.29
@@ -703,10 +703,10 @@ CYVQ,"Norman Wells Arpt, NT, CA",Canada,NT,VFR,1401,2910,48.14
 CYVQ,"Norman Wells Arpt, NT, CA",Canada,NT,MVFR,984,2910,33.81
 CYVQ,"Norman Wells Arpt, NT, CA",Canada,NT,LIFR,352,2910,12.1
 CYVQ,"Norman Wells Arpt, NT, CA",Canada,NT,IFR,173,2910,5.95
-CYVR,"Vancouver Intl, BC, CA",Canada,BC,VFR,2192,2882,76.06
-CYVR,"Vancouver Intl, BC, CA",Canada,BC,MVFR,386,2882,13.39
-CYVR,"Vancouver Intl, BC, CA",Canada,BC,IFR,290,2882,10.06
-CYVR,"Vancouver Intl, BC, CA",Canada,BC,LIFR,14,2882,0.49
+CYVR,"Vancouver Intl, BC, CA",Canada,BC,VFR,2192,2894,75.74
+CYVR,"Vancouver Intl, BC, CA",Canada,BC,MVFR,398,2894,13.75
+CYVR,"Vancouver Intl, BC, CA",Canada,BC,IFR,290,2894,10.02
+CYVR,"Vancouver Intl, BC, CA",Canada,BC,LIFR,14,2894,0.48
 CYVT,"Buffalo Narrows Arpt, SK, CA",Canada,SK,VFR,2649,2910,91.03
 CYVT,"Buffalo Narrows Arpt, SK, CA",Canada,SK,MVFR,261,2910,8.97
 CYVT,"Buffalo Narrows Arpt, SK, CA",Canada,SK,IFR,0,0,0
@@ -739,8 +739,8 @@ CYWK,"Wabush Lake Arpt, NL, CA",Canada,NL,MVFR,1620,2910,55.67
 CYWK,"Wabush Lake Arpt, NL, CA",Canada,NL,VFR,717,2910,24.64
 CYWK,"Wabush Lake Arpt, NL, CA",Canada,NL,IFR,406,2910,13.95
 CYWK,"Wabush Lake Arpt, NL, CA",Canada,NL,LIFR,167,2910,5.74
-CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,VFR,2901,2910,99.69
-CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,MVFR,9,2910,0.31
+CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,VFR,2852,2891,98.65
+CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,MVFR,39,2891,1.35
 CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,IFR,0,0,0
 CYWL,"Williams Lake Rgnl, BC, CA",Canada,BC,LIFR,0,0,0
 CYXC,"Cranbrook Intl, BC, CA",Canada,BC,VFR,2910,2910,100
@@ -775,9 +775,9 @@ CYXQ,"Beaver Creek Arpt, YT, CA",Canada,YT,VFR,263,626,42.01
 CYXQ,"Beaver Creek Arpt, YT, CA",Canada,YT,LIFR,236,626,37.7
 CYXQ,"Beaver Creek Arpt, YT, CA",Canada,YT,IFR,127,626,20.29
 CYXQ,"Beaver Creek Arpt, YT, CA",Canada,YT,MVFR,0,0,0
-CYXR,"Earlton Arpt, ON, CA",Canada,ON,VFR,1489,2884,51.63
-CYXR,"Earlton Arpt, ON, CA",Canada,ON,MVFR,983,2884,34.08
-CYXR,"Earlton Arpt, ON, CA",Canada,ON,IFR,412,2884,14.29
+CYXR,"Earlton Arpt, ON, CA",Canada,ON,VFR,1467,2892,50.73
+CYXR,"Earlton Arpt, ON, CA",Canada,ON,MVFR,1013,2892,35.03
+CYXR,"Earlton Arpt, ON, CA",Canada,ON,IFR,412,2892,14.25
 CYXR,"Earlton Arpt, ON, CA",Canada,ON,LIFR,0,0,0
 CYXS,"Prince George Arpt, BC, CA",Canada,BC,VFR,2675,2885,92.72
 CYXS,"Prince George Arpt, BC, CA",Canada,BC,MVFR,210,2885,7.28
@@ -831,14 +831,14 @@ CYYH,"Taloyoak Arpt, NU, CA",Canada,NU,MVFR,787,1095,71.87
 CYYH,"Taloyoak Arpt, NU, CA",Canada,NU,VFR,180,1095,16.44
 CYYH,"Taloyoak Arpt, NU, CA",Canada,NU,IFR,128,1095,11.69
 CYYH,"Taloyoak Arpt, NU, CA",Canada,NU,LIFR,0,0,0
-CYYJ,"Victoria Intl, BC, CA",Canada,BC,VFR,2750,2870,95.82
-CYYJ,"Victoria Intl, BC, CA",Canada,BC,MVFR,120,2870,4.18
+CYYJ,"Victoria Intl, BC, CA",Canada,BC,VFR,2743,2893,94.82
+CYYJ,"Victoria Intl, BC, CA",Canada,BC,MVFR,150,2893,5.18
 CYYJ,"Victoria Intl, BC, CA",Canada,BC,IFR,0,0,0
 CYYJ,"Victoria Intl, BC, CA",Canada,BC,LIFR,0,0,0
-CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,VFR,2090,2880,72.57
-CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,MVFR,613,2880,21.28
-CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,IFR,123,2880,4.27
-CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,LIFR,54,2880,1.88
+CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,VFR,2090,2896,72.17
+CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,MVFR,643,2896,22.2
+CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,IFR,109,2896,3.76
+CYYL,"Lynn Lake Arpt, MB, CA",Canada,MB,LIFR,54,2896,1.86
 CYYN,"Swift Current Arpt, SK, CA",Canada,SK,VFR,2910,2910,100
 CYYN,"Swift Current Arpt, SK, CA",Canada,SK,IFR,0,0,0
 CYYN,"Swift Current Arpt, SK, CA",Canada,SK,LIFR,0,0,0
@@ -847,9 +847,9 @@ CYYQ,"Churchill Arpt, MB, CA",Canada,MB,VFR,2040,2910,70.1
 CYYQ,"Churchill Arpt, MB, CA",Canada,MB,MVFR,649,2910,22.3
 CYYQ,"Churchill Arpt, MB, CA",Canada,MB,IFR,149,2910,5.12
 CYYQ,"Churchill Arpt, MB, CA",Canada,MB,LIFR,72,2910,2.47
-CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,MVFR,2141,2910,73.57
-CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,IFR,703,2910,24.16
-CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,LIFR,66,2910,2.27
+CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,MVFR,2138,2907,73.55
+CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,IFR,703,2907,24.18
+CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,LIFR,66,2907,2.27
 CYYR,"Goose Bay Arpt, NL, CA",Canada,NL,VFR,0,0,0
 CYYT,"St Johns Intl, NL, CA",Canada,NL,LIFR,2910,2910,100
 CYYT,"St Johns Intl, NL, CA",Canada,NL,IFR,0,0,0
@@ -891,7 +891,7 @@ CYZP,"Sandspit Arpt, BC, CA",Canada,BC,VFR,2515,2910,86.43
 CYZP,"Sandspit Arpt, BC, CA",Canada,BC,IFR,242,2910,8.32
 CYZP,"Sandspit Arpt, BC, CA",Canada,BC,MVFR,153,2910,5.26
 CYZP,"Sandspit Arpt, BC, CA",Canada,BC,LIFR,0,0,0
-CYZR,"Sarnia/Hadfield Arpt, ON, CA",Canada,ON,VFR,2882,2882,100
+CYZR,"Sarnia/Hadfield Arpt, ON, CA",Canada,ON,VFR,2893,2893,100
 CYZR,"Sarnia/Hadfield Arpt, ON, CA",Canada,ON,IFR,0,0,0
 CYZR,"Sarnia/Hadfield Arpt, ON, CA",Canada,ON,LIFR,0,0,0
 CYZR,"Sarnia/Hadfield Arpt, ON, CA",Canada,ON,MVFR,0,0,0
@@ -899,10 +899,10 @@ CYZS,"Coral Harbour Arpt, NU, CA",Canada,NU,LIFR,1199,2863,41.88
 CYZS,"Coral Harbour Arpt, NU, CA",Canada,NU,IFR,868,2863,30.32
 CYZS,"Coral Harbour Arpt, NU, CA",Canada,NU,MVFR,556,2863,19.42
 CYZS,"Coral Harbour Arpt, NU, CA",Canada,NU,VFR,240,2863,8.38
-CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,VFR,2443,2889,84.56
-CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,MVFR,289,2889,10
-CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,LIFR,107,2889,3.7
-CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,IFR,50,2889,1.73
+CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,VFR,2457,2888,85.08
+CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,MVFR,319,2888,11.05
+CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,LIFR,107,2888,3.7
+CYZT,"Port Hardy Arpt, BC, CA",Canada,BC,IFR,5,2888,0.17
 CYZU,"Whitecourt Arpt, AB, CA",Canada,AB,VFR,2130,2310,92.21
 CYZU,"Whitecourt Arpt, AB, CA",Canada,AB,MVFR,180,2310,7.79
 CYZU,"Whitecourt Arpt, AB, CA",Canada,AB,IFR,0,0,0
@@ -919,10 +919,10 @@ CYZX,"Greenwood , NS, CA",Canada,NS,MVFR,2730,2910,93.81
 CYZX,"Greenwood , NS, CA",Canada,NS,VFR,180,2910,6.19
 CYZX,"Greenwood , NS, CA",Canada,NS,IFR,0,0,0
 CYZX,"Greenwood , NS, CA",Canada,NS,LIFR,0,0,0
-CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,VFR,2672,2891,92.42
-CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,MVFR,155,2891,5.36
-CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,IFR,35,2891,1.21
-CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,LIFR,29,2891,1
+CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,VFR,2672,2904,92.01
+CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,MVFR,155,2904,5.34
+CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,IFR,48,2904,1.65
+CYZY,"Mackenzie Arpt, BC, CA",Canada,BC,LIFR,29,2904,1
 CZBF,"Bathurst Arpt, NB, CA",Canada,NB,MVFR,1540,2910,52.92
 CZBF,"Bathurst Arpt, NB, CA",Canada,NB,VFR,1312,2910,45.09
 CZBF,"Bathurst Arpt, NB, CA",Canada,NB,IFR,58,2910,1.99
@@ -955,8 +955,8 @@ CZSJ,"Sandy Lake Arpt, ON, CA",Canada,ON,IFR,1181,2906,40.64
 CZSJ,"Sandy Lake Arpt, ON, CA",Canada,ON,LIFR,726,2906,24.98
 CZSJ,"Sandy Lake Arpt, ON, CA",Canada,ON,MVFR,721,2906,24.81
 CZSJ,"Sandy Lake Arpt, ON, CA",Canada,ON,VFR,278,2906,9.57
-CZST,"Stewart Arpt, BC, CA",Canada,BC,VFR,1419,1826,77.71
-CZST,"Stewart Arpt, BC, CA",Canada,BC,MVFR,407,1826,22.29
+CZST,"Stewart Arpt, BC, CA",Canada,BC,VFR,1404,1811,77.53
+CZST,"Stewart Arpt, BC, CA",Canada,BC,MVFR,407,1811,22.47
 CZST,"Stewart Arpt, BC, CA",Canada,BC,IFR,0,0,0
 CZST,"Stewart Arpt, BC, CA",Canada,BC,LIFR,0,0,0
 CZUM,"Churchill Falls Arpt, NL, CA",Canada,NL,MVFR,2018,2849,70.83
@@ -987,9 +987,9 @@ K0A9,"Elizabethton Muni, TN, US",United States,TN,VFR,2910,2910,100
 K0A9,"Elizabethton Muni, TN, US",United States,TN,IFR,0,0,0
 K0A9,"Elizabethton Muni, TN, US",United States,TN,LIFR,0,0,0
 K0A9,"Elizabethton Muni, TN, US",United States,TN,MVFR,0,0,0
-K0D8,"Gettysburg Muni, SD, US",United States,SD,VFR,2630,2870,91.64
+K0D8,"Gettysburg Muni, SD, US",United States,SD,VFR,2650,2870,92.33
 K0D8,"Gettysburg Muni, SD, US",United States,SD,MVFR,160,2870,5.57
-K0D8,"Gettysburg Muni, SD, US",United States,SD,IFR,80,2870,2.79
+K0D8,"Gettysburg Muni, SD, US",United States,SD,IFR,60,2870,2.09
 K0D8,"Gettysburg Muni, SD, US",United States,SD,LIFR,0,0,0
 K0E0,"Moriarty Muni, NM, US",United States,NM,VFR,2910,2910,100
 K0E0,"Moriarty Muni, NM, US",United States,NM,IFR,0,0,0
@@ -1095,8 +1095,8 @@ K1F0,"Ardmore/Downtown Exec, OK, US",United States,OK,VFR,2870,2910,98.63
 K1F0,"Ardmore/Downtown Exec, OK, US",United States,OK,IFR,40,2910,1.37
 K1F0,"Ardmore/Downtown Exec, OK, US",United States,OK,LIFR,0,0,0
 K1F0,"Ardmore/Downtown Exec, OK, US",United States,OK,MVFR,0,0,0
-K1H2,"Effingham Cnty, IL, US",United States,IL,VFR,2680,2910,92.1
-K1H2,"Effingham Cnty, IL, US",United States,IL,MVFR,150,2910,5.15
+K1H2,"Effingham Cnty, IL, US",United States,IL,VFR,2660,2910,91.41
+K1H2,"Effingham Cnty, IL, US",United States,IL,MVFR,170,2910,5.84
 K1H2,"Effingham Cnty, IL, US",United States,IL,IFR,60,2910,2.06
 K1H2,"Effingham Cnty, IL, US",United States,IL,LIFR,20,2910,0.69
 K1M4,"Haleyville/Posey Fld, AL, US",United States,AL,VFR,2910,2910,100
@@ -1175,7 +1175,7 @@ K2I0,"Madisonville Muni, KY, US",United States,KY,VFR,2910,2910,100
 K2I0,"Madisonville Muni, KY, US",United States,KY,IFR,0,0,0
 K2I0,"Madisonville Muni, KY, US",United States,KY,LIFR,0,0,0
 K2I0,"Madisonville Muni, KY, US",United States,KY,MVFR,0,0,0
-K2IS,"Clewistown/Airglades Arpt, FL, US",United States,FL,VFR,1850,1850,100
+K2IS,"Clewistown/Airglades Arpt, FL, US",United States,FL,VFR,1870,1870,100
 K2IS,"Clewistown/Airglades Arpt, FL, US",United States,FL,IFR,0,0,0
 K2IS,"Clewistown/Airglades Arpt, FL, US",United States,FL,LIFR,0,0,0
 K2IS,"Clewistown/Airglades Arpt, FL, US",United States,FL,MVFR,0,0,0
@@ -1183,8 +1183,8 @@ K2J5,"Millen Arpt, GA, US",United States,GA,VFR,2910,2910,100
 K2J5,"Millen Arpt, GA, US",United States,GA,IFR,0,0,0
 K2J5,"Millen Arpt, GA, US",United States,GA,LIFR,0,0,0
 K2J5,"Millen Arpt, GA, US",United States,GA,MVFR,0,0,0
-K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,VFR,2885,2905,99.31
-K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,MVFR,20,2905,0.69
+K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,VFR,2890,2910,99.31
+K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,MVFR,20,2910,0.69
 K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,IFR,0,0,0
 K2M2,"Lawrenceburg/Lawrence Cnty, TN, US",United States,TN,LIFR,0,0,0
 K2M8,"Millington/Baker Arpt, TN, US",United States,TN,VFR,2510,2610,96.17
@@ -1231,10 +1231,10 @@ K3AU,"Augusta Muni, KS, US",United States,KS,VFR,2850,2910,97.94
 K3AU,"Augusta Muni, KS, US",United States,KS,MVFR,60,2910,2.06
 K3AU,"Augusta Muni, KS, US",United States,KS,IFR,0,0,0
 K3AU,"Augusta Muni, KS, US",United States,KS,LIFR,0,0,0
-K3J1,"Ridgeland Arpt, SC, US",United States,SC,VFR,2805,2910,96.39
-K3J1,"Ridgeland Arpt, SC, US",United States,SC,IFR,35,2910,1.2
-K3J1,"Ridgeland Arpt, SC, US",United States,SC,LIFR,35,2910,1.2
-K3J1,"Ridgeland Arpt, SC, US",United States,SC,MVFR,35,2910,1.2
+K3J1,"Ridgeland Arpt, SC, US",United States,SC,VFR,2800,2905,96.39
+K3J1,"Ridgeland Arpt, SC, US",United States,SC,IFR,35,2905,1.2
+K3J1,"Ridgeland Arpt, SC, US",United States,SC,LIFR,35,2905,1.2
+K3J1,"Ridgeland Arpt, SC, US",United States,SC,MVFR,35,2905,1.2
 K3K3,"Syracuse/Hamilton Cnty, KS, US",United States,KS,VFR,2490,2910,85.57
 K3K3,"Syracuse/Hamilton Cnty, KS, US",United States,KS,IFR,280,2910,9.62
 K3K3,"Syracuse/Hamilton Cnty, KS, US",United States,KS,MVFR,140,2910,4.81
@@ -1247,8 +1247,8 @@ K3R7,"Jennings Arpt, LA, US",United States,LA,VFR,2560,2910,87.97
 K3R7,"Jennings Arpt, LA, US",United States,LA,MVFR,310,2910,10.65
 K3R7,"Jennings Arpt, LA, US",United States,LA,LIFR,40,2910,1.37
 K3R7,"Jennings Arpt, LA, US",United States,LA,IFR,0,0,0
-K3S8,"Grants Pass Arpt, OR, US",United States,OR,VFR,2430,2630,92.4
-K3S8,"Grants Pass Arpt, OR, US",United States,OR,LIFR,200,2630,7.6
+K3S8,"Grants Pass Arpt, OR, US",United States,OR,VFR,2450,2650,92.45
+K3S8,"Grants Pass Arpt, OR, US",United States,OR,LIFR,200,2650,7.55
 K3S8,"Grants Pass Arpt, OR, US",United States,OR,IFR,0,0,0
 K3S8,"Grants Pass Arpt, OR, US",United States,OR,MVFR,0,0,0
 K3T5,"LaGrange/Fayette Rgnl, TX, US",United States,TX,VFR,2590,2910,89
@@ -1259,8 +1259,8 @@ K3U3,"Anaconda/Bowman Fld, MT, US",United States,MT,VFR,2790,2910,95.88
 K3U3,"Anaconda/Bowman Fld, MT, US",United States,MT,MVFR,120,2910,4.12
 K3U3,"Anaconda/Bowman Fld, MT, US",United States,MT,IFR,0,0,0
 K3U3,"Anaconda/Bowman Fld, MT, US",United States,MT,LIFR,0,0,0
-K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,VFR,2170,2870,75.61
-K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,MVFR,620,2870,21.6
+K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,VFR,2190,2870,76.31
+K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,MVFR,600,2870,20.91
 K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,IFR,80,2870,2.79
 K3W7,"Electric City/Grand Coulee Arpt, WA, US",United States,WA,LIFR,0,0,0
 K40U,"Manila Arpt, UT, US",United States,UT,VFR,2910,2910,100
@@ -1268,9 +1268,9 @@ K40U,"Manila Arpt, UT, US",United States,UT,IFR,0,0,0
 K40U,"Manila Arpt, UT, US",United States,UT,LIFR,0,0,0
 K40U,"Manila Arpt, UT, US",United States,UT,MVFR,0,0,0
 K42A,"Melbourne Muni, AR, US",United States,AR,VFR,2140,2910,73.54
-K42A,"Melbourne Muni, AR, US",United States,AR,MVFR,700,2910,24.05
-K42A,"Melbourne Muni, AR, US",United States,AR,IFR,70,2910,2.41
-K42A,"Melbourne Muni, AR, US",United States,AR,LIFR,0,0,0
+K42A,"Melbourne Muni, AR, US",United States,AR,MVFR,680,2910,23.37
+K42A,"Melbourne Muni, AR, US",United States,AR,IFR,60,2910,2.06
+K42A,"Melbourne Muni, AR, US",United States,AR,LIFR,30,2910,1.03
 K42J,"Keystone Airpark, FL, US",United States,FL,VFR,2510,2650,94.72
 K42J,"Keystone Airpark, FL, US",United States,FL,MVFR,100,2650,3.77
 K42J,"Keystone Airpark, FL, US",United States,FL,LIFR,40,2650,1.51
@@ -1279,8 +1279,8 @@ K46D,"Carrington Muni, ND, US",United States,ND,VFR,1610,2870,56.1
 K46D,"Carrington Muni, ND, US",United States,ND,MVFR,820,2870,28.57
 K46D,"Carrington Muni, ND, US",United States,ND,LIFR,260,2870,9.06
 K46D,"Carrington Muni, ND, US",United States,ND,IFR,180,2870,6.27
-K46U,"Alpine Arpt, WY, US",United States,WY,VFR,2035,2910,69.93
-K46U,"Alpine Arpt, WY, US",United States,WY,MVFR,815,2910,28.01
+K46U,"Alpine Arpt, WY, US",United States,WY,VFR,2065,2910,70.96
+K46U,"Alpine Arpt, WY, US",United States,WY,MVFR,785,2910,26.98
 K46U,"Alpine Arpt, WY, US",United States,WY,IFR,60,2910,2.06
 K46U,"Alpine Arpt, WY, US",United States,WY,LIFR,0,0,0
 K48A,"Cochran Arpt, GA, US",United States,GA,VFR,2910,2910,100
@@ -1299,10 +1299,10 @@ K49B,"Sturgis Muni, SD, US",United States,SD,VFR,2590,2910,89
 K49B,"Sturgis Muni, SD, US",United States,SD,MVFR,320,2910,11
 K49B,"Sturgis Muni, SD, US",United States,SD,IFR,0,0,0
 K49B,"Sturgis Muni, SD, US",United States,SD,LIFR,0,0,0
-K4A6,"Scottsboro Muni, AL, US",United States,AL,VFR,2810,2910,96.56
+K4A6,"Scottsboro Muni, AL, US",United States,AL,VFR,2780,2910,95.53
 K4A6,"Scottsboro Muni, AL, US",United States,AL,IFR,80,2910,2.75
+K4A6,"Scottsboro Muni, AL, US",United States,AL,LIFR,30,2910,1.03
 K4A6,"Scottsboro Muni, AL, US",United States,AL,MVFR,20,2910,0.69
-K4A6,"Scottsboro Muni, AL, US",United States,AL,LIFR,0,0,0
 K4A9,"Fort Payne/Isbell Fld, AL, US",United States,AL,VFR,2790,2910,95.88
 K4A9,"Fort Payne/Isbell Fld, AL, US",United States,AL,MVFR,120,2910,4.12
 K4A9,"Fort Payne/Isbell Fld, AL, US",United States,AL,IFR,0,0,0
@@ -1315,7 +1315,7 @@ K4F2,"Carthage/Panola Cnty, TX, US",United States,TX,VFR,2470,2910,84.88
 K4F2,"Carthage/Panola Cnty, TX, US",United States,TX,MVFR,220,2910,7.56
 K4F2,"Carthage/Panola Cnty, TX, US",United States,TX,LIFR,120,2910,4.12
 K4F2,"Carthage/Panola Cnty, TX, US",United States,TX,IFR,100,2910,3.44
-K4I3,"Mount Vernon/Knox Cnty, OH, US",United States,OH,VFR,2908,2908,100
+K4I3,"Mount Vernon/Knox Cnty, OH, US",United States,OH,VFR,2891,2891,100
 K4I3,"Mount Vernon/Knox Cnty, OH, US",United States,OH,IFR,0,0,0
 K4I3,"Mount Vernon/Knox Cnty, OH, US",United States,OH,LIFR,0,0,0
 K4I3,"Mount Vernon/Knox Cnty, OH, US",United States,OH,MVFR,0,0,0
@@ -1335,8 +1335,8 @@ K4R5,"La Pointe/Madeline Isl Arpt, WI, US",United States,WI,VFR,2650,2910,91.07
 K4R5,"La Pointe/Madeline Isl Arpt, WI, US",United States,WI,MVFR,260,2910,8.93
 K4R5,"La Pointe/Madeline Isl Arpt, WI, US",United States,WI,IFR,0,0,0
 K4R5,"La Pointe/Madeline Isl Arpt, WI, US",United States,WI,LIFR,0,0,0
-K4S1,"Gold Beach Muni, OR, US",United States,OR,VFR,1940,2910,66.67
-K4S1,"Gold Beach Muni, OR, US",United States,OR,LIFR,710,2910,24.4
+K4S1,"Gold Beach Muni, OR, US",United States,OR,VFR,1920,2910,65.98
+K4S1,"Gold Beach Muni, OR, US",United States,OR,LIFR,730,2910,25.09
 K4S1,"Gold Beach Muni, OR, US",United States,OR,MVFR,240,2910,8.25
 K4S1,"Gold Beach Muni, OR, US",United States,OR,IFR,20,2910,0.69
 K4S2,"Hood River/Jernstedt Arfld, OR, US",United States,OR,VFR,2850,2910,97.94
@@ -1351,9 +1351,9 @@ K4V1,"Walsenburg/Spanish Peaks Arfld, CO, US",United States,CO,VFR,2870,2910,98.
 K4V1,"Walsenburg/Spanish Peaks Arfld, CO, US",United States,CO,IFR,20,2910,0.69
 K4V1,"Walsenburg/Spanish Peaks Arfld, CO, US",United States,CO,MVFR,20,2910,0.69
 K4V1,"Walsenburg/Spanish Peaks Arfld, CO, US",United States,CO,LIFR,0,0,0
-K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,VFR,2780,2910,95.53
+K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,VFR,2790,2910,95.88
 K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,MVFR,100,2910,3.44
-K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,IFR,30,2910,1.03
+K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,IFR,20,2910,0.69
 K4V9,"Neligh/Antelope Cnty, NE, US",United States,NE,LIFR,0,0,0
 K54J,"DeFuniak Springs Muni, FL, US",United States,FL,VFR,2890,2890,100
 K54J,"DeFuniak Springs Muni, FL, US",United States,FL,IFR,0,0,0
@@ -1375,9 +1375,9 @@ K5C1,"Boerne/Stage Fld, TX, US",United States,TX,VFR,2050,2910,70.45
 K5C1,"Boerne/Stage Fld, TX, US",United States,TX,MVFR,860,2910,29.55
 K5C1,"Boerne/Stage Fld, TX, US",United States,TX,IFR,0,0,0
 K5C1,"Boerne/Stage Fld, TX, US",United States,TX,LIFR,0,0,0
-K5H4,"Harvey Muni, ND, US",United States,ND,VFR,1690,2910,58.08
+K5H4,"Harvey Muni, ND, US",United States,ND,VFR,1710,2910,58.76
 K5H4,"Harvey Muni, ND, US",United States,ND,MVFR,680,2910,23.37
-K5H4,"Harvey Muni, ND, US",United States,ND,LIFR,380,2910,13.06
+K5H4,"Harvey Muni, ND, US",United States,ND,LIFR,360,2910,12.37
 K5H4,"Harvey Muni, ND, US",United States,ND,IFR,160,2910,5.5
 K5R8,"DeQuincey Ind Arpk, LA, US",United States,LA,VFR,2730,2910,93.81
 K5R8,"DeQuincey Ind Arpk, LA, US",United States,LA,MVFR,160,2910,5.5
@@ -1467,7 +1467,7 @@ K81R,"San Saba Muni, TX, US",United States,TX,VFR,2790,2910,95.88
 K81R,"San Saba Muni, TX, US",United States,TX,MVFR,120,2910,4.12
 K81R,"San Saba Muni, TX, US",United States,TX,IFR,0,0,0
 K81R,"San Saba Muni, TX, US",United States,TX,LIFR,0,0,0
-K82C,"Mauston/New Lisbon Arpt, WI, US",United States,WI,VFR,2470,2470,100
+K82C,"Mauston/New Lisbon Arpt, WI, US",United States,WI,VFR,2440,2440,100
 K82C,"Mauston/New Lisbon Arpt, WI, US",United States,WI,IFR,0,0,0
 K82C,"Mauston/New Lisbon Arpt, WI, US",United States,WI,LIFR,0,0,0
 K82C,"Mauston/New Lisbon Arpt, WI, US",United States,WI,MVFR,0,0,0
@@ -1479,8 +1479,8 @@ K8A1,"Guntersville Muni, AL, US",United States,AL,VFR,2530,2910,86.94
 K8A1,"Guntersville Muni, AL, US",United States,AL,LIFR,340,2910,11.68
 K8A1,"Guntersville Muni, AL, US",United States,AL,IFR,40,2910,1.37
 K8A1,"Guntersville Muni, AL, US",United States,AL,MVFR,0,0,0
-K8A3,"Livingston Muni, TN, US",United States,TN,VFR,2720,2820,96.45
-K8A3,"Livingston Muni, TN, US",United States,TN,MVFR,100,2820,3.55
+K8A3,"Livingston Muni, TN, US",United States,TN,VFR,2745,2845,96.49
+K8A3,"Livingston Muni, TN, US",United States,TN,MVFR,100,2845,3.51
 K8A3,"Livingston Muni, TN, US",United States,TN,IFR,0,0,0
 K8A3,"Livingston Muni, TN, US",United States,TN,LIFR,0,0,0
 K8B0,"Rangeley/Bean Muni, ME, US",United States,ME,VFR,1790,1850,96.76
@@ -1507,8 +1507,8 @@ K96D,"Walhalla Muni, ND, US",United States,ND,MVFR,1280,2910,43.99
 K96D,"Walhalla Muni, ND, US",United States,ND,VFR,1070,2910,36.77
 K96D,"Walhalla Muni, ND, US",United States,ND,LIFR,560,2910,19.24
 K96D,"Walhalla Muni, ND, US",United States,ND,IFR,0,0,0
-K98D,"Onida, SD, US",United States,SD,VFR,2831,2910,97.29
-K98D,"Onida, SD, US",United States,SD,MVFR,60,2910,2.06
+K98D,"Onida, SD, US",United States,SD,VFR,2851,2910,97.97
+K98D,"Onida, SD, US",United States,SD,MVFR,40,2910,1.37
 K98D,"Onida, SD, US",United States,SD,IFR,19,2910,0.65
 K98D,"Onida, SD, US",United States,SD,LIFR,0,0,0
 K9A4,"Courtland, AL, US",United States,AL,VFR,2815,2815,100
@@ -1579,8 +1579,8 @@ KABY,"Albany/SW Georgia Rgnl, GA, US",United States,GA,VFR,2910,2910,100
 KABY,"Albany/SW Georgia Rgnl, GA, US",United States,GA,IFR,0,0,0
 KABY,"Albany/SW Georgia Rgnl, GA, US",United States,GA,LIFR,0,0,0
 KABY,"Albany/SW Georgia Rgnl, GA, US",United States,GA,MVFR,0,0,0
-KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,VFR,2320,2910,79.73
-KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,MVFR,530,2910,18.21
+KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,VFR,2300,2910,79.04
+KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,MVFR,550,2910,18.9
 KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,IFR,60,2910,2.06
 KACB,"Bellaire/Antrim Cnty, MI, US",United States,MI,LIFR,0,0,0
 KACJ,"Americus/Carter Rgnl, GA, US",United States,GA,VFR,2850,2910,97.94
@@ -1603,10 +1603,10 @@ KACT,"Waco Rgnl, TX, US",United States,TX,VFR,2792,2910,95.95
 KACT,"Waco Rgnl, TX, US",United States,TX,MVFR,118,2910,4.05
 KACT,"Waco Rgnl, TX, US",United States,TX,IFR,0,0,0
 KACT,"Waco Rgnl, TX, US",United States,TX,LIFR,0,0,0
-KACV,"Arcata Arpt, CA, US",United States,CA,VFR,1274,2878,44.27
-KACV,"Arcata Arpt, CA, US",United States,CA,LIFR,1205,2878,41.87
-KACV,"Arcata Arpt, CA, US",United States,CA,IFR,349,2878,12.13
-KACV,"Arcata Arpt, CA, US",United States,CA,MVFR,50,2878,1.74
+KACV,"Arcata Arpt, CA, US",United States,CA,VFR,1274,2894,44.02
+KACV,"Arcata Arpt, CA, US",United States,CA,LIFR,1221,2894,42.19
+KACV,"Arcata Arpt, CA, US",United States,CA,IFR,349,2894,12.06
+KACV,"Arcata Arpt, CA, US",United States,CA,MVFR,50,2894,1.73
 KACY,"Atlantic City Intl, NJ, US",United States,NJ,VFR,2910,2910,100
 KACY,"Atlantic City Intl, NJ, US",United States,NJ,IFR,0,0,0
 KACY,"Atlantic City Intl, NJ, US",United States,NJ,LIFR,0,0,0
@@ -1623,25 +1623,25 @@ KADG,"Adrian/Lenawee Cnty, MI, US",United States,MI,VFR,2910,2910,100
 KADG,"Adrian/Lenawee Cnty, MI, US",United States,MI,IFR,0,0,0
 KADG,"Adrian/Lenawee Cnty, MI, US",United States,MI,LIFR,0,0,0
 KADG,"Adrian/Lenawee Cnty, MI, US",United States,MI,MVFR,0,0,0
-KADH,"Ada Muni, OK, US",United States,OK,VFR,2811,2891,97.23
-KADH,"Ada Muni, OK, US",United States,OK,MVFR,60,2891,2.08
-KADH,"Ada Muni, OK, US",United States,OK,LIFR,20,2891,0.69
+KADH,"Ada Muni, OK, US",United States,OK,VFR,2830,2910,97.25
+KADH,"Ada Muni, OK, US",United States,OK,MVFR,60,2910,2.06
+KADH,"Ada Muni, OK, US",United States,OK,LIFR,20,2910,0.69
 KADH,"Ada Muni, OK, US",United States,OK,IFR,0,0,0
 KADM,"Ardmore Muni, OK, US",United States,OK,VFR,2750,2910,94.5
 KADM,"Ardmore Muni, OK, US",United States,OK,LIFR,100,2910,3.44
 KADM,"Ardmore Muni, OK, US",United States,OK,MVFR,60,2910,2.06
 KADM,"Ardmore Muni, OK, US",United States,OK,IFR,0,0,0
-KADS,"Dallas/Addison Arpt, TX, US",United States,TX,VFR,2501,2850,87.75
-KADS,"Dallas/Addison Arpt, TX, US",United States,TX,MVFR,349,2850,12.25
+KADS,"Dallas/Addison Arpt, TX, US",United States,TX,VFR,2561,2910,88.01
+KADS,"Dallas/Addison Arpt, TX, US",United States,TX,MVFR,349,2910,11.99
 KADS,"Dallas/Addison Arpt, TX, US",United States,TX,IFR,0,0,0
 KADS,"Dallas/Addison Arpt, TX, US",United States,TX,LIFR,0,0,0
 KADT,"Atwood/Rollins Cnty, KS, US",United States,KS,VFR,2850,2910,97.94
 KADT,"Atwood/Rollins Cnty, KS, US",United States,KS,IFR,40,2910,1.37
 KADT,"Atwood/Rollins Cnty, KS, US",United States,KS,LIFR,20,2910,0.69
 KADT,"Atwood/Rollins Cnty, KS, US",United States,KS,MVFR,0,0,0
-KADU,"Audubon Cnty Arpt, IA, US",United States,IA,VFR,1700,2110,80.57
-KADU,"Audubon Cnty Arpt, IA, US",United States,IA,MVFR,240,2110,11.37
-KADU,"Audubon Cnty Arpt, IA, US",United States,IA,LIFR,170,2110,8.06
+KADU,"Audubon Cnty Arpt, IA, US",United States,IA,VFR,1680,2110,79.62
+KADU,"Audubon Cnty Arpt, IA, US",United States,IA,MVFR,270,2110,12.8
+KADU,"Audubon Cnty Arpt, IA, US",United States,IA,LIFR,160,2110,7.58
 KADU,"Audubon Cnty Arpt, IA, US",United States,IA,IFR,0,0,0
 KADW,"Andrews AFB, MD, US",United States,MD,VFR,2910,2910,100
 KADW,"Andrews AFB, MD, US",United States,MD,IFR,0,0,0
@@ -1679,8 +1679,8 @@ KAFN,"Jaffrey Muni, NH, US",United States,NH,VFR,2818,2910,96.84
 KAFN,"Jaffrey Muni, NH, US",United States,NH,MVFR,92,2910,3.16
 KAFN,"Jaffrey Muni, NH, US",United States,NH,IFR,0,0,0
 KAFN,"Jaffrey Muni, NH, US",United States,NH,LIFR,0,0,0
-KAFO,"Afton Muni, WY, US",United States,WY,VFR,2075,2910,71.31
-KAFO,"Afton Muni, WY, US",United States,WY,MVFR,795,2910,27.32
+KAFO,"Afton Muni, WY, US",United States,WY,VFR,2095,2910,71.99
+KAFO,"Afton Muni, WY, US",United States,WY,MVFR,775,2910,26.63
 KAFO,"Afton Muni, WY, US",United States,WY,IFR,40,2910,1.37
 KAFO,"Afton Muni, WY, US",United States,WY,LIFR,0,0,0
 KAFP,"Wadesboro/Anson Cnty, NC, US",United States,NC,VFR,2910,2910,100
@@ -1703,8 +1703,8 @@ KAGS,"Augusta Rgnl, GA, US",United States,GA,VFR,2410,2910,82.82
 KAGS,"Augusta Rgnl, GA, US",United States,GA,MVFR,305,2910,10.48
 KAGS,"Augusta Rgnl, GA, US",United States,GA,LIFR,135,2910,4.64
 KAGS,"Augusta Rgnl, GA, US",United States,GA,IFR,60,2910,2.06
-KAGZ,"Wagner Muni, SD, US",United States,SD,VFR,2690,2910,92.44
-KAGZ,"Wagner Muni, SD, US",United States,SD,MVFR,160,2910,5.5
+KAGZ,"Wagner Muni, SD, US",United States,SD,VFR,2710,2910,93.13
+KAGZ,"Wagner Muni, SD, US",United States,SD,MVFR,140,2910,4.81
 KAGZ,"Wagner Muni, SD, US",United States,SD,IFR,40,2910,1.37
 KAGZ,"Wagner Muni, SD, US",United States,SD,LIFR,20,2910,0.69
 KAHN,"Athens/Epps Arpt, GA, US",United States,GA,VFR,2789,2910,95.84
@@ -1727,8 +1727,8 @@ KAID,"Anderson Muni, IN, US",United States,IN,VFR,2910,2910,100
 KAID,"Anderson Muni, IN, US",United States,IN,IFR,0,0,0
 KAID,"Anderson Muni, IN, US",United States,IN,LIFR,0,0,0
 KAID,"Anderson Muni, IN, US",United States,IN,MVFR,0,0,0
-KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,VFR,2150,2910,73.88
-KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,MVFR,500,2910,17.18
+KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,VFR,2170,2910,74.57
+KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,MVFR,480,2910,16.49
 KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,LIFR,260,2910,8.93
 KAIG,"Antigo/Langlade Cnty, WI, US",United States,WI,IFR,0,0,0
 KAIK,"Aiken Muni, GA, US",United States,GA,VFR,2910,2910,100
@@ -1747,9 +1747,9 @@ KAIZ,"Kaiser/Lee Fine Mem, MO, US",United States,MO,IFR,0,0,0
 KAIZ,"Kaiser/Lee Fine Mem, MO, US",United States,MO,LIFR,0,0,0
 KAIZ,"Kaiser/Lee Fine Mem, MO, US",United States,MO,MVFR,0,0,0
 KAIZ,"Kaiser/Lee Fine Mem, MO, US",United States,MO,VFR,0,0,0
-KAJG,"Mount Carmel Muni, IL, US",United States,IL,VFR,1330,2070,64.25
+KAJG,"Mount Carmel Muni, IL, US",United States,IL,VFR,1350,2070,65.22
 KAJG,"Mount Carmel Muni, IL, US",United States,IL,IFR,360,2070,17.39
-KAJG,"Mount Carmel Muni, IL, US",United States,IL,MVFR,280,2070,13.53
+KAJG,"Mount Carmel Muni, IL, US",United States,IL,MVFR,260,2070,12.56
 KAJG,"Mount Carmel Muni, IL, US",United States,IL,LIFR,100,2070,4.83
 KAJO,"Corona Muni, CA, US",United States,CA,VFR,2910,2910,100
 KAJO,"Corona Muni, CA, US",United States,CA,IFR,0,0,0
@@ -1819,8 +1819,8 @@ KAMG,"Alma/Bacon Cnty, GA, US",United States,GA,VFR,2670,2910,91.75
 KAMG,"Alma/Bacon Cnty, GA, US",United States,GA,IFR,164,2910,5.64
 KAMG,"Alma/Bacon Cnty, GA, US",United States,GA,LIFR,56,2910,1.92
 KAMG,"Alma/Bacon Cnty, GA, US",United States,GA,MVFR,20,2910,0.69
-KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,VFR,2770,2910,95.19
-KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,MVFR,140,2910,4.81
+KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,VFR,2751,2891,95.16
+KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,MVFR,140,2891,4.84
 KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,IFR,0,0,0
 KAMN,"Alma/Gratiot Communi, MI, US",United States,MI,LIFR,0,0,0
 KAMW,"Ames Muni, IA, US",United States,IA,VFR,2361,2910,81.13
@@ -1883,11 +1883,11 @@ KAPG,"Phillips, MD, US",United States,MD,VFR,872,872,100
 KAPG,"Phillips, MD, US",United States,MD,IFR,0,0,0
 KAPG,"Phillips, MD, US",United States,MD,LIFR,0,0,0
 KAPG,"Phillips, MD, US",United States,MD,MVFR,0,0,0
-KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,VFR,2360,2868,82.29
-KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,MVFR,447,2868,15.59
-KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,IFR,61,2868,2.13
+KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,VFR,2390,2903,82.33
+KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,MVFR,452,2903,15.57
+KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,IFR,61,2903,2.1
 KAPN,"Alpena Cnty Rgnl, MI, US",United States,MI,LIFR,0,0,0
-KAPY,"Zapata Cnty, TX, US",United States,TX,VFR,2910,2910,100
+KAPY,"Zapata Cnty, TX, US",United States,TX,VFR,2890,2890,100
 KAPY,"Zapata Cnty, TX, US",United States,TX,IFR,0,0,0
 KAPY,"Zapata Cnty, TX, US",United States,TX,LIFR,0,0,0
 KAPY,"Zapata Cnty, TX, US",United States,TX,MVFR,0,0,0
@@ -2067,7 +2067,7 @@ KAXN,"Alexandria/Chandler Fld, MN, US",United States,MN,VFR,2759,2910,94.81
 KAXN,"Alexandria/Chandler Fld, MN, US",United States,MN,MVFR,88,2910,3.02
 KAXN,"Alexandria/Chandler Fld, MN, US",United States,MN,LIFR,34,2910,1.17
 KAXN,"Alexandria/Chandler Fld, MN, US",United States,MN,IFR,29,2910,1
-KAXS,"Altus/Quartz Mtn Rgnl, OK, US",United States,OK,VFR,2909,2909,100
+KAXS,"Altus/Quartz Mtn Rgnl, OK, US",United States,OK,VFR,2890,2890,100
 KAXS,"Altus/Quartz Mtn Rgnl, OK, US",United States,OK,IFR,0,0,0
 KAXS,"Altus/Quartz Mtn Rgnl, OK, US",United States,OK,LIFR,0,0,0
 KAXS,"Altus/Quartz Mtn Rgnl, OK, US",United States,OK,MVFR,0,0,0
@@ -2095,8 +2095,8 @@ KBAB,"Beale AFB, CA, US",United States,CA,VFR,2260,2910,77.66
 KBAB,"Beale AFB, CA, US",United States,CA,IFR,590,2910,20.27
 KBAB,"Beale AFB, CA, US",United States,CA,MVFR,60,2910,2.06
 KBAB,"Beale AFB, CA, US",United States,CA,LIFR,0,0,0
-KBAD,"Barksdale AFB, LA, US",United States,LA,VFR,2876,2876,100
-KBAD,"Barksdale AFB, LA, US",United States,LA,IFR,0,0,0
+KBAD,"Barksdale AFB, LA, US",United States,LA,VFR,2871,2901,98.97
+KBAD,"Barksdale AFB, LA, US",United States,LA,IFR,30,2901,1.03
 KBAD,"Barksdale AFB, LA, US",United States,LA,LIFR,0,0,0
 KBAD,"Barksdale AFB, LA, US",United States,LA,MVFR,0,0,0
 KBAF,"Westfield/Barnes Muni, MA, US",United States,MA,VFR,2910,2910,100
@@ -2147,10 +2147,10 @@ KBCE,"Bryce Canyon Arpt, UT, US",United States,UT,VFR,2897,2910,99.55
 KBCE,"Bryce Canyon Arpt, UT, US",United States,UT,IFR,13,2910,0.45
 KBCE,"Bryce Canyon Arpt, UT, US",United States,UT,LIFR,0,0,0
 KBCE,"Bryce Canyon Arpt, UT, US",United States,UT,MVFR,0,0,0
-KBCK,"Black River Falls Arpt, WI, US",United States,WI,VFR,2350,2910,80.76
+KBCK,"Black River Falls Arpt, WI, US",United States,WI,VFR,2370,2910,81.44
 KBCK,"Black River Falls Arpt, WI, US",United States,WI,MVFR,200,2910,6.87
-KBCK,"Black River Falls Arpt, WI, US",United States,WI,IFR,180,2910,6.19
 KBCK,"Black River Falls Arpt, WI, US",United States,WI,LIFR,180,2910,6.19
+KBCK,"Black River Falls Arpt, WI, US",United States,WI,IFR,160,2910,5.5
 KBCT,"Boca Raton Arpt, FL, US",United States,FL,VFR,2310,2310,100
 KBCT,"Boca Raton Arpt, FL, US",United States,FL,IFR,0,0,0
 KBCT,"Boca Raton Arpt, FL, US",United States,FL,LIFR,0,0,0
@@ -2195,8 +2195,8 @@ KBED,"Bedford/Hanscom Fld, MA, US",United States,MA,VFR,2910,2910,100
 KBED,"Bedford/Hanscom Fld, MA, US",United States,MA,IFR,0,0,0
 KBED,"Bedford/Hanscom Fld, MA, US",United States,MA,LIFR,0,0,0
 KBED,"Bedford/Hanscom Fld, MA, US",United States,MA,MVFR,0,0,0
-KBFA,"Boyne Falls Arpt, MI, US",United States,MI,VFR,2250,2910,77.32
-KBFA,"Boyne Falls Arpt, MI, US",United States,MI,MVFR,605,2910,20.79
+KBFA,"Boyne Falls Arpt, MI, US",United States,MI,VFR,2230,2910,76.63
+KBFA,"Boyne Falls Arpt, MI, US",United States,MI,MVFR,625,2910,21.48
 KBFA,"Boyne Falls Arpt, MI, US",United States,MI,IFR,55,2910,1.89
 KBFA,"Boyne Falls Arpt, MI, US",United States,MI,LIFR,0,0,0
 KBFD,"Bradford Rgnl, PA, US",United States,PA,VFR,2910,2910,100
@@ -2291,13 +2291,13 @@ KBIX,"Biloxi/Keesler AFB, MS, US",United States,MS,VFR,2755,2850,96.67
 KBIX,"Biloxi/Keesler AFB, MS, US",United States,MS,MVFR,85,2850,2.98
 KBIX,"Biloxi/Keesler AFB, MS, US",United States,MS,LIFR,10,2850,0.35
 KBIX,"Biloxi/Keesler AFB, MS, US",United States,MS,IFR,0,0,0
-KBJC,"Rocky Mtn Metro, CO, US",United States,CO,VFR,2780,2830,98.23
-KBJC,"Rocky Mtn Metro, CO, US",United States,CO,MVFR,50,2830,1.77
+KBJC,"Rocky Mtn Metro, CO, US",United States,CO,VFR,2840,2890,98.27
+KBJC,"Rocky Mtn Metro, CO, US",United States,CO,MVFR,50,2890,1.73
 KBJC,"Rocky Mtn Metro, CO, US",United States,CO,IFR,0,0,0
 KBJC,"Rocky Mtn Metro, CO, US",United States,CO,LIFR,0,0,0
-KBJI,"Bemidji Municip, MN, US",United States,MN,VFR,1990,2910,68.38
+KBJI,"Bemidji Municip, MN, US",United States,MN,VFR,2010,2910,69.07
 KBJI,"Bemidji Municip, MN, US",United States,MN,MVFR,700,2910,24.05
-KBJI,"Bemidji Municip, MN, US",United States,MN,IFR,220,2910,7.56
+KBJI,"Bemidji Municip, MN, US",United States,MN,IFR,200,2910,6.87
 KBJI,"Bemidji Municip, MN, US",United States,MN,LIFR,0,0,0
 KBJJ,"Wooster/Wayne Cnty, OH, US",United States,OH,VFR,2910,2910,100
 KBJJ,"Wooster/Wayne Cnty, OH, US",United States,OH,IFR,0,0,0
@@ -2367,8 +2367,8 @@ KBLV,"Belleville/Scott AFB, IL, US",United States,IL,VFR,2810,2878,97.64
 KBLV,"Belleville/Scott AFB, IL, US",United States,IL,MVFR,38,2878,1.32
 KBLV,"Belleville/Scott AFB, IL, US",United States,IL,IFR,30,2878,1.04
 KBLV,"Belleville/Scott AFB, IL, US",United States,IL,LIFR,0,0,0
-KBMC,"Brigham City Arpt, UT, US",United States,UT,VFR,1550,1570,98.73
-KBMC,"Brigham City Arpt, UT, US",United States,UT,IFR,20,1570,1.27
+KBMC,"Brigham City Arpt, UT, US",United States,UT,VFR,1570,1590,98.74
+KBMC,"Brigham City Arpt, UT, US",United States,UT,IFR,20,1590,1.26
 KBMC,"Brigham City Arpt, UT, US",United States,UT,LIFR,0,0,0
 KBMC,"Brigham City Arpt, UT, US",United States,UT,MVFR,0,0,0
 KBMG,"Bloomington/Monroe Cnty, IN, US",United States,IN,VFR,2879,2879,100
@@ -2443,7 +2443,7 @@ KBQK,"Brunswick/Golden Isles Arpt, GA, US",United States,GA,VFR,2510,2910,86.25
 KBQK,"Brunswick/Golden Isles Arpt, GA, US",United States,GA,MVFR,240,2910,8.25
 KBQK,"Brunswick/Golden Isles Arpt, GA, US",United States,GA,IFR,160,2910,5.5
 KBQK,"Brunswick/Golden Isles Arpt, GA, US",United States,GA,LIFR,0,0,0
-KBQP,"Morehouse Mem Arpt, LA, US",United States,LA,VFR,80,80,100
+KBQP,"Morehouse Mem Arpt, LA, US",United States,LA,VFR,60,60,100
 KBQP,"Morehouse Mem Arpt, LA, US",United States,LA,IFR,0,0,0
 KBQP,"Morehouse Mem Arpt, LA, US",United States,LA,LIFR,0,0,0
 KBQP,"Morehouse Mem Arpt, LA, US",United States,LA,MVFR,0,0,0
@@ -2591,9 +2591,9 @@ KC09,"Morris Muni, IL, US",United States,IL,VFR,2870,2910,98.63
 KC09,"Morris Muni, IL, US",United States,IL,MVFR,40,2910,1.37
 KC09,"Morris Muni, IL, US",United States,IL,IFR,0,0,0
 KC09,"Morris Muni, IL, US",United States,IL,LIFR,0,0,0
-KC29,"Middleton Muni, WI, US",United States,WI,VFR,2670,2910,91.75
+KC29,"Middleton Muni, WI, US",United States,WI,VFR,2690,2910,92.44
 KC29,"Middleton Muni, WI, US",United States,WI,IFR,160,2910,5.5
-KC29,"Middleton Muni, WI, US",United States,WI,MVFR,80,2910,2.75
+KC29,"Middleton Muni, WI, US",United States,WI,MVFR,60,2910,2.06
 KC29,"Middleton Muni, WI, US",United States,WI,LIFR,0,0,0
 KC35,"Reedsburg Muni, WI, US",United States,WI,VFR,2690,2910,92.44
 KC35,"Reedsburg Muni, WI, US",United States,WI,LIFR,140,2910,4.81
@@ -2711,10 +2711,10 @@ KCDW,"Caldwell/Essex Cnty, NJ, US",United States,NJ,VFR,2790,2790,100
 KCDW,"Caldwell/Essex Cnty, NJ, US",United States,NJ,IFR,0,0,0
 KCDW,"Caldwell/Essex Cnty, NJ, US",United States,NJ,LIFR,0,0,0
 KCDW,"Caldwell/Essex Cnty, NJ, US",United States,NJ,MVFR,0,0,0
-KCEC,"Crescent City/McNama, CA, US",United States,CA,VFR,1380,2879,47.93
-KCEC,"Crescent City/McNama, CA, US",United States,CA,LIFR,1159,2879,40.26
-KCEC,"Crescent City/McNama, CA, US",United States,CA,IFR,183,2879,6.36
-KCEC,"Crescent City/McNama, CA, US",United States,CA,MVFR,157,2879,5.45
+KCEC,"Crescent City/McNama, CA, US",United States,CA,VFR,1380,2895,47.67
+KCEC,"Crescent City/McNama, CA, US",United States,CA,LIFR,1175,2895,40.59
+KCEC,"Crescent City/McNama, CA, US",United States,CA,IFR,183,2895,6.32
+KCEC,"Crescent City/McNama, CA, US",United States,CA,MVFR,157,2895,5.42
 KCEF,"Chicopee/Westover AFB, MA, US",United States,MA,VFR,2910,2910,100
 KCEF,"Chicopee/Westover AFB, MA, US",United States,MA,IFR,0,0,0
 KCEF,"Chicopee/Westover AFB, MA, US",United States,MA,LIFR,0,0,0
@@ -2871,9 +2871,9 @@ KCLL,"College Station/Easterwood Arpt, TX, US",United States,TX,VFR,2584,2910,88
 KCLL,"College Station/Easterwood Arpt, TX, US",United States,TX,IFR,182,2910,6.25
 KCLL,"College Station/Easterwood Arpt, TX, US",United States,TX,MVFR,82,2910,2.82
 KCLL,"College Station/Easterwood Arpt, TX, US",United States,TX,LIFR,62,2910,2.13
-KCLM,"Port Angeles Intl, WA, US",United States,WA,VFR,2526,2881,87.68
-KCLM,"Port Angeles Intl, WA, US",United States,WA,MVFR,314,2881,10.9
-KCLM,"Port Angeles Intl, WA, US",United States,WA,IFR,41,2881,1.42
+KCLM,"Port Angeles Intl, WA, US",United States,WA,VFR,2526,2902,87.04
+KCLM,"Port Angeles Intl, WA, US",United States,WA,MVFR,305,2902,10.51
+KCLM,"Port Angeles Intl, WA, US",United States,WA,IFR,71,2902,2.45
 KCLM,"Port Angeles Intl, WA, US",United States,WA,LIFR,0,0,0
 KCLS,"Chehalis-Centralia Arpt, WA, US",United States,WA,VFR,2230,2910,76.63
 KCLS,"Chehalis-Centralia Arpt, WA, US",United States,WA,MVFR,420,2910,14.43
@@ -3163,10 +3163,10 @@ KCXU,"Camilla/Mitchell Cnty, GA, US",United States,GA,VFR,2910,2910,100
 KCXU,"Camilla/Mitchell Cnty, GA, US",United States,GA,IFR,0,0,0
 KCXU,"Camilla/Mitchell Cnty, GA, US",United States,GA,LIFR,0,0,0
 KCXU,"Camilla/Mitchell Cnty, GA, US",United States,GA,MVFR,0,0,0
-KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,VFR,1940,2285,84.9
+KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,VFR,1920,2285,84.03
 KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,MVFR,275,2285,12.04
-KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,IFR,70,2285,3.06
-KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,LIFR,0,0,0
+KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,IFR,60,2285,2.63
+KCXW,"Conway/Cantrell Fld, AR, US",United States,AR,LIFR,30,2285,1.31
 KCXY,"Harrisburg/Capital City Arpt, PA, US",United States,PA,VFR,2910,2910,100
 KCXY,"Harrisburg/Capital City Arpt, PA, US",United States,PA,IFR,0,0,0
 KCXY,"Harrisburg/Capital City Arpt, PA, US",United States,PA,LIFR,0,0,0
@@ -3191,8 +3191,8 @@ KD09,"Bottineau Muni, ND, US",United States,ND,VFR,1110,2910,38.14
 KD09,"Bottineau Muni, ND, US",United States,ND,MVFR,740,2910,25.43
 KD09,"Bottineau Muni, ND, US",United States,ND,LIFR,620,2910,21.31
 KD09,"Bottineau Muni, ND, US",United States,ND,IFR,440,2910,15.12
-KD25,"Manitowish Waters Arpt, WI, US",United States,WI,VFR,2110,2910,72.51
-KD25,"Manitowish Waters Arpt, WI, US",United States,WI,MVFR,720,2910,24.74
+KD25,"Manitowish Waters Arpt, WI, US",United States,WI,VFR,2130,2910,73.2
+KD25,"Manitowish Waters Arpt, WI, US",United States,WI,MVFR,700,2910,24.05
 KD25,"Manitowish Waters Arpt, WI, US",United States,WI,IFR,40,2910,1.37
 KD25,"Manitowish Waters Arpt, WI, US",United States,WI,LIFR,40,2910,1.37
 KD39,"Sauk Center Muni, MN, US",United States,MN,VFR,2770,2910,95.19
@@ -3299,8 +3299,8 @@ KDEN,"Denver Intl, CO, US",United States,CO,VFR,2910,2910,100
 KDEN,"Denver Intl, CO, US",United States,CO,IFR,0,0,0
 KDEN,"Denver Intl, CO, US",United States,CO,LIFR,0,0,0
 KDEN,"Denver Intl, CO, US",United States,CO,MVFR,0,0,0
-KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,VFR,2521,2910,86.63
-KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,MVFR,389,2910,13.37
+KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,VFR,2507,2896,86.57
+KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,MVFR,389,2896,13.43
 KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,IFR,0,0,0
 KDEQ,"De Queen/Helms Arpt, AR, US",United States,AR,LIFR,0,0,0
 KDET,"Detroit/C Young Arpt, MI, US",United States,MI,VFR,2910,2910,100
@@ -3411,10 +3411,10 @@ KDNS,"Denison Muni, IA, US",United States,IA,VFR,2870,2910,98.63
 KDNS,"Denison Muni, IA, US",United States,IA,LIFR,20,2910,0.69
 KDNS,"Denison Muni, IA, US",United States,IA,MVFR,20,2910,0.69
 KDNS,"Denison Muni, IA, US",United States,IA,IFR,0,0,0
-KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,IFR,1210,2905,41.65
-KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,VFR,1130,2905,38.9
-KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,MVFR,325,2905,11.19
-KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,LIFR,240,2905,8.26
+KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,IFR,1190,2910,40.89
+KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,VFR,1155,2910,39.69
+KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,MVFR,325,2910,11.17
+KDNV,"Danville/Vermillion Rgnl, IL, US",United States,IL,LIFR,240,2910,8.25
 KDOV,"Dover AFB, DE, US",United States,DE,VFR,2910,2910,100
 KDOV,"Dover AFB, DE, US",United States,DE,IFR,0,0,0
 KDOV,"Dover AFB, DE, US",United States,DE,LIFR,0,0,0
@@ -3631,10 +3631,10 @@ KEAU,"Eau Claire/Chippewa Valley Rgnl, WI, US",United States,WI,VFR,2233,2910,76
 KEAU,"Eau Claire/Chippewa Valley Rgnl, WI, US",United States,WI,IFR,315,2910,10.82
 KEAU,"Eau Claire/Chippewa Valley Rgnl, WI, US",United States,WI,MVFR,248,2910,8.52
 KEAU,"Eau Claire/Chippewa Valley Rgnl, WI, US",United States,WI,LIFR,114,2910,3.92
-KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,VFR,2530,2590,97.68
+KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,VFR,2550,2590,98.46
 KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,IFR,40,2590,1.54
-KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,MVFR,20,2590,0.77
 KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,LIFR,0,0,0
+KEBG,"Edinburg/S Texas Intl, TX, US",United States,TX,MVFR,0,0,0
 KECG,"Elizabeth City Rgnl, NC, US",United States,NC,VFR,2910,2910,100
 KECG,"Elizabeth City Rgnl, NC, US",United States,NC,IFR,0,0,0
 KECG,"Elizabeth City Rgnl, NC, US",United States,NC,LIFR,0,0,0
@@ -3751,8 +3751,8 @@ KEKQ,"Monticello/Wayne Cnty, KY, US",United States,KY,VFR,2910,2910,100
 KEKQ,"Monticello/Wayne Cnty, KY, US",United States,KY,IFR,0,0,0
 KEKQ,"Monticello/Wayne Cnty, KY, US",United States,KY,LIFR,0,0,0
 KEKQ,"Monticello/Wayne Cnty, KY, US",United States,KY,MVFR,0,0,0
-KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,VFR,2830,2910,97.25
-KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,MVFR,80,2910,2.75
+KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,VFR,2850,2910,97.94
+KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,MVFR,60,2910,2.06
 KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,IFR,0,0,0
 KEKS,"Ennis/Big Sky Arpt, MT, US",United States,MT,LIFR,0,0,0
 KEKX,"Elizabethtown/Addington Fld, KY, US",United States,KY,VFR,2910,2910,100
@@ -3763,10 +3763,10 @@ KEKY,"Bessemer Arpt, AL, US",United States,AL,VFR,1770,1770,100
 KEKY,"Bessemer Arpt, AL, US",United States,AL,IFR,0,0,0
 KEKY,"Bessemer Arpt, AL, US",United States,AL,LIFR,0,0,0
 KEKY,"Bessemer Arpt, AL, US",United States,AL,MVFR,0,0,0
-KELA,"Eagle Lake Arpt, TX, US",United States,TX,VFR,2350,2650,88.68
-KELA,"Eagle Lake Arpt, TX, US",United States,TX,MVFR,140,2650,5.28
-KELA,"Eagle Lake Arpt, TX, US",United States,TX,IFR,100,2650,3.77
-KELA,"Eagle Lake Arpt, TX, US",United States,TX,LIFR,60,2650,2.26
+KELA,"Eagle Lake Arpt, TX, US",United States,TX,VFR,2370,2670,88.76
+KELA,"Eagle Lake Arpt, TX, US",United States,TX,MVFR,140,2670,5.24
+KELA,"Eagle Lake Arpt, TX, US",United States,TX,IFR,100,2670,3.75
+KELA,"Eagle Lake Arpt, TX, US",United States,TX,LIFR,60,2670,2.25
 KELD,"El Dorado/S Arkansas Rgnl, AR, US",United States,AR,VFR,2910,2910,100
 KELD,"El Dorado/S Arkansas Rgnl, AR, US",United States,AR,IFR,0,0,0
 KELD,"El Dorado/S Arkansas Rgnl, AR, US",United States,AR,LIFR,0,0,0
@@ -3871,7 +3871,7 @@ KESF,"Alexandria/Esler Rgnl, LA, US",United States,LA,VFR,2876,2910,98.83
 KESF,"Alexandria/Esler Rgnl, LA, US",United States,LA,LIFR,34,2910,1.17
 KESF,"Alexandria/Esler Rgnl, LA, US",United States,LA,IFR,0,0,0
 KESF,"Alexandria/Esler Rgnl, LA, US",United States,LA,MVFR,0,0,0
-KESN,"Easton Muni, MD, US",United States,MD,VFR,2910,2910,100
+KESN,"Easton Muni, MD, US",United States,MD,VFR,2905,2905,100
 KESN,"Easton Muni, MD, US",United States,MD,IFR,0,0,0
 KESN,"Easton Muni, MD, US",United States,MD,LIFR,0,0,0
 KESN,"Easton Muni, MD, US",United States,MD,MVFR,0,0,0
@@ -3883,7 +3883,7 @@ KETB,"West Bend Muni, WI, US",United States,WI,VFR,2650,2910,91.07
 KETB,"West Bend Muni, WI, US",United States,WI,MVFR,240,2910,8.25
 KETB,"West Bend Muni, WI, US",United States,WI,IFR,20,2910,0.69
 KETB,"West Bend Muni, WI, US",United States,WI,LIFR,0,0,0
-KETC,"Tarboro/Edgecombe Arpt, NC, US",United States,NC,VFR,2480,2480,100
+KETC,"Tarboro/Edgecombe Arpt, NC, US",United States,NC,VFR,2490,2490,100
 KETC,"Tarboro/Edgecombe Arpt, NC, US",United States,NC,IFR,0,0,0
 KETC,"Tarboro/Edgecombe Arpt, NC, US",United States,NC,LIFR,0,0,0
 KETC,"Tarboro/Edgecombe Arpt, NC, US",United States,NC,MVFR,0,0,0
@@ -3907,7 +3907,7 @@ KEUL,"Caldwell Ind Arpt, ID, US",United States,ID,VFR,2790,2910,95.88
 KEUL,"Caldwell Ind Arpt, ID, US",United States,ID,MVFR,120,2910,4.12
 KEUL,"Caldwell Ind Arpt, ID, US",United States,ID,IFR,0,0,0
 KEUL,"Caldwell Ind Arpt, ID, US",United States,ID,LIFR,0,0,0
-KEVB,"New Smyrna Beach Muni, FL, US",United States,FL,VFR,1885,1885,100
+KEVB,"New Smyrna Beach Muni, FL, US",United States,FL,VFR,1937,1937,100
 KEVB,"New Smyrna Beach Muni, FL, US",United States,FL,IFR,0,0,0
 KEVB,"New Smyrna Beach Muni, FL, US",United States,FL,LIFR,0,0,0
 KEVB,"New Smyrna Beach Muni, FL, US",United States,FL,MVFR,0,0,0
@@ -3947,10 +3947,10 @@ KEXX,"Lexington/Davidson Cnty, NC, US",United States,NC,VFR,2910,2910,100
 KEXX,"Lexington/Davidson Cnty, NC, US",United States,NC,IFR,0,0,0
 KEXX,"Lexington/Davidson Cnty, NC, US",United States,NC,LIFR,0,0,0
 KEXX,"Lexington/Davidson Cnty, NC, US",United States,NC,MVFR,0,0,0
-KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,VFR,2847,2893,98.41
-KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,IFR,46,2893,1.59
+KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,VFR,2847,2900,98.17
+KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,MVFR,30,2900,1.03
+KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,IFR,23,2900,0.79
 KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,LIFR,0,0,0
-KEYE,"Indianapolis/Eagle Creek Arpt, IN, US",United States,IN,MVFR,0,0,0
 KEYF,"Elizabethtown/Brown Fld, NC, US",United States,NC,VFR,2910,2910,100
 KEYF,"Elizabethtown/Brown Fld, NC, US",United States,NC,IFR,0,0,0
 KEYF,"Elizabethtown/Brown Fld, NC, US",United States,NC,LIFR,0,0,0
@@ -3991,8 +3991,8 @@ KF44,"Athens Muni, TX, US",United States,TX,VFR,2510,2910,86.25
 KF44,"Athens Muni, TX, US",United States,TX,MVFR,220,2910,7.56
 KF44,"Athens Muni, TX, US",United States,TX,IFR,180,2910,6.19
 KF44,"Athens Muni, TX, US",United States,TX,LIFR,0,0,0
-KF45,"North Palm Beach Cnty, FL, US",United States,FL,VFR,2390,2910,82.13
-KF45,"North Palm Beach Cnty, FL, US",United States,FL,MVFR,520,2910,17.87
+KF45,"North Palm Beach Cnty, FL, US",United States,FL,VFR,2345,2865,81.85
+KF45,"North Palm Beach Cnty, FL, US",United States,FL,MVFR,520,2865,18.15
 KF45,"North Palm Beach Cnty, FL, US",United States,FL,IFR,0,0,0
 KF45,"North Palm Beach Cnty, FL, US",United States,FL,LIFR,0,0,0
 KF46,"Rockwall Muni, TX, US",United States,TX,VFR,2110,2910,72.51
@@ -4007,7 +4007,7 @@ KFAF,"Fort Eustis/Felker AAF, VA, US",United States,VA,VFR,2910,2910,100
 KFAF,"Fort Eustis/Felker AAF, VA, US",United States,VA,IFR,0,0,0
 KFAF,"Fort Eustis/Felker AAF, VA, US",United States,VA,LIFR,0,0,0
 KFAF,"Fort Eustis/Felker AAF, VA, US",United States,VA,MVFR,0,0,0
-KFAM,"Farmington Rgnl, MO, US",United States,MO,VFR,2875,2875,100
+KFAM,"Farmington Rgnl, MO, US",United States,MO,VFR,2897,2897,100
 KFAM,"Farmington Rgnl, MO, US",United States,MO,IFR,0,0,0
 KFAM,"Farmington Rgnl, MO, US",United States,MO,LIFR,0,0,0
 KFAM,"Farmington Rgnl, MO, US",United States,MO,MVFR,0,0,0
@@ -4135,9 +4135,9 @@ KFKN,"Franklin/Rose Arpt, VA, US",United States,VA,VFR,2910,2910,100
 KFKN,"Franklin/Rose Arpt, VA, US",United States,VA,IFR,0,0,0
 KFKN,"Franklin/Rose Arpt, VA, US",United States,VA,LIFR,0,0,0
 KFKN,"Franklin/Rose Arpt, VA, US",United States,VA,MVFR,0,0,0
-KFKR,"Frankfort Muni, IN, US",United States,IN,VFR,2540,2910,87.29
+KFKR,"Frankfort Muni, IN, US",United States,IN,VFR,2520,2910,86.6
 KFKR,"Frankfort Muni, IN, US",United States,IN,MVFR,340,2910,11.68
-KFKR,"Frankfort Muni, IN, US",United States,IN,IFR,30,2910,1.03
+KFKR,"Frankfort Muni, IN, US",United States,IN,IFR,50,2910,1.72
 KFKR,"Frankfort Muni, IN, US",United States,IN,LIFR,0,0,0
 KFKS,"Frankfort/Dow Mem, MI, US",United States,MI,VFR,2330,2910,80.07
 KFKS,"Frankfort/Dow Mem, MI, US",United States,MI,MVFR,340,2910,11.68
@@ -4195,9 +4195,9 @@ KFNT,"Flint/Bishop Intl, MI, US",United States,MI,VFR,2910,2910,100
 KFNT,"Flint/Bishop Intl, MI, US",United States,MI,IFR,0,0,0
 KFNT,"Flint/Bishop Intl, MI, US",United States,MI,LIFR,0,0,0
 KFNT,"Flint/Bishop Intl, MI, US",United States,MI,MVFR,0,0,0
-KFOA,"Flora Muni, IL, US",United States,IL,VFR,2820,2910,96.91
-KFOA,"Flora Muni, IL, US",United States,IL,IFR,70,2910,2.41
-KFOA,"Flora Muni, IL, US",United States,IL,MVFR,20,2910,0.69
+KFOA,"Flora Muni, IL, US",United States,IL,VFR,2800,2910,96.22
+KFOA,"Flora Muni, IL, US",United States,IL,IFR,60,2910,2.06
+KFOA,"Flora Muni, IL, US",United States,IL,MVFR,50,2910,1.72
 KFOA,"Flora Muni, IL, US",United States,IL,LIFR,0,0,0
 KFOD,"Fort Dodge Rgnl, IA, US",United States,IA,VFR,2389,2910,82.1
 KFOD,"Fort Dodge Rgnl, IA, US",United States,IA,LIFR,249,2910,8.56
@@ -4471,7 +4471,7 @@ KGGI,"Grinnell Rgnl, IA, US",United States,IA,VFR,2490,2890,86.16
 KGGI,"Grinnell Rgnl, IA, US",United States,IA,LIFR,380,2890,13.15
 KGGI,"Grinnell Rgnl, IA, US",United States,IA,IFR,20,2890,0.69
 KGGI,"Grinnell Rgnl, IA, US",United States,IA,MVFR,0,0,0
-KGGP,"Logansport/Cass Cnty, IN, US",United States,IN,VFR,2908,2908,100
+KGGP,"Logansport/Cass Cnty, IN, US",United States,IN,VFR,2910,2910,100
 KGGP,"Logansport/Cass Cnty, IN, US",United States,IN,IFR,0,0,0
 KGGP,"Logansport/Cass Cnty, IN, US",United States,IN,LIFR,0,0,0
 KGGP,"Logansport/Cass Cnty, IN, US",United States,IN,MVFR,0,0,0
@@ -4531,10 +4531,10 @@ KGLW,"Glasgow Muni, KY, US",United States,KY,VFR,2910,2910,100
 KGLW,"Glasgow Muni, KY, US",United States,KY,IFR,0,0,0
 KGLW,"Glasgow Muni, KY, US",United States,KY,LIFR,0,0,0
 KGLW,"Glasgow Muni, KY, US",United States,KY,MVFR,0,0,0
-KGLY,"Clinton Mem, MO, US",United States,MO,VFR,2620,2910,90.03
-KGLY,"Clinton Mem, MO, US",United States,MO,MVFR,250,2910,8.59
+KGLY,"Clinton Mem, MO, US",United States,MO,VFR,2600,2910,89.35
+KGLY,"Clinton Mem, MO, US",United States,MO,MVFR,240,2910,8.25
 KGLY,"Clinton Mem, MO, US",United States,MO,IFR,40,2910,1.37
-KGLY,"Clinton Mem, MO, US",United States,MO,LIFR,0,0,0
+KGLY,"Clinton Mem, MO, US",United States,MO,LIFR,30,2910,1.03
 KGMJ,"Grove Muni, OK, US",United States,OK,VFR,2530,2870,88.15
 KGMJ,"Grove Muni, OK, US",United States,OK,IFR,120,2870,4.18
 KGMJ,"Grove Muni, OK, US",United States,OK,LIFR,120,2870,4.18
@@ -4551,7 +4551,7 @@ KGNC,"Seminole/Gaines Cnty, TX, US",United States,TX,VFR,2910,2910,100
 KGNC,"Seminole/Gaines Cnty, TX, US",United States,TX,IFR,0,0,0
 KGNC,"Seminole/Gaines Cnty, TX, US",United States,TX,LIFR,0,0,0
 KGNC,"Seminole/Gaines Cnty, TX, US",United States,TX,MVFR,0,0,0
-KGNG,"Gooding Muni, ID, US",United States,ID,VFR,2910,2910,100
+KGNG,"Gooding Muni, ID, US",United States,ID,VFR,2905,2905,100
 KGNG,"Gooding Muni, ID, US",United States,ID,IFR,0,0,0
 KGNG,"Gooding Muni, ID, US",United States,ID,LIFR,0,0,0
 KGNG,"Gooding Muni, ID, US",United States,ID,MVFR,0,0,0
@@ -4671,7 +4671,7 @@ KGUP,"Gallup Muni, NM, US",United States,NM,VFR,2910,2910,100
 KGUP,"Gallup Muni, NM, US",United States,NM,IFR,0,0,0
 KGUP,"Gallup Muni, NM, US",United States,NM,LIFR,0,0,0
 KGUP,"Gallup Muni, NM, US",United States,NM,MVFR,0,0,0
-KGUS,"Peru/Grissom ARB, IN, US",United States,IN,VFR,2873,2873,100
+KGUS,"Peru/Grissom ARB, IN, US",United States,IN,VFR,2901,2901,100
 KGUS,"Peru/Grissom ARB, IN, US",United States,IN,IFR,0,0,0
 KGUS,"Peru/Grissom ARB, IN, US",United States,IN,LIFR,0,0,0
 KGUS,"Peru/Grissom ARB, IN, US",United States,IN,MVFR,0,0,0
@@ -4711,10 +4711,10 @@ KGXY,"Greeley/Weld Cnty Arpt, CO, US",United States,CO,VFR,2889,2910,99.28
 KGXY,"Greeley/Weld Cnty Arpt, CO, US",United States,CO,MVFR,21,2910,0.72
 KGXY,"Greeley/Weld Cnty Arpt, CO, US",United States,CO,IFR,0,0,0
 KGXY,"Greeley/Weld Cnty Arpt, CO, US",United States,CO,LIFR,0,0,0
-KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,VFR,1840,2240,82.14
-KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,IFR,220,2240,9.82
-KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,LIFR,140,2240,6.25
-KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,MVFR,40,2240,1.79
+KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,VFR,1850,2250,82.22
+KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,IFR,220,2250,9.78
+KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,LIFR,140,2250,6.22
+KGYB,"Giddings/Lee Cnty, TX, US",United States,TX,MVFR,40,2250,1.78
 KGYH,"Greenville/Donaldson Fld, SC, US",United States,SC,VFR,2910,2910,100
 KGYH,"Greenville/Donaldson Fld, SC, US",United States,SC,IFR,0,0,0
 KGYH,"Greenville/Donaldson Fld, SC, US",United States,SC,LIFR,0,0,0
@@ -4999,20 +4999,20 @@ KHRI,"Hermiston Muni, OR, US",United States,OR,VFR,2910,2910,100
 KHRI,"Hermiston Muni, OR, US",United States,OR,IFR,0,0,0
 KHRI,"Hermiston Muni, OR, US",United States,OR,LIFR,0,0,0
 KHRI,"Hermiston Muni, OR, US",United States,OR,MVFR,0,0,0
-KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,VFR,2840,2910,97.59
-KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,MVFR,70,2910,2.41
+KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,VFR,2860,2910,98.28
+KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,MVFR,50,2910,1.72
 KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,IFR,0,0,0
 KHRJ,"Erwin/Harnett Rgnl, NC, US",United States,NC,LIFR,0,0,0
 KHRL,"Harlingen/Valley Intl, TX, US",United States,TX,VFR,2740,2910,94.16
 KHRL,"Harlingen/Valley Intl, TX, US",United States,TX,MVFR,100,2910,3.44
 KHRL,"Harlingen/Valley Intl, TX, US",United States,TX,LIFR,56,2910,1.92
 KHRL,"Harlingen/Valley Intl, TX, US",United States,TX,IFR,14,2910,0.48
-KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,VFR,2760,2883,95.73
-KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,MVFR,76,2883,2.64
-KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,IFR,47,2883,1.63
+KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,VFR,2790,2904,96.07
+KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,MVFR,67,2904,2.31
+KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,IFR,47,2904,1.62
 KHRO,"Harrison/Boone Cnty, AR, US",United States,AR,LIFR,0,0,0
-KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,VFR,2831,2850,99.33
-KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,MVFR,19,2850,0.67
+KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,VFR,2891,2910,99.35
+KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,MVFR,19,2910,0.65
 KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,IFR,0,0,0
 KHRT,"Ft Walton Beach/Hurlburt Fld, FL, US",United States,FL,LIFR,0,0,0
 KHRX,"Hereford Muni, TX, US",United States,TX,VFR,2510,2510,100
@@ -5035,8 +5035,8 @@ KHSE,"Hatteras/Mitchell Fld, NC, US",United States,NC,VFR,2910,2910,100
 KHSE,"Hatteras/Mitchell Fld, NC, US",United States,NC,IFR,0,0,0
 KHSE,"Hatteras/Mitchell Fld, NC, US",United States,NC,LIFR,0,0,0
 KHSE,"Hatteras/Mitchell Fld, NC, US",United States,NC,MVFR,0,0,0
-KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,VFR,2130,2910,73.2
-KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,MVFR,780,2910,26.8
+KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,VFR,2150,2910,73.88
+KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,MVFR,760,2910,26.12
 KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,IFR,0,0,0
 KHSG,"Thermopolis/Hot Springs Cnty, WY, US",United States,WY,LIFR,0,0,0
 KHSI,"Hastings Muni, NE, US",United States,NE,VFR,2910,2910,100
@@ -5055,14 +5055,14 @@ KHSV,"Huntsville Intl, AL, US",United States,AL,VFR,2550,2550,100
 KHSV,"Huntsville Intl, AL, US",United States,AL,IFR,0,0,0
 KHSV,"Huntsville Intl, AL, US",United States,AL,LIFR,0,0,0
 KHSV,"Huntsville Intl, AL, US",United States,AL,MVFR,0,0,0
-KHTH,"Hawthorne Muni, NV, US",United States,NV,VFR,2840,2840,100
+KHTH,"Hawthorne Muni, NV, US",United States,NV,VFR,2820,2820,100
 KHTH,"Hawthorne Muni, NV, US",United States,NV,IFR,0,0,0
 KHTH,"Hawthorne Muni, NV, US",United States,NV,LIFR,0,0,0
 KHTH,"Hawthorne Muni, NV, US",United States,NV,MVFR,0,0,0
-KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,VFR,2304,2890,79.72
-KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,IFR,353,2890,12.21
-KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,MVFR,218,2890,7.54
-KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,LIFR,15,2890,0.52
+KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,VFR,2283,2899,78.75
+KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,IFR,353,2899,12.18
+KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,MVFR,248,2899,8.55
+KHTL,"Houghton Lake/Blodgett Mem, MI, US",United States,MI,LIFR,15,2899,0.52
 KHTS,"Huntington/Ferguson Fld, WV, US",United States,WV,VFR,2625,2910,90.21
 KHTS,"Huntington/Ferguson Fld, WV, US",United States,WV,LIFR,240,2910,8.25
 KHTS,"Huntington/Ferguson Fld, WV, US",United States,WV,MVFR,40,2910,1.37
@@ -5087,8 +5087,8 @@ KHUT,"Hutchinson Muni, KS, US",United States,KS,VFR,2910,2910,100
 KHUT,"Hutchinson Muni, KS, US",United States,KS,IFR,0,0,0
 KHUT,"Hutchinson Muni, KS, US",United States,KS,LIFR,0,0,0
 KHUT,"Hutchinson Muni, KS, US",United States,KS,MVFR,0,0,0
-KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,VFR,2780,2870,96.86
-KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,MVFR,90,2870,3.14
+KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,VFR,2790,2870,97.21
+KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,MVFR,80,2870,2.79
 KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,IFR,0,0,0
 KHVC,"Hopkinsville/Christian Cnty, KY, US",United States,KY,LIFR,0,0,0
 KHVE,"Hanksville Arpt, UT, US",United States,UT,VFR,2910,2910,100
@@ -5263,8 +5263,8 @@ KIDI,"Indiana/Stewart Arpt, PA, US",United States,PA,VFR,2830,2910,97.25
 KIDI,"Indiana/Stewart Arpt, PA, US",United States,PA,LIFR,60,2910,2.06
 KIDI,"Indiana/Stewart Arpt, PA, US",United States,PA,MVFR,20,2910,0.69
 KIDI,"Indiana/Stewart Arpt, PA, US",United States,PA,IFR,0,0,0
-KIDP,"Independence Muni, KS, US",United States,KS,VFR,2860,2910,98.28
-KIDP,"Independence Muni, KS, US",United States,KS,MVFR,50,2910,1.72
+KIDP,"Independence Muni, KS, US",United States,KS,VFR,2870,2905,98.8
+KIDP,"Independence Muni, KS, US",United States,KS,MVFR,35,2905,1.2
 KIDP,"Independence Muni, KS, US",United States,KS,IFR,0,0,0
 KIDP,"Independence Muni, KS, US",United States,KS,LIFR,0,0,0
 KIEN,"Pine Ridge Strip, SD, US",United States,SD,VFR,2835,2910,97.42
@@ -5279,7 +5279,7 @@ KIFA,"Iowa Falls Muni, IA, US",United States,IA,VFR,2350,2910,80.76
 KIFA,"Iowa Falls Muni, IA, US",United States,IA,LIFR,340,2910,11.68
 KIFA,"Iowa Falls Muni, IA, US",United States,IA,IFR,140,2910,4.81
 KIFA,"Iowa Falls Muni, IA, US",United States,IA,MVFR,80,2910,2.75
-KIFP,"Bullhead City Intl, AZ, US",United States,AZ,VFR,2730,2730,100
+KIFP,"Bullhead City Intl, AZ, US",United States,AZ,VFR,2727,2727,100
 KIFP,"Bullhead City Intl, AZ, US",United States,AZ,IFR,0,0,0
 KIFP,"Bullhead City Intl, AZ, US",United States,AZ,LIFR,0,0,0
 KIFP,"Bullhead City Intl, AZ, US",United States,AZ,MVFR,0,0,0
@@ -5303,10 +5303,10 @@ KIJD,"Willimantic/Windham Arpt, CT, US",United States,CT,VFR,2690,2910,92.44
 KIJD,"Willimantic/Windham Arpt, CT, US",United States,CT,LIFR,148,2910,5.09
 KIJD,"Willimantic/Windham Arpt, CT, US",United States,CT,MVFR,54,2910,1.86
 KIJD,"Willimantic/Windham Arpt, CT, US",United States,CT,IFR,18,2910,0.62
-KIJX,"Jacksonville Muni, IL, US",United States,IL,VFR,2910,2910,100
+KIJX,"Jacksonville Muni, IL, US",United States,IL,VFR,2880,2910,98.97
+KIJX,"Jacksonville Muni, IL, US",United States,IL,MVFR,30,2910,1.03
 KIJX,"Jacksonville Muni, IL, US",United States,IL,IFR,0,0,0
 KIJX,"Jacksonville Muni, IL, US",United States,IL,LIFR,0,0,0
-KIJX,"Jacksonville Muni, IL, US",United States,IL,MVFR,0,0,0
 KIKG,"Kingsville/Kleberg Cnty, TX, US",United States,TX,VFR,2690,2910,92.44
 KIKG,"Kingsville/Kleberg Cnty, TX, US",United States,TX,LIFR,120,2910,4.12
 KIKG,"Kingsville/Kleberg Cnty, TX, US",United States,TX,MVFR,100,2910,3.44
@@ -5591,8 +5591,8 @@ KJWG,"Watonga Rgnl, OK, US",United States,OK,VFR,2910,2910,100
 KJWG,"Watonga Rgnl, OK, US",United States,OK,IFR,0,0,0
 KJWG,"Watonga Rgnl, OK, US",United States,OK,LIFR,0,0,0
 KJWG,"Watonga Rgnl, OK, US",United States,OK,MVFR,0,0,0
-KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,VFR,1830,1890,96.83
-KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,MVFR,60,1890,3.17
+KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,VFR,1890,1950,96.92
+KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,MVFR,60,1950,3.08
 KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,IFR,0,0,0
 KJWN,"Nashville/Tune Arpt, TN, US",United States,TN,LIFR,0,0,0
 KJXI,"Gilmer/Stephens Fld, TX, US",United States,TX,VFR,2390,2910,82.13
@@ -5723,9 +5723,9 @@ KLCG,"Wayne Muni, NE, US",United States,NE,VFR,2910,2910,100
 KLCG,"Wayne Muni, NE, US",United States,NE,IFR,0,0,0
 KLCG,"Wayne Muni, NE, US",United States,NE,LIFR,0,0,0
 KLCG,"Wayne Muni, NE, US",United States,NE,MVFR,0,0,0
-KLCH,"Lake Charles Rgnl, LA, US",United States,LA,VFR,2377,2768,85.87
-KLCH,"Lake Charles Rgnl, LA, US",United States,LA,MVFR,332,2768,11.99
-KLCH,"Lake Charles Rgnl, LA, US",United States,LA,IFR,59,2768,2.13
+KLCH,"Lake Charles Rgnl, LA, US",United States,LA,VFR,2377,2779,85.53
+KLCH,"Lake Charles Rgnl, LA, US",United States,LA,MVFR,313,2779,11.26
+KLCH,"Lake Charles Rgnl, LA, US",United States,LA,IFR,89,2779,3.2
 KLCH,"Lake Charles Rgnl, LA, US",United States,LA,LIFR,0,0,0
 KLCI,"Laconia Muni, NH, US",United States,NH,VFR,2838,2910,97.53
 KLCI,"Laconia Muni, NH, US",United States,NH,LIFR,72,2910,2.47
@@ -5767,10 +5767,10 @@ KLFI,"Langley AFB, VA, US",United States,VA,VFR,2910,2910,100
 KLFI,"Langley AFB, VA, US",United States,VA,IFR,0,0,0
 KLFI,"Langley AFB, VA, US",United States,VA,LIFR,0,0,0
 KLFI,"Langley AFB, VA, US",United States,VA,MVFR,0,0,0
-KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,VFR,2532,2881,87.89
-KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,LIFR,211,2881,7.32
-KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,MVFR,127,2881,4.41
-KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,IFR,11,2881,0.38
+KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,VFR,2547,2896,87.95
+KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,LIFR,211,2896,7.29
+KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,MVFR,127,2896,4.39
+KLFK,"Lufkin/Angelina Cnty, TX, US",United States,TX,IFR,11,2896,0.38
 KLFT,"Lafayette Rgnl, LA, US",United States,LA,VFR,2604,2910,89.48
 KLFT,"Lafayette Rgnl, LA, US",United States,LA,MVFR,194,2910,6.67
 KLFT,"Lafayette Rgnl, LA, US",United States,LA,LIFR,104,2910,3.57
@@ -5847,9 +5847,9 @@ KLLJ,"Challis Arpt, ID, US",United States,ID,VFR,2663,2910,91.51
 KLLJ,"Challis Arpt, ID, US",United States,ID,MVFR,218,2910,7.49
 KLLJ,"Challis Arpt, ID, US",United States,ID,IFR,29,2910,1
 KLLJ,"Challis Arpt, ID, US",United States,ID,LIFR,0,0,0
-KLLN,"Levelland Muni, TX, US",United States,TX,VFR,2870,2910,98.63
+KLLN,"Levelland Muni, TX, US",United States,TX,VFR,2840,2910,97.59
 KLLN,"Levelland Muni, TX, US",United States,TX,MVFR,40,2910,1.37
-KLLN,"Levelland Muni, TX, US",United States,TX,IFR,0,0,0
+KLLN,"Levelland Muni, TX, US",United States,TX,IFR,30,2910,1.03
 KLLN,"Levelland Muni, TX, US",United States,TX,LIFR,0,0,0
 KLLQ,"Monticello/Ellis Fld, AR, US",United States,AR,VFR,2910,2910,100
 KLLQ,"Monticello/Ellis Fld, AR, US",United States,AR,IFR,0,0,0
@@ -5863,7 +5863,7 @@ KLMO,"Longmont/Brand Arpt, CO, US",United States,CO,VFR,2850,2910,97.94
 KLMO,"Longmont/Brand Arpt, CO, US",United States,CO,MVFR,60,2910,2.06
 KLMO,"Longmont/Brand Arpt, CO, US",United States,CO,IFR,0,0,0
 KLMO,"Longmont/Brand Arpt, CO, US",United States,CO,LIFR,0,0,0
-KLMS,"Louisville/Winston Cnty, MS, US",United States,MS,VFR,2890,2890,100
+KLMS,"Louisville/Winston Cnty, MS, US",United States,MS,VFR,2905,2905,100
 KLMS,"Louisville/Winston Cnty, MS, US",United States,MS,IFR,0,0,0
 KLMS,"Louisville/Winston Cnty, MS, US",United States,MS,LIFR,0,0,0
 KLMS,"Louisville/Winston Cnty, MS, US",United States,MS,MVFR,0,0,0
@@ -5943,9 +5943,9 @@ KLRD,"Laredo Intl, TX, US",United States,TX,VFR,2910,2910,100
 KLRD,"Laredo Intl, TX, US",United States,TX,IFR,0,0,0
 KLRD,"Laredo Intl, TX, US",United States,TX,LIFR,0,0,0
 KLRD,"Laredo Intl, TX, US",United States,TX,MVFR,0,0,0
-KLRF,"Little Rock AFB, AR, US",United States,AR,VFR,2777,2887,96.19
-KLRF,"Little Rock AFB, AR, US",United States,AR,MVFR,95,2887,3.29
-KLRF,"Little Rock AFB, AR, US",United States,AR,IFR,15,2887,0.52
+KLRF,"Little Rock AFB, AR, US",United States,AR,VFR,2781,2891,96.2
+KLRF,"Little Rock AFB, AR, US",United States,AR,MVFR,95,2891,3.29
+KLRF,"Little Rock AFB, AR, US",United States,AR,IFR,15,2891,0.52
 KLRF,"Little Rock AFB, AR, US",United States,AR,LIFR,0,0,0
 KLRJ,"Le Mars Muni, IA, US",United States,IA,VFR,2850,2910,97.94
 KLRJ,"Le Mars Muni, IA, US",United States,IA,MVFR,60,2910,2.06
@@ -6059,9 +6059,9 @@ KLWT,"Lewistown Muni, MT, US",United States,MT,MVFR,300,510,58.82
 KLWT,"Lewistown Muni, MT, US",United States,MT,VFR,210,510,41.18
 KLWT,"Lewistown Muni, MT, US",United States,MT,IFR,0,0,0
 KLWT,"Lewistown Muni, MT, US",United States,MT,LIFR,0,0,0
-KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,VFR,2768,2888,95.84
-KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,MVFR,110,2888,3.81
-KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,IFR,10,2888,0.35
+KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,VFR,2768,2896,95.58
+KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,MVFR,88,2896,3.04
+KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,IFR,40,2896,1.38
 KLWV,"Lawrenceville-Vincennes Intl, IL, US",United States,IL,LIFR,0,0,0
 KLXL,"Little Falls/Morrison Cnty, MN, US",United States,MN,VFR,2770,2910,95.19
 KLXL,"Little Falls/Morrison Cnty, MN, US",United States,MN,MVFR,100,2910,3.44
@@ -6135,12 +6135,12 @@ KM54,"Lebanon Muni, TN, US",United States,TN,VFR,2910,2910,100
 KM54,"Lebanon Muni, TN, US",United States,TN,IFR,0,0,0
 KM54,"Lebanon Muni, TN, US",United States,TN,LIFR,0,0,0
 KM54,"Lebanon Muni, TN, US",United States,TN,MVFR,0,0,0
-KM75,"Malta Arpt, MT, US",United States,MT,VFR,2805,2905,96.56
-KM75,"Malta Arpt, MT, US",United States,MT,MVFR,100,2905,3.44
+KM75,"Malta Arpt, MT, US",United States,MT,VFR,2830,2910,97.25
+KM75,"Malta Arpt, MT, US",United States,MT,MVFR,80,2910,2.75
 KM75,"Malta Arpt, MT, US",United States,MT,IFR,0,0,0
 KM75,"Malta Arpt, MT, US",United States,MT,LIFR,0,0,0
-KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,VFR,2870,2890,99.31
-KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,MVFR,20,2890,0.69
+KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,VFR,2850,2870,99.3
+KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,MVFR,20,2870,0.7
 KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,IFR,0,0,0
 KM91,"Springfield/Robertson Cnty, TN, US",United States,TN,LIFR,0,0,0
 KMAE,"Madera Muni, CA, US",United States,CA,VFR,2670,2910,91.75
@@ -6179,7 +6179,7 @@ KMBS,"Saginaw Intl, MI, US",United States,MI,VFR,2881,2910,99
 KMBS,"Saginaw Intl, MI, US",United States,MI,MVFR,29,2910,1
 KMBS,"Saginaw Intl, MI, US",United States,MI,IFR,0,0,0
 KMBS,"Saginaw Intl, MI, US",United States,MI,LIFR,0,0,0
-KMBT,"Murfreesboro Muni, TN, US",United States,TN,VFR,2833,2833,100
+KMBT,"Murfreesboro Muni, TN, US",United States,TN,VFR,2853,2853,100
 KMBT,"Murfreesboro Muni, TN, US",United States,TN,IFR,0,0,0
 KMBT,"Murfreesboro Muni, TN, US",United States,TN,LIFR,0,0,0
 KMBT,"Murfreesboro Muni, TN, US",United States,TN,MVFR,0,0,0
@@ -6303,9 +6303,9 @@ KMFV,"Melfa/Accomack Cnty, VA, US",United States,VA,VFR,2910,2910,100
 KMFV,"Melfa/Accomack Cnty, VA, US",United States,VA,IFR,0,0,0
 KMFV,"Melfa/Accomack Cnty, VA, US",United States,VA,LIFR,0,0,0
 KMFV,"Melfa/Accomack Cnty, VA, US",United States,VA,MVFR,0,0,0
-KMGC,"Michigan City Muni, IN, US",United States,IN,VFR,2840,2910,97.59
+KMGC,"Michigan City Muni, IN, US",United States,IN,VFR,2820,2910,96.91
+KMGC,"Michigan City Muni, IN, US",United States,IN,MVFR,50,2910,1.72
 KMGC,"Michigan City Muni, IN, US",United States,IN,IFR,40,2910,1.37
-KMGC,"Michigan City Muni, IN, US",United States,IN,MVFR,30,2910,1.03
 KMGC,"Michigan City Muni, IN, US",United States,IN,LIFR,0,0,0
 KMGE,"Marietta/Dobbins AFB, GA, US",United States,GA,VFR,2850,2910,97.94
 KMGE,"Marietta/Dobbins AFB, GA, US",United States,GA,MVFR,60,2910,2.06
@@ -6379,10 +6379,10 @@ KMIE,"Muncie/Johnson Fld, IN, US",United States,IN,VFR,2850,2850,100
 KMIE,"Muncie/Johnson Fld, IN, US",United States,IN,IFR,0,0,0
 KMIE,"Muncie/Johnson Fld, IN, US",United States,IN,LIFR,0,0,0
 KMIE,"Muncie/Johnson Fld, IN, US",United States,IN,MVFR,0,0,0
-KMIO,"Miami Muni, OK, US",United States,OK,VFR,2690,2890,93.08
-KMIO,"Miami Muni, OK, US",United States,OK,IFR,80,2890,2.77
-KMIO,"Miami Muni, OK, US",United States,OK,LIFR,80,2890,2.77
-KMIO,"Miami Muni, OK, US",United States,OK,MVFR,40,2890,1.38
+KMIO,"Miami Muni, OK, US",United States,OK,VFR,2710,2910,93.13
+KMIO,"Miami Muni, OK, US",United States,OK,IFR,80,2910,2.75
+KMIO,"Miami Muni, OK, US",United States,OK,LIFR,80,2910,2.75
+KMIO,"Miami Muni, OK, US",United States,OK,MVFR,40,2910,1.37
 KMIV,"Millville Muni, NJ, US",United States,NJ,VFR,2910,2910,100
 KMIV,"Millville Muni, NJ, US",United States,NJ,IFR,0,0,0
 KMIV,"Millville Muni, NJ, US",United States,NJ,LIFR,0,0,0
@@ -6543,7 +6543,7 @@ KMOP,"Mount Pleasant Muni, MI, US",United States,MI,VFR,2690,2910,92.44
 KMOP,"Mount Pleasant Muni, MI, US",United States,MI,MVFR,220,2910,7.56
 KMOP,"Mount Pleasant Muni, MI, US",United States,MI,IFR,0,0,0
 KMOP,"Mount Pleasant Muni, MI, US",United States,MI,LIFR,0,0,0
-KMOR,"Morristown/Moore Arpt, TN, US",United States,TN,VFR,2890,2890,100
+KMOR,"Morristown/Moore Arpt, TN, US",United States,TN,VFR,2870,2870,100
 KMOR,"Morristown/Moore Arpt, TN, US",United States,TN,IFR,0,0,0
 KMOR,"Morristown/Moore Arpt, TN, US",United States,TN,LIFR,0,0,0
 KMOR,"Morristown/Moore Arpt, TN, US",United States,TN,MVFR,0,0,0
@@ -6647,7 +6647,7 @@ KMSY,"New Orleans/Armstrong Intl, LA, US",United States,LA,VFR,2644,2910,90.86
 KMSY,"New Orleans/Armstrong Intl, LA, US",United States,LA,MVFR,266,2910,9.14
 KMSY,"New Orleans/Armstrong Intl, LA, US",United States,LA,IFR,0,0,0
 KMSY,"New Orleans/Armstrong Intl, LA, US",United States,LA,LIFR,0,0,0
-KMTC,"Selfridge ANGB, MI, US",United States,MI,VFR,2910,2910,100
+KMTC,"Selfridge ANGB, MI, US",United States,MI,VFR,2894,2894,100
 KMTC,"Selfridge ANGB, MI, US",United States,MI,IFR,0,0,0
 KMTC,"Selfridge ANGB, MI, US",United States,MI,LIFR,0,0,0
 KMTC,"Selfridge ANGB, MI, US",United States,MI,MVFR,0,0,0
@@ -6659,7 +6659,7 @@ KMTJ,"Montrose Rgnl, CO, US",United States,CO,VFR,2910,2910,100
 KMTJ,"Montrose Rgnl, CO, US",United States,CO,IFR,0,0,0
 KMTJ,"Montrose Rgnl, CO, US",United States,CO,LIFR,0,0,0
 KMTJ,"Montrose Rgnl, CO, US",United States,CO,MVFR,0,0,0
-KMTN,"Baltimore/Martin State Arpt, MD, US",United States,MD,VFR,2850,2850,100
+KMTN,"Baltimore/Martin State Arpt, MD, US",United States,MD,VFR,2908,2908,100
 KMTN,"Baltimore/Martin State Arpt, MD, US",United States,MD,IFR,0,0,0
 KMTN,"Baltimore/Martin State Arpt, MD, US",United States,MD,LIFR,0,0,0
 KMTN,"Baltimore/Martin State Arpt, MD, US",United States,MD,MVFR,0,0,0
@@ -6711,9 +6711,9 @@ KMWA,"Marion Rgnl, IL, US",United States,IL,VFR,2908,2908,100
 KMWA,"Marion Rgnl, IL, US",United States,IL,IFR,0,0,0
 KMWA,"Marion Rgnl, IL, US",United States,IL,LIFR,0,0,0
 KMWA,"Marion Rgnl, IL, US",United States,IL,MVFR,0,0,0
-KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,VFR,2577,2908,88.62
-KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,MVFR,239,2908,8.22
-KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,IFR,92,2908,3.16
+KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,VFR,2579,2910,88.63
+KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,MVFR,239,2910,8.21
+KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,IFR,92,2910,3.16
 KMWC,"Milwaukee/Timmerman Arpt, WI, US",United States,WI,LIFR,0,0,0
 KMWH,"Moses Lake/Grant Cnty, WA, US",United States,WA,VFR,2720,2910,93.47
 KMWH,"Moses Lake/Grant Cnty, WA, US",United States,WA,MVFR,101,2910,3.47
@@ -6895,8 +6895,8 @@ KNOG,"Orange Grove, TX, US",United States,TX,VFR,2790,2910,95.88
 KNOG,"Orange Grove, TX, US",United States,TX,IFR,60,2910,2.06
 KNOG,"Orange Grove, TX, US",United States,TX,LIFR,60,2910,2.06
 KNOG,"Orange Grove, TX, US",United States,TX,MVFR,0,0,0
-KNOW,"Port Angeles, WA, US",United States,WA,VFR,2380,2910,81.79
-KNOW,"Port Angeles, WA, US",United States,WA,MVFR,530,2910,18.21
+KNOW,"Port Angeles, WA, US",United States,WA,VFR,2360,2910,81.1
+KNOW,"Port Angeles, WA, US",United States,WA,MVFR,550,2910,18.9
 KNOW,"Port Angeles, WA, US",United States,WA,IFR,0,0,0
 KNOW,"Port Angeles, WA, US",United States,WA,LIFR,0,0,0
 KNPA,"Pensacola , FL, US",United States,FL,VFR,2822,2866,98.46
@@ -6915,8 +6915,8 @@ KNQX,"Key West , FL, US",United States,FL,VFR,2910,2910,100
 KNQX,"Key West , FL, US",United States,FL,IFR,0,0,0
 KNQX,"Key West , FL, US",United States,FL,LIFR,0,0,0
 KNQX,"Key West , FL, US",United States,FL,MVFR,0,0,0
-KNRA,"Coupeville, Out, WA, US",United States,WA,VFR,1843,2253,81.8
-KNRA,"Coupeville, Out, WA, US",United States,WA,MVFR,410,2253,18.2
+KNRA,"Coupeville, Out, WA, US",United States,WA,VFR,1813,2253,80.47
+KNRA,"Coupeville, Out, WA, US",United States,WA,MVFR,440,2253,19.53
 KNRA,"Coupeville, Out, WA, US",United States,WA,IFR,0,0,0
 KNRA,"Coupeville, Out, WA, US",United States,WA,LIFR,0,0,0
 KNRB,"Mayport , FL, US",United States,FL,VFR,2490,2490,100
@@ -6987,7 +6987,7 @@ KO05,"Chester/Rogers Fld, CA, US",United States,CA,VFR,2890,2910,99.31
 KO05,"Chester/Rogers Fld, CA, US",United States,CA,MVFR,20,2910,0.69
 KO05,"Chester/Rogers Fld, CA, US",United States,CA,IFR,0,0,0
 KO05,"Chester/Rogers Fld, CA, US",United States,CA,LIFR,0,0,0
-KO22,"Columbia Arpt, CA, US",United States,CA,VFR,2770,2770,100
+KO22,"Columbia Arpt, CA, US",United States,CA,VFR,2870,2870,100
 KO22,"Columbia Arpt, CA, US",United States,CA,IFR,0,0,0
 KO22,"Columbia Arpt, CA, US",United States,CA,LIFR,0,0,0
 KO22,"Columbia Arpt, CA, US",United States,CA,MVFR,0,0,0
@@ -7159,9 +7159,9 @@ KOLV,"Olive Branch Arpt, MS, US",United States,MS,VFR,2810,2870,97.91
 KOLV,"Olive Branch Arpt, MS, US",United States,MS,MVFR,60,2870,2.09
 KOLV,"Olive Branch Arpt, MS, US",United States,MS,IFR,0,0,0
 KOLV,"Olive Branch Arpt, MS, US",United States,MS,LIFR,0,0,0
-KOLY,"Olney/Noble Arpt, IL, US",United States,IL,VFR,2810,2850,98.6
+KOLY,"Olney/Noble Arpt, IL, US",United States,IL,VFR,2780,2850,97.54
 KOLY,"Olney/Noble Arpt, IL, US",United States,IL,MVFR,40,2850,1.4
-KOLY,"Olney/Noble Arpt, IL, US",United States,IL,IFR,0,0,0
+KOLY,"Olney/Noble Arpt, IL, US",United States,IL,IFR,30,2850,1.05
 KOLY,"Olney/Noble Arpt, IL, US",United States,IL,LIFR,0,0,0
 KOLZ,"Oelwein Muni, IA, US",United States,IA,VFR,2450,2910,84.19
 KOLZ,"Oelwein Muni, IA, US",United States,IA,LIFR,420,2910,14.43
@@ -7235,7 +7235,7 @@ KOQN,"West Chester/Brandywine Rgnl, PA, US",United States,PA,VFR,2910,2910,100
 KOQN,"West Chester/Brandywine Rgnl, PA, US",United States,PA,IFR,0,0,0
 KOQN,"West Chester/Brandywine Rgnl, PA, US",United States,PA,LIFR,0,0,0
 KOQN,"West Chester/Brandywine Rgnl, PA, US",United States,PA,MVFR,0,0,0
-KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,VFR,2515,2515,100
+KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,VFR,2535,2535,100
 KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,IFR,0,0,0
 KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,LIFR,0,0,0
 KOQU,"N Kingston/Quonset Arpt, RI, US",United States,RI,MVFR,0,0,0
@@ -7299,7 +7299,7 @@ KOTM,"Ottumwa Rgnl, IA, US",United States,IA,VFR,2607,2910,89.59
 KOTM,"Ottumwa Rgnl, IA, US",United States,IA,LIFR,204,2910,7.01
 KOTM,"Ottumwa Rgnl, IA, US",United States,IA,MVFR,77,2910,2.65
 KOTM,"Ottumwa Rgnl, IA, US",United States,IA,IFR,22,2910,0.76
-KOUN,"Norman/Univ Oklahoma Arpt, OK, US",United States,OK,VFR,2850,2850,100
+KOUN,"Norman/Univ Oklahoma Arpt, OK, US",United States,OK,VFR,2910,2910,100
 KOUN,"Norman/Univ Oklahoma Arpt, OK, US",United States,OK,IFR,0,0,0
 KOUN,"Norman/Univ Oklahoma Arpt, OK, US",United States,OK,LIFR,0,0,0
 KOUN,"Norman/Univ Oklahoma Arpt, OK, US",United States,OK,MVFR,0,0,0
@@ -7351,9 +7351,9 @@ KOXD,"Oxford/Miami Univ Arpt, OH, US",United States,OH,VFR,2895,2895,100
 KOXD,"Oxford/Miami Univ Arpt, OH, US",United States,OH,IFR,0,0,0
 KOXD,"Oxford/Miami Univ Arpt, OH, US",United States,OH,LIFR,0,0,0
 KOXD,"Oxford/Miami Univ Arpt, OH, US",United States,OH,MVFR,0,0,0
-KOXI,"Knox/Starke Cnty, IN, US",United States,IN,VFR,2850,2910,97.94
+KOXI,"Knox/Starke Cnty, IN, US",United States,IN,VFR,2820,2910,96.91
 KOXI,"Knox/Starke Cnty, IN, US",United States,IN,LIFR,60,2910,2.06
-KOXI,"Knox/Starke Cnty, IN, US",United States,IN,IFR,0,0,0
+KOXI,"Knox/Starke Cnty, IN, US",United States,IN,IFR,30,2910,1.03
 KOXI,"Knox/Starke Cnty, IN, US",United States,IN,MVFR,0,0,0
 KOXR,"Oxnard Arpt, CA, US",United States,CA,VFR,2910,2910,100
 KOXR,"Oxnard Arpt, CA, US",United States,CA,IFR,0,0,0
@@ -7371,12 +7371,12 @@ KOZA,"Ozona Muni, TX, US",United States,TX,VFR,2730,2910,93.81
 KOZA,"Ozona Muni, TX, US",United States,TX,MVFR,180,2910,6.19
 KOZA,"Ozona Muni, TX, US",United States,TX,IFR,0,0,0
 KOZA,"Ozona Muni, TX, US",United States,TX,LIFR,0,0,0
-KOZR,"Ozark/Cairns AAF, AL, US",United States,AL,VFR,2910,2910,100
+KOZR,"Ozark/Cairns AAF, AL, US",United States,AL,VFR,2898,2898,100
 KOZR,"Ozark/Cairns AAF, AL, US",United States,AL,IFR,0,0,0
 KOZR,"Ozark/Cairns AAF, AL, US",United States,AL,LIFR,0,0,0
 KOZR,"Ozark/Cairns AAF, AL, US",United States,AL,MVFR,0,0,0
-KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,VFR,2889,2910,99.28
-KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,MVFR,21,2910,0.72
+KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,VFR,2870,2891,99.27
+KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,MVFR,21,2891,0.73
 KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,IFR,0,0,0
 KOZW,"Howell/Hardy Arpt, MI, US",United States,MI,LIFR,0,0,0
 KP08,"Coolidge Muni, AZ, US",United States,AZ,VFR,2910,2910,100
@@ -7591,16 +7591,16 @@ KPMD,"Palmdale Rgnl, CA, US",United States,CA,VFR,2910,2910,100
 KPMD,"Palmdale Rgnl, CA, US",United States,CA,IFR,0,0,0
 KPMD,"Palmdale Rgnl, CA, US",United States,CA,LIFR,0,0,0
 KPMD,"Palmdale Rgnl, CA, US",United States,CA,MVFR,0,0,0
-KPMH,"Portsmouth Rgnl, OH, US",United States,OH,VFR,2722,2903,93.77
-KPMH,"Portsmouth Rgnl, OH, US",United States,OH,IFR,101,2903,3.48
-KPMH,"Portsmouth Rgnl, OH, US",United States,OH,LIFR,80,2903,2.76
+KPMH,"Portsmouth Rgnl, OH, US",United States,OH,VFR,2725,2906,93.77
+KPMH,"Portsmouth Rgnl, OH, US",United States,OH,IFR,101,2906,3.48
+KPMH,"Portsmouth Rgnl, OH, US",United States,OH,LIFR,80,2906,2.75
 KPMH,"Portsmouth Rgnl, OH, US",United States,OH,MVFR,0,0,0
 KPMP,"Pompano Beach Arpt, FL, US",United States,FL,VFR,2910,2910,100
 KPMP,"Pompano Beach Arpt, FL, US",United States,FL,IFR,0,0,0
 KPMP,"Pompano Beach Arpt, FL, US",United States,FL,LIFR,0,0,0
 KPMP,"Pompano Beach Arpt, FL, US",United States,FL,MVFR,0,0,0
-KPMU,"Panola Cnty, MS, US",United States,MS,VFR,2750,2910,94.5
-KPMU,"Panola Cnty, MS, US",United States,MS,MVFR,160,2910,5.5
+KPMU,"Panola Cnty, MS, US",United States,MS,VFR,2730,2890,94.46
+KPMU,"Panola Cnty, MS, US",United States,MS,MVFR,160,2890,5.54
 KPMU,"Panola Cnty, MS, US",United States,MS,IFR,0,0,0
 KPMU,"Panola Cnty, MS, US",United States,MS,LIFR,0,0,0
 KPMV,"Plattsmouth Muni, NE, US",United States,NE,VFR,2890,2910,99.31
@@ -7627,9 +7627,9 @@ KPNS,"Pensacola Intl, FL, US",United States,FL,VFR,2838,2875,98.71
 KPNS,"Pensacola Intl, FL, US",United States,FL,MVFR,37,2875,1.29
 KPNS,"Pensacola Intl, FL, US",United States,FL,IFR,0,0,0
 KPNS,"Pensacola Intl, FL, US",United States,FL,LIFR,0,0,0
-KPNT,"Pontiac Muni, IL, US",United States,IL,VFR,2880,2910,98.97
-KPNT,"Pontiac Muni, IL, US",United States,IL,MVFR,30,2910,1.03
-KPNT,"Pontiac Muni, IL, US",United States,IL,IFR,0,0,0
+KPNT,"Pontiac Muni, IL, US",United States,IL,VFR,2860,2910,98.28
+KPNT,"Pontiac Muni, IL, US",United States,IL,IFR,30,2910,1.03
+KPNT,"Pontiac Muni, IL, US",United States,IL,MVFR,20,2910,0.69
 KPNT,"Pontiac Muni, IL, US",United States,IL,LIFR,0,0,0
 KPOB,"Pope AAF, NC, US",United States,NC,VFR,2910,2910,100
 KPOB,"Pope AAF, NC, US",United States,NC,IFR,0,0,0
@@ -7667,12 +7667,12 @@ KPPF,"Parsons/Tri City Arpt, KS, US",United States,KS,VFR,2838,2910,97.53
 KPPF,"Parsons/Tri City Arpt, KS, US",United States,KS,MVFR,72,2910,2.47
 KPPF,"Parsons/Tri City Arpt, KS, US",United States,KS,IFR,0,0,0
 KPPF,"Parsons/Tri City Arpt, KS, US",United States,KS,LIFR,0,0,0
-KPPO,"La Porte Muni, IN, US",United States,IN,VFR,2880,2910,98.97
-KPPO,"La Porte Muni, IN, US",United States,IN,MVFR,30,2910,1.03
-KPPO,"La Porte Muni, IN, US",United States,IN,IFR,0,0,0
+KPPO,"La Porte Muni, IN, US",United States,IN,VFR,2860,2910,98.28
+KPPO,"La Porte Muni, IN, US",United States,IN,IFR,30,2910,1.03
+KPPO,"La Porte Muni, IN, US",United States,IN,MVFR,20,2910,0.69
 KPPO,"La Porte Muni, IN, US",United States,IN,LIFR,0,0,0
-KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,VFR,2840,2910,97.59
-KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,MVFR,70,2910,2.41
+KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,VFR,2820,2910,96.91
+KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,MVFR,90,2910,3.09
 KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,IFR,0,0,0
 KPPQ,"Pittsfield/Penstone Muni, IL, US",United States,IL,LIFR,0,0,0
 KPQI,"Presque Isle Intl, ME, US",United States,ME,MVFR,2452,2910,84.26
@@ -7835,8 +7835,8 @@ KPWC,"Pine River Rgnl, MN, US",United States,MN,VFR,2108,2909,72.46
 KPWC,"Pine River Rgnl, MN, US",United States,MN,MVFR,682,2909,23.44
 KPWC,"Pine River Rgnl, MN, US",United States,MN,IFR,119,2909,4.09
 KPWC,"Pine River Rgnl, MN, US",United States,MN,LIFR,0,0,0
-KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,VFR,1950,2910,67.01
-KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,IFR,585,2910,20.1
+KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,VFR,1970,2910,67.7
+KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,IFR,565,2910,19.42
 KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,LIFR,335,2910,11.51
 KPWD,"Plentywood/Sher-Wood Arpt, MT, US",United States,MT,MVFR,40,2910,1.37
 KPWG,"Mc Gregor Exec, TX, US",United States,TX,VFR,2742,2910,94.23
@@ -7891,9 +7891,9 @@ KRAW,"Warsaw Muni, MO, US",United States,MO,VFR,2770,2910,95.19
 KRAW,"Warsaw Muni, MO, US",United States,MO,MVFR,100,2910,3.44
 KRAW,"Warsaw Muni, MO, US",United States,MO,IFR,40,2910,1.37
 KRAW,"Warsaw Muni, MO, US",United States,MO,LIFR,0,0,0
-KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,VFR,2565,2879,89.09
-KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,MVFR,302,2879,10.49
-KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,IFR,12,2879,0.42
+KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,VFR,2583,2897,89.16
+KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,MVFR,302,2897,10.42
+KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,IFR,12,2897,0.41
 KRBD,"Dallas/Executive Arpt, TX, US",United States,TX,LIFR,0,0,0
 KRBG,"Roseburg Rgnl, OR, US",United States,OR,VFR,2525,2910,86.77
 KRBG,"Roseburg Rgnl, OR, US",United States,OR,IFR,218,2910,7.49
@@ -8035,16 +8035,16 @@ KRMY,"Marshall/Brooks Fld, MI, US",United States,MI,VFR,2910,2910,100
 KRMY,"Marshall/Brooks Fld, MI, US",United States,MI,IFR,0,0,0
 KRMY,"Marshall/Brooks Fld, MI, US",United States,MI,LIFR,0,0,0
 KRMY,"Marshall/Brooks Fld, MI, US",United States,MI,MVFR,0,0,0
-KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,VFR,2360,2400,98.33
-KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,IFR,40,2400,1.67
+KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,VFR,2365,2405,98.34
+KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,IFR,40,2405,1.66
 KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,LIFR,0,0,0
 KRNC,"McMinnville/Warren Cnty, TN, US",United States,TN,MVFR,0,0,0
 KRND,"Randolph AFB, TX, US",United States,TX,VFR,2075,2910,71.31
 KRND,"Randolph AFB, TX, US",United States,TX,MVFR,745,2910,25.6
 KRND,"Randolph AFB, TX, US",United States,TX,IFR,90,2910,3.09
 KRND,"Randolph AFB, TX, US",United States,TX,LIFR,0,0,0
-KRNH,"New Richmond Muni, WI, US",United States,WI,VFR,2530,2910,86.94
-KRNH,"New Richmond Muni, WI, US",United States,WI,IFR,220,2910,7.56
+KRNH,"New Richmond Muni, WI, US",United States,WI,VFR,2550,2910,87.63
+KRNH,"New Richmond Muni, WI, US",United States,WI,IFR,200,2910,6.87
 KRNH,"New Richmond Muni, WI, US",United States,WI,MVFR,160,2910,5.5
 KRNH,"New Richmond Muni, WI, US",United States,WI,LIFR,0,0,0
 KRNM,"Ramona Arpt, CA, US",United States,CA,VFR,2910,2910,100
@@ -8075,9 +8075,9 @@ KROC,"Rochester Intl Arpt, NY, US",United States,NY,VFR,2910,2910,100
 KROC,"Rochester Intl Arpt, NY, US",United States,NY,IFR,0,0,0
 KROC,"Rochester Intl Arpt, NY, US",United States,NY,LIFR,0,0,0
 KROC,"Rochester Intl Arpt, NY, US",United States,NY,MVFR,0,0,0
-KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,VFR,2649,2854,92.82
-KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,MVFR,195,2854,6.83
-KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,IFR,10,2854,0.35
+KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,VFR,2679,2892,92.63
+KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,MVFR,203,2892,7.02
+KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,IFR,10,2892,0.35
 KROG,"Rogers Muni/Carter Fld, AR, US",United States,AR,LIFR,0,0,0
 KROS,"Rush City Rgnl, MN, US",United States,MN,VFR,2390,2910,82.13
 KROS,"Rush City Rgnl, MN, US",United States,MN,MVFR,520,2910,17.87
@@ -8087,10 +8087,10 @@ KROW,"Roswell/Ind Arpt, NM, US",United States,NM,VFR,2910,2910,100
 KROW,"Roswell/Ind Arpt, NM, US",United States,NM,IFR,0,0,0
 KROW,"Roswell/Ind Arpt, NM, US",United States,NM,LIFR,0,0,0
 KROW,"Roswell/Ind Arpt, NM, US",United States,NM,MVFR,0,0,0
-KROX,"Roseau/Billberg Fld, MN, US",United States,MN,MVFR,1370,2470,55.47
-KROX,"Roseau/Billberg Fld, MN, US",United States,MN,VFR,992,2470,40.16
-KROX,"Roseau/Billberg Fld, MN, US",United States,MN,LIFR,70,2470,2.83
-KROX,"Roseau/Billberg Fld, MN, US",United States,MN,IFR,38,2470,1.54
+KROX,"Roseau/Billberg Fld, MN, US",United States,MN,MVFR,1370,2491,55
+KROX,"Roseau/Billberg Fld, MN, US",United States,MN,VFR,1022,2491,41.03
+KROX,"Roseau/Billberg Fld, MN, US",United States,MN,LIFR,61,2491,2.45
+KROX,"Roseau/Billberg Fld, MN, US",United States,MN,IFR,38,2491,1.53
 KRPD,"Rice Lake Rgnl, WI, US",United States,WI,VFR,2110,2850,74.04
 KRPD,"Rice Lake Rgnl, WI, US",United States,WI,IFR,540,2850,18.95
 KRPD,"Rice Lake Rgnl, WI, US",United States,WI,LIFR,100,2850,3.51
@@ -8135,8 +8135,8 @@ KRST,"Rochester Intl, MN, US",United States,MN,VFR,2813,2910,96.67
 KRST,"Rochester Intl, MN, US",United States,MN,MVFR,60,2910,2.06
 KRST,"Rochester Intl, MN, US",United States,MN,IFR,37,2910,1.27
 KRST,"Rochester Intl, MN, US",United States,MN,LIFR,0,0,0
-KRSV,"Robinson Muni, IL, US",United States,IL,VFR,2760,2910,94.85
-KRSV,"Robinson Muni, IL, US",United States,IL,IFR,90,2910,3.09
+KRSV,"Robinson Muni, IL, US",United States,IL,VFR,2740,2910,94.16
+KRSV,"Robinson Muni, IL, US",United States,IL,IFR,110,2910,3.78
 KRSV,"Robinson Muni, IL, US",United States,IL,LIFR,40,2910,1.37
 KRSV,"Robinson Muni, IL, US",United States,IL,MVFR,20,2910,0.69
 KRSW,"Ft Myers/SW Florida Intl, FL, US",United States,FL,VFR,2910,2910,100
@@ -8147,10 +8147,10 @@ KRTN,"Raton/Crews Fld, NM, US",United States,NM,VFR,2910,2910,100
 KRTN,"Raton/Crews Fld, NM, US",United States,NM,IFR,0,0,0
 KRTN,"Raton/Crews Fld, NM, US",United States,NM,LIFR,0,0,0
 KRTN,"Raton/Crews Fld, NM, US",United States,NM,MVFR,0,0,0
-KRUE,"Russellville Rgnl, AR, US",United States,AR,VFR,2769,2869,96.51
-KRUE,"Russellville Rgnl, AR, US",United States,AR,IFR,61,2869,2.13
-KRUE,"Russellville Rgnl, AR, US",United States,AR,MVFR,29,2869,1.01
-KRUE,"Russellville Rgnl, AR, US",United States,AR,LIFR,10,2869,0.35
+KRUE,"Russellville Rgnl, AR, US",United States,AR,VFR,2769,2887,95.91
+KRUE,"Russellville Rgnl, AR, US",United States,AR,MVFR,59,2887,2.04
+KRUE,"Russellville Rgnl, AR, US",United States,AR,IFR,49,2887,1.7
+KRUE,"Russellville Rgnl, AR, US",United States,AR,LIFR,10,2887,0.35
 KRUG,"Rugby Muni, ND, US",United States,ND,VFR,1170,2810,41.64
 KRUG,"Rugby Muni, ND, US",United States,ND,LIFR,700,2810,24.91
 KRUG,"Rugby Muni, ND, US",United States,ND,IFR,480,2810,17.08
@@ -8219,8 +8219,8 @@ KRZL,"Rensselaer/Jasper Cnty, IN, US",United States,IN,VFR,2910,2910,100
 KRZL,"Rensselaer/Jasper Cnty, IN, US",United States,IN,IFR,0,0,0
 KRZL,"Rensselaer/Jasper Cnty, IN, US",United States,IN,LIFR,0,0,0
 KRZL,"Rensselaer/Jasper Cnty, IN, US",United States,IN,MVFR,0,0,0
-KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,VFR,2345,2910,80.58
-KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,MVFR,565,2910,19.42
+KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,VFR,2365,2910,81.27
+KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,MVFR,545,2910,18.73
 KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,IFR,0,0,0
 KRZN,"Siren/Burnett Cnty, WI, US",United States,WI,LIFR,0,0,0
 KRZR,"Cleveland Rgnl, TN, US",United States,TN,VFR,2870,2910,98.63
@@ -8319,9 +8319,9 @@ KSBM,"Sheboygan Cnty Mem, WI, US",United States,WI,VFR,2823,2910,97.01
 KSBM,"Sheboygan Cnty Mem, WI, US",United States,WI,MVFR,87,2910,2.99
 KSBM,"Sheboygan Cnty Mem, WI, US",United States,WI,IFR,0,0,0
 KSBM,"Sheboygan Cnty Mem, WI, US",United States,WI,LIFR,0,0,0
-KSBN,"South Bend Rgnl, IN, US",United States,IN,VFR,2851,2884,98.86
-KSBN,"South Bend Rgnl, IN, US",United States,IN,IFR,30,2884,1.04
-KSBN,"South Bend Rgnl, IN, US",United States,IN,LIFR,3,2884,0.1
+KSBN,"South Bend Rgnl, IN, US",United States,IN,VFR,2851,2903,98.21
+KSBN,"South Bend Rgnl, IN, US",United States,IN,IFR,49,2903,1.69
+KSBN,"South Bend Rgnl, IN, US",United States,IN,LIFR,3,2903,0.1
 KSBN,"South Bend Rgnl, IN, US",United States,IN,MVFR,0,0,0
 KSBO,"Swainsboro/E Georgia Rgnl, GA, US",United States,GA,VFR,2910,2910,100
 KSBO,"Swainsboro/E Georgia Rgnl, GA, US",United States,GA,IFR,0,0,0
@@ -8607,7 +8607,7 @@ KSNC,"Chester Arpt, CT, US",United States,CT,VFR,2910,2910,100
 KSNC,"Chester Arpt, CT, US",United States,CT,IFR,0,0,0
 KSNC,"Chester Arpt, CT, US",United States,CT,LIFR,0,0,0
 KSNC,"Chester Arpt, CT, US",United States,CT,MVFR,0,0,0
-KSNH,"Savannah/Hardin Cnty, TN, US",United States,TN,VFR,2885,2885,100
+KSNH,"Savannah/Hardin Cnty, TN, US",United States,TN,VFR,2870,2870,100
 KSNH,"Savannah/Hardin Cnty, TN, US",United States,TN,IFR,0,0,0
 KSNH,"Savannah/Hardin Cnty, TN, US",United States,TN,LIFR,0,0,0
 KSNH,"Savannah/Hardin Cnty, TN, US",United States,TN,MVFR,0,0,0
@@ -8739,7 +8739,7 @@ KSTS,"Santa Rosa/Schulz Arpt, CA, US",United States,CA,VFR,2343,2910,80.52
 KSTS,"Santa Rosa/Schulz Arpt, CA, US",United States,CA,LIFR,491,2910,16.87
 KSTS,"Santa Rosa/Schulz Arpt, CA, US",United States,CA,IFR,49,2910,1.68
 KSTS,"Santa Rosa/Schulz Arpt, CA, US",United States,CA,MVFR,27,2910,0.93
-KSUA,"Stuart/Witham Fld, FL, US",United States,FL,VFR,2850,2850,100
+KSUA,"Stuart/Witham Fld, FL, US",United States,FL,VFR,2910,2910,100
 KSUA,"Stuart/Witham Fld, FL, US",United States,FL,IFR,0,0,0
 KSUA,"Stuart/Witham Fld, FL, US",United States,FL,LIFR,0,0,0
 KSUA,"Stuart/Witham Fld, FL, US",United States,FL,MVFR,0,0,0
@@ -8747,17 +8747,17 @@ KSUE,"Sturgeon Bay/Door Cnty, WI, US",United States,WI,VFR,2679,2910,92.06
 KSUE,"Sturgeon Bay/Door Cnty, WI, US",United States,WI,IFR,140,2910,4.81
 KSUE,"Sturgeon Bay/Door Cnty, WI, US",United States,WI,MVFR,91,2910,3.13
 KSUE,"Sturgeon Bay/Door Cnty, WI, US",United States,WI,LIFR,0,0,0
-KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,VFR,2229,2910,76.6
-KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,MVFR,681,2910,23.4
+KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,VFR,2281,2910,78.38
+KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,MVFR,629,2910,21.62
 KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,IFR,0,0,0
 KSUN,"Hailey/Friedman Mem, ID, US",United States,ID,LIFR,0,0,0
-KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,VFR,2585,2870,90.07
-KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,MVFR,245,2870,8.54
+KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,VFR,2605,2870,90.77
+KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,MVFR,225,2870,7.84
 KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,IFR,40,2870,1.39
 KSUO,"Rosebud/Sioux Tribal Arpt, SD, US",United States,SD,LIFR,0,0,0
-KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,VFR,2596,2890,89.83
-KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,MVFR,197,2890,6.82
-KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,IFR,97,2890,3.36
+KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,VFR,2596,2902,89.46
+KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,MVFR,179,2902,6.17
+KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,IFR,127,2902,4.38
 KSUS,"St Louis/Spirit of St Louis Arpt, MO, US",United States,MO,LIFR,0,0,0
 KSUT,"Southport/Cape Fear Rgnl, NC, US",United States,NC,VFR,2840,2910,97.59
 KSUT,"Southport/Cape Fear Rgnl, NC, US",United States,NC,MVFR,70,2910,2.41
@@ -8795,7 +8795,7 @@ KSVN,"Savannah/Hunter AAF, GA, US",United States,GA,VFR,2835,2910,97.42
 KSVN,"Savannah/Hunter AAF, GA, US",United States,GA,MVFR,40,2910,1.37
 KSVN,"Savannah/Hunter AAF, GA, US",United States,GA,IFR,30,2910,1.03
 KSVN,"Savannah/Hunter AAF, GA, US",United States,GA,LIFR,5,2910,0.17
-KSWF,"Newburgh/Stewart Intl, NY, US",United States,NY,VFR,2910,2910,100
+KSWF,"Newburgh/Stewart Intl, NY, US",United States,NY,VFR,2850,2850,100
 KSWF,"Newburgh/Stewart Intl, NY, US",United States,NY,IFR,0,0,0
 KSWF,"Newburgh/Stewart Intl, NY, US",United States,NY,LIFR,0,0,0
 KSWF,"Newburgh/Stewart Intl, NY, US",United States,NY,MVFR,0,0,0
@@ -8827,9 +8827,9 @@ KSYR,"Syracuse/Hancock Intl, NY, US",United States,NY,VFR,2910,2910,100
 KSYR,"Syracuse/Hancock Intl, NY, US",United States,NY,IFR,0,0,0
 KSYR,"Syracuse/Hancock Intl, NY, US",United States,NY,LIFR,0,0,0
 KSYR,"Syracuse/Hancock Intl, NY, US",United States,NY,MVFR,0,0,0
-KSZL,"Whiteman AFB, MO, US",United States,MO,VFR,2791,2863,97.49
-KSZL,"Whiteman AFB, MO, US",United States,MO,LIFR,57,2863,1.99
-KSZL,"Whiteman AFB, MO, US",United States,MO,IFR,15,2863,0.52
+KSZL,"Whiteman AFB, MO, US",United States,MO,VFR,2825,2897,97.51
+KSZL,"Whiteman AFB, MO, US",United States,MO,LIFR,57,2897,1.97
+KSZL,"Whiteman AFB, MO, US",United States,MO,IFR,15,2897,0.52
 KSZL,"Whiteman AFB, MO, US",United States,MO,MVFR,0,0,0
 KSZT,"Sandpoint Arpt, ID, US",United States,ID,VFR,2890,2910,99.31
 KSZT,"Sandpoint Arpt, ID, US",United States,ID,MVFR,20,2910,0.69
@@ -8871,14 +8871,14 @@ KTAN,"Taunton Muni, MA, US",United States,MA,VFR,2657,2910,91.31
 KTAN,"Taunton Muni, MA, US",United States,MA,MVFR,253,2910,8.69
 KTAN,"Taunton Muni, MA, US",United States,MA,IFR,0,0,0
 KTAN,"Taunton Muni, MA, US",United States,MA,LIFR,0,0,0
-KTAZ,"Taylorville Muni, IL, US",United States,IL,VFR,2747,2906,94.53
-KTAZ,"Taylorville Muni, IL, US",United States,IL,MVFR,159,2906,5.47
+KTAZ,"Taylorville Muni, IL, US",United States,IL,VFR,2731,2890,94.5
+KTAZ,"Taylorville Muni, IL, US",United States,IL,MVFR,159,2890,5.5
 KTAZ,"Taylorville Muni, IL, US",United States,IL,IFR,0,0,0
 KTAZ,"Taylorville Muni, IL, US",United States,IL,LIFR,0,0,0
-KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,VFR,2681,2884,92.96
-KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,MVFR,124,2884,4.3
-KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,IFR,69,2884,2.39
-KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,LIFR,10,2884,0.35
+KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,VFR,2711,2899,93.52
+KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,MVFR,109,2899,3.76
+KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,IFR,69,2899,2.38
+KTBN,"Waynesville-St Robert Rgnl, MO, US",United States,MO,LIFR,10,2899,0.34
 KTBR,"Statesboro Muni, GA, US",United States,GA,VFR,2750,2910,94.5
 KTBR,"Statesboro Muni, GA, US",United States,GA,MVFR,100,2910,3.44
 KTBR,"Statesboro Muni, GA, US",United States,GA,IFR,60,2910,2.06
@@ -8903,9 +8903,9 @@ KTCY,"Tracy Muni, CA, US",United States,CA,VFR,2750,2910,94.5
 KTCY,"Tracy Muni, CA, US",United States,CA,MVFR,150,2910,5.15
 KTCY,"Tracy Muni, CA, US",United States,CA,IFR,10,2910,0.34
 KTCY,"Tracy Muni, CA, US",United States,CA,LIFR,0,0,0
-KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,VFR,990,1060,93.4
-KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,IFR,50,1060,4.72
-KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,MVFR,20,1060,1.89
+KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,VFR,980,1050,93.33
+KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,IFR,50,1050,4.76
+KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,MVFR,20,1050,1.9
 KTDF,"Roxboro/Person Cnty, NC, US",United States,NC,LIFR,0,0,0
 KTDZ,"Toledo Executive Arpt, OH, US",United States,OH,VFR,2910,2910,100
 KTDZ,"Toledo Executive Arpt, OH, US",United States,OH,IFR,0,0,0
@@ -8947,7 +8947,7 @@ KTIK,"Tinker AFB, OK, US",United States,OK,VFR,2910,2910,100
 KTIK,"Tinker AFB, OK, US",United States,OK,IFR,0,0,0
 KTIK,"Tinker AFB, OK, US",United States,OK,LIFR,0,0,0
 KTIK,"Tinker AFB, OK, US",United States,OK,MVFR,0,0,0
-KTIP,"Rantoul/Chanute AFB, IL, US",United States,IL,VFR,2908,2908,100
+KTIP,"Rantoul/Chanute AFB, IL, US",United States,IL,VFR,2910,2910,100
 KTIP,"Rantoul/Chanute AFB, IL, US",United States,IL,IFR,0,0,0
 KTIP,"Rantoul/Chanute AFB, IL, US",United States,IL,LIFR,0,0,0
 KTIP,"Rantoul/Chanute AFB, IL, US",United States,IL,MVFR,0,0,0
@@ -9147,8 +9147,8 @@ KTYL,"Taylor Arpt, AZ, US",United States,AZ,VFR,2910,2910,100
 KTYL,"Taylor Arpt, AZ, US",United States,AZ,IFR,0,0,0
 KTYL,"Taylor Arpt, AZ, US",United States,AZ,LIFR,0,0,0
 KTYL,"Taylor Arpt, AZ, US",United States,AZ,MVFR,0,0,0
-KTYQ,"Indianapolis Exec, IN, US",United States,IN,VFR,2860,2890,98.96
-KTYQ,"Indianapolis Exec, IN, US",United States,IN,MVFR,30,2890,1.04
+KTYQ,"Indianapolis Exec, IN, US",United States,IN,VFR,2840,2890,98.27
+KTYQ,"Indianapolis Exec, IN, US",United States,IN,MVFR,50,2890,1.73
 KTYQ,"Indianapolis Exec, IN, US",United States,IN,IFR,0,0,0
 KTYQ,"Indianapolis Exec, IN, US",United States,IN,LIFR,0,0,0
 KTYR,"Tyler/Pounds Fld, TX, US",United States,TX,VFR,2279,2910,78.32
@@ -9163,20 +9163,20 @@ KTZR,"Columbus/Bolton Fld, OH, US",United States,OH,VFR,2910,2910,100
 KTZR,"Columbus/Bolton Fld, OH, US",United States,OH,IFR,0,0,0
 KTZR,"Columbus/Bolton Fld, OH, US",United States,OH,LIFR,0,0,0
 KTZR,"Columbus/Bolton Fld, OH, US",United States,OH,MVFR,0,0,0
-KU14,"Nephi Muni, UT, US",United States,UT,VFR,2780,2910,95.53
+KU14,"Nephi Muni, UT, US",United States,UT,VFR,2790,2910,95.88
 KU14,"Nephi Muni, UT, US",United States,UT,IFR,60,2910,2.06
 KU14,"Nephi Muni, UT, US",United States,UT,MVFR,40,2910,1.37
-KU14,"Nephi Muni, UT, US",United States,UT,LIFR,30,2910,1.03
-KU52,"Beaver Muni, UT, US",United States,UT,VFR,2565,2585,99.23
-KU52,"Beaver Muni, UT, US",United States,UT,MVFR,20,2585,0.77
+KU14,"Nephi Muni, UT, US",United States,UT,LIFR,20,2910,0.69
+KU52,"Beaver Muni, UT, US",United States,UT,VFR,2535,2555,99.22
+KU52,"Beaver Muni, UT, US",United States,UT,MVFR,20,2555,0.78
 KU52,"Beaver Muni, UT, US",United States,UT,IFR,0,0,0
 KU52,"Beaver Muni, UT, US",United States,UT,LIFR,0,0,0
 KU55,"Panguitch Muni, UT, US",United States,UT,VFR,2910,2910,100
 KU55,"Panguitch Muni, UT, US",United States,UT,IFR,0,0,0
 KU55,"Panguitch Muni, UT, US",United States,UT,LIFR,0,0,0
 KU55,"Panguitch Muni, UT, US",United States,UT,MVFR,0,0,0
-KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,VFR,2790,2910,95.88
-KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,MVFR,80,2910,2.75
+KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,VFR,2810,2910,96.56
+KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,MVFR,60,2910,2.06
 KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,IFR,40,2910,1.37
 KU68,"Cowley/N Big Horn Cnty, WY, US",United States,WY,LIFR,0,0,0
 KU69,"Duchesne Muni, UT, US",United States,UT,VFR,2910,2910,100
@@ -9255,10 +9255,10 @@ KUNI,"Albany/Ohio Univ Arpt, OH, US",United States,OH,VFR,2820,2910,96.91
 KUNI,"Albany/Ohio Univ Arpt, OH, US",United States,OH,MVFR,50,2910,1.72
 KUNI,"Albany/Ohio Univ Arpt, OH, US",United States,OH,IFR,40,2910,1.37
 KUNI,"Albany/Ohio Univ Arpt, OH, US",United States,OH,LIFR,0,0,0
-KUNO,"West Plains Rgnl, MO, US",United States,MO,VFR,2857,2887,98.96
-KUNO,"West Plains Rgnl, MO, US",United States,MO,IFR,30,2887,1.04
+KUNO,"West Plains Rgnl, MO, US",United States,MO,VFR,2857,2906,98.31
+KUNO,"West Plains Rgnl, MO, US",United States,MO,MVFR,30,2906,1.03
+KUNO,"West Plains Rgnl, MO, US",United States,MO,IFR,19,2906,0.65
 KUNO,"West Plains Rgnl, MO, US",United States,MO,LIFR,0,0,0
-KUNO,"West Plains Rgnl, MO, US",United States,MO,MVFR,0,0,0
 KUNU,"Juneau/Dodge Cnty, WI, US",United States,WI,VFR,2602,2910,89.42
 KUNU,"Juneau/Dodge Cnty, WI, US",United States,WI,IFR,186,2910,6.39
 KUNU,"Juneau/Dodge Cnty, WI, US",United States,WI,MVFR,122,2910,4.19
@@ -9271,7 +9271,7 @@ KUOX,"Oxford/University Arpt, MS, US",United States,MS,VFR,2850,2910,97.94
 KUOX,"Oxford/University Arpt, MS, US",United States,MS,MVFR,60,2910,2.06
 KUOX,"Oxford/University Arpt, MS, US",United States,MS,IFR,0,0,0
 KUOX,"Oxford/University Arpt, MS, US",United States,MS,LIFR,0,0,0
-KUSE,"Wauseon/Fulton Cnty, OH, US",United States,OH,VFR,2900,2900,100
+KUSE,"Wauseon/Fulton Cnty, OH, US",United States,OH,VFR,2910,2910,100
 KUSE,"Wauseon/Fulton Cnty, OH, US",United States,OH,IFR,0,0,0
 KUSE,"Wauseon/Fulton Cnty, OH, US",United States,OH,LIFR,0,0,0
 KUSE,"Wauseon/Fulton Cnty, OH, US",United States,OH,MVFR,0,0,0
@@ -9323,9 +9323,9 @@ KVBG,"Vandenberg AFB, CA, US",United States,CA,VFR,2910,2910,100
 KVBG,"Vandenberg AFB, CA, US",United States,CA,IFR,0,0,0
 KVBG,"Vandenberg AFB, CA, US",United States,CA,LIFR,0,0,0
 KVBG,"Vandenberg AFB, CA, US",United States,CA,MVFR,0,0,0
-KVBT,"Bentonville Muni, AR, US",United States,AR,VFR,2748,2910,94.43
-KVBT,"Bentonville Muni, AR, US",United States,AR,MVFR,148,2910,5.09
-KVBT,"Bentonville Muni, AR, US",United States,AR,IFR,14,2910,0.48
+KVBT,"Bentonville Muni, AR, US",United States,AR,VFR,2688,2893,92.91
+KVBT,"Bentonville Muni, AR, US",United States,AR,MVFR,191,2893,6.6
+KVBT,"Bentonville Muni, AR, US",United States,AR,IFR,14,2893,0.48
 KVBT,"Bentonville Muni, AR, US",United States,AR,LIFR,0,0,0
 KVCB,"Vacaville/Nut Tree Arpt, CA, US",United States,CA,VFR,2903,2910,99.76
 KVCB,"Vacaville/Nut Tree Arpt, CA, US",United States,CA,IFR,7,2910,0.24
@@ -9367,9 +9367,9 @@ KVHN,"Van Horn/Culberson Cnty, TX, US",United States,TX,VFR,2910,2910,100
 KVHN,"Van Horn/Culberson Cnty, TX, US",United States,TX,IFR,0,0,0
 KVHN,"Van Horn/Culberson Cnty, TX, US",United States,TX,LIFR,0,0,0
 KVHN,"Van Horn/Culberson Cnty, TX, US",United States,TX,MVFR,0,0,0
-KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,VFR,2704,2822,95.82
-KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,MVFR,92,2822,3.26
-KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,IFR,26,2822,0.92
+KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,VFR,2704,2840,95.21
+KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,MVFR,80,2840,2.82
+KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,IFR,56,2840,1.97
 KVIH,"Vichy/Rolla Arpt, MO, US",United States,MO,LIFR,0,0,0
 KVIS,"Visalia Muni, CA, US",United States,CA,VFR,2190,2910,75.26
 KVIS,"Visalia Muni, CA, US",United States,CA,MVFR,585,2910,20.1
@@ -9415,8 +9415,8 @@ KVPS,"Valparaiso/Eglin AFB, FL, US",United States,FL,VFR,2730,2910,93.81
 KVPS,"Valparaiso/Eglin AFB, FL, US",United States,FL,MVFR,180,2910,6.19
 KVPS,"Valparaiso/Eglin AFB, FL, US",United States,FL,IFR,0,0,0
 KVPS,"Valparaiso/Eglin AFB, FL, US",United States,FL,LIFR,0,0,0
-KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,VFR,2829,2884,98.09
-KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,IFR,55,2884,1.91
+KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,VFR,2829,2901,97.52
+KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,IFR,72,2901,2.48
 KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,LIFR,0,0,0
 KVPZ,"Valparaiso/Port Cnty, IN, US",United States,IN,MVFR,0,0,0
 KVQQ,"Jacksonville/Cecil Arpt, FL, US",United States,FL,VFR,2510,2910,86.25
@@ -9559,8 +9559,8 @@ KWWR,"Woodward Arpt, OK, US",United States,OK,VFR,2890,2890,100
 KWWR,"Woodward Arpt, OK, US",United States,OK,IFR,0,0,0
 KWWR,"Woodward Arpt, OK, US",United States,OK,LIFR,0,0,0
 KWWR,"Woodward Arpt, OK, US",United States,OK,MVFR,0,0,0
-KWYS,"West Yellowstone Arpt, MT, US",United States,MT,VFR,1550,2910,53.26
-KWYS,"West Yellowstone Arpt, MT, US",United States,MT,MVFR,920,2910,31.62
+KWYS,"West Yellowstone Arpt, MT, US",United States,MT,VFR,1570,2910,53.95
+KWYS,"West Yellowstone Arpt, MT, US",United States,MT,MVFR,900,2910,30.93
 KWYS,"West Yellowstone Arpt, MT, US",United States,MT,IFR,380,2910,13.06
 KWYS,"West Yellowstone Arpt, MT, US",United States,MT,LIFR,60,2910,2.06
 KX26,"Sabastian Arpt, FL, US",United States,FL,VFR,2910,2910,100
@@ -9751,9 +9751,9 @@ PAEG,"Eagle Arpt, AK, US",United States,AK,IFR,1134,2705,41.92
 PAEG,"Eagle Arpt, AK, US",United States,AK,VFR,676,2705,24.99
 PAEG,"Eagle Arpt, AK, US",United States,AK,MVFR,451,2705,16.67
 PAEG,"Eagle Arpt, AK, US",United States,AK,LIFR,444,2705,16.41
-PAEH,"Cape Newenham Arpt, AK, US",United States,AK,MVFR,2041,2902,70.33
-PAEH,"Cape Newenham Arpt, AK, US",United States,AK,IFR,460,2902,15.85
-PAEH,"Cape Newenham Arpt, AK, US",United States,AK,VFR,401,2902,13.82
+PAEH,"Cape Newenham Arpt, AK, US",United States,AK,MVFR,2039,2900,70.31
+PAEH,"Cape Newenham Arpt, AK, US",United States,AK,IFR,460,2900,15.86
+PAEH,"Cape Newenham Arpt, AK, US",United States,AK,VFR,401,2900,13.83
 PAEH,"Cape Newenham Arpt, AK, US",United States,AK,LIFR,0,0,0
 PAEI,"Fairbanks/Eielson AFB, AK, US",United States,AK,IFR,1180,2910,40.55
 PAEI,"Fairbanks/Eielson AFB, AK, US",United States,AK,MVFR,756,2910,25.98
@@ -9775,10 +9775,10 @@ PAFA,"Fairbanks Intl, AK, US",United States,AK,MVFR,1154,2910,39.66
 PAFA,"Fairbanks Intl, AK, US",United States,AK,IFR,877,2910,30.14
 PAFA,"Fairbanks Intl, AK, US",United States,AK,VFR,512,2910,17.59
 PAFA,"Fairbanks Intl, AK, US",United States,AK,LIFR,367,2910,12.61
-PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,LIFR,1510,2880,52.43
-PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,MVFR,642,2880,22.29
-PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,IFR,615,2880,21.35
-PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,VFR,113,2880,3.92
+PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,LIFR,1510,2895,52.16
+PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,MVFR,642,2895,22.18
+PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,IFR,630,2895,21.76
+PAFB,"Fairbanks/Ladd AAF, AK, US",United States,AK,VFR,113,2895,3.9
 PAFE,"Kake Arpt, AK, US",United States,AK,VFR,2257,2879,78.4
 PAFE,"Kake Arpt, AK, US",United States,AK,MVFR,515,2879,17.89
 PAFE,"Kake Arpt, AK, US",United States,AK,IFR,107,2879,3.72
@@ -9795,10 +9795,10 @@ PAGA,"Galena Arpt, AK, US",United States,AK,VFR,1506,2910,51.75
 PAGA,"Galena Arpt, AK, US",United States,AK,MVFR,670,2910,23.02
 PAGA,"Galena Arpt, AK, US",United States,AK,IFR,590,2910,20.27
 PAGA,"Galena Arpt, AK, US",United States,AK,LIFR,144,2910,4.95
-PAGH,"Shungnak Arpt, AK, US",United States,AK,VFR,2520,2890,87.2
-PAGH,"Shungnak Arpt, AK, US",United States,AK,IFR,250,2890,8.65
-PAGH,"Shungnak Arpt, AK, US",United States,AK,LIFR,81,2890,2.8
-PAGH,"Shungnak Arpt, AK, US",United States,AK,MVFR,39,2890,1.35
+PAGH,"Shungnak Arpt, AK, US",United States,AK,VFR,2520,2897,86.99
+PAGH,"Shungnak Arpt, AK, US",United States,AK,IFR,227,2897,7.84
+PAGH,"Shungnak Arpt, AK, US",United States,AK,LIFR,81,2897,2.8
+PAGH,"Shungnak Arpt, AK, US",United States,AK,MVFR,69,2897,2.38
 PAGL,"Golovin Arpt, AK, US",United States,AK,VFR,2076,2910,71.34
 PAGL,"Golovin Arpt, AK, US",United States,AK,MVFR,660,2910,22.68
 PAGL,"Golovin Arpt, AK, US",United States,AK,IFR,174,2910,5.98
@@ -9899,9 +9899,9 @@ PAKT,"Ketchikan Intl, AK, US",United States,AK,VFR,1824,2910,62.68
 PAKT,"Ketchikan Intl, AK, US",United States,AK,MVFR,1068,2910,36.7
 PAKT,"Ketchikan Intl, AK, US",United States,AK,IFR,18,2910,0.62
 PAKT,"Ketchikan Intl, AK, US",United States,AK,LIFR,0,0,0
-PAKU,"Kuparuk Arpt, AK, US",United States,AK,MVFR,1740,2190,79.45
+PAKU,"Kuparuk Arpt, AK, US",United States,AK,MVFR,1680,2190,76.71
 PAKU,"Kuparuk Arpt, AK, US",United States,AK,IFR,300,2190,13.7
-PAKU,"Kuparuk Arpt, AK, US",United States,AK,VFR,150,2190,6.85
+PAKU,"Kuparuk Arpt, AK, US",United States,AK,VFR,210,2190,9.59
 PAKU,"Kuparuk Arpt, AK, US",United States,AK,LIFR,0,0,0
 PAKV,"Kaltag Arpt, AK, US",United States,AK,VFR,2910,2910,100
 PAKV,"Kaltag Arpt, AK, US",United States,AK,IFR,0,0,0
@@ -9915,9 +9915,9 @@ PALH,"Lake Hood, AK, US",United States,AK,VFR,2232,2910,76.7
 PALH,"Lake Hood, AK, US",United States,AK,MVFR,543,2910,18.66
 PALH,"Lake Hood, AK, US",United States,AK,IFR,135,2910,4.64
 PALH,"Lake Hood, AK, US",United States,AK,LIFR,0,0,0
-PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,MVFR,1718,2108,81.5
-PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,IFR,240,2108,11.39
-PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,VFR,150,2108,7.12
+PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,MVFR,1683,2133,78.9
+PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,IFR,240,2133,11.25
+PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,VFR,210,2133,9.85
 PALP,"Deadhorse/Alpine Arstrp, AK, US",United States,AK,LIFR,0,0,0
 PALU,"Cape Lisburne Arpt, AK, US",United States,AK,MVFR,1713,2885,59.38
 PALU,"Cape Lisburne Arpt, AK, US",United States,AK,IFR,1054,2885,36.53
@@ -9967,10 +9967,10 @@ PANI,"Aniak Arpt, AK, US",United States,AK,VFR,1638,2885,56.78
 PANI,"Aniak Arpt, AK, US",United States,AK,MVFR,1038,2885,35.98
 PANI,"Aniak Arpt, AK, US",United States,AK,IFR,181,2885,6.27
 PANI,"Aniak Arpt, AK, US",United States,AK,LIFR,28,2885,0.97
-PANN,"Nenana Muni, AK, US",United States,AK,MVFR,1372,2888,47.51
-PANN,"Nenana Muni, AK, US",United States,AK,LIFR,727,2888,25.17
-PANN,"Nenana Muni, AK, US",United States,AK,IFR,461,2888,15.96
-PANN,"Nenana Muni, AK, US",United States,AK,VFR,328,2888,11.36
+PANN,"Nenana Muni, AK, US",United States,AK,MVFR,1372,2903,47.26
+PANN,"Nenana Muni, AK, US",United States,AK,LIFR,727,2903,25.04
+PANN,"Nenana Muni, AK, US",United States,AK,IFR,476,2903,16.4
+PANN,"Nenana Muni, AK, US",United States,AK,VFR,328,2903,11.3
 PANV,"Anvik Arpt, AK, US",United States,AK,VFR,1230,1299,94.69
 PANV,"Anvik Arpt, AK, US",United States,AK,MVFR,69,1299,5.31
 PANV,"Anvik Arpt, AK, US",United States,AK,IFR,0,0,0
@@ -9991,14 +9991,14 @@ PAOO,"Tooksok Bay Arpt, AK, US",United States,AK,VFR,1935,2910,66.49
 PAOO,"Tooksok Bay Arpt, AK, US",United States,AK,MVFR,975,2910,33.51
 PAOO,"Tooksok Bay Arpt, AK, US",United States,AK,IFR,0,0,0
 PAOO,"Tooksok Bay Arpt, AK, US",United States,AK,LIFR,0,0,0
-PAOR,"Northway Arpt, AK, US",United States,AK,IFR,942,2902,32.46
-PAOR,"Northway Arpt, AK, US",United States,AK,LIFR,904,2902,31.15
-PAOR,"Northway Arpt, AK, US",United States,AK,MVFR,636,2902,21.92
-PAOR,"Northway Arpt, AK, US",United States,AK,VFR,420,2902,14.47
-PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,VFR,1697,2859,59.36
-PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,MVFR,916,2859,32.04
-PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,IFR,229,2859,8.01
-PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,LIFR,17,2859,0.59
+PAOR,"Northway Arpt, AK, US",United States,AK,IFR,985,2905,33.91
+PAOR,"Northway Arpt, AK, US",United States,AK,LIFR,864,2905,29.74
+PAOR,"Northway Arpt, AK, US",United States,AK,MVFR,636,2905,21.89
+PAOR,"Northway Arpt, AK, US",United States,AK,VFR,420,2905,14.46
+PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,VFR,1697,2902,58.48
+PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,MVFR,959,2902,33.05
+PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,IFR,229,2902,7.89
+PAOT,"Kotzebue/Wien Mem, AK, US",United States,AK,LIFR,17,2902,0.59
 PAOU,"Nelson Lagoon Arpt, AK, US",United States,AK,VFR,1806,2803,64.43
 PAOU,"Nelson Lagoon Arpt, AK, US",United States,AK,MVFR,997,2803,35.57
 PAOU,"Nelson Lagoon Arpt, AK, US",United States,AK,IFR,0,0,0
@@ -10027,10 +10027,10 @@ PAPN,"Pilot Point Arpt, AK, US",United States,AK,VFR,1990,2910,68.38
 PAPN,"Pilot Point Arpt, AK, US",United States,AK,MVFR,920,2910,31.62
 PAPN,"Pilot Point Arpt, AK, US",United States,AK,IFR,0,0,0
 PAPN,"Pilot Point Arpt, AK, US",United States,AK,LIFR,0,0,0
-PAPO,"Point Hope Arpt, AK, US",United States,AK,MVFR,1832,2879,63.63
-PAPO,"Point Hope Arpt, AK, US",United States,AK,IFR,606,2879,21.05
-PAPO,"Point Hope Arpt, AK, US",United States,AK,VFR,423,2879,14.69
-PAPO,"Point Hope Arpt, AK, US",United States,AK,LIFR,18,2879,0.63
+PAPO,"Point Hope Arpt, AK, US",United States,AK,MVFR,1862,2903,64.14
+PAPO,"Point Hope Arpt, AK, US",United States,AK,IFR,600,2903,20.67
+PAPO,"Point Hope Arpt, AK, US",United States,AK,VFR,423,2903,14.57
+PAPO,"Point Hope Arpt, AK, US",United States,AK,LIFR,18,2903,0.62
 PAQH,"Quinhagak Arpt, AK, US",United States,AK,MVFR,1615,2850,56.67
 PAQH,"Quinhagak Arpt, AK, US",United States,AK,VFR,1010,2850,35.44
 PAQH,"Quinhagak Arpt, AK, US",United States,AK,IFR,225,2850,7.89
@@ -10051,16 +10051,16 @@ PARY,"Ruby Arpt, AK, US",United States,AK,LIFR,1466,2710,54.1
 PARY,"Ruby Arpt, AK, US",United States,AK,MVFR,504,2710,18.6
 PARY,"Ruby Arpt, AK, US",United States,AK,IFR,438,2710,16.16
 PARY,"Ruby Arpt, AK, US",United States,AK,VFR,302,2710,11.14
-PASA,"Savoonga Arpt, AK, US",United States,AK,VFR,1679,2874,58.42
-PASA,"Savoonga Arpt, AK, US",United States,AK,MVFR,946,2874,32.92
-PASA,"Savoonga Arpt, AK, US",United States,AK,IFR,249,2874,8.66
+PASA,"Savoonga Arpt, AK, US",United States,AK,VFR,1679,2895,58
+PASA,"Savoonga Arpt, AK, US",United States,AK,MVFR,976,2895,33.71
+PASA,"Savoonga Arpt, AK, US",United States,AK,IFR,240,2895,8.29
 PASA,"Savoonga Arpt, AK, US",United States,AK,LIFR,0,0,0
 PASC,"Deadhorse Arpt, AK, US",United States,AK,MVFR,2008,2910,69
 PASC,"Deadhorse Arpt, AK, US",United States,AK,VFR,582,2910,20
 PASC,"Deadhorse Arpt, AK, US",United States,AK,IFR,320,2910,11
 PASC,"Deadhorse Arpt, AK, US",United States,AK,LIFR,0,0,0
-PASD,"Sand Point Arpt, AK, US",United States,AK,VFR,1700,1758,96.7
-PASD,"Sand Point Arpt, AK, US",United States,AK,MVFR,58,1758,3.3
+PASD,"Sand Point Arpt, AK, US",United States,AK,VFR,1719,1777,96.74
+PASD,"Sand Point Arpt, AK, US",United States,AK,MVFR,58,1777,3.26
 PASD,"Sand Point Arpt, AK, US",United States,AK,IFR,0,0,0
 PASD,"Sand Point Arpt, AK, US",United States,AK,LIFR,0,0,0
 PASH,"Shishmaref Arpt, AK, US",United States,AK,MVFR,437,870,50.23
@@ -10071,10 +10071,10 @@ PASI,"Sitka/Gutierrez Arpt, AK, US",United States,AK,VFR,2329,2904,80.2
 PASI,"Sitka/Gutierrez Arpt, AK, US",United States,AK,MVFR,575,2904,19.8
 PASI,"Sitka/Gutierrez Arpt, AK, US",United States,AK,IFR,0,0,0
 PASI,"Sitka/Gutierrez Arpt, AK, US",United States,AK,LIFR,0,0,0
-PASK,"Selawik Arpt, AK, US",United States,AK,VFR,1627,2910,55.91
-PASK,"Selawik Arpt, AK, US",United States,AK,LIFR,484,2910,16.63
-PASK,"Selawik Arpt, AK, US",United States,AK,MVFR,476,2910,16.36
-PASK,"Selawik Arpt, AK, US",United States,AK,IFR,323,2910,11.1
+PASK,"Selawik Arpt, AK, US",United States,AK,VFR,1597,2903,55.01
+PASK,"Selawik Arpt, AK, US",United States,AK,MVFR,499,2903,17.19
+PASK,"Selawik Arpt, AK, US",United States,AK,LIFR,484,2903,16.67
+PASK,"Selawik Arpt, AK, US",United States,AK,IFR,323,2903,11.13
 PASL,"Sleetmute Arpt, AK, US",United States,AK,VFR,1215,2610,46.55
 PASL,"Sleetmute Arpt, AK, US",United States,AK,MVFR,1090,2610,41.76
 PASL,"Sleetmute Arpt, AK, US",United States,AK,LIFR,180,2610,6.9
@@ -10159,16 +10159,16 @@ PAWN,"Noatak Arpt, AK, US",United States,AK,VFR,2190,2910,75.26
 PAWN,"Noatak Arpt, AK, US",United States,AK,MVFR,595,2910,20.45
 PAWN,"Noatak Arpt, AK, US",United States,AK,IFR,93,2910,3.2
 PAWN,"Noatak Arpt, AK, US",United States,AK,LIFR,32,2910,1.1
-PAWS,"Wasilla Arpt, AK, US",United States,AK,VFR,1209,2559,47.25
-PAWS,"Wasilla Arpt, AK, US",United States,AK,LIFR,852,2559,33.29
-PAWS,"Wasilla Arpt, AK, US",United States,AK,IFR,261,2559,10.2
-PAWS,"Wasilla Arpt, AK, US",United States,AK,MVFR,237,2559,9.26
+PAWS,"Wasilla Arpt, AK, US",United States,AK,VFR,1149,2544,45.17
+PAWS,"Wasilla Arpt, AK, US",United States,AK,LIFR,897,2544,35.26
+PAWS,"Wasilla Arpt, AK, US",United States,AK,IFR,261,2544,10.26
+PAWS,"Wasilla Arpt, AK, US",United States,AK,MVFR,237,2544,9.32
 PAYA,"Yakutat Arpt, AK, US",United States,AK,MVFR,1564,2886,54.19
 PAYA,"Yakutat Arpt, AK, US",United States,AK,VFR,1101,2886,38.15
 PAYA,"Yakutat Arpt, AK, US",United States,AK,IFR,221,2886,7.66
 PAYA,"Yakutat Arpt, AK, US",United States,AK,LIFR,0,0,0
-PFCB,"Chenega Bay Arpt, AK, US",United States,AK,MVFR,1500,2910,51.55
-PFCB,"Chenega Bay Arpt, AK, US",United States,AK,VFR,1190,2910,40.89
+PFCB,"Chenega Bay Arpt, AK, US",United States,AK,MVFR,1480,2910,50.86
+PFCB,"Chenega Bay Arpt, AK, US",United States,AK,VFR,1210,2910,41.58
 PFCB,"Chenega Bay Arpt, AK, US",United States,AK,IFR,220,2910,7.56
 PFCB,"Chenega Bay Arpt, AK, US",United States,AK,LIFR,0,0,0
 PFCL,"Clarks Point Arpt, AK, US",United States,AK,VFR,2910,2910,100
@@ -10243,15 +10243,15 @@ PHNL,"Honolulu Intl, HI, US",United States,HI,VFR,2910,2910,100
 PHNL,"Honolulu Intl, HI, US",United States,HI,IFR,0,0,0
 PHNL,"Honolulu Intl, HI, US",United States,HI,LIFR,0,0,0
 PHNL,"Honolulu Intl, HI, US",United States,HI,MVFR,0,0,0
-PHNY,"Lanai Arpt, HI, US",United States,HI,VFR,2125,2887,73.61
-PHNY,"Lanai Arpt, HI, US",United States,HI,MVFR,714,2887,24.73
-PHNY,"Lanai Arpt, HI, US",United States,HI,IFR,48,2887,1.66
+PHNY,"Lanai Arpt, HI, US",United States,HI,VFR,2102,2894,72.63
+PHNY,"Lanai Arpt, HI, US",United States,HI,MVFR,744,2894,25.71
+PHNY,"Lanai Arpt, HI, US",United States,HI,IFR,48,2894,1.66
 PHNY,"Lanai Arpt, HI, US",United States,HI,LIFR,0,0,0
 PHOG,"Kahului Arpt, HI, US",United States,HI,VFR,2910,2910,100
 PHOG,"Kahului Arpt, HI, US",United States,HI,IFR,0,0,0
 PHOG,"Kahului Arpt, HI, US",United States,HI,LIFR,0,0,0
 PHOG,"Kahului Arpt, HI, US",United States,HI,MVFR,0,0,0
-PHSF,"Bradshaw, HI, US",United States,HI,VFR,2910,2910,100
+PHSF,"Bradshaw, HI, US",United States,HI,VFR,2896,2896,100
 PHSF,"Bradshaw, HI, US",United States,HI,IFR,0,0,0
 PHSF,"Bradshaw, HI, US",United States,HI,LIFR,0,0,0
 PHSF,"Bradshaw, HI, US",United States,HI,MVFR,0,0,0
