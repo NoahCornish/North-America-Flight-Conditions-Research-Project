@@ -2,7 +2,6 @@ name: ⛅ METAR Fetch ⛈️
 
 on:
   schedule:
-    # Run every 4 minutes
     - cron: "*/4 * * * *"
   workflow_dispatch:
 
@@ -15,7 +14,7 @@ concurrency:
 
 jobs:
   fetch_and_clean:
-    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (fast path)
+    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (fast + robust)
     runs-on: ubuntu-latest
 
     defaults:
@@ -33,14 +32,12 @@ jobs:
       - name: 🕒 Log UTC start
         run: echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
-      # Set up R with prebuilt Linux binaries via RSPM
       - name: 🔧 Setup R
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'release'
           use-public-rspm: true
 
-      # Cache R package library + pak cache for blazing fast dependency steps
       - name: ♻️ Cache R packages
         uses: actions/cache@v4
         with:
@@ -48,49 +45,81 @@ jobs:
             ~/.cache/R/pak
             ~/.local/share/R
             ${{ env.R_LIBS_USER }}
-          key: r-lib-${{ runner.os }}-${{ hashFiles('**/DESCRIPTION', '**/renv.lock', '**/packages.txt') }}
+          key: r-lib-${{ runner.os }}-${{ hashFiles('**/renv.lock', '**/DESCRIPTION', '**/packages.txt') }}
           restore-keys: |
             r-lib-${{ runner.os }}-
 
-      # If you have an renv.lock, uncomment the renv section below and delete the pak section.
-      # - name: 📦 Restore renv library
-      #   uses: r-lib/actions/setup-renv@v2
-
       - name: 📦 Install required packages (pak)
         run: |
+          set -euo pipefail
           Rscript -e 'if (!requireNamespace("pak", quietly=TRUE)) install.packages("pak", repos="https://cloud.r-project.org")'
           Rscript -e 'pak::pkg_install(c("here","httr","jsonlite","tibble","dplyr","lubridate","readr","optparse"))'
 
-      - name: 🔍 Sanity check workspace
+      - name: 🔍 Preflight (paths & R session)
         run: |
-          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
-          test -d .git || (echo "::error::.git not found" && exit 1)
+          set -euo pipefail
+          echo "Repo root: $(pwd)"
+          ls -la
+          echo "Scripts present?"
+          ls -l Fetch_METARs.R Clean_METARs.R METAR_Summaries.R
+          Rscript -e 'sessionInfo()'
 
-      # Run all your scripts in ONE R session to cut startup overhead
-      - name: 🚀 Run pipeline (Fetch → Clean → Summarize)
+      # Run each script separately (avoids source() path issues)
+      - name: 🚀 Run Fetch
         run: |
-          Rscript --vanilla - <<'RSCRIPT'
-          message("R version: ", R.version.string)
-          source("Fetch_METARs.R")
-          source("Clean_METARs.R")
-          source("METAR_Summaries.R")
-          RSCRIPT
+          set -euo pipefail
+          Rscript --vanilla Fetch_METARs.R
 
-      - name: 📂 List generated outputs
-        run: ls -lh Data/METARs Data/Summaries || true
+      - name: 🧹 Run Clean
+        run: |
+          set -euo pipefail
+          Rscript --vanilla Clean_METARs.R
 
-      - name: 💾 Commit and push updated files
+      - name: 📊 Run Summaries
+        run: |
+          set -euo pipefail
+          Rscript --vanilla METAR_Summaries.R
+
+      - name: 📂 List outputs (non-fatal if missing)
+        run: |
+          du -sh Data || true
+          ls -lh Data/METARs || true
+          ls -lh Data/Summaries || true
+
+      - name: 💾 Commit and push updated files (safe on empty)
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
           GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
+          set -euo pipefail
           git config --global --add safe.directory '*'
-          git add -A Data/METARs Data/Summaries
+
+          # Only add paths that exist
+          ADD_ARGS=()
+          [ -d Data/METARs ] && ADD_ARGS+=("Data/METARs")
+          [ -d Data/Summaries ] && ADD_ARGS+=("Data/Summaries")
+
+          if [ ${#ADD_ARGS[@]} -gt 0 ]; then
+            git add -A "${ADD_ARGS[@]}"
+          fi
+
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Fetch/Clean/Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
             git push
           else
             echo "No changes to commit."
           fi
+
+      # If something fails, capture logs as artifacts to inspect easily
+      - name: 📎 Upload R logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-logs
+          path: |
+            ./*.Rout
+            ./*.log
+            Data/**/*.log
+          if-no-files-found: ignore
