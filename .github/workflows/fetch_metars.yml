@@ -2,7 +2,7 @@ name: ⛅ METAR Fetch ⛈️
 
 on:
   schedule:
-    # Run every 4 minutes (fastest possible without overlap)
+    # Run every 4 minutes
     - cron: "*/4 * * * *"
   workflow_dispatch:
 
@@ -15,70 +15,82 @@ concurrency:
 
 jobs:
   fetch_and_clean:
-    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (every 4 min)
+    name: 📡 Fetch → 🧹 Clean → 📊 Summarize (fast path)
     runs-on: ubuntu-latest
-
-    container:
-      image: rocker/tidyverse:4.3.3
 
     defaults:
       run:
+        shell: bash
         working-directory: ${{ github.workspace }}
 
     steps:
-      - name: 🕒 Log UTC start
-        shell: bash
-        run: |
-          echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-
-      - name: 🛎️ Checkout repository
+      - name: 🛎️ Checkout (shallow)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: true
 
-      - name: 🔐 Trust workspace for Git
+      - name: 🕒 Log UTC start
+        run: echo "Triggered at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+
+      # Set up R with prebuilt Linux binaries via RSPM
+      - name: 🔧 Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+
+      # Cache R package library + pak cache for blazing fast dependency steps
+      - name: ♻️ Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/R/pak
+            ~/.local/share/R
+            ${{ env.R_LIBS_USER }}
+          key: r-lib-${{ runner.os }}-${{ hashFiles('**/DESCRIPTION', '**/renv.lock', '**/packages.txt') }}
+          restore-keys: |
+            r-lib-${{ runner.os }}-
+
+      # If you have an renv.lock, uncomment the renv section below and delete the pak section.
+      # - name: 📦 Restore renv library
+      #   uses: r-lib/actions/setup-renv@v2
+
+      - name: 📦 Install required packages (pak)
         run: |
-          git config --global --add safe.directory '*'
-          git rev-parse --is-inside-work-tree
+          Rscript -e 'if (!requireNamespace("pak", quietly=TRUE)) install.packages("pak", repos="https://cloud.r-project.org")'
+          Rscript -e 'pak::pkg_install(c("here","httr","jsonlite","tibble","dplyr","lubridate","readr","optparse"))'
 
       - name: 🔍 Sanity check workspace
         run: |
           echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
-          pwd
-          ls -la
           test -d .git || (echo "::error::.git not found" && exit 1)
 
-      - name: 📦 Ensure required R packages are installed
+      # Run all your scripts in ONE R session to cut startup overhead
+      - name: 🚀 Run pipeline (Fetch → Clean → Summarize)
         run: |
-          Rscript -e 'need <- c("here","httr","jsonlite","tibble","dplyr","lubridate","readr","optparse");
-                      missing <- need[!(need %in% rownames(installed.packages()))];
-                      if(length(missing)) install.packages(missing, repos="https://cloud.r-project.org", quiet=TRUE)'
-
-      - name: 📝 Run METAR fetch script
-        run: Rscript Fetch_METARs.R
-
-      - name: 🧹 Run cleaning script
-        run: Rscript Clean_METARs.R
-
-      - name: 📊 Run summaries script
-        run: Rscript METAR_Summaries.R
+          Rscript --vanilla - <<'RSCRIPT'
+          message("R version: ", R.version.string)
+          source("Fetch_METARs.R")
+          source("Clean_METARs.R")
+          source("METAR_Summaries.R")
+          RSCRIPT
 
       - name: 📂 List generated outputs
         run: ls -lh Data/METARs Data/Summaries || true
 
       - name: 💾 Commit and push updated files
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Add new grey-airport file too
-          git add Data/METARs/*.csv Data/METARs/*.txt Data/Summaries/*.csv Data/Summaries/*.txt Data/METARs/airports_missing_flight_category.csv || true
-
+          git config --global --add safe.directory '*'
+          git add -A Data/METARs Data/Summaries
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Fetch, Clean & Summarize METARs (incl. grey-airport list) $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            git pull --rebase origin main || true
-            git push --force-with-lease origin main
+            git commit -m "Fetch/Clean/Summarize METARs $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git push
           else
             echo "No changes to commit."
           fi
